@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700">
+<rect width="100%" height="100%" fill="white"/>
+
+<style>
+.t{font-family:Arial;font-size:30px;font-weight:bold}
+.s{font-family:Arial;font-size:16px;fill:#444}
+.h{font-family:Arial;font-size:22px;font-weight:bold}
+.m{font-family:Arial;font-size:15px;fill:#333}
+.box{fill:#fff;stroke:#111;stroke-width:1.5}
+.core{fill:#ececec;stroke:#111;stroke-width:2}
+</style>
+
+<text x="700" y="45" text-anchor="middle" class="t">Primary Communication Objects</text>
+<text x="700" y="75" text-anchor="middle" class="s">Different communication architectures organize communication around different primary objects</text>
+
+<line x1="150" y1="120" x2="1250" y2="120" stroke="#999"/>
+
+<rect x="60" y="150" width="220" height="170" class="box"/>
+<text x="170" y="185" text-anchor="middle" class="h">TCP/IP</text>
+<text x="170" y="225" text-anchor="middle" class="h">Address</text>
+<text x="170" y="260" text-anchor="middle" class="m">Communication emerges</text>
+<text x="170" y="280" text-anchor="middle" class="m">from locating endpoints</text>
+
+<rect x="320" y="150" width="220" height="170" class="box"/>
+<text x="430" y="185" text-anchor="middle" class="h">Tor</text>
+<text x="430" y="225" text-anchor="middle" class="h">Circuit</text>
+<text x="430" y="260" text-anchor="middle" class="m">Communication emerges</text>
+<text x="430" y="280" text-anchor="middle" class="m">through cryptographic paths</text>
+
+<rect x="580" y="150" width="220" height="170" class="box"/>
+<text x="690" y="185" text-anchor="middle" class="h">NDN</text>
+<text x="690" y="225" text-anchor="middle" class="h">Data</text>
+<text x="690" y="260" text-anchor="middle" class="m">Communication emerges</text>
+<text x="690" y="280" text-anchor="middle" class="m">from named content objects</text>
+
+<rect x="840" y="150" width="220" height="170" class="box"/>
+<text x="950" y="185" text-anchor="middle" class="h">SCION</text>
+<text x="950" y="225" text-anchor="middle" class="h">Path</text>
+<text x="950" y="260" text-anchor="middle" class="m">Communication emerges</text>
+<text x="950" y="280" text-anchor="middle" class="m">through selected paths</text>
+
+<rect x="1100" y="130" width="240" height="210" class="core"/>
+<text x="1220" y="175" text-anchor="middle" class="h">PRP</text>
+<text x="1220" y="225" text-anchor="middle" class="h">Relationship</text>
+<text x="1220" y="265" text-anchor="middle" class="m">Communication emerges</text>
+<text x="1220" y="285" text-anchor="middle" class="m">from a pre-existing relationship</text>
+<text x="1220" y="315" text-anchor="middle" class="m">Routes, transports and carriers</text>
+<text x="1220" y="335" text-anchor="middle" class="m">are realization mechanisms</text>
+
+<rect x="170" y="430" width="1060" height="150" fill="#f7f7f7" stroke="#111"/>
+<text x="700" y="470" text-anchor="middle" class="h">Architectural Distinction</text>
+<text x="700" y="510" text-anchor="middle" class="m">TCP/IP, Tor, NDN and SCION organize communication around routable communication objects.</text>
+<text x="700" y="540" text-anchor="middle" class="m">PRP organizes communication around relationships and treats routable objects as realization mechanisms.</text>
+</svg>

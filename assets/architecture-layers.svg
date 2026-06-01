@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+<rect width="100%" height="100%" fill="white"/>
+
+<style>
+.t{font-family:Arial;font-size:30px;font-weight:bold}
+.s{font-family:Arial;font-size:16px;fill:#444}
+.l{font-family:Arial;font-size:20px;font-weight:bold}
+.m{font-family:Arial;font-size:14px;fill:#333}
+.box{fill:#fff;stroke:#111;stroke-width:1.5}
+.core{fill:#ececec;stroke:#111;stroke-width:2}
+</style>
+
+<text x="600" y="45" text-anchor="middle" class="t">Relationship-Centric Architectural Layers</text>
+<text x="600" y="75" text-anchor="middle" class="s">Communication concerns separated from realization mechanisms and services</text>
+
+<rect x="250" y="110" width="700" height="110" class="box"/>
+<text x="600" y="145" text-anchor="middle" class="l">Service Layer</text>
+<text x="600" y="175" text-anchor="middle" class="m">Discovery • Governance • Evidence • Benchmarking • Economics • Custody • Applications</text>
+<text x="600" y="198" text-anchor="middle" class="m">Consumes communication but does not define communication</text>
+
+<line x1="600" y1="220" x2="600" y2="255" stroke="black"/>
+
+<rect x="250" y="255" width="700" height="95" class="core"/>
+<text x="600" y="290" text-anchor="middle" class="l">Relationship Layer</text>
+<text x="600" y="318" text-anchor="middle" class="m">Continuity • Identity Constraints • Trust Material • Authorization</text>
+<text x="600" y="338" text-anchor="middle" class="m">Answers: “Which participants are allowed to communicate?”</text>
+
+<line x1="600" y1="350" x2="600" y2="385" stroke="black"/>
+
+<rect x="250" y="385" width="700" height="95" class="core"/>
+<text x="600" y="420" text-anchor="middle" class="l">Routing Layer</text>
+<text x="600" y="448" text-anchor="middle" class="m">Route Selection • Forwarding • Route Labels</text>
+<text x="600" y="468" text-anchor="middle" class="m">Answers: “How does communication move?”</text>
+
+<line x1="600" y1="480" x2="600" y2="515" stroke="black"/>
+
+<rect x="250" y="515" width="700" height="95" class="core"/>
+<text x="600" y="550" text-anchor="middle" class="l">Transport Layer</text>
+<text x="600" y="578" text-anchor="middle" class="m">Confidentiality • Integrity • Replay Protection</text>
+<text x="600" y="598" text-anchor="middle" class="m">Answers: “How is information exchanged securely?”</text>
+
+<line x1="600" y1="610" x2="600" y2="645" stroke="black"/>
+
+<rect x="250" y="645" width="700" height="95" class="core"/>
+<text x="600" y="680" text-anchor="middle" class="l">Carrier Layer</text>
+<text x="600" y="708" text-anchor="middle" class="m">UDP • Streams • IPC • Removable Media • Logistics • Future Carriers</text>
+<text x="600" y="728" text-anchor="middle" class="m">Answers: “How is communication physically realized?”</text>
+
+<rect x="180" y="790" width="840" height="70" fill="#f5f5f5" stroke="#111"/>
+<text x="600" y="820" text-anchor="middle" class="l">Architectural Invariant</text>
+<text x="600" y="845" text-anchor="middle" class="m">Relationships remain while routes, transports, carriers and governance mechanisms evolve</text>
+</svg>
