@@ -71,16 +71,17 @@ img {
 
 .brand-mark {
   display: grid;
-  width: 52px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   place-items: center;
-  border: 1px solid var(--ink);
-  background: #fff;
+  border: 1px solid rgba(21, 21, 21, 0.18);
+  background: rgba(255, 255, 255, 0.74);
 }
 
 .brand-mark img {
-  width: 40px;
-  height: auto;
+  width: 34px;
+  max-height: 34px;
+  object-fit: contain;
 }
 
 .nav {
@@ -111,9 +112,9 @@ img {
 }
 
 .hero-logo {
-  width: min(300px, 70vw);
+  width: min(420px, 82vw);
   margin-bottom: 28px;
-  padding: 18px 22px;
+  padding: 22px 26px;
   border: 1px solid rgba(21, 21, 21, 0.18);
   background: rgba(255, 255, 255, 0.68);
   box-shadow: 0 18px 45px rgba(32, 29, 24, 0.08);
@@ -425,7 +426,7 @@ code {
   }
 
   .hero-logo {
-    width: min(240px, 78vw);
+    width: min(300px, 78vw);
   }
 
   h1 {
