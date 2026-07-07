@@ -19,6 +19,3 @@ Content is derived from:
 
 - `../specifications/prp-architecture-v1-rc1.md`
 - `../specifications/README.md`
-- `../papers/relationship-centric-communication/README.md`
-
-Figure assets are copied from the paper source figures.
