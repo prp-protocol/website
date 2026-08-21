@@ -292,6 +292,11 @@ h3 {
   margin: 0;
 }
 
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
 @media (max-width: 980px) {
   .hero,
   .split {

@@ -31,6 +31,14 @@ Then open <http://localhost:8000>.
 Do not edit `gh-pages` directly. Every published GitHub revision must first
 exist as a regular commit on `main`.
 
+## Access analytics
+
+The production page includes the Cloudflare Web Analytics beacon immediately
+before the closing `body` tag in `index.html`. Its token belongs to
+`prp-protocol.org` and is intentionally different from the token used by the
+[PRP Journal](https://journal.prp-protocol.org/), so the two properties retain
+separate access statistics.
+
 ## Source material
 
 Content is derived from:
