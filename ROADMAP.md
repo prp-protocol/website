@@ -4,9 +4,10 @@ This roadmap describes evidence gates and external dependencies. It does not
 promise dates, standards-body decisions, identifier assignments, or RFC
 publication.
 
-The public summary appears on <https://prp-protocol.org/#roadmap>. Normative
-protocol status remains the responsibility of the
-[PRP specifications repository](https://github.com/prp-protocol/specifications).
+The public summary appears on <https://prp-protocol.org/#roadmap>. Published
+protocol status is recorded in the
+[PRP official publications repository](https://github.com/prp-protocol/specifications),
+while editorial authority remains in the canonical `prp-spec` project.
 
 The currently published document set is:
 
