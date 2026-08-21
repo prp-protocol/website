@@ -49,3 +49,8 @@ Content is derived from:
 
 - `../specifications/prp-architecture-v1-rc1.md`
 - `../specifications/README.md`
+
+The public publication repository intentionally contains only documents linked
+from this site and its roadmap. Editorial drafts, conformance vectors,
+registries under development, and review records remain in the canonical
+`prp-spec` working project.
