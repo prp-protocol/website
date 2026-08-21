@@ -23,7 +23,8 @@ Then open <http://localhost:8000>.
   `main`; the Agentmux publisher sends those commits to Gitea.
 - `github` is the public `prp-protocol/website` repository. After the Gitea
   publication is complete, run `./scripts/publish-github.sh` from a clean
-  `main` branch.
+  `main` branch. The remote uses HTTPS so publication works through the managed
+  proxy after authentication with GitHub CLI.
 - The publication script sends the same commit to GitHub's `main` and
   `gh-pages` branches. This keeps the public source and the GitHub Pages source
   identical.
