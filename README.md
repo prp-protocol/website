@@ -7,6 +7,9 @@ site.
 The site is intentionally build-free: the files in the repository root are the
 files served in production.
 
+The public roadmap summary lives in `index.html`; `ROADMAP.md` is its detailed,
+versioned source. Update both in the same commit whenever a milestone changes.
+
 ## Local preview
 
 Open `index.html` in a browser, or serve the directory with any static server:

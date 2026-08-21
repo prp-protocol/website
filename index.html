@@ -28,6 +28,7 @@
         <a href="#model">Model</a>
         <a href="#architecture">Architecture</a>
         <a href="#principles">Principles</a>
+        <a href="#roadmap">Roadmap</a>
         <a href="https://journal.prp-protocol.org/">Journal</a>
       </nav>
     </header>
@@ -127,6 +128,84 @@
           <li>Evidence over global reputation</li>
           <li>Architectural minimalism</li>
         </ul>
+      </section>
+
+      <section id="roadmap" class="section roadmap" aria-labelledby="roadmap-title">
+        <div class="section-heading roadmap-heading">
+          <div>
+            <p class="eyebrow">Roadmap</p>
+            <h2 id="roadmap-title">From candidate architecture to open interoperability.</h2>
+          </div>
+          <p>
+            The roadmap records technical gates, not promised dates. Work controlled by
+            the project is distinguished from assignments and standards decisions made
+            by external communities.
+          </p>
+        </div>
+
+        <div class="roadmap-tracks">
+          <article class="roadmap-track">
+            <div class="track-heading">
+              <span class="track-index">01</span>
+              <span class="status status-active">Active</span>
+            </div>
+            <h3>PRP core</h3>
+            <p>Stabilize the architecture, wire protocol, registries, security model, and version migration rules.</p>
+            <ol>
+              <li>Candidate architecture and working drafts</li>
+              <li>Normative vectors and conformance suite</li>
+              <li>Independent implementation interoperability</li>
+            </ol>
+          </article>
+
+          <article class="roadmap-track">
+            <div class="track-heading">
+              <span class="track-index">02</span>
+              <span class="status status-planned">Planned</span>
+            </div>
+            <h3>IETF standardization</h3>
+            <p>Prepare Internet-Drafts and take the work through open technical and community review.</p>
+            <ol>
+              <li>IPR, contribution, and registry governance</li>
+              <li>Individual Internet-Draft submission</li>
+              <li>Working Group, DISPATCH, or sponsored path</li>
+              <li>Possible RFC following IETF consensus</li>
+            </ol>
+          </article>
+
+          <article class="roadmap-track">
+            <div class="track-heading">
+              <span class="track-index">03</span>
+              <span class="status status-conditional">Conditional</span>
+            </div>
+            <h3>Carrier assignments</h3>
+            <p>Request globally scarce identifiers only after each carrier binding is stable and independently justified.</p>
+            <ol>
+              <li>IANA service name and UDP user port</li>
+              <li>IEEE EtherType for PRP over Ethernet</li>
+              <li>Bluetooth assignment only if a future profile requires it</li>
+            </ol>
+          </article>
+
+          <article class="roadmap-track roadmap-track-independent">
+            <div class="track-heading">
+              <span class="track-index">04</span>
+              <span class="status status-independent">Independent</span>
+            </div>
+            <h3>Ethernet discovery</h3>
+            <p>Discovery is a carrier-side protocol, not part of the PRP wire protocol or a prerequisite for every deployment.</p>
+            <ol>
+              <li>Stabilize its own framing and lifecycle</li>
+              <li>Preserve independent versioning and security</li>
+              <li>Request its own EtherType if publicly deployed</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="roadmap-actions">
+          <a class="roadmap-link" href="https://github.com/prp-protocol/website/blob/main/ROADMAP.md">Read the technical roadmap <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/prp-protocol/specifications">Explore specifications</a>
+        </div>
       </section>
 
     </main>
