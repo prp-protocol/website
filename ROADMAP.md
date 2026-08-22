@@ -6,9 +6,21 @@ publication.
 
 Last reviewed: 22 August 2026.
 
-The public summary appears on <https://prp-protocol.org/#roadmap>. Normative
-protocol status remains the responsibility of the
-[PRP specifications repository](https://github.com/prp-protocol/specifications).
+The public summary appears on <https://prp-protocol.org/#roadmap>. Published
+protocol status is recorded in the
+[PRP official publications repository](https://github.com/prp-protocol/specifications),
+while editorial authority remains in the canonical `prp-spec` project.
+
+The currently published document set is:
+
+- [PRP Architecture v1 RC1](https://github.com/prp-protocol/specifications/blob/main/prp-architecture-v1-rc1.md);
+- [PRP Wire v1 working draft](https://github.com/prp-protocol/specifications/blob/main/prp-wire-v1-draft.md);
+- [PRP Encapsulation Profiles v1](https://github.com/prp-protocol/specifications/blob/main/prp-encapsulation-v1.md); and
+- [PRP v1 Wire Registry](https://github.com/prp-protocol/specifications/blob/main/wire-registry-v1.md).
+
+The repository is a publication channel, not an independent editorial working
+tree. Draft development, vectors, tests, and promotion decisions belong to the
+canonical `prp-spec` project.
 
 ## Status language
 
