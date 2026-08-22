@@ -4,6 +4,8 @@ This roadmap describes evidence gates and external dependencies. It does not
 promise dates, standards-body decisions, identifier assignments, or RFC
 publication.
 
+Last reviewed: 22 August 2026.
+
 The public summary appears on <https://prp-protocol.org/#roadmap>. Normative
 protocol status remains the responsibility of the
 [PRP specifications repository](https://github.com/prp-protocol/specifications).
@@ -40,23 +42,33 @@ candidate specification requires:
 
 ## Track 2 — IETF standardization
 
-**Current state:** planned; final outcomes are external.
+**Current state:** active; final outcomes are external.
 
-Before submission, the project will establish document licensing,
+The PRP architecture was published on 22 August 2026 as the active individual
+Internet-Draft
+[`draft-alves-prp-architecture-00`](https://datatracker.ietf.org/doc/draft-alves-prp-architecture/).
+Its intended status is Informational and its current expiry date is 23 February
+2027. Publication makes the architecture available for public technical
+discussion; it does not mean that a Working Group or the IETF has adopted or
+endorsed it.
+
+Alongside draft revision, the project will complete document licensing,
 contribution rights, IPR disclosure practice, authorship, registry governance,
-and a stable change-control process.
+and a stable change-control process before seeking broader adoption.
 
 The intended path is:
 
-1. separate the problem statement, architecture, core protocol, and carrier
-   bindings into reviewable document scopes;
-2. prepare RFCXML sources with Security, Privacy, Operational, and IANA
+1. maintain the architecture Internet-Draft through review and revision;
+2. separate the core protocol and carrier bindings into reviewable document
+   scopes;
+3. prepare RFCXML sources with Security, Privacy, Operational, and IANA
    Considerations;
-3. submit individual Internet-Drafts;
-4. seek early review and identify an appropriate Working Group, DISPATCH, or
+4. submit additional individual Internet-Drafts only when their scopes are
+   stable;
+5. seek early review and identify an appropriate Working Group, DISPATCH, or
    sponsored path;
-5. revise based on open community review and implementation experience; and
-6. seek RFC publication only if the applicable IETF process reaches consensus.
+6. revise based on open community review and implementation experience; and
+7. seek RFC publication only if the applicable IETF process reaches consensus.
 
 An Internet-Draft is a discussion document. Its publication does not imply
 IETF adoption or endorsement.
