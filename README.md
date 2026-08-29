@@ -12,7 +12,9 @@ versioned source. Update both in the same commit whenever a milestone changes.
 
 Sponsor logos live in `assets/sponsors/`. Keep organization names as text in
 the sponsor cards so recognition does not depend on images and remains
-accessible to assistive technologies.
+accessible to assistive technologies. Describe ecosystem participants by their
+current capabilities rather than by tiers; the participant rail is designed to
+accept additional cards as the ecosystem grows.
 
 ## Local preview
 

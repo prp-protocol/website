@@ -15,6 +15,7 @@
     >
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts/sponsors-carousel.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -218,8 +219,8 @@
             <h2 id="sponsors-title">Support from architecture to deployment.</h2>
           </div>
           <p>
-            PRP is supported through engineering, funding, network access, and
-            deployment infrastructure. Organizations are recognized by their current
+            PRP is supported through engineering, funding, user support, and access
+            gateway infrastructure. Organizations are recognized by their current
             contribution to the project.
           </p>
         </div>
@@ -238,43 +239,64 @@
                 <li>Engineering</li>
                 <li>Funding</li>
               </ul>
+              <a class="sponsor-site-link" href="https://gjlabs.com.br/">Official website <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         </div>
 
-        <div class="sponsor-group">
-          <p class="sponsor-group-label">Deployment &amp; network access</p>
-          <div class="sponsor-grid">
-            <article class="sponsor-card">
+        <div class="sponsor-group sponsor-participants">
+          <div class="sponsor-group-heading">
+            <p class="sponsor-group-label">PRP ecosystem participants</p>
+            <div class="carousel-controls" data-carousel-controls>
+              <button class="carousel-button" type="button" data-carousel-previous aria-label="Previous participants">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Next participants">
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+          <div class="sponsor-carousel" data-sponsor-carousel tabindex="0" aria-label="PRP ecosystem participants">
+            <article class="sponsor-card" id="participant-ida">
               <div class="sponsor-logo" aria-hidden="true">
                 <img src="assets/sponsors/ida-telecom.svg" alt="" loading="lazy">
               </div>
               <div class="sponsor-copy">
-                <p class="sponsor-role">Deployment contributor</p>
                 <h3>IDA Telecom</h3>
-                <p>Contributes PRP deployment sites and IP/PRP access gateway infrastructure.</p>
+                <p>Provides PRP support to users.</p>
+                <ul class="capability-list" aria-label="IDA Telecom contributions">
+                  <li>User support</li>
+                </ul>
+                <a class="sponsor-site-link" href="https://idatele.com/">Official website <span aria-hidden="true">↗</span></a>
               </div>
             </article>
 
-            <article class="sponsor-card">
+            <article class="sponsor-card" id="participant-ultra">
               <div class="sponsor-logo" aria-hidden="true">
                 <img src="assets/sponsors/grupo-ultra-light.svg" alt="" loading="lazy">
               </div>
               <div class="sponsor-copy">
-                <p class="sponsor-role">Deployment contributor</p>
                 <h3>Grupo Ultra</h3>
-                <p>Contributes PRP deployment sites and IP/PRP access gateway infrastructure.</p>
+                <p>Provides PRP access gateway infrastructure.</p>
+                <ul class="capability-list" aria-label="Grupo Ultra contributions">
+                  <li>Access gateways</li>
+                </ul>
+                <a class="sponsor-site-link" href="https://grupoultralinknet.com.br/">Official website <span aria-hidden="true">↗</span></a>
               </div>
             </article>
 
-            <article class="sponsor-card">
+            <article class="sponsor-card" id="participant-specchio">
               <div class="sponsor-logo sponsor-logo-specchio" aria-hidden="true">
                 <img src="assets/sponsors/specchio.svg" alt="" loading="lazy">
               </div>
               <div class="sponsor-copy">
-                <p class="sponsor-role">Network access contributor</p>
                 <h3>Specchio</h3>
-                <p>Provides network access that supports PRP deployment and operation.</p>
+                <p>Provides PRP support to users and PRP access gateway infrastructure.</p>
+                <ul class="capability-list" aria-label="Specchio contributions">
+                  <li>User support</li>
+                  <li>Access gateways</li>
+                </ul>
+                <a class="sponsor-site-link" href="https://specchio.info/">Official website <span aria-hidden="true">↗</span></a>
               </div>
             </article>
           </div>

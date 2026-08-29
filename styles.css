@@ -433,10 +433,35 @@ h3 {
   text-transform: uppercase;
 }
 
-.sponsor-grid {
+.sponsor-group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.sponsor-group-heading .sponsor-group-label {
+  margin-bottom: 0;
+}
+
+.sponsor-carousel {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-columns: calc((100% - 32px) / 3);
+  grid-auto-flow: column;
   gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 0 0 12px;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scrollbar-color: var(--accent) var(--line);
+  scrollbar-width: thin;
+}
+
+.sponsor-carousel:focus-visible {
+  outline: 3px solid rgba(23, 107, 135, 0.35);
+  outline-offset: 4px;
 }
 
 .sponsor-card {
@@ -445,6 +470,7 @@ h3 {
   flex-direction: column;
   border: 1px solid var(--line);
   background: var(--panel);
+  scroll-snap-align: start;
 }
 
 .sponsor-card-lead {
@@ -485,6 +511,9 @@ h3 {
 }
 
 .sponsor-copy {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   padding: 24px;
 }
 
@@ -512,20 +541,27 @@ h3 {
   font-size: 36px;
 }
 
-.sponsor-copy > p:last-child {
-  margin-bottom: 0;
+.sponsor-copy > p:not(.sponsor-role) {
   color: var(--muted);
 }
 
-.contribution-list {
+.contribution-list,
+.capability-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   padding: 0;
   margin: 8px 0 0;
   list-style: none;
 }
 
-.contribution-list li {
+.capability-list {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.contribution-list li,
+.capability-list li {
   padding: 6px 10px;
   background: var(--panel-2);
   color: var(--accent-dark);
@@ -533,6 +569,57 @@ h3 {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.sponsor-site-link {
+  align-self: flex-start;
+  margin-top: 18px;
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 750;
+  text-underline-offset: 4px;
+}
+
+.sponsor-site-link:hover {
+  color: var(--accent);
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--accent-dark);
+  background: transparent;
+  color: var(--accent-dark);
+  cursor: pointer;
+  font: inherit;
+  font-size: 20px;
+}
+
+.carousel-button:hover:not(:disabled) {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.carousel-button:focus-visible {
+  outline: 3px solid rgba(23, 107, 135, 0.35);
+  outline-offset: 2px;
+}
+
+.carousel-button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.carousel-controls[hidden] {
+  display: none;
 }
 
 .site-footer {
@@ -578,8 +665,8 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .sponsor-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .sponsor-carousel {
+    grid-auto-columns: calc((100% - 16px) / 2);
   }
 }
 
@@ -628,9 +715,12 @@ h3 {
 
   .layers,
   .principle-list,
-  .roadmap-tracks,
-  .sponsor-grid {
+  .roadmap-tracks {
     grid-template-columns: 1fr;
+  }
+
+  .sponsor-carousel {
+    grid-auto-columns: min(86vw, 320px);
   }
 
   .sponsor-card-lead {
@@ -655,5 +745,12 @@ h3 {
   .principle-list li,
   .layers article {
     min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  .sponsor-carousel {
+    scroll-behavior: auto;
   }
 }
