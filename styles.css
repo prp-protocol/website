@@ -396,6 +396,145 @@ h3 {
   text-decoration: none;
 }
 
+.sponsors {
+  background: var(--panel-2);
+}
+
+.sponsors-heading {
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(280px, 1.1fr) minmax(280px, 0.9fr);
+  gap: clamp(28px, 6vw, 90px);
+  align-items: end;
+}
+
+.sponsors-heading h2 {
+  max-width: 13ch;
+  margin-bottom: 0;
+}
+
+.sponsors-heading > p {
+  max-width: 58ch;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.sponsor-group + .sponsor-group {
+  margin-top: 38px;
+}
+
+.sponsor-group-label {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sponsor-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.sponsor-card-lead {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 1.15fr);
+  border-left: 6px solid var(--accent);
+}
+
+.sponsor-logo {
+  display: grid;
+  min-height: 190px;
+  padding: 32px;
+  place-items: center;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.sponsor-card-lead .sponsor-logo {
+  min-height: 280px;
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
+}
+
+.sponsor-logo img {
+  width: 100%;
+  max-width: 280px;
+  max-height: 110px;
+  object-fit: contain;
+}
+
+.sponsor-logo-gjlabs img {
+  max-width: 360px;
+  max-height: 150px;
+}
+
+.sponsor-logo-specchio img {
+  max-height: 82px;
+}
+
+.sponsor-copy {
+  padding: 24px;
+}
+
+.sponsor-card-lead .sponsor-copy {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: clamp(28px, 5vw, 58px);
+}
+
+.sponsor-role {
+  margin-bottom: 8px;
+  color: var(--copper);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sponsor-copy h3 {
+  font-size: 26px;
+}
+
+.sponsor-card-lead h3 {
+  font-size: 36px;
+}
+
+.sponsor-copy > p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.contribution-list {
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 8px 0 0;
+  list-style: none;
+}
+
+.contribution-list li {
+  padding: 6px 10px;
+  background: var(--panel-2);
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -434,8 +573,13 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .roadmap-heading {
+  .roadmap-heading,
+  .sponsors-heading {
     grid-template-columns: 1fr;
+  }
+
+  .sponsor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -484,8 +628,19 @@ h3 {
 
   .layers,
   .principle-list,
-  .roadmap-tracks {
+  .roadmap-tracks,
+  .sponsor-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sponsor-card-lead {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-card-lead .sponsor-logo {
+    min-height: 220px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .roadmap-track {

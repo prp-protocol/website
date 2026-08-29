@@ -10,6 +10,10 @@ files served in production.
 The public roadmap summary lives in `index.html`; `ROADMAP.md` is its detailed,
 versioned source. Update both in the same commit whenever a milestone changes.
 
+Sponsor logos live in `assets/sponsors/`. Keep organization names as text in
+the sponsor cards so recognition does not depend on images and remains
+accessible to assistive technologies.
+
 ## Local preview
 
 Open `index.html` in a browser, or serve the directory with any static server:
