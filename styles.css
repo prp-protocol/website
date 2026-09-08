@@ -204,6 +204,33 @@ h3 {
   padding: clamp(72px, 9vw, 128px) clamp(20px, 4vw, 56px);
 }
 
+.video-section {
+  scroll-margin-top: 140px;
+}
+
+.project-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+  border: 1px solid var(--line);
+}
+
+.video-language {
+  margin: 16px 0;
+  color: var(--muted);
+}
+
+.video-transcript {
+  max-width: 80ch;
+}
+
+.video-transcript summary {
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-weight: 750;
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(240px, 0.8fr) minmax(320px, 1.2fr);
@@ -641,6 +668,10 @@ h3 {
 }
 
 @media (max-width: 980px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
   .hero,
   .split {
     grid-template-columns: 1fr;

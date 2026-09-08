@@ -169,16 +169,17 @@ number becomes a protocol assignment by use or publication.
 
 ## Editorial roadmap — inaugural video
 
-**Current state:** planned for the website; publication preparation and review pending.
+**Current state:** approved captioned version selected for website publication.
 
 The inaugural video is **One Person. Many Contexts. Your Choice.**, about
 identities, autonomy, and relationship contexts. It is not the generic PRP
 overview topic. Internal production identifiers and the original thematic order
 do not determine public episode numbering.
 
-Website publication requires selection of the approved file, subtitle and
-transcript review, and page preparation. This roadmap entry does not announce
-video availability.
+The [website video section](https://prp-protocol.org/#video) presents the approved
+90-second film with English narration, on-screen English captions, and a
+readable transcript. This edition uses the approved motion-v3 captioned video
+at 1280×720; it does not claim completion of a separate 1080p production master.
 
 ## Public evidence
 
