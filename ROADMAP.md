@@ -85,6 +85,20 @@ The intended path is:
 An Internet-Draft is a discussion document. Its publication does not imply
 IETF adoption or endorsement.
 
+### Proposed PRP DNS resource record — RRTYPE request
+
+**Current state:** working draft; revision pending; not submitted to IANA.
+
+Prepare the proposed PRP DNS resource record and its RRTYPE allocation request.
+The earlier identity-only proposal is paused pending alignment with the revised
+PRP reference model (REF-001, two-class successor). No request has been submitted
+and no RRTYPE has been assigned. DNS remains an optional integration, not a
+prerequisite for PRP communication.
+
+This is a separate proposal and allocation process. It does not change the
+published architecture Internet-Draft -00, imply IETF adoption or RFC
+publication, or assign a carrier identifier.
+
 ## Track 3 — carrier identifiers
 
 Carrier bindings are replaceable realization mechanisms. Each assignment has
@@ -152,6 +166,19 @@ URI schemes, media types, DNS-SD names, multicast addresses, internal IANA
 registries, or other global identifiers will be requested only when a stable
 specification demonstrates that they are necessary. No implementation-local
 number becomes a protocol assignment by use or publication.
+
+## Editorial roadmap — inaugural video
+
+**Current state:** planned for the website; publication preparation and review pending.
+
+The inaugural video is **One Person. Many Contexts. Your Choice.**, about
+identities, autonomy, and relationship contexts. It is not the generic PRP
+overview topic. Internal production identifiers and the original thematic order
+do not determine public episode numbering.
+
+Website publication requires selection of the approved file, subtitle and
+transcript review, and page preparation. This roadmap entry does not announce
+video availability.
 
 ## Public evidence
 
