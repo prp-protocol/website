@@ -176,9 +176,9 @@ identities, autonomy, and relationship contexts. It is not the generic PRP
 overview topic. Internal production identifiers and the original thematic order
 do not determine public episode numbering.
 
-The [website video section](https://prp-protocol.org/#video) presents the approved
-90-second film with English narration, on-screen English captions, and a
-readable transcript. This edition uses the approved motion-v3 captioned video
+The [video collection](https://prp-protocol.org/videos.html) presents the approved
+90-second film with English narration and on-screen English captions.
+This edition uses the selected motion-overlay-v2 video
 at 1280×720; it does not claim completion of a separate 1080p production master.
 
 ## Public evidence

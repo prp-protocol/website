@@ -18,6 +18,11 @@ accept additional cards as the ecosystem grows.
 
 ## Local preview
 
+The video collection lives in `videos.html`, with approved MP4 files under
+`assets/videos/`. Add one article per film to `.video-grid`, using a unique
+anchor and title, duration, caption information, and a download link. Keep the
+home page as an entry point to the collection.
+
 Open `index.html` in a browser, or serve the directory with any static server:
 
 ```sh

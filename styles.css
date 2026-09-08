@@ -221,14 +221,37 @@ h3 {
   color: var(--muted);
 }
 
-.video-transcript {
-  max-width: 80ch;
+.video-library {
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.video-transcript summary {
-  margin-bottom: 16px;
-  cursor: pointer;
-  font-weight: 750;
+.video-library h1 {
+  max-width: none;
+  font-size: clamp(42px, 7vw, 80px);
+  line-height: 1.05;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 32px;
+}
+
+.video-card {
+  min-width: 0;
+  padding: clamp(16px, 3vw, 32px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.video-card h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+}
+
+.video-card .video-language {
+  margin-bottom: 0;
 }
 
 .split {
