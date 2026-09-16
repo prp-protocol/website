@@ -99,6 +99,22 @@ This is a separate proposal and allocation process. It does not change the
 published architecture Internet-Draft -00, imply IETF adoption or RFC
 publication, or assign a carrier identifier.
 
+### Proposed prp URI scheme — IANA registration
+
+**Current state:** pre-submission draft; registration request planned.
+
+Prepare and submit the `prp` URI scheme registration request to IANA, initially
+seeking Provisional status. Before submission, publish a stable scheme
+specification, identify its change controller, and recheck registry availability.
+No request has been submitted; the draft does not reserve the scheme name or
+establish a registration.
+
+The scheme carries PRP references in links, QR codes, clipboard transfer, and
+inter-application dispatch. Its registration is separate from the proposed DNS
+RRTYPE, carrier assignments, and IETF adoption or RFC publication. A later
+Permanent registration request depends on the scheme's maturity and the
+applicable review process.
+
 ## Track 3 — carrier identifiers
 
 Carrier bindings are replaceable realization mechanisms. Each assignment has
@@ -162,7 +178,7 @@ carrier mechanism and the protocol it carries.
 
 ## Additional assignment review
 
-URI schemes, media types, DNS-SD names, multicast addresses, internal IANA
+Media types, DNS-SD names, multicast addresses, internal IANA
 registries, or other global identifiers will be requested only when a stable
 specification demonstrates that they are necessary. No implementation-local
 number becomes a protocol assignment by use or publication.
