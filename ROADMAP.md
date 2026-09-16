@@ -176,6 +176,36 @@ The PRP EtherType and the discovery EtherType must not be multiplexed merely to
 reduce assignment count. Their separation preserves the boundary between a
 carrier mechanism and the protocol it carries.
 
+## Track 5 — regulatory and data protection assessment
+
+**Current state:** planned; scope and acceptance checkpoints to be defined.
+
+These two assessment workstreams are separate from IETF standardization and
+IANA registrations. They record planned project work, not a claim of regulatory
+compliance, certification, authority approval, or an ongoing submission.
+
+### ANATEL regulatory assessment
+
+**Current state:** scope to be defined.
+
+The proposed first checkpoint is an applicability assessment identifying the
+components, services, operations, and responsible parties within scope. Use
+that assessment to define applicable requirements, supporting evidence, review
+responsibilities, and the appropriate procedure, including whether formal
+interaction with ANATEL is needed. The submission route, if any, and completion
+criteria remain to be defined.
+
+### ANPD data protection assessment
+
+**Current state:** scope to be defined.
+
+The proposed first checkpoint is an applicability assessment identifying the
+data processing activities, services, operations, and responsible parties within
+scope. Use that assessment to define applicable requirements, supporting
+evidence, review responsibilities, and the appropriate procedure, including
+whether formal interaction with ANPD is needed. The submission route, if any,
+and completion criteria remain to be defined.
+
 ## Additional assignment review
 
 Media types, DNS-SD names, multicast addresses, internal IANA
