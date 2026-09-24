@@ -239,10 +239,20 @@ h3 {
 }
 
 .video-card {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
   min-width: 0;
   padding: clamp(16px, 3vw, 32px);
   background: var(--panel);
   border: 1px solid var(--line);
+}
+
+@supports (grid-template-rows: subgrid) {
+  .video-card {
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
 }
 
 .video-card h2 {
