@@ -1,0 +1,209 @@
+{
+  "id": "V007",
+  "revision": "publication-v1",
+  "maturity": "M3",
+  "movieSHA256": "68979ab668a57cbf47b8fff422ab4c5d691a9069686b08998b8f606f2d6f2910",
+  "movieBytes": 2989059,
+  "durationSeconds": 61.583333,
+  "textRevision": "catalog-text-v1",
+  "title": {
+    "en": "Meet PRP",
+    "pt-BR": "Conheça o PRP"
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/meet-prp-publication-v1-captioned.mp4",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "summary": {
+    "en": "A short introduction to communication built around participants and relationships: identity independent of connectivity providers and household devices without mandatory manufacturer accounts.",
+    "pt-BR": "Uma introdução à comunicação construída em torno de participantes e relacionamentos: identidade independente dos provedores de conectividade e dispositivos domésticos sem contas obrigatórias do fabricante."
+  },
+  "context": {
+    "en": "Illustrated film with partial animation (M3). The home-device example assumes compatible equipment and applications. Independence from a particular platform does not eliminate infrastructure, authorization or implementation requirements.",
+    "pt-BR": "Filme ilustrado com animação parcial (M3). O exemplo doméstico pressupõe equipamentos e aplicações compatíveis. A independência de uma plataforma específica não elimina infraestrutura, autorização ou requisitos de implementação."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "title": {
+        "en": "An account between two people",
+        "pt-BR": "Uma conta entre duas pessoas"
+      },
+      "visual": {
+        "en": "Two women look at their phones in a split-screen composition: one has short curly brown hair and a teal shirt, the other grey hair and a light cardigan. Between them, a card marked “Account required” shows a lock. The younger woman appears thoughtful.",
+        "pt-BR": "Duas mulheres olham seus celulares numa composição dividida: uma tem cabelo castanho curto e encaracolado e camisa verde-azulada; a outra tem cabelo grisalho e cardigã claro. Entre elas, um cartão com cadeado diz “Conta obrigatória”. A mulher mais jovem parece pensativa."
+      },
+      "end": 6.67,
+      "narration": {
+        "en": "Why should talking to someone depend on both of you having an account with the same company?",
+        "pt-BR": "Por que conversar com alguém deveria depender de vocês dois terem uma conta na mesma empresa?"
+      }
+    },
+    {
+      "start": 6.67,
+      "title": {
+        "en": "Participants and relationships",
+        "pt-BR": "Participantes e relacionamentos"
+      },
+      "visual": {
+        "en": "The account barrier gives way to a dotted connection between the phones and a check mark. The women smile. Small facial movements accompany the same domestic setting.",
+        "pt-BR": "A barreira da conta dá lugar a uma conexão pontilhada entre os celulares e uma marca de confirmação. As mulheres sorriem. Pequenos movimentos faciais acompanham o mesmo ambiente doméstico."
+      },
+      "end": 21.33,
+      "narration": {
+        "en": "Meet PRP: the Participant Relationship Protocol. A shared set of rules for communication, built around participants and their relationships. Not accounts granted by a central platform.",
+        "pt-BR": "Conheça o PRP: Participant Relationship Protocol. Um conjunto compartilhado de regras para comunicação, construído em torno de participantes e de seus relacionamentos. Não de contas concedidas por uma plataforma central."
+      }
+    },
+    {
+      "start": 21.33,
+      "title": {
+        "en": "Choosing a connection",
+        "pt-BR": "Escolher uma conexão"
+      },
+      "visual": {
+        "en": "A close-up shows the younger woman's phone. Her contact's portrait stays at the top while two connectivity choices, distinguished by blue and amber symbols, appear below. The illustration separates the person being contacted from the provider selection.",
+        "pt-BR": "Um close mostra o celular da mulher mais jovem. O retrato de sua interlocutora permanece no alto enquanto duas opções de conectividade, diferenciadas por símbolos azul e âmbar, aparecem abaixo. A ilustração separa a pessoa contatada da escolha do provedor."
+      },
+      "end": 36.46,
+      "narration": {
+        "en": "Your identity is separate from the network carrying your messages. You can change connectivity providers without rebuilding your relationships. The provider carries the connection; it does not define who you are.",
+        "pt-BR": "Sua identidade é independente da rede que transporta suas mensagens. Você pode mudar de provedor de conectividade sem reconstruir seus relacionamentos. O provedor transporta a conexão; ele não define quem você é."
+      }
+    },
+    {
+      "start": 36.46,
+      "title": {
+        "en": "A compatible home device",
+        "pt-BR": "Um dispositivo doméstico compatível"
+      },
+      "visual": {
+        "en": "Beside a plant and a small white device, the woman touches her phone. A locked cloud labeled “Manufacturer account” represents a dependency; a later view instead shows a dotted direct relationship and a leaf with a chart on the phone.",
+        "pt-BR": "Ao lado de uma planta e de um pequeno dispositivo branco, a mulher toca o celular. Uma nuvem com cadeado, identificada como “Conta do fabricante”, representa uma dependência; a imagem seguinte mostra uma relação pontilhada direta e uma folha com um gráfico na tela."
+      },
+      "end": 48.125,
+      "narration": {
+        "en": "The same idea reaches your home. A compatible device can communicate with you without requiring a manufacturer's account or cloud service in between.",
+        "pt-BR": "A mesma ideia chega à sua casa. Um dispositivo compatível pode se comunicar com você sem exigir uma conta do fabricante ou um serviço de nuvem no meio do caminho."
+      }
+    },
+    {
+      "start": 48.125,
+      "title": {
+        "en": "Closing",
+        "pt-BR": "Encerramento"
+      },
+      "visual": {
+        "en": "A cream card displays the official PRP logo, the title “Meet PRP” and prp-protocol.org while the narrator delivers the closing lines.",
+        "pt-BR": "Um cartão creme exibe o logotipo oficial PRP, o título “Meet PRP” e prp-protocol.org enquanto o narrador conclui."
+      },
+      "end": 61.583333,
+      "narration": {
+        "en": "Not another platform to join. A foundation for more autonomous, private communication. PRP. Your relationships, beyond any single platform.",
+        "pt-BR": "Não é mais uma plataforma para aderir. É uma base para uma comunicação mais autônoma e privada. PRP. Seus relacionamentos, além de qualquer plataforma."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 1.0,
+      "end": 4.41,
+      "en": "Why should talking to someone depend on both of you having an account",
+      "pt-BR": "Por que conversar com alguém deveria depender de vocês dois terem uma conta"
+    },
+    {
+      "start": 4.41,
+      "end": 5.46,
+      "en": "with the same company?",
+      "pt-BR": "na mesma empresa?"
+    },
+    {
+      "start": 7.02,
+      "end": 10.04,
+      "en": "Meet PRP: the Participant Relationship Protocol.",
+      "pt-BR": "Conheça o PRP: Participant Relationship Protocol."
+    },
+    {
+      "start": 10.04,
+      "end": 15.58,
+      "en": "A shared set of rules for communication, built around participants and",
+      "pt-BR": "Um conjunto compartilhado de regras para comunicação, construído em torno de participantes"
+    },
+    {
+      "start": 15.58,
+      "end": 16.59,
+      "en": "their relationships.",
+      "pt-BR": "e de seus relacionamentos."
+    },
+    {
+      "start": 16.59,
+      "end": 20.11,
+      "en": "Not accounts granted by a central platform.",
+      "pt-BR": "Não de contas concedidas por uma plataforma central."
+    },
+    {
+      "start": 21.68,
+      "end": 26.05,
+      "en": "Your identity is separate from the network carrying your messages.",
+      "pt-BR": "Sua identidade é independente da rede que transporta suas mensagens."
+    },
+    {
+      "start": 26.05,
+      "end": 29.98,
+      "en": "You can change connectivity providers without rebuilding your relationships.",
+      "pt-BR": "Você pode mudar de provedor de conectividade sem reconstruir seus relacionamentos."
+    },
+    {
+      "start": 29.98,
+      "end": 35.22,
+      "en": "The provider carries the connection; it does not define who you are.",
+      "pt-BR": "O provedor transporta a conexão; ele não define quem você é."
+    },
+    {
+      "start": 36.81,
+      "end": 39.44,
+      "en": "The same idea reaches your home.",
+      "pt-BR": "A mesma ideia chega à sua casa."
+    },
+    {
+      "start": 39.44,
+      "end": 43.83,
+      "en": "A compatible device can communicate with you without requiring a",
+      "pt-BR": "Um dispositivo compatível pode se comunicar com você sem exigir"
+    },
+    {
+      "start": 43.83,
+      "end": 46.91,
+      "en": "manufacturer's account or cloud service in between.",
+      "pt-BR": "uma conta do fabricante ou um serviço de nuvem no meio do caminho."
+    },
+    {
+      "start": 48.48,
+      "end": 51.4,
+      "en": "Not another platform to join.",
+      "pt-BR": "Não é mais uma plataforma para aderir."
+    },
+    {
+      "start": 51.4,
+      "end": 55.49,
+      "en": "A foundation for more autonomous, private communication.",
+      "pt-BR": "É uma base para uma comunicação mais autônoma e privada."
+    },
+    {
+      "start": 55.49,
+      "end": 56.07,
+      "en": "PRP.",
+      "pt-BR": "PRP."
+    },
+    {
+      "start": 56.07,
+      "end": 59.58,
+      "en": "Your relationships, beyond any single platform.",
+      "pt-BR": "Seus relacionamentos, além de qualquer plataforma."
+    }
+  ]
+}

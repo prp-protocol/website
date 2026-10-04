@@ -1,0 +1,419 @@
+{
+  "id": "V006",
+  "revision": "full-review-v3",
+  "maturity": "M2",
+  "movieSHA256": "ad57585e94819c8d275a192baee7c03acfa42eba150edb4d0e910ed1b63d14b0",
+  "movieBytes": 8471009,
+  "durationSeconds": 154.916667,
+  "textRevision": "catalog-text-v1",
+  "title": {
+    "en": "When the Adversary Is a Government",
+    "pt-BR": "Quando o adversário é um governo"
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/when-the-adversary-is-a-government-full-review-v3.mp4",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "summary": {
+    "en": "A community faces platform censorship, observation and blocked network access. The film contrasts dependence on a single point of permission with protected relationships and direct local communication, while stating the limits of that resilience.",
+    "pt-BR": "Uma comunidade enfrenta censura de plataforma, observação e bloqueio de acesso à rede. O filme contrapõe a dependência de um único ponto de permissão a relacionamentos protegidos e comunicação local direta, explicitando os limites dessa resistência."
+  },
+  "context": {
+    "en": "Narrated illustrated animatic (M2), with the approved plaza opening and revised speech rhythm. Optional cover traffic is not universal anonymity. Local communication requires suitable radios, devices and participants; reaching outside the square requires an outward path. No protocol removes physical coercion or secures a compromised device.",
+    "pt-BR": "Animatic ilustrado e narrado (M2), com a abertura aprovada na praça e o ritmo da fala revisado. Tráfego de cobertura opcional não é anonimato universal. A comunicação local exige rádios, dispositivos e participantes adequados; sair da praça exige um caminho externo. Nenhum protocolo elimina a coerção física ou protege um dispositivo comprometido."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "title": {
+        "en": "A message disappears",
+        "pt-BR": "Uma mensagem desaparece"
+      },
+      "visual": {
+        "en": "In a crowded square, a curly-haired woman with a teal shirt and backpack looks at her phone. The back of the phone faces the viewer, with its screen toward her. People nearby also hold phones. The new opening puts the loss of communication in a public setting.",
+        "pt-BR": "Numa praça movimentada, uma mulher de cabelo encaracolado, camisa verde-azulada e mochila olha o celular. A traseira do aparelho está voltada ao espectador e a tela para ela. Pessoas próximas também seguram celulares. A nova abertura situa a perda de comunicação num espaço público."
+      },
+      "end": 19.291667,
+      "narration": {
+        "en": "A message disappears. A community loses its meeting place. Not because people stopped speaking, but because someone ordered the platform to stop carrying their words. When communication depends on a company’s permission, that company becomes a point of control.",
+        "pt-BR": "Uma mensagem desaparece. Uma comunidade perde seu ponto de encontro. Não porque as pessoas pararam de falar, mas porque alguém ordenou que a plataforma deixasse de transportar suas palavras. Quando a comunicação depende da permissão de uma empresa, essa empresa se torna um ponto de controle."
+      }
+    },
+    {
+      "start": 19.291667,
+      "title": {
+        "en": "Relationships without that intermediary",
+        "pt-BR": "Relacionamentos sem esse intermediário"
+      },
+      "visual": {
+        "en": "Two women in separate domestic settings look at phones. A faded server symbol with a prohibition mark sits above a dotted connection between them, contrasting platform dependency with a relationship between people.",
+        "pt-BR": "Duas mulheres em ambientes domésticos separados olham seus celulares. Um símbolo esmaecido de servidor com marca de proibição aparece acima de uma conexão pontilhada entre elas, contrastando a dependência da plataforma com um relacionamento entre pessoas."
+      },
+      "end": 41.166667,
+      "narration": {
+        "en": "PRP opens another possibility: applications where people communicate without a platform standing between their relationships. The infrastructure carries their exchanges, but no single platform has to approve every connection. The difference is not just who runs the service. It is where control lives.",
+        "pt-BR": "O PRP abre outra possibilidade: aplicações nas quais as pessoas se comunicam sem uma plataforma intermediando seus relacionamentos. A infraestrutura transporta suas trocas, mas nenhuma plataforma única precisa aprovar cada conexão. A diferença não está apenas em quem opera o serviço. Está em onde fica o controle."
+      }
+    },
+    {
+      "start": 41.166667,
+      "title": {
+        "en": "Observation and protected content",
+        "pt-BR": "Observação e conteúdo protegido"
+      },
+      "visual": {
+        "en": "Beside the woman using her phone, an inset shows an observer facing rows of data flows. Lock symbols appear along the rows. The overlay represents visible traffic whose protected content cannot simply be read by observing the infrastructure.",
+        "pt-BR": "Ao lado da mulher usando o celular, um quadro mostra um observador diante de fileiras de fluxos de dados. Cadeados aparecem ao longo das fileiras. A sobreposição representa tráfego visível cujo conteúdo protegido não pode ser simplesmente lido pela observação da infraestrutura."
+      },
+      "end": 60.791667,
+      "narration": {
+        "en": "An observer may watch the infrastructure without being able to read protected messages. Optional cover traffic makes the flow they see less directly tied to what people actually send. Privacy includes the content of a conversation—and reducing what its visible activity can reveal.",
+        "pt-BR": "Um observador pode acompanhar a infraestrutura sem conseguir ler mensagens protegidas. O tráfego de cobertura opcional torna o fluxo observado menos diretamente ligado ao que as pessoas realmente enviam. A privacidade inclui o conteúdo de uma conversa — e reduzir o que sua atividade visível pode revelar."
+      }
+    },
+    {
+      "start": 60.791667,
+      "title": {
+        "en": "One barrier, several services",
+        "pt-BR": "Uma barreira, vários serviços"
+      },
+      "visual": {
+        "en": "On a shopping street, several people use phones near different businesses. A red blocked-server symbol branches toward them through dashed lines and crosses, showing unrelated services affected by one barrier.",
+        "pt-BR": "Numa rua comercial, várias pessoas usam celulares perto de estabelecimentos diferentes. Um símbolo vermelho de servidor bloqueado se ramifica até elas por linhas tracejadas e cruzes, mostrando serviços distintos afetados por uma única barreira."
+      },
+      "end": 82.291667,
+      "narration": {
+        "en": "An address block can silence more than its intended target. Unrelated services may disappear behind the same barrier. PRP identities do not require allocation by a central numbering authority. Blocking a fixed list of identities is not the same as controlling everyone’s ability to create one.",
+        "pt-BR": "Um bloqueio de endereços pode silenciar mais do que o alvo pretendido. Serviços sem relação entre si podem desaparecer atrás da mesma barreira. Identidades PRP não exigem atribuição por uma autoridade central de numeração. Bloquear uma lista fixa de identidades não é o mesmo que controlar a capacidade de todos criarem uma."
+      }
+    },
+    {
+      "start": 82.291667,
+      "title": {
+        "en": "The square loses mobile access",
+        "pt-BR": "A praça perde o acesso móvel"
+      },
+      "visual": {
+        "en": "A cell tower is marked with a red cross. The woman's phone shows a loss-of-service symbol. The film then shows two nearby participants holding phones, with a teal local link between them.",
+        "pt-BR": "Uma torre celular é marcada com uma cruz vermelha. O celular da mulher mostra um símbolo de perda de serviço. O filme passa então a dois participantes próximos segurando celulares, com uma ligação local verde-azulada entre eles."
+      },
+      "end": 105,
+      "narration": {
+        "en": "Now imagine a peaceful demonstration. Access through the mobile network is cut off. The phones still work. With devices designed for direct local communication, nearby participants can keep exchanging messages. Losing the operator’s connection does not have to mean losing contact with the person across the square.",
+        "pt-BR": "Agora imagine uma manifestação pacífica. O acesso pela rede móvel é cortado. Os telefones continuam funcionando. Com dispositivos projetados para comunicação local direta, participantes próximos podem continuar trocando mensagens. Perder a conexão da operadora não precisa significar perder o contato com a pessoa do outro lado da praça."
+      }
+    },
+    {
+      "start": 105,
+      "title": {
+        "en": "A local mesh",
+        "pt-BR": "Uma mesh local"
+      },
+      "visual": {
+        "en": "A wider view shows several people in the square connected by teal lines between their devices while the cell tower remains crossed out. The overlay represents messages moving through participating neighbors, not a new external internet path.",
+        "pt-BR": "Um plano mais amplo mostra várias pessoas na praça conectadas por linhas verde-azuladas entre seus dispositivos, enquanto a torre continua marcada com a cruz. A sobreposição representa mensagens passando por vizinhos participantes, não um novo caminho externo para a internet."
+      },
+      "end": 127.958333,
+      "narration": {
+        "en": "Participating devices can carry messages through their neighbors, forming a local mesh. No mandatory central platform. No single operator authorizing every exchange. Reaching beyond the crowd still requires an available outward path. But within the square, people can remain connected through one another.",
+        "pt-BR": "Dispositivos participantes podem transportar mensagens por meio de seus vizinhos, formando uma rede mesh local. Sem uma plataforma central obrigatória. Sem uma única operadora autorizando cada troca. Alcançar além da multidão ainda exige um caminho de saída disponível. Mas, dentro da praça, as pessoas podem permanecer conectadas umas pelas outras."
+      }
+    },
+    {
+      "start": 127.958333,
+      "title": {
+        "en": "Resilience has limits",
+        "pt-BR": "A resistência tem limites"
+      },
+      "visual": {
+        "en": "The younger woman and her grey-haired companion face one another with their phones in the square. The human connection remains the focus while the narration states the limits involving physical coercion, compromised devices and radio availability.",
+        "pt-BR": "A mulher mais jovem e sua companheira grisalha se voltam uma para a outra com os celulares na praça. A conexão humana permanece em foco enquanto a narração explicita limites de coerção física, dispositivos comprometidos e disponibilidade de rádio."
+      },
+      "end": 148.166667,
+      "narration": {
+        "en": "No protocol removes physical coercion, protects a compromised device, or creates a radio link where none can operate. The goal is not invulnerability. It is to reduce the places where a single intervention can silence everyone—and give people more control over how their relationships continue.",
+        "pt-BR": "Nenhum protocolo elimina a coerção física, protege um dispositivo comprometido ou cria um enlace de rádio onde nenhum pode operar. O objetivo não é a invulnerabilidade. É reduzir os pontos nos quais uma única intervenção pode silenciar todos — e dar às pessoas mais controle sobre como seus relacionamentos continuam."
+      }
+    },
+    {
+      "start": 148.166667,
+      "title": {
+        "en": "Architecture and freedom",
+        "pt-BR": "Arquitetura e liberdade"
+      },
+      "visual": {
+        "en": "The cream end card shows the PRP logo, the English film title and prp-protocol.org. The production-stage label remains in parts of this published animatic; it does not indicate a completed character-animation master.",
+        "pt-BR": "O cartão final creme mostra o logotipo PRP, o título inglês do filme e prp-protocol.org. A identificação de etapa de produção permanece em partes deste animatic publicado; ele não representa um master de animação corporal concluída."
+      },
+      "end": 154.916667,
+      "narration": {
+        "en": "Freedom needs more than permission. It needs architecture. PRP.",
+        "pt-BR": "A liberdade precisa de mais do que permissão. Precisa de arquitetura. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 1.0,
+      "end": 2.34,
+      "en": "A message disappears.",
+      "pt-BR": "Uma mensagem desaparece."
+    },
+    {
+      "start": 2.34,
+      "end": 5.03,
+      "en": "A community loses its meeting place.",
+      "pt-BR": "Uma comunidade perde seu ponto de encontro."
+    },
+    {
+      "start": 5.03,
+      "end": 9.52,
+      "en": "Not because people stopped speaking, but because someone ordered the",
+      "pt-BR": "Não porque as pessoas pararam de falar, mas porque alguém ordenou que a"
+    },
+    {
+      "start": 9.52,
+      "end": 12.2,
+      "en": "platform to stop carrying their words.",
+      "pt-BR": "plataforma deixasse de transportar suas palavras."
+    },
+    {
+      "start": 12.2,
+      "end": 16.24,
+      "en": "When communication depends on a company’s permission, that company",
+      "pt-BR": "Quando a comunicação depende da permissão de uma empresa, essa empresa"
+    },
+    {
+      "start": 16.24,
+      "end": 18.48,
+      "en": "becomes a point of control.",
+      "pt-BR": "se torna um ponto de controle."
+    },
+    {
+      "start": 19.64,
+      "end": 23.49,
+      "en": "PRP opens another possibility: applications where people communicate",
+      "pt-BR": "O PRP abre outra possibilidade: aplicações nas quais as pessoas se comunicam"
+    },
+    {
+      "start": 23.49,
+      "end": 26.86,
+      "en": "without a platform standing between their relationships.",
+      "pt-BR": "sem uma plataforma intermediando seus relacionamentos."
+    },
+    {
+      "start": 26.86,
+      "end": 31.67,
+      "en": "The infrastructure carries their exchanges, but no single platform has",
+      "pt-BR": "A infraestrutura transporta suas trocas, mas nenhuma plataforma única precisa"
+    },
+    {
+      "start": 31.67,
+      "end": 33.59,
+      "en": "to approve every connection.",
+      "pt-BR": "aprovar cada conexão."
+    },
+    {
+      "start": 33.59,
+      "end": 37.92,
+      "en": "The difference is not just who runs the service.",
+      "pt-BR": "A diferença não está apenas em quem opera o serviço."
+    },
+    {
+      "start": 37.92,
+      "end": 40.33,
+      "en": "It is where control lives.",
+      "pt-BR": "Está em onde fica o controle."
+    },
+    {
+      "start": 41.52,
+      "end": 47.1,
+      "en": "An observer may watch the infrastructure without being able to read protected messages.",
+      "pt-BR": "Um observador pode acompanhar a infraestrutura sem conseguir ler mensagens protegidas."
+    },
+    {
+      "start": 47.1,
+      "end": 52.25,
+      "en": "Optional cover traffic makes the flow they see less directly tied to",
+      "pt-BR": "O tráfego de cobertura opcional torna o fluxo observado menos diretamente ligado"
+    },
+    {
+      "start": 52.25,
+      "end": 53.97,
+      "en": "what people actually send.",
+      "pt-BR": "ao que as pessoas realmente enviam."
+    },
+    {
+      "start": 53.97,
+      "end": 58.27,
+      "en": "Privacy includes the content of a conversation—and reducing what its",
+      "pt-BR": "A privacidade inclui o conteúdo de uma conversa — e reduzir o que sua"
+    },
+    {
+      "start": 58.27,
+      "end": 59.98,
+      "en": "visible activity can reveal.",
+      "pt-BR": "atividade visível pode revelar."
+    },
+    {
+      "start": 61.14,
+      "end": 65.56,
+      "en": "An address block can silence more than its intended target.",
+      "pt-BR": "Um bloqueio de endereços pode silenciar mais do que o alvo pretendido."
+    },
+    {
+      "start": 65.56,
+      "end": 69.1,
+      "en": "Unrelated services may disappear behind the same barrier.",
+      "pt-BR": "Serviços sem relação entre si podem desaparecer atrás da mesma barreira."
+    },
+    {
+      "start": 69.1,
+      "end": 73.96,
+      "en": "PRP identities do not require allocation by a central numbering authority.",
+      "pt-BR": "Identidades PRP não exigem atribuição por uma autoridade central de numeração."
+    },
+    {
+      "start": 73.96,
+      "end": 79.27,
+      "en": "Blocking a fixed list of identities is not the same as controlling",
+      "pt-BR": "Bloquear uma lista fixa de identidades não é o mesmo que controlar"
+    },
+    {
+      "start": 79.27,
+      "end": 81.48,
+      "en": "everyone’s ability to create one.",
+      "pt-BR": "a capacidade de todos criarem uma."
+    },
+    {
+      "start": 82.64,
+      "end": 84.93,
+      "en": "Now imagine a peaceful demonstration.",
+      "pt-BR": "Agora imagine uma manifestação pacífica."
+    },
+    {
+      "start": 84.93,
+      "end": 88.6,
+      "en": "Access through the mobile network is cut off.",
+      "pt-BR": "O acesso pela rede móvel é cortado."
+    },
+    {
+      "start": 88.6,
+      "end": 90.43,
+      "en": "The phones still work.",
+      "pt-BR": "Os telefones continuam funcionando."
+    },
+    {
+      "start": 90.43,
+      "end": 94.1,
+      "en": "With devices designed for direct local communication, nearby",
+      "pt-BR": "Com dispositivos projetados para comunicação local direta, participantes"
+    },
+    {
+      "start": 94.1,
+      "end": 96.39,
+      "en": "participants can keep exchanging messages.",
+      "pt-BR": "próximos podem continuar trocando mensagens."
+    },
+    {
+      "start": 96.39,
+      "end": 101.43,
+      "en": "Losing the operator’s connection does not have to mean losing contact",
+      "pt-BR": "Perder a conexão da operadora não precisa significar perder o contato"
+    },
+    {
+      "start": 101.43,
+      "end": 104.18,
+      "en": "with the person across the square.",
+      "pt-BR": "com a pessoa do outro lado da praça."
+    },
+    {
+      "start": 105.35,
+      "end": 109.4,
+      "en": "Participating devices can carry messages through their neighbors,",
+      "pt-BR": "Dispositivos participantes podem transportar mensagens por meio de seus vizinhos,"
+    },
+    {
+      "start": 109.4,
+      "end": 111.43,
+      "en": "forming a local mesh.",
+      "pt-BR": "formando uma rede mesh local."
+    },
+    {
+      "start": 111.43,
+      "end": 113.46,
+      "en": "No mandatory central platform.",
+      "pt-BR": "Sem uma plataforma central obrigatória."
+    },
+    {
+      "start": 113.46,
+      "end": 116.5,
+      "en": "No single operator authorizing every exchange.",
+      "pt-BR": "Sem uma única operadora autorizando cada troca."
+    },
+    {
+      "start": 116.5,
+      "end": 121.56,
+      "en": "Reaching beyond the crowd still requires an available outward path.",
+      "pt-BR": "Alcançar além da multidão ainda exige um caminho de saída disponível."
+    },
+    {
+      "start": 121.56,
+      "end": 127.13,
+      "en": "But within the square, people can remain connected through one another.",
+      "pt-BR": "Mas, dentro da praça, as pessoas podem permanecer conectadas umas pelas outras."
+    },
+    {
+      "start": 128.31,
+      "end": 132.54,
+      "en": "No protocol removes physical coercion, protects a compromised device, or",
+      "pt-BR": "Nenhum protocolo elimina a coerção física, protege um dispositivo comprometido ou"
+    },
+    {
+      "start": 132.54,
+      "end": 135.93,
+      "en": "creates a radio link where none can operate.",
+      "pt-BR": "cria um enlace de rádio onde nenhum pode operar."
+    },
+    {
+      "start": 135.93,
+      "end": 138.04,
+      "en": "The goal is not invulnerability.",
+      "pt-BR": "O objetivo não é a invulnerabilidade."
+    },
+    {
+      "start": 138.04,
+      "end": 143.12,
+      "en": "It is to reduce the places where a single intervention can silence",
+      "pt-BR": "É reduzir os pontos nos quais uma única intervenção pode silenciar"
+    },
+    {
+      "start": 143.12,
+      "end": 147.36,
+      "en": "everyone—and give people more control over how their relationships continue.",
+      "pt-BR": "todos — e dar às pessoas mais controle sobre como seus relacionamentos continuam."
+    },
+    {
+      "start": 148.52,
+      "end": 151.24,
+      "en": "Freedom needs more than permission.",
+      "pt-BR": "A liberdade precisa de mais do que permissão."
+    },
+    {
+      "start": 151.24,
+      "end": 152.87,
+      "en": "It needs architecture.",
+      "pt-BR": "Precisa de arquitetura."
+    },
+    {
+      "start": 152.87,
+      "end": 153.41,
+      "en": "PRP.",
+      "pt-BR": "PRP."
+    }
+  ]
+}

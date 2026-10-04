@@ -1,0 +1,304 @@
+WEBVTT
+
+1
+00:00:01.000 --> 00:00:03.660
+Imagine a device built for PRP.
+
+2
+00:00:04.100 --> 00:00:05.260
+No SIM card.
+
+3
+00:00:05.740 --> 00:00:06.660
+No phone number.
+
+4
+00:00:07.080 --> 00:00:09.700
+You connect through identities and
+relationships.
+
+5
+00:00:10.180 --> 00:00:12.060
+Personal life. Work.
+
+6
+00:00:12.260 --> 00:00:14.520
+Different contexts, different identities.
+
+7
+00:00:15.460 --> 00:00:17.270
+You choose who you communicate with,
+
+8
+00:00:17.300 --> 00:00:19.380
+not a number assigned by an operator.
+
+9
+00:00:21.100 --> 00:00:23.590
+A home device can arrive with its own identity,
+
+10
+00:00:23.620 --> 00:00:25.370
+created at the factory
+
+11
+00:00:25.400 --> 00:00:26.970
+without consulting an authority
+
+12
+00:00:27.000 --> 00:00:28.860
+or receiving a delegation.
+
+13
+00:00:29.400 --> 00:00:30.740
+Take it out of the box.
+
+14
+00:00:31.360 --> 00:00:33.700
+It needs no manual internet setup,
+
+15
+00:00:33.980 --> 00:00:36.520
+SIM, or manufacturer's controller.
+
+16
+00:00:37.240 --> 00:00:38.690
+Scan its printed QR code
+
+17
+00:00:38.720 --> 00:00:41.230
+to establish your relationship—
+
+18
+00:00:41.260 --> 00:00:43.020
+not to activate its connection.
+
+19
+00:00:44.892 --> 00:00:47.302
+The same connectivity provider can serve you
+
+20
+00:00:47.332 --> 00:00:49.042
+on behalf of several operators,
+
+21
+00:00:49.072 --> 00:00:51.972
+across different connection technologies.
+
+22
+00:00:52.632 --> 00:00:55.692
+An operator becomes one option among others,
+
+23
+00:00:56.072 --> 00:00:58.452
+not the exclusive owner of your access.
+
+24
+00:00:58.992 --> 00:01:00.902
+Your relationships are not tied
+
+25
+00:01:00.932 --> 00:01:02.312
+to a single subscription.
+
+26
+00:01:04.058 --> 00:01:05.668
+At home, Wi-Fi connects
+
+27
+00:01:05.698 --> 00:01:07.438
+through your local equipment.
+
+28
+00:01:08.018 --> 00:01:09.888
+Across the city, antennas provide
+
+29
+00:01:09.918 --> 00:01:11.538
+metropolitan coverage.
+
+30
+00:01:12.498 --> 00:01:14.008
+Satellite links offer another way
+
+31
+00:01:14.038 --> 00:01:15.638
+to reach wider networks.
+
+32
+00:01:16.518 --> 00:01:17.998
+Different equipment, different reach.
+
+33
+00:01:18.658 --> 00:01:19.808
+More than one way to carry
+
+34
+00:01:19.838 --> 00:01:21.118
+the same relationships.
+
+35
+00:01:23.058 --> 00:01:25.168
+Devices can also connect directly
+
+36
+00:01:25.198 --> 00:01:26.458
+through Wi-Fi Direct.
+
+37
+00:01:27.118 --> 00:01:29.068
+Subscribers can form mesh networks,
+
+38
+00:01:29.098 --> 00:01:30.468
+carrying communication
+
+39
+00:01:30.498 --> 00:01:32.938
+through participating neighbors.
+
+40
+00:01:33.398 --> 00:01:35.108
+Each chooses whether to contribute
+
+41
+00:01:35.138 --> 00:01:36.638
+and on what terms.
+
+42
+00:01:37.198 --> 00:01:39.008
+The network grows through participation,
+
+43
+00:01:39.038 --> 00:01:42.018
+not through a mandatory central operator.
+
+44
+00:01:43.850 --> 00:01:44.580
+As you move,
+
+45
+00:01:44.610 --> 00:01:47.090
+connections and providers can change.
+
+46
+00:01:47.650 --> 00:01:49.400
+PRP separates the relationship
+
+47
+00:01:49.430 --> 00:01:51.430
+from the path carrying it.
+
+48
+00:01:51.810 --> 00:01:53.680
+Where another authorized path is available,
+
+49
+00:01:53.710 --> 00:01:56.230
+communication can continue that way.
+
+50
+00:01:56.730 --> 00:01:58.480
+You do not need a new phone number,
+
+51
+00:01:58.510 --> 00:02:00.650
+or to rebuild your relationships.
+
+52
+00:02:02.600 --> 00:02:05.230
+The same autonomy extends to smart cities,
+
+53
+00:02:05.260 --> 00:02:08.020
+from street equipment to flood sensors.
+
+54
+00:02:09.850 --> 00:02:10.950
+Across a city,
+
+55
+00:02:11.250 --> 00:02:13.060
+civil defense can reach thousands
+
+56
+00:02:13.090 --> 00:02:14.990
+through an authorized group.
+
+57
+00:02:15.510 --> 00:02:18.240
+PRP groupcast provides native multicast
+
+58
+00:02:18.270 --> 00:02:19.610
+across operators:
+
+59
+00:02:20.250 --> 00:02:22.710
+the message branches through the network,
+
+60
+00:02:23.230 --> 00:02:25.260
+rather than requiring a separate send
+
+61
+00:02:25.290 --> 00:02:26.770
+to every recipient.
+
+62
+00:02:27.430 --> 00:02:28.710
+For field teams,
+
+63
+00:02:28.950 --> 00:02:31.830
+push-to-talk carries a speaker's voice to the
+group,
+
+64
+00:02:32.070 --> 00:02:33.970
+even across different operators.
+
+65
+00:02:35.892 --> 00:02:36.432
+You arrive.
+
+66
+00:02:36.952 --> 00:02:38.612
+The conversation continues.
+
+67
+00:02:39.072 --> 00:02:40.332
+No SIM card.
+
+68
+00:02:40.812 --> 00:02:42.202
+No telephone numbering plan
+
+69
+00:02:42.232 --> 00:02:44.472
+defining how people reach you.
+
+70
+00:02:44.792 --> 00:02:46.572
+Identities and relationships,
+
+71
+00:02:46.932 --> 00:02:49.142
+carried by networks you can choose
+
+72
+00:02:49.172 --> 00:02:50.382
+and help build.
+
+73
+00:02:50.412 --> 00:02:54.052
+Mobile, without a mandatory central operator.
+
+74
+00:02:54.532 --> 00:02:55.972
+Connected, on your terms.
+
+75
+00:02:58.000 --> 00:02:59.122
+PRP.
+

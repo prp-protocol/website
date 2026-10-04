@@ -1,0 +1,329 @@
+{
+  "id": "V008",
+  "revision": "finalization-v1",
+  "maturity": "M4",
+  "movieSHA256": "c6d003b2b4913ec698a79210760f43c8e008a80c989960acbb06ad2910def4d2",
+  "movieBytes": 4949149,
+  "durationSeconds": 109.25,
+  "textRevision": "catalog-text-v1",
+  "title": {
+    "en": "Sovereignty Without Isolation",
+    "pt-BR": "Soberania sem isolamento"
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/sovereignty-without-isolation-finalization-v1.mp4",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "summary": {
+    "en": "Researchers in different countries continue working together while a map reveals blocked direct paths and alternative relationships carried through other participants. The protected sovereignty is the freedom to keep choosing partners.",
+    "pt-BR": "Pesquisadores em países diferentes continuam trabalhando juntos enquanto um mapa revela caminhos diretos bloqueados e relacionamentos alternativos transportados por outros participantes. A soberania protegida é a liberdade de continuar escolhendo parceiros."
+  },
+  "context": {
+    "en": "Conceptual film, M4, using fictional jurisdictions A–E. The viewer sees the full diagram; each participant's direct transport relationship exposes only its own context. Continuity depends on available paths and willing participants. This is not an experiment, a universal anonymity claim or a guarantee against every blockade. Identities known at the client's last hop are not automatically known to the ISP.",
+    "pt-BR": "Filme conceitual, M4, com jurisdições fictícias A–E. O espectador vê o diagrama completo; o relacionamento direto de transporte de cada participante expõe apenas seu próprio contexto. A continuidade depende de caminhos disponíveis e participantes dispostos. Não é um experimento, uma alegação de anonimato universal ou garantia contra todo bloqueio. Identidades conhecidas no último salto do cliente não são automaticamente conhecidas pelo ISP."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "title": {
+        "en": "Research across borders",
+        "pt-BR": "Pesquisa entre fronteiras"
+      },
+      "visual": {
+        "en": "In a bright laboratory, a dark-haired woman wearing glasses and a lab coat discusses water research with a man visible on a monitor. Equipment and sample containers surround her. Small facial and hand movements keep the human collaboration visible.",
+        "pt-BR": "Num laboratório iluminado, uma mulher de cabelo escuro, óculos e jaleco discute uma pesquisa sobre água com um homem visível no monitor. Equipamentos e recipientes de amostras a cercam. Pequenos movimentos faciais e das mãos dão vida à colaboração humana."
+      },
+      "end": 12.875,
+      "narration": {
+        "en": "A research team is working to make water safer. Their partners are in another country. Their work depends on being able to talk, compare results, and keep learning together.",
+        "pt-BR": "Uma equipe de pesquisa trabalha para tornar a água mais segura. Seus parceiros estão em outro país. Seu trabalho depende de poder conversar, comparar resultados e continuar aprendendo juntos."
+      }
+    },
+    {
+      "start": 12.875,
+      "title": {
+        "en": "A blocks B",
+        "pt-BR": "A bloqueia B"
+      },
+      "visual": {
+        "en": "A dark world map marks fictional jurisdictions A, B, C, D and E. The direct B–A route is crossed out while a teal route via C remains. An inset labeled “B: Work continues” keeps the researchers visible; no disruption is shown to them.",
+        "pt-BR": "Um mapa-múndi escuro marca as jurisdições fictícias A, B, C, D e E. A rota direta B–A é riscada enquanto uma rota verde-azulada por C permanece. Um quadro identificado como “B: o trabalho continua” mantém os pesquisadores visíveis; nenhuma interrupção é mostrada para eles."
+      },
+      "end": 23.583333,
+      "narration": {
+        "en": "Then, a decision in A blocks the addresses of networks in B. The infrastructure is still working. But the direct path between the teams is blocked.",
+        "pt-BR": "Então, uma decisão em A bloqueia os endereços das redes de B. A infraestrutura continua funcionando. Mas o caminho direto entre as equipes é bloqueado."
+      }
+    },
+    {
+      "start": 23.583333,
+      "title": {
+        "en": "A relationship carried by another",
+        "pt-BR": "Um relacionamento transportado por outro"
+      },
+      "visual": {
+        "en": "Animated pulses trace B–C–A. A highlighted view of A identifies C as its direct peer, while the inner relationship remains protected. The complete route is visible to the audience as an explanatory diagram.",
+        "pt-BR": "Pulsos animados percorrem B–C–A. Uma visão destacada de A identifica C como seu par direto, enquanto o relacionamento interno permanece protegido. A rota completa é mostrada ao público como diagrama explicativo."
+      },
+      "end": 39.541667,
+      "narration": {
+        "en": "A participant in C offers another path. In PRP, one relationship can be carried by another. For A, the direct relationship is with C. B's identity does not appear as the source at that transport layer.",
+        "pt-BR": "Um participante em C oferece outro caminho. No PRP, um relacionamento pode ser transportado por outro. Para A, o relacionamento direto é com C. A identidade de B não aparece como origem nessa camada de transporte."
+      }
+    },
+    {
+      "start": 39.541667,
+      "title": {
+        "en": "C joins the blockade",
+        "pt-BR": "C adere ao bloqueio"
+      },
+      "visual": {
+        "en": "A “Block B” marker appears at C and the B–C segment is crossed out. Another visible route leads from B through D to C and A. The research inset continues without an interruption.",
+        "pt-BR": "Uma marca “Bloquear B” aparece em C, e o trecho B–C é riscado. Outra rota visível vai de B por D até C e A. O quadro da pesquisa continua sem interrupção."
+      },
+      "end": 53.125,
+      "narration": {
+        "en": "A persuades C to block B as well. That closes the direct path between B and C. But joining the blockade does not reveal the origin of the relationships being carried.",
+        "pt-BR": "A convence C a também bloquear B. Isso fecha o caminho direto entre B e C. Mas aderir ao bloqueio não revela a origem dos relacionamentos transportados."
+      }
+    },
+    {
+      "start": 53.125,
+      "title": {
+        "en": "Another layer",
+        "pt-BR": "Outra camada"
+      },
+      "visual": {
+        "en": "The route B–D–C–A is highlighted. Successive labels identify “C sees D” and “A sees C”. Pulses and outlines distinguish the local relationships from the carried inner relationship.",
+        "pt-BR": "A rota B–D–C–A é destacada. Rótulos sucessivos identificam “C vê D” e “A vê C”. Pulsos e contornos distinguem os relacionamentos locais do relacionamento interno transportado."
+      },
+      "end": 68.875,
+      "narration": {
+        "en": "Now, D carries the relationship with B through a relationship with C. C knows D. A knows C. The inner relationship remains protected. Blocking B by address is not enough to identify this communication.",
+        "pt-BR": "Agora, D transporta o relacionamento com B por meio de um relacionamento com C. C conhece D. A conhece C. O relacionamento interno permanece protegido. Bloquear B por endereço não basta para identificar essa comunicação."
+      }
+    },
+    {
+      "start": 68.875,
+      "title": {
+        "en": "More participants, more paths",
+        "pt-BR": "Mais participantes, mais caminhos"
+      },
+      "visual": {
+        "en": "D also receives the selective blockade marker. The map reveals B–E–D–C–A, while other connections remain visible. The research scene stays in its inset, and the diagram expands rather than showing the people configuring a tunnel.",
+        "pt-BR": "D também recebe a marca de bloqueio seletivo. O mapa revela B–E–D–C–A, enquanto outras conexões permanecem visíveis. A cena da pesquisa continua no quadro, e o diagrama se expande sem mostrar as pessoas configurando um túnel."
+      },
+      "end": 84.625,
+      "narration": {
+        "en": "Another participant can offer another layer. Stopping the communication means closing the indirect paths too. That requires broader cooperation to enforce the blockade, or cutting off intermediaries and affecting other people.",
+        "pt-BR": "Outro participante pode oferecer outra camada. Interromper a comunicação exige fechar também os caminhos indiretos. Isso exige uma cooperação mais ampla para impor o bloqueio, ou cortar o acesso de intermediários e afetar outras pessoas."
+      }
+    },
+    {
+      "start": 84.625,
+      "title": {
+        "en": "The long chain is not the only option",
+        "pt-BR": "A cadeia longa não é a única opção"
+      },
+      "visual": {
+        "en": "The map emphasizes additional paths B–E–A and B–E–C–A. These alternatives show that the longer recursive chain is not the only available way across the fictional network.",
+        "pt-BR": "O mapa destaca caminhos adicionais B–E–A e B–E–C–A. Essas alternativas mostram que a cadeia recursiva mais longa não é a única forma disponível de atravessar a rede fictícia."
+      },
+      "end": 97.041667,
+      "narration": {
+        "en": "This continuity depends on available paths and willing participants. Closing every way out can still stop communication. But blocking a country's addresses is no longer enough.",
+        "pt-BR": "Essa continuidade depende de caminhos disponíveis e participantes dispostos. Fechar todas as saídas ainda pode impedir a comunicação. Mas bloquear os endereços de um país já não basta."
+      }
+    },
+    {
+      "start": 97.041667,
+      "title": {
+        "en": "Sovereignty without isolation",
+        "pt-BR": "Soberania sem isolamento"
+      },
+      "visual": {
+        "en": "The closing returns briefly to the research collaboration, then displays PRP, “Sovereignty Without Isolation” and prp-protocol.org in light lettering on a dark background. The researchers' continuing work is the human outcome of the illustrated paths.",
+        "pt-BR": "O encerramento retorna brevemente à colaboração de pesquisa e depois exibe PRP, “Sovereignty Without Isolation” e prp-protocol.org em letras claras sobre fundo escuro. O trabalho contínuo dos pesquisadores é o resultado humano dos caminhos ilustrados."
+      },
+      "end": 109.25,
+      "narration": {
+        "en": "The sovereignty being protected is the freedom to keep choosing your partners. Sovereignty without isolation. PRP.",
+        "pt-BR": "A soberania protegida é a liberdade de continuar escolhendo seus parceiros. Soberania sem isolamento. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 0.65,
+      "end": 4.25,
+      "en": "A research team is working to make water safer.",
+      "pt-BR": "Uma equipe de pesquisa trabalha para tornar a água mais segura."
+    },
+    {
+      "start": 4.25,
+      "end": 6.65,
+      "en": "Their partners are in another country.",
+      "pt-BR": "Seus parceiros estão em outro país."
+    },
+    {
+      "start": 6.65,
+      "end": 12.26,
+      "en": "Their work depends on being able to talk, compare results, and keep learning together.",
+      "pt-BR": "Seu trabalho depende de poder conversar, comparar resultados e continuar aprendendo juntos."
+    },
+    {
+      "start": 13.18,
+      "end": 17.7,
+      "en": "Then, a decision in A blocks the addresses of networks in B.",
+      "pt-BR": "Então, uma decisão em A bloqueia os endereços das redes de B."
+    },
+    {
+      "start": 17.7,
+      "end": 19.58,
+      "en": "The infrastructure is still working.",
+      "pt-BR": "A infraestrutura continua funcionando."
+    },
+    {
+      "start": 19.58,
+      "end": 22.97,
+      "en": "But the direct path between the teams is blocked.",
+      "pt-BR": "Mas o caminho direto entre as equipes é bloqueado."
+    },
+    {
+      "start": 23.88,
+      "end": 26.8,
+      "en": "A participant in C offers another path.",
+      "pt-BR": "Um participante em C oferece outro caminho."
+    },
+    {
+      "start": 26.8,
+      "end": 30.56,
+      "en": "In PRP, one relationship can be carried by another.",
+      "pt-BR": "No PRP, um relacionamento pode ser transportado por outro."
+    },
+    {
+      "start": 30.56,
+      "end": 33.9,
+      "en": "For A, the direct relationship is with C.",
+      "pt-BR": "Para A, o relacionamento direto é com C."
+    },
+    {
+      "start": 33.9,
+      "end": 38.9,
+      "en": "B's identity does not appear as the source at that transport layer.",
+      "pt-BR": "A identidade de B não aparece como origem nessa camada de transporte."
+    },
+    {
+      "start": 39.84,
+      "end": 43.11,
+      "en": "A persuades C to block B as well.",
+      "pt-BR": "A convence C a também bloquear B."
+    },
+    {
+      "start": 43.11,
+      "end": 46.79,
+      "en": "That closes the direct path between B and C.",
+      "pt-BR": "Isso fecha o caminho direto entre B e C."
+    },
+    {
+      "start": 46.79,
+      "end": 52.5,
+      "en": "But joining the blockade does not reveal the origin of the relationships being carried.",
+      "pt-BR": "Mas aderir ao bloqueio não revela a origem dos relacionamentos transportados."
+    },
+    {
+      "start": 53.42,
+      "end": 58.66,
+      "en": "Now, D carries the relationship with B through a relationship with C.",
+      "pt-BR": "Agora, D transporta o relacionamento com B por meio de um relacionamento com C."
+    },
+    {
+      "start": 58.66,
+      "end": 59.96,
+      "en": "C knows D.",
+      "pt-BR": "C conhece D."
+    },
+    {
+      "start": 59.96,
+      "end": 61.27,
+      "en": "A knows C.",
+      "pt-BR": "A conhece C."
+    },
+    {
+      "start": 61.27,
+      "end": 63.45,
+      "en": "The inner relationship remains protected.",
+      "pt-BR": "O relacionamento interno permanece protegido."
+    },
+    {
+      "start": 63.45,
+      "end": 68.24,
+      "en": "Blocking B by address is not enough to identify this communication.",
+      "pt-BR": "Bloquear B por endereço não basta para identificar essa comunicação."
+    },
+    {
+      "start": 69.18,
+      "end": 72.05,
+      "en": "Another participant can offer another layer.",
+      "pt-BR": "Outro participante pode oferecer outra camada."
+    },
+    {
+      "start": 72.05,
+      "end": 76.35,
+      "en": "Stopping the communication means closing the indirect paths too.",
+      "pt-BR": "Interromper a comunicação exige fechar também os caminhos indiretos."
+    },
+    {
+      "start": 76.35,
+      "end": 81.62,
+      "en": "That requires broader cooperation to enforce the blockade, or cutting off",
+      "pt-BR": "Isso exige uma cooperação mais ampla para impor o bloqueio, ou cortar o acesso"
+    },
+    {
+      "start": 81.62,
+      "end": 84.01,
+      "en": "intermediaries and affecting other people.",
+      "pt-BR": "de intermediários e afetar outras pessoas."
+    },
+    {
+      "start": 84.92,
+      "end": 88.91,
+      "en": "This continuity depends on available paths and willing participants.",
+      "pt-BR": "Essa continuidade depende de caminhos disponíveis e participantes dispostos."
+    },
+    {
+      "start": 88.91,
+      "end": 92.45,
+      "en": "Closing every way out can still stop communication.",
+      "pt-BR": "Fechar todas as saídas ainda pode impedir a comunicação."
+    },
+    {
+      "start": 92.45,
+      "end": 96.44,
+      "en": "But blocking a country's addresses is no longer enough.",
+      "pt-BR": "Mas bloquear os endereços de um país já não basta."
+    },
+    {
+      "start": 97.34,
+      "end": 103.64,
+      "en": "The sovereignty being protected is the freedom to keep choosing your partners.",
+      "pt-BR": "A soberania protegida é a liberdade de continuar escolhendo seus parceiros."
+    },
+    {
+      "start": 103.64,
+      "end": 105.22,
+      "en": "Sovereignty without isolation.",
+      "pt-BR": "Soberania sem isolamento."
+    },
+    {
+      "start": 105.22,
+      "end": 105.74,
+      "en": "PRP.",
+      "pt-BR": "PRP."
+    }
+  ]
+}

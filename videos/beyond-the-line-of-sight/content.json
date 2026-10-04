@@ -1,0 +1,357 @@
+{
+  "id": "V004",
+  "revision": "unified-endcards-v2",
+  "maturity": "M3",
+  "movieSHA256": "6a365926c93534fecf17904a09dba68458b8b9a4a8c069cf595fc69f3e2d16ff",
+  "movieBytes": 31212801,
+  "durationSeconds": 142,
+  "textRevision": "catalog-text-v1",
+  "title": {
+    "en": "Beyond the Line of Sight",
+    "pt-BR": "Além da linha de visada"
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/beyond-the-line-of-sight-unified-endcards-v2-captioned.mp4",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "summary": {
+    "en": "In an imagined future with communities on Mars and the Moon, a researcher shares a discovery with a colleague on Earth. Animated diagrams explain delayed paths, out-of-order arrival, storage and local retransmission.",
+    "pt-BR": "Num futuro imaginado com comunidades em Marte e na Lua, um pesquisador compartilha uma descoberta com uma colega na Terra. Diagramas animados explicam caminhos com atraso, chegada fora de ordem, armazenamento e retransmissão local."
+  },
+  "context": {
+    "en": "Illustrative future scenario; M3 partial animation, with animated diagrams and still character illustrations. Distances still impose delay. Storage, expiry, available contacts and retained valid copies constrain delivery; the film does not promise instantaneous or guaranteed communication.",
+    "pt-BR": "Cenário futuro ilustrativo; M3, animação parcial, com diagramas animados e ilustrações estáticas de personagens. As distâncias continuam impondo atraso. Armazenamento, validade, contatos disponíveis e retenção de cópias válidas limitam a entrega; o filme não promete comunicação instantânea ou garantida."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "title": {
+        "en": "A city on Mars",
+        "pt-BR": "Uma cidade em Marte"
+      },
+      "visual": {
+        "en": "A blond researcher in a rust-colored shirt stands in a populated city under a transparent structure. Plants, pedestrians and transit contrast with the red rocky landscape outside.",
+        "pt-BR": "Um pesquisador loiro de camisa cor de ferrugem está numa cidade habitada sob uma estrutura transparente. Plantas, pedestres e transporte contrastam com a paisagem rochosa vermelha do lado de fora."
+      },
+      "end": 12,
+      "narration": {
+        "en": "Imagine a city on Mars. People working, learning, making discoveries—and sharing them with people far from home.",
+        "pt-BR": "Imagine uma cidade em Marte. Pessoas trabalhando, aprendendo, fazendo descobertas — e compartilhando-as com pessoas longe de casa."
+      }
+    },
+    {
+      "start": 12,
+      "title": {
+        "en": "A lunar community",
+        "pt-BR": "Uma comunidade lunar"
+      },
+      "visual": {
+        "en": "Two people consult a tablet inside a planted lunar habitat. Through the windows, buildings and equipment stand on the grey lunar surface. This is another local community, not a mandatory waypoint for the Mars message.",
+        "pt-BR": "Duas pessoas consultam um tablet num habitat lunar com plantas. Pelas janelas, edifícios e equipamentos aparecem sobre a superfície cinzenta da Lua. É outra comunidade local, não uma passagem obrigatória para a mensagem de Marte."
+      },
+      "end": 22,
+      "narration": {
+        "en": "On the Moon, another community has its own local network. Across these worlds, communication follows different rhythms.",
+        "pt-BR": "Na Lua, outra comunidade tem sua própria rede local. Nesses mundos, a comunicação segue ritmos diferentes."
+      }
+    },
+    {
+      "start": 22,
+      "title": {
+        "en": "Recording a discovery",
+        "pt-BR": "Registrar uma descoberta"
+      },
+      "visual": {
+        "en": "At a desk on Mars, the researcher faces a monitor with a colleague's portrait, rock imagery and a recorded-message waveform. A rock sample lies beside the screen.",
+        "pt-BR": "Numa mesa em Marte, o pesquisador está diante de um monitor com o retrato de uma colega, imagens de rochas e a forma de onda de uma mensagem gravada. Uma amostra de rocha está ao lado da tela."
+      },
+      "end": 34,
+      "narration": {
+        "en": "A researcher records a discovery for a colleague on Earth. His message is ready. But a complete path may not be.",
+        "pt-BR": "Um pesquisador registra uma descoberta para uma colega na Terra. Sua mensagem está pronta. Mas um caminho completo pode ainda não estar."
+      }
+    },
+    {
+      "start": 34,
+      "title": {
+        "en": "Two paths",
+        "pt-BR": "Dois caminhos"
+      },
+      "visual": {
+        "en": "On a dark diagram, a source at left and destination at right have two possible paths. A short direct path is temporarily blocked by a large cross. A longer amber path through relays is available, so numbered pieces begin traveling along it.",
+        "pt-BR": "Num diagrama escuro, uma origem à esquerda e um destino à direita têm dois caminhos possíveis. Um caminho direto e curto está temporariamente bloqueado por uma grande cruz. Um caminho âmbar mais longo, por retransmissores, está disponível; partes numeradas começam a percorrê-lo."
+      },
+      "end": 48,
+      "narration": {
+        "en": "The faster route is blocked for now. But another route is available. It takes longer, yet it can already carry part of the discovery. Some pieces can travel now. Others wait for the faster link, making use of both opportunities.",
+        "pt-BR": "A rota mais rápida está bloqueada por enquanto. Mas outra rota está disponível. Ela demora mais, mas já pode transportar parte da descoberta. Algumas partes podem viajar agora. Outras aguardam o enlace mais rápido, aproveitando as duas oportunidades."
+      }
+    },
+    {
+      "start": 48,
+      "title": {
+        "en": "Later departure, earlier arrival",
+        "pt-BR": "Sair depois, chegar antes"
+      },
+      "visual": {
+        "en": "The direct route opens in teal. Pieces using it move to the destination while earlier pieces continue along the longer amber route. The arrival display makes the change of order visible.",
+        "pt-BR": "A rota direta se abre em verde-azulado. Partes que a utilizam avançam para o destino enquanto as anteriores continuam pelo caminho âmbar mais longo. O painel de chegada torna visível a mudança de ordem."
+      },
+      "end": 62,
+      "narration": {
+        "en": "When the faster link opens, other pieces follow that route—and arrive first, even though they left later.",
+        "pt-BR": "Quando o enlace mais rápido se abre, outras partes seguem por essa rota — e chegam primeiro, embora tenham saído depois."
+      }
+    },
+    {
+      "start": 62,
+      "title": {
+        "en": "Reassembling the discovery",
+        "pt-BR": "Recompor a descoberta"
+      },
+      "visual": {
+        "en": "Six numbered squares find their positions in a two-row grid. Four teal pieces and two amber pieces distinguish the paths used. The complete arrangement represents one discovery assembled from pieces received at different times.",
+        "pt-BR": "Seis quadrados numerados encontram suas posições numa grade de duas linhas. Quatro partes verde-azuladas e duas âmbar distinguem os caminhos usados. A disposição completa representa uma descoberta recomposta com partes recebidas em momentos diferentes."
+      },
+      "end": 78,
+      "narration": {
+        "en": "At the destination, each piece finds its place. Using both paths makes more capacity available. The pieces need not arrive in the order they were sent.",
+        "pt-BR": "No destino, cada parte encontra seu lugar. Usar os dois caminhos disponibiliza mais capacidade. As partes não precisam chegar na ordem em que foram enviadas."
+      }
+    },
+    {
+      "start": 78,
+      "title": {
+        "en": "Waiting for contact",
+        "pt-BR": "Aguardar contato"
+      },
+      "visual": {
+        "en": "The laboratory view returns behind an inset diagram. A message stays with the sender while the contact path is absent. Text identifies storage and expiry limits; the message can be sent when contact is available again.",
+        "pt-BR": "A imagem do laboratório retorna atrás de um diagrama menor. Uma mensagem permanece com o remetente enquanto não há caminho de contato. O texto identifica limites de armazenamento e validade; a mensagem pode ser enviada quando o contato estiver novamente disponível."
+      },
+      "end": 99,
+      "narration": {
+        "en": "When no contact is available, information waits within storage and expiry limits. PRP applications can retain messages before transmission and send them when contact returns. Distance still takes time.",
+        "pt-BR": "Quando não há contato disponível, a informação aguarda dentro dos limites de armazenamento e de validade. Aplicações PRP podem reter mensagens antes da transmissão e enviá-las quando o contato retorna. A distância continua exigindo tempo."
+      }
+    },
+    {
+      "start": 99,
+      "title": {
+        "en": "Local recovery",
+        "pt-BR": "Recuperação local"
+      },
+      "visual": {
+        "en": "A three-stage diagram connects source, satellite relay and destination. The source keeps the original and the satellite keeps a valid copy. After a failed transmission, the relay tries the last leg again; it is not necessary to resend all the way from the source. Text states the source's release conditions: end-to-end confirmation, expiry or cancellation.",
+        "pt-BR": "Um diagrama de três etapas conecta origem, retransmissor em satélite e destino. A origem mantém o original e o satélite mantém uma cópia válida. Após uma transmissão falhar, o retransmissor tenta novamente o trecho final; não é necessário reenviar desde a origem. O texto informa as condições de liberação na origem: confirmação de ponta a ponta, fim da validade ou cancelamento."
+      },
+      "end": 121,
+      "narration": {
+        "en": "If a transmission is lost, a relay holding a valid copy can try again. Recovery need not start all the way back at the source. The source retains its copy until end-to-end confirmation, expiry, or cancellation.",
+        "pt-BR": "Se uma transmissão se perder, um retransmissor que mantém uma cópia válida pode tentar novamente. A recuperação não precisa recomeçar lá na origem. A origem mantém sua cópia até a confirmação de ponta a ponta, o fim da validade ou o cancelamento."
+      }
+    },
+    {
+      "start": 121,
+      "title": {
+        "en": "The discovery arrives",
+        "pt-BR": "A descoberta chega"
+      },
+      "visual": {
+        "en": "A dark-haired colleague on Earth watches the researcher's recorded message and rock images on her monitor, with a green city outside. At 2:16, the film moves to the standard cream end card with the PRP logo, title and prp-protocol.org.",
+        "pt-BR": "Uma colega de cabelo escuro na Terra assiste à mensagem gravada do pesquisador e às imagens das rochas em seu monitor, com uma cidade arborizada do lado de fora. Aos 2min16s, o filme passa ao cartão final creme com o logotipo PRP, o título e prp-protocol.org."
+      },
+      "end": 142,
+      "narration": {
+        "en": "His colleague receives the discovery. Life continues on Mars, on the Moon, and on Earth. Different networks. Different moments. A conversation that reaches beyond the line of sight.",
+        "pt-BR": "Sua colega recebe a descoberta. A vida continua em Marte, na Lua e na Terra. Redes diferentes. Momentos diferentes. Uma conversa que vai além da linha de visada."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 1.0,
+      "end": 3.34,
+      "en": "Imagine a city on Mars.",
+      "pt-BR": "Imagine uma cidade em Marte."
+    },
+    {
+      "start": 3.34,
+      "end": 7.07,
+      "en": "People working, learning, making discoveries—and sharing them with",
+      "pt-BR": "Pessoas trabalhando, aprendendo, fazendo descobertas — e compartilhando-as com"
+    },
+    {
+      "start": 7.07,
+      "end": 8.94,
+      "en": "people far from home.",
+      "pt-BR": "pessoas longe de casa."
+    },
+    {
+      "start": 12.2,
+      "end": 17.11,
+      "en": "On the Moon, another community has its own local network.",
+      "pt-BR": "Na Lua, outra comunidade tem sua própria rede local."
+    },
+    {
+      "start": 17.11,
+      "end": 20.55,
+      "en": "Across these worlds, communication follows different rhythms.",
+      "pt-BR": "Nesses mundos, a comunicação segue ritmos diferentes."
+    },
+    {
+      "start": 22.2,
+      "end": 25.81,
+      "en": "A researcher records a discovery for a colleague on Earth.",
+      "pt-BR": "Um pesquisador registra uma descoberta para uma colega na Terra."
+    },
+    {
+      "start": 25.81,
+      "end": 27.25,
+      "en": "His message is ready.",
+      "pt-BR": "Sua mensagem está pronta."
+    },
+    {
+      "start": 27.25,
+      "end": 29.78,
+      "en": "But a complete path may not be.",
+      "pt-BR": "Mas um caminho completo pode ainda não estar."
+    },
+    {
+      "start": 34.2,
+      "end": 36.73,
+      "en": "The faster route is blocked for now.",
+      "pt-BR": "A rota mais rápida está bloqueada por enquanto."
+    },
+    {
+      "start": 36.73,
+      "end": 38.53,
+      "en": "But another route is available.",
+      "pt-BR": "Mas outra rota está disponível."
+    },
+    {
+      "start": 38.53,
+      "end": 42.87,
+      "en": "It takes longer, yet it can already carry part of the discovery.",
+      "pt-BR": "Ela demora mais, mas já pode transportar parte da descoberta."
+    },
+    {
+      "start": 43.2,
+      "end": 45.41,
+      "en": "Some pieces can travel now.",
+      "pt-BR": "Algumas partes podem viajar agora."
+    },
+    {
+      "start": 45.41,
+      "end": 47.97,
+      "en": "Others wait for the faster link,",
+      "pt-BR": "Outras aguardam o enlace mais rápido,"
+    },
+    {
+      "start": 47.97,
+      "end": 50.18,
+      "en": "making use of both opportunities.",
+      "pt-BR": "aproveitando as duas oportunidades."
+    },
+    {
+      "start": 51.0,
+      "end": 55.32,
+      "en": "When the faster link opens, other pieces follow that route—and arrive",
+      "pt-BR": "Quando o enlace mais rápido se abre, outras partes seguem por essa rota — e chegam"
+    },
+    {
+      "start": 55.32,
+      "end": 57.68,
+      "en": "first, even though they left later.",
+      "pt-BR": "primeiro, embora tenham saído depois."
+    },
+    {
+      "start": 62.2,
+      "end": 65.41,
+      "en": "At the destination, each piece finds its place.",
+      "pt-BR": "No destino, cada parte encontra seu lugar."
+    },
+    {
+      "start": 65.41,
+      "end": 68.22,
+      "en": "Using both paths makes more capacity available.",
+      "pt-BR": "Usar os dois caminhos disponibiliza mais capacidade."
+    },
+    {
+      "start": 68.22,
+      "end": 72.63,
+      "en": "The pieces need not arrive in the order they were sent.",
+      "pt-BR": "As partes não precisam chegar na ordem em que foram enviadas."
+    },
+    {
+      "start": 78.2,
+      "end": 83.35,
+      "en": "When no contact is available, information waits within storage and",
+      "pt-BR": "Quando não há contato disponível, a informação aguarda dentro dos limites de armazenamento"
+    },
+    {
+      "start": 83.35,
+      "end": 84.38,
+      "en": "expiry limits.",
+      "pt-BR": "e de validade."
+    },
+    {
+      "start": 84.38,
+      "end": 89.52,
+      "en": "PRP applications can retain messages before transmission and send them",
+      "pt-BR": "Aplicações PRP podem reter mensagens antes da transmissão e enviá-las"
+    },
+    {
+      "start": 89.52,
+      "end": 91.07,
+      "en": "when contact returns.",
+      "pt-BR": "quando o contato retorna."
+    },
+    {
+      "start": 91.07,
+      "end": 93.13,
+      "en": "Distance still takes time.",
+      "pt-BR": "A distância continua exigindo tempo."
+    },
+    {
+      "start": 99.2,
+      "end": 104.5,
+      "en": "If a transmission is lost, a relay holding a valid copy can try again.",
+      "pt-BR": "Se uma transmissão se perder, um retransmissor que mantém uma cópia válida pode tentar novamente."
+    },
+    {
+      "start": 104.7,
+      "end": 108.6,
+      "en": "Recovery need not start all the way back at the source.",
+      "pt-BR": "A recuperação não precisa recomeçar lá na origem."
+    },
+    {
+      "start": 108.75,
+      "end": 115.0,
+      "en": "The source retains its copy until end-to-end confirmation, expiry, or cancellation.",
+      "pt-BR": "A origem mantém sua cópia até a confirmação de ponta a ponta, o fim da validade ou o cancelamento."
+    },
+    {
+      "start": 121.2,
+      "end": 123.36,
+      "en": "His colleague receives the discovery.",
+      "pt-BR": "Sua colega recebe a descoberta."
+    },
+    {
+      "start": 123.36,
+      "end": 129.42,
+      "en": "Life continues on Mars, on the Moon, and on Earth. Different networks. Different moments.",
+      "pt-BR": "A vida continua em Marte, na Lua e na Terra. Redes diferentes. Momentos diferentes."
+    },
+    {
+      "start": 129.42,
+      "end": 133.31,
+      "en": "A conversation that reaches beyond the line of sight.",
+      "pt-BR": "Uma conversa que vai além da linha de visada."
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+WEBVTT
+
+1
+00:00:01.000 --> 00:00:03.340
+Imagine a city on Mars.
+
+2
+00:00:03.340 --> 00:00:07.070
+People working, learning, making discoveries—and
+sharing them with
+
+3
+00:00:07.070 --> 00:00:08.940
+people far from home.
+
+4
+00:00:12.200 --> 00:00:17.110
+On the Moon, another community has its own local
+network.
+
+5
+00:00:17.110 --> 00:00:20.550
+Across these worlds, communication follows
+different rhythms.
+
+6
+00:00:22.200 --> 00:00:25.810
+A researcher records a discovery for a colleague
+on Earth.
+
+7
+00:00:25.810 --> 00:00:27.250
+His message is ready.
+
+8
+00:00:27.250 --> 00:00:29.780
+But a complete path may not be.
+
+9
+00:00:34.200 --> 00:00:36.730
+The faster route is blocked for now.
+
+10
+00:00:36.730 --> 00:00:38.530
+But another route is available.
+
+11
+00:00:38.530 --> 00:00:42.870
+It takes longer, yet it can already carry part
+of the discovery.
+
+12
+00:00:43.200 --> 00:00:45.410
+Some pieces can travel now.
+
+13
+00:00:45.410 --> 00:00:47.970
+Others wait for the faster link,
+
+14
+00:00:47.970 --> 00:00:50.180
+making use of both opportunities.
+
+15
+00:00:51.000 --> 00:00:55.320
+When the faster link opens, other pieces follow
+that route—and arrive
+
+16
+00:00:55.320 --> 00:00:57.680
+first, even though they left later.
+
+17
+00:01:02.200 --> 00:01:05.410
+At the destination, each piece finds its place.
+
+18
+00:01:05.410 --> 00:01:08.220
+Using both paths makes more capacity available.
+
+19
+00:01:08.220 --> 00:01:12.630
+The pieces need not arrive in the order they
+were sent.
+
+20
+00:01:18.200 --> 00:01:23.350
+When no contact is available, information waits
+within storage and
+
+21
+00:01:23.350 --> 00:01:24.380
+expiry limits.
+
+22
+00:01:24.380 --> 00:01:29.520
+PRP applications can retain messages before
+transmission and send them
+
+23
+00:01:29.520 --> 00:01:31.070
+when contact returns.
+
+24
+00:01:31.070 --> 00:01:33.130
+Distance still takes time.
+
+25
+00:01:39.200 --> 00:01:44.500
+If a transmission is lost, a relay holding a
+valid copy can try again.
+
+26
+00:01:44.700 --> 00:01:48.600
+Recovery need not start all the way back at the
+source.
+
+27
+00:01:48.750 --> 00:01:55.000
+The source retains its copy until end-to-end
+confirmation, expiry, or cancellation.
+
+28
+00:02:01.200 --> 00:02:03.360
+His colleague receives the discovery.
+
+29
+00:02:03.360 --> 00:02:09.420
+Life continues on Mars, on the Moon, and on
+Earth. Different networks. Different moments.
+
+30
+00:02:09.420 --> 00:02:13.310
+A conversation that reaches beyond the line of
+sight.
+

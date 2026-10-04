@@ -1,0 +1,313 @@
+{
+  "id": "V003",
+  "revision": "revision-v4",
+  "maturity": "M5",
+  "movieSHA256": "322fa90b4d53b3b3c567e495e44ab5e1044d354d50aa94ae57fc24aa86c67a75",
+  "movieBytes": 5706416,
+  "durationSeconds": 90,
+  "textRevision": "catalog-text-v1",
+  "title": {
+    "en": "One Person. Many Contexts. Your Choice.",
+    "pt-BR": "Uma pessoa. Muitos contextos. Sua escolha."
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/one-person-many-contexts-v4-captioned.mp4",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "summary": {
+    "en": "One woman appears in family, work and community settings. The film illustrates choosing different identities for different relationships and authorizing continuity when devices or network paths change.",
+    "pt-BR": "Uma mulher aparece em situações de família, trabalho e comunidade. O filme ilustra a escolha de identidades diferentes para cada relacionamento e a autorização de continuidade quando dispositivos ou caminhos de rede mudam."
+  },
+  "context": {
+    "en": "Approved final edition, M5. The shared-account failure is one illustrative dependency, not a statement about every service. Continuity requires authorization; separate contexts do not make every trace invisible.",
+    "pt-BR": "Edição final aprovada, M5. A falha da conta compartilhada ilustra uma dependência, não uma afirmação sobre todo serviço. A continuidade exige autorização; contextos separados não tornam todos os rastros invisíveis."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "title": {
+        "en": "A person in several contexts",
+        "pt-BR": "Uma pessoa em vários contextos"
+      },
+      "visual": {
+        "en": "A woman in a coral jacket and violet top stands in a bright kitchen. A phone on the table shows a grey-haired family member. Other scenes place her with a colleague at work and with a woman holding a book in a community reading space.",
+        "pt-BR": "Uma mulher de casaco coral e blusa violeta aparece numa cozinha iluminada. Um celular sobre a mesa mostra um familiar grisalho. Outras cenas a apresentam com um colega no trabalho e com uma mulher que segura um livro num espaço comunitário de leitura."
+      },
+      "end": 12,
+      "narration": {
+        "en": "You are many things to many people. A familiar face at home. A colleague at work. A voice in a community. Each relationship has its own context.",
+        "pt-BR": "Você é muitas coisas para muitas pessoas. Um rosto familiar em casa. Uma colega no trabalho. Uma voz numa comunidade. Cada relacionamento tem seu próprio contexto."
+      }
+    },
+    {
+      "start": 12,
+      "title": {
+        "en": "A shared dependency",
+        "pt-BR": "Uma dependência compartilhada"
+      },
+      "visual": {
+        "en": "The family, work and community scenes become three labeled panels. Lines from them converge on a box labeled “Provider account”, visually representing services that share one account.",
+        "pt-BR": "As cenas de família, trabalho e comunidade se tornam três painéis identificados. Linhas convergem deles para uma caixa chamada “Conta do provedor”, representando serviços que compartilham uma conta."
+      },
+      "end": 24,
+      "narration": {
+        "en": "But online, those contexts can end up tied to a single account. One profile. One provider. One place deciding whether you can still be reached.",
+        "pt-BR": "Mas, na internet, esses contextos podem acabar vinculados a uma única conta. Um perfil. Um provedor. Um lugar decidindo se ainda podem entrar em contato com você."
+      }
+    },
+    {
+      "start": 24,
+      "title": {
+        "en": "The account becomes unavailable",
+        "pt-BR": "A conta fica indisponível"
+      },
+      "visual": {
+        "en": "The account box changes from available to unavailable. The three panels remain visible, but their dependent connections are marked unavailable. The diagram shows how one lost account can affect several relationships.",
+        "pt-BR": "A caixa da conta passa de disponível a indisponível. Os três painéis permanecem visíveis, mas suas conexões dependentes são marcadas como indisponíveis. O diagrama mostra como perder uma conta pode afetar vários relacionamentos."
+      },
+      "end": 35,
+      "narration": {
+        "en": "When that account becomes unavailable, more than a login can disappear. Connections you depend on can disappear with it.",
+        "pt-BR": "Quando essa conta fica indisponível, mais do que um login pode desaparecer. Conexões das quais você depende podem desaparecer com ela."
+      }
+    },
+    {
+      "start": 35,
+      "title": {
+        "en": "Choosing contexts",
+        "pt-BR": "Escolher contextos"
+      },
+      "visual": {
+        "en": "The woman appears next to a conceptual context selector with Family, Work and Community. Work is selected. The three scenes then stand separately without the shared provider-account box.",
+        "pt-BR": "A mulher aparece ao lado de um seletor conceitual com Família, Trabalho e Comunidade. Trabalho é selecionado. As três cenas passam a ocupar espaços separados, sem a caixa de conta compartilhada do provedor."
+      },
+      "end": 49,
+      "narration": {
+        "en": "PRP starts with your autonomy. You can use different identities in different relationships. There is no requirement to place every part of your life under one universal identifier.",
+        "pt-BR": "O PRP começa pela sua autonomia. Você pode usar identidades diferentes em relacionamentos diferentes. Não há obrigação de colocar todas as partes da sua vida sob um identificador universal."
+      }
+    },
+    {
+      "start": 49,
+      "title": {
+        "en": "Different recognition",
+        "pt-BR": "Reconhecimentos diferentes"
+      },
+      "visual": {
+        "en": "Family, work and community vignettes show different relationship labels. The family name is Maya; the community pseudonym is Riverleaf. Work identifies a team member. These labels are shown within their own contexts rather than joined into one universal identifier.",
+        "pt-BR": "Vinhetas de família, trabalho e comunidade apresentam identificações diferentes. O nome familiar é Maya; o pseudônimo comunitário é Riverleaf. No trabalho, a identificação é de integrante da equipe. Os rótulos aparecem em seus próprios contextos, sem serem reunidos num identificador universal."
+      },
+      "end": 64,
+      "narration": {
+        "en": "Each relationship has its own rules for recognition and access. You choose which identities to use, which services to trust, and which contexts to keep separate.",
+        "pt-BR": "Cada relacionamento tem suas próprias regras de reconhecimento e acesso. Você escolhe quais identidades usar, em quais serviços confiar e quais contextos manter separados."
+      }
+    },
+    {
+      "start": 64,
+      "title": {
+        "en": "Authorized continuity",
+        "pt-BR": "Continuidade autorizada"
+      },
+      "visual": {
+        "en": "An existing phone and a new laptop show the same family contact. A visible approval on the existing device illustrates authorized continuity. The path line changes while the contact remains. Text notes that the other contexts are not linked and that separate contexts do not make all traces invisible.",
+        "pt-BR": "Um celular existente e um novo notebook mostram o mesmo contato familiar. Uma aprovação visível no dispositivo existente ilustra a continuidade autorizada. A linha do caminho muda enquanto o contato permanece. O texto informa que os outros contextos não são vinculados e que a separação não torna todos os rastros invisíveis."
+      },
+      "end": 80,
+      "narration": {
+        "en": "With continuity authorized, a new device or a different network need not mean starting over. The path can change while the relationship remains. Keeping contexts separate does not make every trace invisible.",
+        "pt-BR": "Com a continuidade autorizada, um novo dispositivo ou uma rede diferente não precisam significar começar de novo. O caminho pode mudar enquanto o relacionamento permanece. Manter os contextos separados não torna todos os rastros invisíveis."
+      }
+    },
+    {
+      "start": 80,
+      "title": {
+        "en": "Your choices",
+        "pt-BR": "Suas escolhas"
+      },
+      "visual": {
+        "en": "The closing presents the official PRP logo, “One person. Many contexts. Your choice.” and prp-protocol.org on a cream background.",
+        "pt-BR": "O encerramento apresenta o logotipo oficial PRP, “One person. Many contexts. Your choice.” e prp-protocol.org sobre fundo creme."
+      },
+      "end": 90,
+      "narration": {
+        "en": "Your identities. Your relationships. Your choices. PRP.",
+        "pt-BR": "Suas identidades. Seus relacionamentos. Suas escolhas. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 1.0,
+      "end": 3.1,
+      "en": "You are many things to many people.",
+      "pt-BR": "Você é muitas coisas para muitas pessoas."
+    },
+    {
+      "start": 3.36,
+      "end": 5.1,
+      "en": "A familiar face at home.",
+      "pt-BR": "Um rosto familiar em casa."
+    },
+    {
+      "start": 5.46,
+      "end": 6.76,
+      "en": "A colleague at work.",
+      "pt-BR": "Uma colega no trabalho."
+    },
+    {
+      "start": 7.2,
+      "end": 8.4,
+      "en": "A voice in a community.",
+      "pt-BR": "Uma voz numa comunidade."
+    },
+    {
+      "start": 9.04,
+      "end": 11.58,
+      "en": "Each relationship has its own context.",
+      "pt-BR": "Cada relacionamento tem seu próprio contexto."
+    },
+    {
+      "start": 12.21,
+      "end": 17.03,
+      "en": "But online, those contexts can end up tied to a single account.",
+      "pt-BR": "Mas, na internet, esses contextos podem acabar vinculados a uma única conta."
+    },
+    {
+      "start": 17.57,
+      "end": 18.66,
+      "en": "One profile.",
+      "pt-BR": "Um perfil."
+    },
+    {
+      "start": 18.91,
+      "end": 20.0,
+      "en": "One provider.",
+      "pt-BR": "Um provedor."
+    },
+    {
+      "start": 20.19,
+      "end": 22.89,
+      "en": "One place deciding whether you can still be reached.",
+      "pt-BR": "Um lugar decidindo se ainda podem entrar em contato com você."
+    },
+    {
+      "start": 24.21,
+      "end": 25.99,
+      "en": "When that account becomes unavailable,",
+      "pt-BR": "Quando essa conta fica indisponível,"
+    },
+    {
+      "start": 26.51,
+      "end": 28.25,
+      "en": "more than a login can disappear.",
+      "pt-BR": "mais do que um login pode desaparecer."
+    },
+    {
+      "start": 28.53,
+      "end": 31.13,
+      "en": "Connections you depend on can disappear with it.",
+      "pt-BR": "Conexões das quais você depende podem desaparecer com ela."
+    },
+    {
+      "start": 35.21,
+      "end": 37.61,
+      "en": "PRP starts with your autonomy.",
+      "pt-BR": "O PRP começa pela sua autonomia."
+    },
+    {
+      "start": 38.23,
+      "end": 41.27,
+      "en": "You can use different identities in different relationships.",
+      "pt-BR": "Você pode usar identidades diferentes em relacionamentos diferentes."
+    },
+    {
+      "start": 41.85,
+      "end": 44.88,
+      "en": "There is no requirement to place every part of your life",
+      "pt-BR": "Não há obrigação de colocar todas as partes da sua vida"
+    },
+    {
+      "start": 44.91,
+      "end": 47.01,
+      "en": "under one universal identifier.",
+      "pt-BR": "sob um identificador universal."
+    },
+    {
+      "start": 49.21,
+      "end": 53.61,
+      "en": "Each relationship has its own rules for recognition and access.",
+      "pt-BR": "Cada relacionamento tem suas próprias regras de reconhecimento e acesso."
+    },
+    {
+      "start": 54.11,
+      "end": 56.23,
+      "en": "You choose which identities to use,",
+      "pt-BR": "Você escolhe quais identidades usar,"
+    },
+    {
+      "start": 56.47,
+      "end": 57.66,
+      "en": "which services to trust,",
+      "pt-BR": "em quais serviços confiar"
+    },
+    {
+      "start": 57.69,
+      "end": 60.57,
+      "en": "and which contexts to keep separate.",
+      "pt-BR": "e quais contextos manter separados."
+    },
+    {
+      "start": 64.21,
+      "end": 65.85,
+      "en": "With continuity authorized,",
+      "pt-BR": "Com a continuidade autorizada,"
+    },
+    {
+      "start": 66.49,
+      "end": 70.83,
+      "en": "a new device or a different network need not mean starting over.",
+      "pt-BR": "um novo dispositivo ou uma rede diferente não precisam significar começar de novo."
+    },
+    {
+      "start": 71.17,
+      "end": 73.77,
+      "en": "The path can change while the relationship remains.",
+      "pt-BR": "O caminho pode mudar enquanto o relacionamento permanece."
+    },
+    {
+      "start": 74.59,
+      "end": 77.95,
+      "en": "Keeping contexts separate does not make every trace invisible.",
+      "pt-BR": "Manter os contextos separados não torna todos os rastros invisíveis."
+    },
+    {
+      "start": 80.21,
+      "end": 81.3,
+      "en": "Your identities.",
+      "pt-BR": "Suas identidades."
+    },
+    {
+      "start": 81.87,
+      "end": 82.96,
+      "en": "Your relationships.",
+      "pt-BR": "Seus relacionamentos."
+    },
+    {
+      "start": 83.51,
+      "end": 84.6,
+      "en": "Your choices.",
+      "pt-BR": "Suas escolhas."
+    },
+    {
+      "start": 85.27,
+      "end": 86.36,
+      "en": "PRP.",
+      "pt-BR": "PRP."
+    }
+  ]
+}

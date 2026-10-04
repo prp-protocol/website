@@ -1,0 +1,627 @@
+{
+  "id": "V005",
+  "revision": "full-review-v2",
+  "maturity": "M2",
+  "movieSHA256": "940c6f343c4ee768d9719fd8903d36fcc33d735d8a85fcdee8d1d8c4879e4cf9",
+  "movieBytes": 26499169,
+  "durationSeconds": 180.291667,
+  "textRevision": "catalog-text-v1",
+  "title": {
+    "en": "Mobile, Without the Operator",
+    "pt-BR": "Mobilidade sem a operadora"
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/mobile-without-the-operator-full-review-v2.mp4",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "summary": {
+    "en": "A woman moves from her home into the city. Phones, a household sensor, several connectivity providers, local mesh participants and civil-defense teams illustrate mobility organized around identities and relationships.",
+    "pt-BR": "Uma mulher sai de casa e circula pela cidade. Celulares, um sensor doméstico, vários provedores de conectividade, participantes de uma mesh local e equipes de defesa civil ilustram mobilidade organizada em torno de identidades e relacionamentos."
+  },
+  "context": {
+    "en": "Narrated illustrated animatic (M2); character and groupcast animation remain unfinished. These are architectural possibilities requiring compatible devices, authorized paths and participating infrastructure. The QR illustration is not a live device enrollment service or an access credential. Group membership, admission and media behavior also require the relevant application and profile.",
+    "pt-BR": "Animatic ilustrado e narrado (M2); a animação dos personagens e do groupcast permanece incompleta. São possibilidades arquiteturais que exigem dispositivos compatíveis, caminhos autorizados e infraestrutura participante. A ilustração do QR não é um serviço de cadastro de dispositivo ativo nem uma credencial de acesso. Participação no grupo, admissão e comportamento da mídia também dependem da aplicação e do perfil correspondentes."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "title": {
+        "en": "Identities instead of numbers",
+        "pt-BR": "Identidades em vez de números"
+      },
+      "visual": {
+        "en": "A woman with curly hair and a teal shirt looks at her phone in a bright home. The phone shows contacts with portraits and separate context icons, placing people and relationships at the center of the interface.",
+        "pt-BR": "Uma mulher de cabelo encaracolado e camisa verde-azulada olha seu celular numa casa iluminada. A tela mostra contatos com retratos e ícones de contextos separados, colocando pessoas e relacionamentos no centro da interface."
+      },
+      "end": 20.75,
+      "narration": {
+        "en": "Imagine a device built for PRP. No SIM card. No phone number. You connect through identities and relationships. Personal life. Work. Different contexts, different identities. You choose who you communicate with, not a number assigned by an operator.",
+        "pt-BR": "Imagine um dispositivo feito para o PRP. Sem cartão SIM. Sem número de telefone. Você se conecta por identidades e relacionamentos. Vida pessoal. Trabalho. Contextos diferentes, identidades diferentes. Você escolhe com quem se comunica, não um número atribuído por uma operadora."
+      }
+    },
+    {
+      "start": 20.75,
+      "title": {
+        "en": "A device out of the box",
+        "pt-BR": "Um dispositivo fora da embalagem"
+      },
+      "visual": {
+        "en": "The woman holds a small round white sensor beside its open box. A printed QR code appears on the device. A close-up then shows her phone framing the code and a chain-link symbol, illustrating establishment of a relationship rather than activation of network connectivity.",
+        "pt-BR": "A mulher segura um pequeno sensor branco redondo ao lado da embalagem aberta. Um QR impresso aparece no dispositivo. Depois, um close mostra o celular enquadrando o código e um símbolo de elo, ilustrando o estabelecimento de um relacionamento, e não a ativação da conectividade de rede."
+      },
+      "end": 44.541667,
+      "narration": {
+        "en": "A home device can arrive with its own identity, created at the factory without consulting an authority or receiving a delegation. Take it out of the box. It needs no manual internet setup, SIM, or manufacturer's controller. Scan its printed QR code to establish your relationship— not to activate its connection.",
+        "pt-BR": "Um dispositivo doméstico pode chegar com sua própria identidade, criada na fábrica sem consultar uma autoridade ou receber uma delegação. Tire-o da embalagem. Ele não precisa de configuração manual de internet, SIM ou controlador do fabricante. Escaneie seu QR code impresso para estabelecer seu relacionamento — não para ativar sua conexão."
+      }
+    },
+    {
+      "start": 44.541667,
+      "title": {
+        "en": "Several providers and technologies",
+        "pt-BR": "Vários provedores e tecnologias"
+      },
+      "visual": {
+        "en": "Two stacked choices on a phone use a blue hexagon and an amber diamond. Each includes symbols for different connection media. The conceptual screen illustrates options instead of a single exclusive provider.",
+        "pt-BR": "Duas opções empilhadas na tela de um celular usam um hexágono azul e um losango âmbar. Cada uma inclui símbolos de diferentes meios de conexão. A tela conceitual ilustra opções em vez de um único provedor exclusivo."
+      },
+      "end": 63.708333,
+      "narration": {
+        "en": "The same connectivity provider can serve you on behalf of several operators, across different connection technologies. An operator becomes one option among others, not the exclusive owner of your access. Your relationships are not tied to a single subscription.",
+        "pt-BR": "O mesmo provedor de conectividade pode atender você em nome de várias operadoras, por diferentes tecnologias de conexão. Uma operadora se torna uma opção entre outras, não a dona exclusiva do seu acesso. Seus relacionamentos não ficam presos a uma única assinatura."
+      }
+    },
+    {
+      "start": 63.708333,
+      "title": {
+        "en": "Home, city and satellite",
+        "pt-BR": "Casa, cidade e satélite"
+      },
+      "visual": {
+        "en": "The woman, now with a backpack, stands near home networking equipment. City antennas, a rooftop satellite dish and an inset satellite above Earth illustrate different reaches and ways to carry communication.",
+        "pt-BR": "A mulher, agora com mochila, aparece perto de um equipamento de rede doméstico. Antenas urbanas, uma parabólica num terraço e um quadro com um satélite sobre a Terra ilustram alcances e meios diferentes de transportar a comunicação."
+      },
+      "end": 82.708333,
+      "narration": {
+        "en": "At home, Wi-Fi connects through your local equipment. Across the city, antennas provide metropolitan coverage. Satellite links offer another way to reach wider networks. Different equipment, different reach. More than one way to carry the same relationships.",
+        "pt-BR": "Em casa, o Wi-Fi se conecta pelo seu equipamento local. Pela cidade, antenas fornecem cobertura metropolitana. Enlaces por satélite oferecem outra forma de alcançar redes mais amplas. Equipamentos diferentes, alcances diferentes. Mais de uma forma de transportar os mesmos relacionamentos."
+      }
+    },
+    {
+      "start": 82.708333,
+      "title": {
+        "en": "Neighbors form a mesh",
+        "pt-BR": "Vizinhos formam uma mesh"
+      },
+      "visual": {
+        "en": "In a public square, several people hold phones. Teal dotted lines link the nearby participants to one another. The connections represent cooperation among neighboring devices.",
+        "pt-BR": "Numa praça, várias pessoas seguram celulares. Linhas pontilhadas verde-azuladas ligam os participantes próximos entre si. As conexões representam a cooperação entre dispositivos vizinhos."
+      },
+      "end": 103.5,
+      "narration": {
+        "en": "Devices can also connect directly through Wi-Fi Direct. Subscribers can form mesh networks, carrying communication through participating neighbors. Each chooses whether to contribute and on what terms. The network grows through participation, not through a mandatory central operator.",
+        "pt-BR": "Dispositivos também podem se conectar diretamente por Wi-Fi Direct. Assinantes podem formar redes mesh, transportando a comunicação por vizinhos participantes. Cada um escolhe se contribui e sob quais condições. A rede cresce pela participação, não por uma operadora central obrigatória."
+      }
+    },
+    {
+      "start": 103.5,
+      "title": {
+        "en": "Continuity along the journey",
+        "pt-BR": "Continuidade durante o percurso"
+      },
+      "visual": {
+        "en": "The same woman appears with a field team in orange safety vests near a tent. The edit follows her between settings while the narration distinguishes her relationships from the changing paths that carry them.",
+        "pt-BR": "A mesma mulher aparece com uma equipe de campo de coletes laranja perto de uma tenda. A montagem acompanha sua passagem entre ambientes enquanto a narração distingue seus relacionamentos dos caminhos que mudam ao transportá-los."
+      },
+      "end": 122.25,
+      "narration": {
+        "en": "As you move, connections and providers can change. PRP separates the relationship from the path carrying it. Where another authorized path is available, communication can continue that way. You do not need a new phone number, or to rebuild your relationships.",
+        "pt-BR": "Enquanto você se desloca, conexões e provedores podem mudar. O PRP separa o relacionamento do caminho que o transporta. Onde outro caminho autorizado estiver disponível, a comunicação pode continuar por ele. Você não precisa de um novo número de telefone nem de reconstruir seus relacionamentos."
+      }
+    },
+    {
+      "start": 122.25,
+      "title": {
+        "en": "A city sensor",
+        "pt-BR": "Um sensor urbano"
+      },
+      "visual": {
+        "en": "A technician in an orange safety vest checks a small box mounted beside a pipe on a stone wall. The box has a visible code label and a status light; the technician holds a phone beside it.",
+        "pt-BR": "Um técnico de colete laranja verifica uma pequena caixa montada junto a uma tubulação numa parede de pedra. A caixa tem uma etiqueta com código e uma luz de estado; o técnico segura um celular ao lado dela."
+      },
+      "end": 129.5,
+      "narration": {
+        "en": "The same autonomy extends to smart cities, from street equipment to flood sensors.",
+        "pt-BR": "A mesma autonomia se estende às cidades inteligentes, dos equipamentos de rua aos sensores de inundação."
+      }
+    },
+    {
+      "start": 129.5,
+      "title": {
+        "en": "An authorized group",
+        "pt-BR": "Um grupo autorizado"
+      },
+      "visual": {
+        "en": "A civil-defense coordinator points to a large screen. An amber branching tree connects a central message to several scenes of people and field teams. Later, people in safety vests use handheld phones. The diagram illustrates branching distribution and the narration introduces group voice communication across operators.",
+        "pt-BR": "Uma coordenadora de defesa civil aponta para uma tela grande. Uma árvore âmbar ramificada conecta uma mensagem central a várias cenas de pessoas e equipes de campo. Depois, pessoas de colete usam celulares. O diagrama ilustra distribuição ramificada, e a narração apresenta comunicação de voz em grupo entre operadoras."
+      },
+      "end": 155.541667,
+      "narration": {
+        "en": "Across a city, civil defense can reach thousands through an authorized group. PRP groupcast provides native multicast across operators: the message branches through the network, rather than requiring a separate send to every recipient. For field teams, push-to-talk carries a speaker's voice to the group, even across different operators.",
+        "pt-BR": "Por toda a cidade, a defesa civil pode alcançar milhares por meio de um grupo autorizado. O groupcast PRP oferece multicast nativo entre operadoras: a mensagem se ramifica pela rede, em vez de exigir um envio separado a cada destinatário. Para equipes em campo, o push-to-talk leva a voz de quem fala ao grupo, mesmo entre operadoras diferentes."
+      }
+    },
+    {
+      "start": 155.541667,
+      "title": {
+        "en": "Arrival and closing",
+        "pt-BR": "Chegada e encerramento"
+      },
+      "visual": {
+        "en": "The woman is with the field team; the film returns to the city and satellite imagery. A cream end card carries the PRP logo, “Mobile, Without the Operator” and prp-protocol.org. The final soundtrack adds the spoken signature “PRP” at about 2:58.",
+        "pt-BR": "A mulher está com a equipe de campo; o filme retorna às imagens da cidade e do satélite. Um cartão final creme apresenta o logotipo PRP, “Mobile, Without the Operator” e prp-protocol.org. A trilha final acrescenta a assinatura falada “PRP” por volta de 2min58s."
+      },
+      "end": 180.291667,
+      "narration": {
+        "en": "You arrive. The conversation continues. No SIM card. No telephone numbering plan defining how people reach you. Identities and relationships, carried by networks you can choose and help build. Mobile, without a mandatory central operator. Connected, on your terms. PRP.",
+        "pt-BR": "Você chega. A conversa continua. Sem cartão SIM. Sem um plano de numeração telefônica definindo como as pessoas encontram você. Identidades e relacionamentos, transportados por redes que você pode escolher e ajudar a construir. Mobilidade, sem uma operadora central obrigatória. Conectado, nos seus termos. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 1.0,
+      "end": 3.66,
+      "en": "Imagine a device built for PRP.",
+      "pt-BR": "Imagine um dispositivo feito para o PRP."
+    },
+    {
+      "start": 4.1,
+      "end": 5.26,
+      "en": "No SIM card.",
+      "pt-BR": "Sem cartão SIM."
+    },
+    {
+      "start": 5.74,
+      "end": 6.66,
+      "en": "No phone number.",
+      "pt-BR": "Sem número de telefone."
+    },
+    {
+      "start": 7.08,
+      "end": 9.7,
+      "en": "You connect through identities and relationships.",
+      "pt-BR": "Você se conecta por identidades e relacionamentos."
+    },
+    {
+      "start": 10.18,
+      "end": 12.06,
+      "en": "Personal life. Work.",
+      "pt-BR": "Vida pessoal. Trabalho."
+    },
+    {
+      "start": 12.26,
+      "end": 14.52,
+      "en": "Different contexts, different identities.",
+      "pt-BR": "Contextos diferentes, identidades diferentes."
+    },
+    {
+      "start": 15.46,
+      "end": 17.27,
+      "en": "You choose who you communicate with,",
+      "pt-BR": "Você escolhe com quem se comunica,"
+    },
+    {
+      "start": 17.3,
+      "end": 19.38,
+      "en": "not a number assigned by an operator.",
+      "pt-BR": "não um número atribuído por uma operadora."
+    },
+    {
+      "start": 21.1,
+      "end": 23.59,
+      "en": "A home device can arrive with its own identity,",
+      "pt-BR": "Um dispositivo doméstico pode chegar com sua própria identidade,"
+    },
+    {
+      "start": 23.62,
+      "end": 25.37,
+      "en": "created at the factory",
+      "pt-BR": "criada na fábrica"
+    },
+    {
+      "start": 25.4,
+      "end": 26.97,
+      "en": "without consulting an authority",
+      "pt-BR": "sem consultar uma autoridade"
+    },
+    {
+      "start": 27.0,
+      "end": 28.86,
+      "en": "or receiving a delegation.",
+      "pt-BR": "ou receber uma delegação."
+    },
+    {
+      "start": 29.4,
+      "end": 30.74,
+      "en": "Take it out of the box.",
+      "pt-BR": "Tire-o da embalagem."
+    },
+    {
+      "start": 31.36,
+      "end": 33.7,
+      "en": "It needs no manual internet setup,",
+      "pt-BR": "Ele não precisa de configuração manual de internet,"
+    },
+    {
+      "start": 33.98,
+      "end": 36.52,
+      "en": "SIM, or manufacturer's controller.",
+      "pt-BR": "SIM ou controlador do fabricante."
+    },
+    {
+      "start": 37.24,
+      "end": 38.69,
+      "en": "Scan its printed QR code",
+      "pt-BR": "Escaneie seu QR code impresso"
+    },
+    {
+      "start": 38.72,
+      "end": 41.23,
+      "en": "to establish your relationship—",
+      "pt-BR": "para estabelecer seu relacionamento —"
+    },
+    {
+      "start": 41.26,
+      "end": 43.02,
+      "en": "not to activate its connection.",
+      "pt-BR": "não para ativar sua conexão."
+    },
+    {
+      "start": 44.892,
+      "end": 47.302,
+      "en": "The same connectivity provider can serve you",
+      "pt-BR": "O mesmo provedor de conectividade pode atender você"
+    },
+    {
+      "start": 47.332,
+      "end": 49.042,
+      "en": "on behalf of several operators,",
+      "pt-BR": "em nome de várias operadoras,"
+    },
+    {
+      "start": 49.072,
+      "end": 51.972,
+      "en": "across different connection technologies.",
+      "pt-BR": "por diferentes tecnologias de conexão."
+    },
+    {
+      "start": 52.632,
+      "end": 55.692,
+      "en": "An operator becomes one option among others,",
+      "pt-BR": "Uma operadora se torna uma opção entre outras,"
+    },
+    {
+      "start": 56.072,
+      "end": 58.452,
+      "en": "not the exclusive owner of your access.",
+      "pt-BR": "não a dona exclusiva do seu acesso."
+    },
+    {
+      "start": 58.992,
+      "end": 60.902,
+      "en": "Your relationships are not tied",
+      "pt-BR": "Seus relacionamentos não ficam presos"
+    },
+    {
+      "start": 60.932,
+      "end": 62.312,
+      "en": "to a single subscription.",
+      "pt-BR": "a uma única assinatura."
+    },
+    {
+      "start": 64.058,
+      "end": 65.668,
+      "en": "At home, Wi-Fi connects",
+      "pt-BR": "Em casa, o Wi-Fi se conecta"
+    },
+    {
+      "start": 65.698,
+      "end": 67.438,
+      "en": "through your local equipment.",
+      "pt-BR": "pelo seu equipamento local."
+    },
+    {
+      "start": 68.018,
+      "end": 69.888,
+      "en": "Across the city, antennas provide",
+      "pt-BR": "Pela cidade, antenas fornecem"
+    },
+    {
+      "start": 69.918,
+      "end": 71.538,
+      "en": "metropolitan coverage.",
+      "pt-BR": "cobertura metropolitana."
+    },
+    {
+      "start": 72.498,
+      "end": 74.008,
+      "en": "Satellite links offer another way",
+      "pt-BR": "Enlaces por satélite oferecem outra forma"
+    },
+    {
+      "start": 74.038,
+      "end": 75.638,
+      "en": "to reach wider networks.",
+      "pt-BR": "de alcançar redes mais amplas."
+    },
+    {
+      "start": 76.518,
+      "end": 77.998,
+      "en": "Different equipment, different reach.",
+      "pt-BR": "Equipamentos diferentes, alcances diferentes."
+    },
+    {
+      "start": 78.658,
+      "end": 79.808,
+      "en": "More than one way to carry",
+      "pt-BR": "Mais de uma forma de transportar"
+    },
+    {
+      "start": 79.838,
+      "end": 81.118,
+      "en": "the same relationships.",
+      "pt-BR": "os mesmos relacionamentos."
+    },
+    {
+      "start": 83.058,
+      "end": 85.168,
+      "en": "Devices can also connect directly",
+      "pt-BR": "Dispositivos também podem se conectar diretamente"
+    },
+    {
+      "start": 85.198,
+      "end": 86.458,
+      "en": "through Wi-Fi Direct.",
+      "pt-BR": "por Wi-Fi Direct."
+    },
+    {
+      "start": 87.118,
+      "end": 89.068,
+      "en": "Subscribers can form mesh networks,",
+      "pt-BR": "Assinantes podem formar redes mesh,"
+    },
+    {
+      "start": 89.098,
+      "end": 90.468,
+      "en": "carrying communication",
+      "pt-BR": "transportando a comunicação"
+    },
+    {
+      "start": 90.498,
+      "end": 92.938,
+      "en": "through participating neighbors.",
+      "pt-BR": "por vizinhos participantes."
+    },
+    {
+      "start": 93.398,
+      "end": 95.108,
+      "en": "Each chooses whether to contribute",
+      "pt-BR": "Cada um escolhe se contribui"
+    },
+    {
+      "start": 95.138,
+      "end": 96.638,
+      "en": "and on what terms.",
+      "pt-BR": "e sob quais condições."
+    },
+    {
+      "start": 97.198,
+      "end": 99.008,
+      "en": "The network grows through participation,",
+      "pt-BR": "A rede cresce pela participação,"
+    },
+    {
+      "start": 99.038,
+      "end": 102.018,
+      "en": "not through a mandatory central operator.",
+      "pt-BR": "não por uma operadora central obrigatória."
+    },
+    {
+      "start": 103.85,
+      "end": 104.58,
+      "en": "As you move,",
+      "pt-BR": "Enquanto você se desloca,"
+    },
+    {
+      "start": 104.61,
+      "end": 107.09,
+      "en": "connections and providers can change.",
+      "pt-BR": "conexões e provedores podem mudar."
+    },
+    {
+      "start": 107.65,
+      "end": 109.4,
+      "en": "PRP separates the relationship",
+      "pt-BR": "O PRP separa o relacionamento"
+    },
+    {
+      "start": 109.43,
+      "end": 111.43,
+      "en": "from the path carrying it.",
+      "pt-BR": "do caminho que o transporta."
+    },
+    {
+      "start": 111.81,
+      "end": 113.68,
+      "en": "Where another authorized path is available,",
+      "pt-BR": "Onde outro caminho autorizado estiver disponível,"
+    },
+    {
+      "start": 113.71,
+      "end": 116.23,
+      "en": "communication can continue that way.",
+      "pt-BR": "a comunicação pode continuar por ele."
+    },
+    {
+      "start": 116.73,
+      "end": 118.48,
+      "en": "You do not need a new phone number,",
+      "pt-BR": "Você não precisa de um novo número de telefone"
+    },
+    {
+      "start": 118.51,
+      "end": 120.65,
+      "en": "or to rebuild your relationships.",
+      "pt-BR": "nem de reconstruir seus relacionamentos."
+    },
+    {
+      "start": 122.6,
+      "end": 125.23,
+      "en": "The same autonomy extends to smart cities,",
+      "pt-BR": "A mesma autonomia se estende às cidades inteligentes,"
+    },
+    {
+      "start": 125.26,
+      "end": 128.02,
+      "en": "from street equipment to flood sensors.",
+      "pt-BR": "dos equipamentos de rua aos sensores de inundação."
+    },
+    {
+      "start": 129.85,
+      "end": 130.95,
+      "en": "Across a city,",
+      "pt-BR": "Por toda a cidade,"
+    },
+    {
+      "start": 131.25,
+      "end": 133.06,
+      "en": "civil defense can reach thousands",
+      "pt-BR": "a defesa civil pode alcançar milhares"
+    },
+    {
+      "start": 133.09,
+      "end": 134.99,
+      "en": "through an authorized group.",
+      "pt-BR": "por meio de um grupo autorizado."
+    },
+    {
+      "start": 135.51,
+      "end": 138.24,
+      "en": "PRP groupcast provides native multicast",
+      "pt-BR": "O groupcast PRP oferece multicast nativo"
+    },
+    {
+      "start": 138.27,
+      "end": 139.61,
+      "en": "across operators:",
+      "pt-BR": "entre operadoras:"
+    },
+    {
+      "start": 140.25,
+      "end": 142.71,
+      "en": "the message branches through the network,",
+      "pt-BR": "a mensagem se ramifica pela rede,"
+    },
+    {
+      "start": 143.23,
+      "end": 145.26,
+      "en": "rather than requiring a separate send",
+      "pt-BR": "em vez de exigir um envio separado"
+    },
+    {
+      "start": 145.29,
+      "end": 146.77,
+      "en": "to every recipient.",
+      "pt-BR": "a cada destinatário."
+    },
+    {
+      "start": 147.43,
+      "end": 148.71,
+      "en": "For field teams,",
+      "pt-BR": "Para equipes em campo,"
+    },
+    {
+      "start": 148.95,
+      "end": 151.83,
+      "en": "push-to-talk carries a speaker's voice to the group,",
+      "pt-BR": "o push-to-talk leva a voz de quem fala ao grupo,"
+    },
+    {
+      "start": 152.07,
+      "end": 153.97,
+      "en": "even across different operators.",
+      "pt-BR": "mesmo entre operadoras diferentes."
+    },
+    {
+      "start": 155.892,
+      "end": 156.432,
+      "en": "You arrive.",
+      "pt-BR": "Você chega."
+    },
+    {
+      "start": 156.952,
+      "end": 158.612,
+      "en": "The conversation continues.",
+      "pt-BR": "A conversa continua."
+    },
+    {
+      "start": 159.072,
+      "end": 160.332,
+      "en": "No SIM card.",
+      "pt-BR": "Sem cartão SIM."
+    },
+    {
+      "start": 160.812,
+      "end": 162.202,
+      "en": "No telephone numbering plan",
+      "pt-BR": "Sem um plano de numeração telefônica"
+    },
+    {
+      "start": 162.232,
+      "end": 164.472,
+      "en": "defining how people reach you.",
+      "pt-BR": "definindo como as pessoas encontram você."
+    },
+    {
+      "start": 164.792,
+      "end": 166.572,
+      "en": "Identities and relationships,",
+      "pt-BR": "Identidades e relacionamentos,"
+    },
+    {
+      "start": 166.932,
+      "end": 169.142,
+      "en": "carried by networks you can choose",
+      "pt-BR": "transportados por redes que você pode escolher"
+    },
+    {
+      "start": 169.172,
+      "end": 170.382,
+      "en": "and help build.",
+      "pt-BR": "e ajudar a construir."
+    },
+    {
+      "start": 170.412,
+      "end": 174.052,
+      "en": "Mobile, without a mandatory central operator.",
+      "pt-BR": "Mobilidade, sem uma operadora central obrigatória."
+    },
+    {
+      "start": 174.532,
+      "end": 175.972,
+      "en": "Connected, on your terms.",
+      "pt-BR": "Conectado, nos seus termos."
+    },
+    {
+      "start": 178.0,
+      "end": 179.122,
+      "en": "PRP.",
+      "pt-BR": "PRP."
+    }
+  ]
+}
