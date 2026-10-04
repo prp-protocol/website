@@ -1,0 +1,134 @@
+WEBVTT
+
+1
+00:00:00.650 --> 00:00:04.920
+Ele tem uma história para contar e um celular
+para transmiti-la.
+
+2
+00:00:04.920 --> 00:00:07.770
+Do outro lado, pessoas querem assistir.
+
+3
+00:00:07.770 --> 00:00:14.540
+Mas como alcançar uma audiência enorme sem
+enviar uma cópia do vídeo para cada pessoa?
+
+4
+00:00:15.470 --> 00:00:19.340
+A distribuição não precisa aparecer pronta.
+
+5
+00:00:19.340 --> 00:00:24.940
+Quando sessões da mesma transmissão seguem pelo
+mesmo trecho,
+
+6
+00:00:24.940 --> 00:00:29.680
+um agregador pode cooperar com seu vizinho e
+transferir a ele essas sessões duplicadas.
+
+7
+00:00:29.680 --> 00:00:35.280
+O equipamento seguinte passa a distribuir os
+dados para os destinos daquele ramo.
+
+8
+00:00:36.220 --> 00:00:39.900
+Mais adiante, a mesma cooperação pode acontecer
+de novo.
+
+9
+00:00:39.900 --> 00:00:45.870
+Ao simplificar as rotas, um vizinho transfere
+sessões duplicadas para o equipamento seguinte,
+
+10
+00:00:45.870 --> 00:00:48.170
+que assume uma nova ramificação.
+
+11
+00:00:48.170 --> 00:00:51.390
+A árvore se expande por essas cooperações
+locais.
+
+12
+00:00:51.390 --> 00:00:57.830
+O criador continua falando; a distribuição vai
+se organizando ao longo dos caminhos até os
+espectadores.
+
+13
+00:00:58.760 --> 00:01:01.050
+A transmissão tem sua própria referência.
+
+14
+00:01:01.050 --> 00:01:06.390
+Ela não é a identidade do criador, nem a sessão
+usada naquele momento.
+
+15
+00:01:06.390 --> 00:01:11.350
+Trocar a sessão não precisa significar criar
+outra transmissão
+
+16
+00:01:11.350 --> 00:01:13.260
+ou trocar quem está autorizado a transmitir.
+
+17
+00:01:14.180 --> 00:01:19.940
+Quem ajuda a distribuir não ganha o direito de
+falar em nome dele.
+
+18
+00:01:19.940 --> 00:01:25.700
+Os agregadores podem replicar dados protegidos
+sem se tornarem a fonte nem assumirem a admissão
+dos espectadores.
+
+19
+00:01:25.700 --> 00:01:29.400
+A autenticidade do conteúdo precisa continuar
+verificável por quem recebe.
+
+20
+00:01:30.340 --> 00:01:34.120
+Não é preciso tornar uma plataforma específica
+dona dessa distribuição.
+
+21
+00:01:34.120 --> 00:01:40.270
+Mas continuam sendo necessários caminhos,
+capacidade e participantes dispostos a
+transportar os dados.
+
+22
+00:01:40.270 --> 00:01:43.580
+A aplicação cuida da câmera e da reprodução.
+
+23
+00:01:43.580 --> 00:01:47.360
+O protocolo organiza a comunicação que sustenta
+a transmissão.
+
+24
+00:01:48.260 --> 00:01:51.450
+Uma pessoa pode ser a fonte.
+
+25
+00:01:51.450 --> 00:01:54.650
+Muitos participantes podem ampliar seu alcance.
+
+26
+00:01:54.650 --> 00:01:55.710
+Uma transmissão,
+
+27
+00:01:55.710 --> 00:01:56.770
+muitos espectadores.
+
+28
+00:01:56.770 --> 00:01:57.310
+PRP.
+

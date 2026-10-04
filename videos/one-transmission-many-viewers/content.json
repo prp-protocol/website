@@ -1,0 +1,316 @@
+{
+  "id": "V012",
+  "revision": "finalization-v1",
+  "textRevision": "text-v1",
+  "movieURL": "https://prp-protocol.org/assets/videos/one-transmission-many-viewers-finalization-v1.mp4",
+  "movieSHA256": "66d2882137493df089ac7f1d39d98dbb6558bf2cf8242ddc3ce727d2561ef0e1",
+  "movieBytes": 7519742,
+  "durationSeconds": 120.833333,
+  "frames": 2900,
+  "fps": 24,
+  "maturity": "M4 conceptual film",
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "websitePublishedAt": "2026-10-04T14:34:41Z",
+  "textPreparedAt": "2026-10-04",
+  "credits": "PRP Editorial — AI-assisted illustrations, synthetic narration and animated vector diagrams.",
+  "title": {
+    "en": "One Transmission. Many Viewers.",
+    "pt-BR": "Uma transmissão, muitos espectadores"
+  },
+  "summary": {
+    "en": "An independent creator shares an urban garden from a single phone. Animated diagrams illustrate how neighboring PRP participants cooperate to expand a multicast distribution tree, while the transmission reference and source authority remain distinct from the paths carrying the data.",
+    "pt-BR": "Um criador independente mostra uma horta urbana usando um único celular. Diagramas animados ilustram como participantes PRP vizinhos cooperam para expandir uma árvore de distribuição multicast, mantendo a referência da transmissão e a autoridade da fonte distintas dos caminhos que transportam os dados."
+  },
+  "context": {
+    "en": "This is a conceptual film, not a functional demonstration or a scale benchmark. The potential audience of millions is illustrative; reach depends on available paths, participating aggregators and capacity. Distribution does not transfer authorship or viewer-admission authority.",
+    "pt-BR": "Este é um filme conceitual, não uma demonstração funcional ou um teste de escala. A audiência potencial de milhões é ilustrativa; o alcance depende de caminhos disponíveis, agregadores participantes e capacidade. Distribuir os dados não transfere autoria nem autoridade sobre a admissão de espectadores."
+  },
+  "chapters": [
+    {
+      "start": 0,
+      "end": 15.166667,
+      "title": {
+        "en": "One person, one phone",
+        "pt-BR": "Uma pessoa, um celular"
+      },
+      "visual": {
+        "en": "In a rooftop garden, a man with short dark hair, glasses and a terracotta shirt holds a seedling beside a phone on a small tripod. Brief cuts show viewers at home, in a workshop and in a community space. He blinks, moves his mouth and makes a small gesture with his free hand. A dissolve introduces the distribution diagram.",
+        "pt-BR": "Numa horta sobre um edifício, um homem de cabelo escuro curto, óculos e camiseta terracota segura uma muda ao lado de um celular em um pequeno tripé. Cortes breves mostram espectadores em casa, numa oficina e num espaço comunitário. Ele pisca, movimenta a boca e faz um pequeno gesto com a mão livre. Uma transição por dissolução introduz o diagrama de distribuição."
+      },
+      "narration": {
+        "en": "He has a story to tell and a phone to share it. On the other side, people want to watch. But how can he reach a huge audience without sending a separate copy of the video to every person?",
+        "pt-BR": "Ele tem uma história para contar e um celular para transmiti-la. Do outro lado, pessoas querem assistir. Mas como alcançar uma audiência enorme sem enviar uma cópia do vídeo para cada pessoa?"
+      }
+    },
+    {
+      "start": 15.166667,
+      "end": 35.916667,
+      "title": {
+        "en": "The tree takes shape",
+        "pt-BR": "A árvore começa a se formar"
+      },
+      "visual": {
+        "en": "On a cream background, a phone at the left connects to neighbor A, then to device B and viewers farther right. Two curved routes initially connect A and B. Teal particles represent data flowing along the routes. Amber tokens labeled s1 and s2 move from A toward B, representing session transfers. One duplicate route fades, and a ring highlights B as it takes over the fanout: distributing onward to the branch's destinations. The labels progress from “Shared route” to “Session transfer” and “B takes over the fanout”.",
+        "pt-BR": "Sobre fundo creme, um celular à esquerda se conecta ao vizinho A, depois ao equipamento B e a espectadores mais à direita. Inicialmente, duas rotas curvas ligam A a B. Partículas verde-azuladas representam os dados que percorrem as rotas. Marcadores âmbar identificados como s1 e s2 avançam de A para B, representando transferências de sessões. Uma rota duplicada desaparece e um anel destaca B, que assume o fanout: a distribuição para os destinos daquele ramo. Os rótulos avançam de “Rota compartilhada” para “Transferência de sessões” e “B assume a ramificação”."
+      },
+      "narration": {
+        "en": "The distribution does not have to appear fully formed. When sessions of the same transmission follow the same stretch, an aggregator can cooperate with its neighbor and transfer those duplicate sessions to it. The next device then distributes the data to the destinations on that branch.",
+        "pt-BR": "A distribuição não precisa aparecer pronta. Quando sessões da mesma transmissão seguem pelo mesmo trecho, um agregador pode cooperar com seu vizinho e transferir a ele essas sessões duplicadas. O equipamento seguinte passa a distribuir os dados para os destinos daquele ramo."
+      }
+    },
+    {
+      "start": 35.916667,
+      "end": 58.458333,
+      "title": {
+        "en": "Cooperation repeats",
+        "pt-BR": "A cooperação se repete"
+      },
+      "visual": {
+        "en": "The same tree expands to reveal device C beyond B and two viewers beyond C. B keeps another viewer on a separate branch. Amber session tokens now move from B to C; a duplicate route fades and C is highlighted as the next fanout point. Data continues along the remaining branches. Text reads “Potential audience: millions” and “Illustrative scale, participating network”; the drawing is not a live audience counter.",
+        "pt-BR": "A mesma árvore se expande, revelando o equipamento C depois de B e dois espectadores depois de C. B mantém outro espectador em um ramo separado. Agora, os marcadores âmbar de sessões avançam de B para C; uma rota duplicada desaparece e C é destacado como o próximo ponto de ramificação. Os dados continuam pelos ramos restantes. O texto informa “Audiência potencial: milhões” e “Escala ilustrativa, rede participante”; o desenho não é um contador de audiência ao vivo."
+      },
+      "narration": {
+        "en": "Further along, the same cooperation can happen again. As routes are simplified, a neighbor transfers duplicate sessions to the next device, which takes over another branch. The tree expands through these local cooperations. The creator keeps speaking as distribution takes shape along the paths to the viewers.",
+        "pt-BR": "Mais adiante, a mesma cooperação pode acontecer de novo. Ao simplificar as rotas, um vizinho transfere sessões duplicadas para o equipamento seguinte, que assume uma nova ramificação. A árvore se expande por essas cooperações locais. O criador continua falando; a distribuição vai se organizando ao longo dos caminhos até os espectadores."
+      }
+    },
+    {
+      "start": 58.458333,
+      "end": 73.875,
+      "title": {
+        "en": "Distinct roles",
+        "pt-BR": "Papéis distintos"
+      },
+      "visual": {
+        "en": "Three cards appear side by side: “Creator — Authorized source”, “Transmission — Same reference” and “Session — Current execution”. Beneath the session card, “Session A” slides away and “Session B” replaces it. The creator and transmission cards remain. The caption explains that the transmission reference stays while the current session can change.",
+        "pt-BR": "Três cartões aparecem lado a lado: “Criador — Fonte autorizada”, “Transmissão — Mesma referência” e “Sessão — Execução atual”. Sob o cartão de sessão, “Sessão A” desliza para fora e é substituída por “Sessão B”. Os cartões do criador e da transmissão permanecem. O texto explica que a referência da transmissão se mantém enquanto a sessão atual pode mudar."
+      },
+      "narration": {
+        "en": "The transmission has its own reference. It is not the creator's identity, or the session being used at that moment. Replacing a session does not have to mean creating another transmission or changing who is authorized to send.",
+        "pt-BR": "A transmissão tem sua própria referência. Ela não é a identidade do criador, nem a sessão usada naquele momento. Trocar a sessão não precisa significar criar outra transmissão ou trocar quem está autorizado a transmitir."
+      }
+    },
+    {
+      "start": 73.875,
+      "end": 90.041667,
+      "title": {
+        "en": "Extend reach, preserve authorship",
+        "pt-BR": "Ampliar o alcance, preservar a autoria"
+      },
+      "visual": {
+        "en": "A simplified chain connects the creator's phone, aggregator A and a viewer. Small teal units labeled 42 travel across it. “Authorized source” stays beneath the creator. “Source verified” appears beneath the viewer. The visual separates the participant carrying the data from the source authorized to send it; distribution does not confer authorship or admission authority.",
+        "pt-BR": "Uma cadeia simplificada conecta o celular do criador, o agregador A e um espectador. Pequenas unidades verde-azuladas identificadas com o número 42 percorrem a cadeia. “Fonte autorizada” permanece sob o criador. “Fonte verificada” aparece sob o espectador. A imagem distingue o participante que transporta os dados da fonte autorizada a enviá-los; a distribuição não confere autoria nem autoridade de admissão."
+      },
+      "narration": {
+        "en": "Helping distribute the stream does not grant the right to speak on his behalf. Aggregators can replicate protected data without becoming the source or taking over viewer admission. Content authenticity must remain verifiable by those receiving it.",
+        "pt-BR": "Quem ajuda a distribuir não ganha o direito de falar em nome dele. Os agregadores podem replicar dados protegidos sem se tornarem a fonte nem assumirem a admissão dos espectadores. A autenticidade do conteúdo precisa continuar verificável por quem recebe."
+      }
+    },
+    {
+      "start": 90.041667,
+      "end": 107.958333,
+      "title": {
+        "en": "A network of participants",
+        "pt-BR": "Uma rede de participantes"
+      },
+      "visual": {
+        "en": "The expanded tree returns: the phone connects through A to B, and B serves one viewer while C serves two others. Moving particles trace the branches. A prominent line lists “Available paths / Participating aggregators / Capacity”. The illustrative potential-audience notice remains below the diagram.",
+        "pt-BR": "A árvore expandida reaparece: o celular se conecta por A a B; B atende um espectador enquanto C atende outros dois. Partículas em movimento percorrem os ramos. Uma linha em destaque lista “Caminhos disponíveis / Agregadores participantes / Capacidade”. O aviso sobre a audiência potencial ilustrativa permanece abaixo do diagrama."
+      },
+      "narration": {
+        "en": "No particular platform has to own this distribution. But paths, capacity, and participants willing to carry the data are still needed. The application handles the camera and playback. The protocol organizes the communication supporting the transmission.",
+        "pt-BR": "Não é preciso tornar uma plataforma específica dona dessa distribuição. Mas continuam sendo necessários caminhos, capacidade e participantes dispostos a transportar os dados. A aplicação cuida da câmera e da reprodução. O protocolo organiza a comunicação que sustenta a transmissão."
+      }
+    },
+    {
+      "start": 107.958333,
+      "end": 120.833333,
+      "title": {
+        "en": "Back to the person",
+        "pt-BR": "De volta à pessoa"
+      },
+      "visual": {
+        "en": "The film returns to the same creator, seedling and phone in the garden, with a small movement of his free hand. At about 1:52.46, the picture changes to a cream end card bearing the PRP logo, “One Transmission. Many Viewers.” and prp-protocol.org. The narrator finishes with “PRP”.",
+        "pt-BR": "O filme retorna ao mesmo criador, à muda e ao celular na horta, com um pequeno movimento da mão livre. Por volta de 1min52,46s, a imagem muda para um encerramento de fundo creme com o logotipo PRP, “One Transmission. Many Viewers.” e prp-protocol.org. O narrador termina dizendo “PRP”."
+      },
+      "narration": {
+        "en": "One person can be the source. Many participants can extend their reach. One transmission. Many viewers. PRP.",
+        "pt-BR": "Uma pessoa pode ser a fonte. Muitos participantes podem ampliar seu alcance. Uma transmissão, muitos espectadores. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 0.65,
+      "end": 4.92,
+      "en": "He has a story to tell and a phone to share it.",
+      "pt-BR": "Ele tem uma história para contar e um celular para transmiti-la."
+    },
+    {
+      "start": 4.92,
+      "end": 7.77,
+      "en": "On the other side, people want to watch.",
+      "pt-BR": "Do outro lado, pessoas querem assistir."
+    },
+    {
+      "start": 7.77,
+      "end": 14.54,
+      "en": "But how can he reach a huge audience without sending a separate copy of the video to every person?",
+      "pt-BR": "Mas como alcançar uma audiência enorme sem enviar uma cópia do vídeo para cada pessoa?"
+    },
+    {
+      "start": 15.47,
+      "end": 19.34,
+      "en": "The distribution does not have to appear fully formed.",
+      "pt-BR": "A distribuição não precisa aparecer pronta."
+    },
+    {
+      "start": 19.34,
+      "end": 24.94,
+      "en": "When sessions of the same transmission follow the same stretch, an aggregator can",
+      "pt-BR": "Quando sessões da mesma transmissão seguem pelo mesmo trecho,"
+    },
+    {
+      "start": 24.94,
+      "end": 29.68,
+      "en": "cooperate with its neighbor and transfer those duplicate sessions to it.",
+      "pt-BR": "um agregador pode cooperar com seu vizinho e transferir a ele essas sessões duplicadas."
+    },
+    {
+      "start": 29.68,
+      "end": 35.28,
+      "en": "The next device then distributes the data to the destinations on that branch.",
+      "pt-BR": "O equipamento seguinte passa a distribuir os dados para os destinos daquele ramo."
+    },
+    {
+      "start": 36.22,
+      "end": 39.9,
+      "en": "Further along, the same cooperation can happen again.",
+      "pt-BR": "Mais adiante, a mesma cooperação pode acontecer de novo."
+    },
+    {
+      "start": 39.9,
+      "end": 45.87,
+      "en": "As routes are simplified, a neighbor transfers duplicate sessions to the next device,",
+      "pt-BR": "Ao simplificar as rotas, um vizinho transfere sessões duplicadas para o equipamento seguinte,"
+    },
+    {
+      "start": 45.87,
+      "end": 48.17,
+      "en": "which takes over another branch.",
+      "pt-BR": "que assume uma nova ramificação."
+    },
+    {
+      "start": 48.17,
+      "end": 51.39,
+      "en": "The tree expands through these local cooperations.",
+      "pt-BR": "A árvore se expande por essas cooperações locais."
+    },
+    {
+      "start": 51.39,
+      "end": 57.83,
+      "en": "The creator keeps speaking as distribution takes shape along the paths to the viewers.",
+      "pt-BR": "O criador continua falando; a distribuição vai se organizando ao longo dos caminhos até os espectadores."
+    },
+    {
+      "start": 58.76,
+      "end": 61.05,
+      "en": "The transmission has its own reference.",
+      "pt-BR": "A transmissão tem sua própria referência."
+    },
+    {
+      "start": 61.05,
+      "end": 66.39,
+      "en": "It is not the creator's identity, or the session being used at that moment.",
+      "pt-BR": "Ela não é a identidade do criador, nem a sessão usada naquele momento."
+    },
+    {
+      "start": 66.39,
+      "end": 71.35,
+      "en": "Replacing a session does not have to mean creating another transmission or changing",
+      "pt-BR": "Trocar a sessão não precisa significar criar outra transmissão"
+    },
+    {
+      "start": 71.35,
+      "end": 73.26,
+      "en": "who is authorized to send.",
+      "pt-BR": "ou trocar quem está autorizado a transmitir."
+    },
+    {
+      "start": 74.18,
+      "end": 79.94,
+      "en": "Helping distribute the stream does not grant the right to speak on his behalf.",
+      "pt-BR": "Quem ajuda a distribuir não ganha o direito de falar em nome dele."
+    },
+    {
+      "start": 79.94,
+      "end": 85.7,
+      "en": "Aggregators can replicate protected data without becoming the source or taking over viewer admission.",
+      "pt-BR": "Os agregadores podem replicar dados protegidos sem se tornarem a fonte nem assumirem a admissão dos espectadores."
+    },
+    {
+      "start": 85.7,
+      "end": 89.4,
+      "en": "Content authenticity must remain verifiable by those receiving it.",
+      "pt-BR": "A autenticidade do conteúdo precisa continuar verificável por quem recebe."
+    },
+    {
+      "start": 90.34,
+      "end": 94.12,
+      "en": "No particular platform has to own this distribution.",
+      "pt-BR": "Não é preciso tornar uma plataforma específica dona dessa distribuição."
+    },
+    {
+      "start": 94.12,
+      "end": 100.27000000000001,
+      "en": "But paths, capacity, and participants willing to carry the data are still needed.",
+      "pt-BR": "Mas continuam sendo necessários caminhos, capacidade e participantes dispostos a transportar os dados."
+    },
+    {
+      "start": 100.27000000000001,
+      "end": 103.58,
+      "en": "The application handles the camera and playback.",
+      "pt-BR": "A aplicação cuida da câmera e da reprodução."
+    },
+    {
+      "start": 103.58,
+      "end": 107.36,
+      "en": "The protocol organizes the communication supporting the transmission.",
+      "pt-BR": "O protocolo organiza a comunicação que sustenta a transmissão."
+    },
+    {
+      "start": 108.25999999999999,
+      "end": 111.45,
+      "en": "One person can be the source.",
+      "pt-BR": "Uma pessoa pode ser a fonte."
+    },
+    {
+      "start": 111.45,
+      "end": 114.65,
+      "en": "Many participants can extend their reach.",
+      "pt-BR": "Muitos participantes podem ampliar seu alcance."
+    },
+    {
+      "start": 114.65,
+      "end": 115.71000000000001,
+      "en": "One transmission.",
+      "pt-BR": "Uma transmissão,"
+    },
+    {
+      "start": 115.71000000000001,
+      "end": 116.77000000000001,
+      "en": "Many viewers.",
+      "pt-BR": "muitos espectadores."
+    },
+    {
+      "start": 116.77000000000001,
+      "end": 117.31,
+      "en": "PRP.",
+      "pt-BR": "PRP."
+    }
+  ]
+}
