@@ -14,7 +14,14 @@
     "pt-BR"
   ],
   "maturity": "M3 partial animation; approved for website publication",
-  "publicationStatus": "authorized; delivery pending",
+  "publicationStatus": "published",
+  "publication": {
+    "deployedAt": "2026-10-06T09:56:11Z",
+    "verifiedAt": "2026-10-06T09:56:46Z",
+    "sourceCommit": "9b3fa37d4179fde685bc2118fed5f7ba63df3876",
+    "deploymentURL": "https://github.com/prp-protocol/website/actions/runs/37446298726",
+    "channel": "website"
+  },
   "title": {
     "en": "The Group Continues",
     "pt-BR": "O grupo continua"
