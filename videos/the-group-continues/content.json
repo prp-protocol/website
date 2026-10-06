@@ -1,0 +1,312 @@
+{
+  "id": "V013",
+  "revision": "finalization-v2",
+  "textRevision": "text-v2",
+  "movieURL": "https://prp-protocol.org/assets/videos/the-group-continues-finalization-v2.mp4",
+  "movieSHA256": "06dcc273cfea8a4eef339809f7a87192c97104766a66b0bc81ce6dd0ea781599",
+  "movieBytes": 5943372,
+  "durationSeconds": 117.375,
+  "frames": 2817,
+  "fps": 24,
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "maturity": "M3 partial animation; approved for website publication",
+  "publicationStatus": "authorized; delivery pending",
+  "title": {
+    "en": "The Group Continues",
+    "pt-BR": "O grupo continua"
+  },
+  "summary": {
+    "en": "A fictional international assembly illustrates how PRP groupcast organizes participation while independent multicast streams carry delegates' voices to one another and to a wider public audience.",
+    "pt-BR": "Uma assembleia internacional fictícia ilustra como o groupcast PRP organiza a participação, enquanto transmissões multicast independentes levam as vozes dos delegados uns aos outros e a uma audiência pública maior."
+  },
+  "chapters": [
+    {
+      "title": {
+        "en": "Many voices, a wider audience",
+        "pt-BR": "Muitas vozes, uma audiência maior"
+      },
+      "visual": {
+        "en": "Amara, a Black woman with short natural hair and a teal blazer, sits behind a laptop and microphone. A four-panel view adds Kenji, a grey-haired man in a grey shirt, Sofia, a brown-haired woman in a plum blazer, and an audience watching them on a screen. The delegates blink, and Amara and Kenji make small hand gestures. Text reads: Hundreds of delegates; potential audience: millions; illustrative scenario.",
+        "pt-BR": "Amara, mulher negra de cabelo curto natural e blazer verde-azulado, está diante de um laptop e microfone. Uma composição de quatro quadros acrescenta Kenji, homem grisalho de camisa cinza, Sofia, mulher de cabelo castanho e blazer ameixa, e uma plateia que os acompanha numa tela. Os delegados piscam; Amara e Kenji fazem pequenos gestos com as mãos. O texto informa: centenas de delegados; audiência potencial de milhões; cenário ilustrativo."
+      },
+      "start": 0.0,
+      "end": 19.666666666666668,
+      "narration": {
+        "en": "An assembly brings together delegations from many places. Hundreds of people can take part in the discussion. Millions may want to follow it. How can this meeting organize participation and distribute its voices without concentrating all media in one application server?",
+        "pt-BR": "Uma assembleia reúne delegações de muitos lugares. Centenas de pessoas podem participar da discussão. Milhões podem querer acompanhá-la. Como organizar esse encontro e distribuir suas vozes sem concentrar toda a mídia em um servidor de aplicação?"
+      }
+    },
+    {
+      "title": {
+        "en": "Participation has its own reference",
+        "pt-BR": "A participação tem sua própria referência"
+      },
+      "visual": {
+        "en": "On a cream background, a pale green group area contains portraits of Amara, Kenji and Sofia. A card labels the assembly group. Amara and Sofia are labeled Admin; Kenji is labeled Participant. A sentence states that speaking permissions are defined by the application.",
+        "pt-BR": "Sobre fundo creme, uma área verde-clara do grupo contém os retratos de Amara, Kenji e Sofia. Um cartão identifica o grupo da assembleia. Amara e Sofia têm o rótulo Admin; Kenji, Participant. Uma frase informa que as permissões para falar são definidas pela aplicação."
+      },
+      "start": 19.666666666666668,
+      "end": 37.041666666666664,
+      "narration": {
+        "en": "In PRP, groupcast gives the group its own reference and participation governed by authorized identities. The assembly application decides who may take the floor. Group membership does not automatically grant every right to speak or transmit.",
+        "pt-BR": "No PRP, groupcast dá ao grupo sua própria referência e uma participação administrada por identidades autorizadas. A aplicação da assembleia define quem pode tomar a palavra. Fazer parte do grupo não concede automaticamente todo direito de falar ou transmitir."
+      }
+    },
+    {
+      "title": {
+        "en": "Independent sources",
+        "pt-BR": "Fontes independentes"
+      },
+      "visual": {
+        "en": "Amara connects to a teal Stream A card and Kenji to an amber Stream K card. Arrows and moving dots also carry A to Kenji and K to Amara. Purple dashed lines associate both stream cards with the assembly group, distinguishing application association from data transport.",
+        "pt-BR": "Amara se conecta ao cartão verde-azulado Stream A; Kenji, ao cartão âmbar Stream K. Setas e pontos móveis também levam A a Kenji e K a Amara. Linhas roxas tracejadas associam os cartões ao grupo da assembleia, distinguindo a associação pela aplicação do transporte de dados."
+      },
+      "start": 37.041666666666664,
+      "end": 56.083333333333336,
+      "narration": {
+        "en": "Amara presents her proposal. Kenji responds. Each stream has its own reference and authorized source. The application associates these streams with the meeting. The group organizes participants without turning all their voices into a single source.",
+        "pt-BR": "Amara apresenta sua proposta. Kenji responde. Cada transmissão tem sua própria referência e sua fonte autorizada. A aplicação associa essas transmissões ao encontro. O grupo organiza os participantes sem transformar todas as vozes em uma única fonte."
+      }
+    },
+    {
+      "title": {
+        "en": "Shared distribution paths",
+        "pt-BR": "Caminhos compartilhados de distribuição"
+      },
+      "visual": {
+        "en": "The delegates appear at left, round aggregators R1, R2 and R3 in the center, and recipient symbols at right. Teal paths branch from Amara through R1 toward recipients; amber paths add Kenji's independent stream. Branches also deliver each delegate's stream to the other. Moving dots and arrowheads indicate direction; colors retain source identity on shared infrastructure.",
+        "pt-BR": "Os delegados aparecem à esquerda, agregadores circulares R1, R2 e R3 ao centro e símbolos de destinatários à direita. Caminhos verde-azulados se ramificam de Amara por R1 até destinatários; caminhos âmbar acrescentam a transmissão independente de Kenji. Ramificações também entregam a transmissão de cada delegado ao outro. Pontos móveis e setas indicam o sentido; as cores distinguem as fontes na infraestrutura compartilhada."
+      },
+      "start": 56.083333333333336,
+      "end": 73.91666666666667,
+      "narration": {
+        "en": "Aggregators distribute each stream along paths to its recipients. Shared stretches can feed further branches. The source does not need to send a separate copy to every viewer. Distribution grows through cooperation across the network.",
+        "pt-BR": "Os agregadores distribuem cada transmissão pelos caminhos até seus destinatários. Trechos compartilhados podem alimentar novas ramificações. A fonte não precisa enviar uma cópia separada para cada espectador. A distribuição cresce pela cooperação ao longo da rede."
+      }
+    },
+    {
+      "title": {
+        "en": "Watching and deliberating",
+        "pt-BR": "Assistir e deliberar"
+      },
+      "visual": {
+        "en": "Amara appears above Kenji inside the deliberating-group area. The teal stream leaves Amara, reaches R4 and branches to Kenji and the public audience. The amber stream leaves Kenji, reaches R5 and branches to Amara and the audience. Arrowheads and moving dots show direction. Labels identify what each delegate sends and receives. Neither stream is drawn returning to its own source.",
+        "pt-BR": "Amara aparece acima de Kenji na área do grupo deliberativo. A transmissão verde-azulada sai de Amara, chega a R4 e se ramifica para Kenji e a audiência pública. A transmissão âmbar sai de Kenji, chega a R5 e se ramifica para Amara e a audiência. Setas e pontos móveis indicam o sentido. Os rótulos identificam o que cada delegado envia e recebe. Nenhuma transmissão é desenhada retornando à própria fonte."
+      },
+      "start": 73.91666666666667,
+      "end": 88.875,
+      "narration": {
+        "en": "The assembly chooses which streams to make public. Millions can follow without joining the deliberating group. Carrying these voices does not grant the right to admit delegates, claim authorship, or control who may speak.",
+        "pt-BR": "A assembleia escolhe quais transmissões tornar públicas. Milhões podem acompanhar sem integrar o grupo deliberativo. Quem transporta essas vozes não ganha o direito de admitir delegados, assumir a autoria ou controlar quem pode falar."
+      }
+    },
+    {
+      "title": {
+        "en": "The group continues",
+        "pt-BR": "O grupo continua"
+      },
+      "visual": {
+        "en": "A card reading Same group reference remains while Session 1 fades and Session 2 appears. Text below lists valid group state, available paths and capacity. The group reference persists through the session change.",
+        "pt-BR": "O cartão Same group reference permanece enquanto Session 1 desaparece e Session 2 surge. O texto inferior enumera estado válido do grupo, caminhos disponíveis e capacidade. A referência do grupo persiste durante a troca de sessão."
+      },
+      "start": 88.875,
+      "end": 101.70833333333333,
+      "narration": {
+        "en": "One stream ends. Another begins. Sessions can change while the group continues. This organization depends on valid state, available paths, and capacity.",
+        "pt-BR": "Uma transmissão termina. Outra começa. As sessões podem mudar, e o grupo continuar. Essa organização depende de estado válido, caminhos e capacidade disponíveis."
+      }
+    },
+    {
+      "title": {
+        "en": "Return to the audience",
+        "pt-BR": "Retorno à audiência"
+      },
+      "visual": {
+        "en": "The audience watches the three delegates on a large screen. The closing card shows the official PRP logo, The Group Continues and prp-protocol.org on a cream background.",
+        "pt-BR": "A plateia acompanha os três delegados numa tela grande. O encerramento apresenta o logotipo oficial do PRP, The Group Continues e prp-protocol.org sobre fundo creme."
+      },
+      "start": 101.70833333333333,
+      "end": 117.375,
+      "narration": {
+        "en": "Many voices take part. A larger audience follows. The group organizes participation. The network distributes the streams. Groupcast. PRP.",
+        "pt-BR": "Muitas vozes participam. Uma audiência maior acompanha. O grupo organiza a participação. A rede distribui as transmissões. Groupcast. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 0.6,
+      "end": 4.18,
+      "en": "An assembly brings together delegations from many places.",
+      "pt-BR": "Uma assembleia reúne delegações de muitos lugares."
+    },
+    {
+      "start": 4.18,
+      "end": 8.21,
+      "en": "Hundreds of people can take part in the discussion.",
+      "pt-BR": "Centenas de pessoas podem participar da discussão."
+    },
+    {
+      "start": 8.21,
+      "end": 10.89,
+      "en": "Millions may want to follow it.",
+      "pt-BR": "Milhões podem querer acompanhá-la."
+    },
+    {
+      "start": 10.89,
+      "end": 15.82,
+      "en": "How can this meeting organize participation and distribute its voices without",
+      "pt-BR": "Como organizar esse encontro e distribuir suas vozes sem concentrar toda a mídia"
+    },
+    {
+      "start": 15.82,
+      "end": 18.95,
+      "en": "concentrating all media in one application server?",
+      "pt-BR": "em um servidor de aplicação?"
+    },
+    {
+      "start": 20.02,
+      "end": 26.8,
+      "en": "In PRP, groupcast gives the group its own reference and participation governed by authorized identities.",
+      "pt-BR": "No PRP, groupcast dá ao grupo sua própria referência e uma participação administrada por identidades autorizadas."
+    },
+    {
+      "start": 26.8,
+      "end": 30.87,
+      "en": "The assembly application decides who may take the floor.",
+      "pt-BR": "A aplicação da assembleia define quem pode tomar a palavra."
+    },
+    {
+      "start": 30.87,
+      "end": 36.3,
+      "en": "Group membership does not automatically grant every right to speak or transmit.",
+      "pt-BR": "Fazer parte do grupo não concede automaticamente todo direito de falar ou transmitir."
+    },
+    {
+      "start": 37.39,
+      "end": 40.38,
+      "en": "Amara presents her proposal. Kenji responds.",
+      "pt-BR": "Amara apresenta sua proposta. Kenji responde."
+    },
+    {
+      "start": 40.38,
+      "end": 44.87,
+      "en": "Each stream has its own reference and authorized source.",
+      "pt-BR": "Cada transmissão tem sua própria referência e sua fonte autorizada."
+    },
+    {
+      "start": 44.87,
+      "end": 48.86,
+      "en": "The application associates these streams with the meeting.",
+      "pt-BR": "A aplicação associa essas transmissões ao encontro."
+    },
+    {
+      "start": 48.86,
+      "end": 55.34,
+      "en": "The group organizes participants without turning all their voices into a single source.",
+      "pt-BR": "O grupo organiza os participantes sem transformar todas as vozes em uma única fonte."
+    },
+    {
+      "start": 56.43,
+      "end": 60.74,
+      "en": "Aggregators distribute each stream along paths to its recipients.",
+      "pt-BR": "Os agregadores distribuem cada transmissão pelos caminhos até seus destinatários."
+    },
+    {
+      "start": 60.74,
+      "end": 63.62,
+      "en": "Shared stretches can feed further branches.",
+      "pt-BR": "Trechos compartilhados podem alimentar novas ramificações."
+    },
+    {
+      "start": 63.62,
+      "end": 69.84,
+      "en": "The source does not need to send a separate copy to every viewer.",
+      "pt-BR": "A fonte não precisa enviar uma cópia separada para cada espectador."
+    },
+    {
+      "start": 69.84,
+      "end": 73.19,
+      "en": "Distribution grows through cooperation across the network.",
+      "pt-BR": "A distribuição cresce pela cooperação ao longo da rede."
+    },
+    {
+      "start": 74.27,
+      "end": 77.53,
+      "en": "The assembly chooses which streams to make public.",
+      "pt-BR": "A assembleia escolhe quais transmissões tornar públicas."
+    },
+    {
+      "start": 77.53,
+      "end": 80.78999999999999,
+      "en": "Millions can follow without joining the deliberating group.",
+      "pt-BR": "Milhões podem acompanhar sem integrar o grupo deliberativo."
+    },
+    {
+      "start": 80.78999999999999,
+      "end": 86.1,
+      "en": "Carrying these voices does not grant the right to admit delegates, claim authorship,",
+      "pt-BR": "Quem transporta essas vozes não ganha o direito de admitir delegados, assumir a autoria"
+    },
+    {
+      "start": 86.1,
+      "end": 88.14,
+      "en": "or control who may speak.",
+      "pt-BR": "ou controlar quem pode falar."
+    },
+    {
+      "start": 89.22,
+      "end": 90.83,
+      "en": "One stream ends.",
+      "pt-BR": "Uma transmissão termina."
+    },
+    {
+      "start": 90.83,
+      "end": 91.9,
+      "en": "Another begins.",
+      "pt-BR": "Outra começa."
+    },
+    {
+      "start": 91.9,
+      "end": 95.65,
+      "en": "Sessions can change while the group continues.",
+      "pt-BR": "As sessões podem mudar, e o grupo continuar."
+    },
+    {
+      "start": 95.65,
+      "end": 101.0,
+      "en": "This organization depends on valid state, available paths, and capacity.",
+      "pt-BR": "Essa organização depende de estado válido, caminhos e capacidade disponíveis."
+    },
+    {
+      "start": 102.06,
+      "end": 104.53999999999999,
+      "en": "Many voices take part.",
+      "pt-BR": "Muitas vozes participam."
+    },
+    {
+      "start": 104.53999999999999,
+      "end": 107.03,
+      "en": "A larger audience follows.",
+      "pt-BR": "Uma audiência maior acompanha."
+    },
+    {
+      "start": 107.03,
+      "end": 109.50999999999999,
+      "en": "The group organizes participation.",
+      "pt-BR": "O grupo organiza a participação."
+    },
+    {
+      "start": 109.50999999999999,
+      "end": 113.86,
+      "en": "The network distributes the streams. Groupcast. PRP.",
+      "pt-BR": "A rede distribui as transmissões. Groupcast. PRP."
+    }
+  ],
+  "captionTiming": "Approximate phrase timing from approved English narration, not forced alignment",
+  "credits": "PRP Editorial; AI-assisted illustrations, synthetic narration, animated diagrams and local character gestures."
+}

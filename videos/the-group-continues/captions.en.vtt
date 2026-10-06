@@ -1,0 +1,133 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:04.180
+An assembly brings together delegations from
+many places.
+
+2
+00:00:04.180 --> 00:00:08.210
+Hundreds of people can take part in the
+discussion.
+
+3
+00:00:08.210 --> 00:00:10.890
+Millions may want to follow it.
+
+4
+00:00:10.890 --> 00:00:15.820
+How can this meeting organize participation and
+distribute its voices without
+
+5
+00:00:15.820 --> 00:00:18.950
+concentrating all media in one application
+server?
+
+6
+00:00:20.020 --> 00:00:26.800
+In PRP, groupcast gives the group its own
+reference and participation governed by
+authorized identities.
+
+7
+00:00:26.800 --> 00:00:30.870
+The assembly application decides who may take
+the floor.
+
+8
+00:00:30.870 --> 00:00:36.300
+Group membership does not automatically grant
+every right to speak or transmit.
+
+9
+00:00:37.390 --> 00:00:40.380
+Amara presents her proposal. Kenji responds.
+
+10
+00:00:40.380 --> 00:00:44.870
+Each stream has its own reference and authorized
+source.
+
+11
+00:00:44.870 --> 00:00:48.860
+The application associates these streams with
+the meeting.
+
+12
+00:00:48.860 --> 00:00:55.340
+The group organizes participants without turning
+all their voices into a single source.
+
+13
+00:00:56.430 --> 00:01:00.740
+Aggregators distribute each stream along paths
+to its recipients.
+
+14
+00:01:00.740 --> 00:01:03.620
+Shared stretches can feed further branches.
+
+15
+00:01:03.620 --> 00:01:09.840
+The source does not need to send a separate copy
+to every viewer.
+
+16
+00:01:09.840 --> 00:01:13.190
+Distribution grows through cooperation across
+the network.
+
+17
+00:01:14.270 --> 00:01:17.530
+The assembly chooses which streams to make
+public.
+
+18
+00:01:17.530 --> 00:01:20.790
+Millions can follow without joining the
+deliberating group.
+
+19
+00:01:20.790 --> 00:01:26.100
+Carrying these voices does not grant the right
+to admit delegates, claim authorship,
+
+20
+00:01:26.100 --> 00:01:28.140
+or control who may speak.
+
+21
+00:01:29.220 --> 00:01:30.830
+One stream ends.
+
+22
+00:01:30.830 --> 00:01:31.900
+Another begins.
+
+23
+00:01:31.900 --> 00:01:35.650
+Sessions can change while the group continues.
+
+24
+00:01:35.650 --> 00:01:41.000
+This organization depends on valid state,
+available paths, and capacity.
+
+25
+00:01:42.060 --> 00:01:44.540
+Many voices take part.
+
+26
+00:01:44.540 --> 00:01:47.030
+A larger audience follows.
+
+27
+00:01:47.030 --> 00:01:49.510
+The group organizes participation.
+
+28
+00:01:49.510 --> 00:01:53.860
+The network distributes the streams. Groupcast.
+PRP.
+
