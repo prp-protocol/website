@@ -1,0 +1,98 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:04.570
+Lia is crossing the city while talking to Davi.
+
+2
+00:00:04.570 --> 00:00:09.420
+Along the way, one tower's signal weakens and
+another grows stronger.
+
+3
+00:00:09.420 --> 00:00:15.160
+In this proposed mobility architecture, the
+device itself guides the change of access.
+
+4
+00:00:16.230 --> 00:00:21.420
+Before leaving the first tower, the device
+prepares access through the second.
+
+5
+00:00:21.420 --> 00:00:24.880
+A stronger signal is a reason to try.
+
+6
+00:00:24.880 --> 00:00:30.070
+Authorization and an available path allow it to
+start using that access.
+
+7
+00:00:31.140 --> 00:00:36.550
+During the transition, PRP can carry the same
+data over two authorized paths.
+
+8
+00:00:36.550 --> 00:00:42.370
+The redundancy is deliberate: one copy can
+arrive even when the other encounters a
+
+9
+00:00:42.370 --> 00:00:44.040
+failure along the way.
+
+10
+00:00:45.100 --> 00:00:49.780
+At the destination, the copies are recognized as
+the same data.
+
+11
+00:00:49.780 --> 00:00:54.880
+The duplicate is discarded before becoming a
+second delivery to the application.
+
+12
+00:00:54.880 --> 00:00:59.980
+The paths change, but the communication remains
+bound to the same participants.
+
+13
+00:01:01.060 --> 00:01:07.360
+When the new path is ready to support the
+communication, the device leaves the previous
+one.
+
+14
+00:01:07.360 --> 00:01:12.870
+In this architecture without a mobile core, the
+handover decision belongs to the client.
+
+15
+00:01:12.870 --> 00:01:14.840
+The relationship with Davi remains.
+
+16
+00:01:15.890 --> 00:01:18.780
+Using two paths consumes more resources.
+
+17
+00:01:18.780 --> 00:01:22.630
+Redundancy can therefore be limited to the
+transition.
+
+18
+00:01:22.630 --> 00:01:28.400
+Its protection depends on alternatives that
+remain available when one path fails.
+
+19
+00:01:29.480 --> 00:01:33.730
+Prepare the next path before leaving the
+previous one.
+
+20
+00:01:33.730 --> 00:01:37.520
+Mobility with continuity built around the
+relationship. PRP.
+

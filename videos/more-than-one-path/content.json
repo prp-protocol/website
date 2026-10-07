@@ -1,0 +1,264 @@
+{
+  "id": "V014",
+  "revision": "finalization-v1",
+  "textRevision": "text-v1",
+  "movieURL": "https://prp-protocol.org/assets/videos/more-than-one-path-finalization-v1.mp4",
+  "movieSHA256": "43a3a0012c6f97db773df0ba514e58968929598826a2ad11604bb8460afc65c6",
+  "movieBytes": 9534054,
+  "durationSeconds": 101.04166666666667,
+  "frames": 2425,
+  "fps": 24,
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "maturity": "M3 partial animation; approved for website publication",
+  "publicationStatus": "authorized; delivery pending",
+  "title": {
+    "en": "More Than One Path",
+    "pt-BR": "Mais de um caminho para chegar"
+  },
+  "summary": {
+    "en": "Lia talks to Davi while a tram crosses the city. A proposed client-led mobility architecture illustrates preparing a new authorized access, temporarily sending duplicate data over two paths and discarding repeated copies at the receiver.",
+    "pt-BR": "Lia conversa com Davi enquanto um bonde atravessa a cidade. Uma arquitetura proposta de mobilidade coordenada pelo cliente ilustra a preparação de um novo acesso autorizado, o envio temporário de cópias dos dados por dois caminhos e o descarte de duplicatas no receptor."
+  },
+  "chapters": [
+    {
+      "title": {
+        "en": "The conversation travels with Lia",
+        "pt-BR": "A conversa acompanha a viagem"
+      },
+      "visual": {
+        "en": "Lia, a grey-haired woman wearing round glasses and an ochre coat, holds a phone while seated in a tram. Consecutive left windows reveal different stretches of the riverbank moving right; right windows show a park moving left; rear windows show tracks receding in depth. Davi, a curly-haired man in a green shirt, appears behind a laptop in a studio. Closeups dissolve into a split screen. The actors blink and gesture. A label reads: A proposed mobility architecture.",
+        "pt-BR": "Lia, mulher grisalha de óculos arredondados e casaco ocre, segura um celular sentada num bonde. As janelas consecutivas da esquerda revelam trechos distintos da margem do rio, movendo-se para a direita; as da direita mostram um parque movendo-se para a esquerda; ao fundo, trilhos recuam em profundidade. Davi, homem de cabelo encaracolado e camisa verde, aparece atrás de um laptop em um ateliê. Os planos individuais dão lugar à tela dividida. Os personagens piscam e gesticulam. Um rótulo informa: arquitetura proposta de mobilidade."
+      },
+      "start": 0.0,
+      "end": 15.875,
+      "narration": {
+        "en": "Lia is crossing the city while talking to Davi. Along the way, one tower's signal weakens and another grows stronger. In this proposed mobility architecture, the device itself guides the change of access.",
+        "pt-BR": "Lia atravessa a cidade enquanto conversa com Davi. Ao longo do trajeto, o sinal de uma torre diminui e o de outra melhora. Nesta proposta de mobilidade, o próprio dispositivo conduz a mudança de acesso."
+      }
+    },
+    {
+      "title": {
+        "en": "Prepare the next access",
+        "pt-BR": "Preparar o próximo acesso"
+      },
+      "visual": {
+        "en": "A diagram places Lia at left and Davi at right. Amber access A runs above teal access B, through aggregators labeled RA, RA2, RB and RB2. Bars show A's signal decreasing and B's increasing. B begins dashed and becomes solid when labeled authorized and available. Data initially travels through A. The participants retain their positions.",
+        "pt-BR": "Um diagrama coloca Lia à esquerda e Davi à direita. O acesso A, âmbar, passa acima do acesso B, verde-azulado, por agregadores identificados como RA, RA2, RB e RB2. Barras mostram o sinal de A diminuindo e o de B aumentando. B começa tracejado e se torna contínuo quando indicado como autorizado e disponível. Os dados inicialmente passam por A. Os participantes mantêm suas posições."
+      },
+      "start": 15.875,
+      "end": 30.791666666666668,
+      "narration": {
+        "en": "Before leaving the first tower, the device prepares access through the second. A stronger signal is a reason to try. Authorization and an available path allow it to start using that access.",
+        "pt-BR": "Antes de abandonar a primeira torre, o aparelho prepara o acesso pela segunda. Sinal melhor é um motivo para tentar. A autorização e um caminho disponível permitem começar a usá-la."
+      }
+    },
+    {
+      "title": {
+        "en": "The same data over two paths",
+        "pt-BR": "Os mesmos dados por dois caminhos"
+      },
+      "visual": {
+        "en": "Numbered data symbols travel from Lia to Davi along both authorized paths. Copies of the same item keep the same number, including 42 and 43; amber and teal distinguish the paths. A caption explains that the number identifies the data and color identifies the path.",
+        "pt-BR": "Símbolos numerados de dados percorrem os dois caminhos autorizados, de Lia para Davi. As cópias do mesmo item mantêm o mesmo número, incluindo 42 e 43; âmbar e verde-azulado distinguem os caminhos. Um rótulo explica que o número identifica o dado e a cor identifica o caminho."
+      },
+      "start": 30.791666666666668,
+      "end": 44.75,
+      "narration": {
+        "en": "During the transition, PRP can carry the same data over two authorized paths. The redundancy is deliberate: one copy can arrive even when the other encounters a failure along the way.",
+        "pt-BR": "Durante a transição, o PRP pode levar os mesmos dados por dois caminhos autorizados. A redundância é deliberada: uma cópia pode chegar mesmo quando a outra encontra uma falha pelo caminho."
+      }
+    },
+    {
+      "title": {
+        "en": "Receive once",
+        "pt-BR": "Receber uma vez"
+      },
+      "visual": {
+        "en": "Two copies numbered 42 reach Davi's receiver at different times. The first valid copy continues to the application; the later copy fades inside the receiver under Repeat discarded. The network view then shows a cross on A while item 43 reaches Davi through B. Finally, arrows reverse from Davi to Lia for return items beginning with 17; text identifies duplicate removal at Lia.",
+        "pt-BR": "Duas cópias com o número 42 chegam ao receptor de Davi em momentos diferentes. A primeira válida segue para a aplicação; a tardia desaparece dentro do receptor sob o rótulo de repetição descartada. O diagrama da rede mostra então uma cruz em A, enquanto o item 43 chega a Davi por B. Por fim, as setas se invertem de Davi para Lia para os itens de retorno, começando em 17; um texto identifica o descarte de duplicatas em Lia."
+      },
+      "start": 44.75,
+      "end": 60.708333333333336,
+      "narration": {
+        "en": "At the destination, the copies are recognized as the same data. The duplicate is discarded before becoming a second delivery to the application. The paths change, but the communication remains bound to the same participants.",
+        "pt-BR": "No destino, as cópias são reconhecidas como o mesmo dado. A repetição é descartada antes de virar uma segunda entrega à aplicação. Os caminhos mudam, mas a comunicação continua ligada aos mesmos participantes."
+      }
+    },
+    {
+      "title": {
+        "en": "Complete the handover",
+        "pt-BR": "Completar a passagem"
+      },
+      "visual": {
+        "en": "Path B continues carrying data as path A fades. Lia and Davi remain at the endpoints. The label states that the client completes the transition. The diagram dissolves back to Lia in the moving tram.",
+        "pt-BR": "O caminho B continua transportando dados enquanto A perde destaque. Lia e Davi permanecem nas extremidades. O rótulo informa que o cliente completa a transição. O diagrama se dissolve para Lia no bonde em movimento."
+      },
+      "start": 60.708333333333336,
+      "end": 75.54166666666667,
+      "narration": {
+        "en": "When the new path is ready to support the communication, the device leaves the previous one. In this architecture without a mobile core, the handover decision belongs to the client. The relationship with Davi remains.",
+        "pt-BR": "Quando o novo caminho está pronto para sustentar a comunicação, o aparelho deixa o anterior. Nesta arquitetura sem core móvel, a decisão de transição fica no cliente. A relação com Davi permanece."
+      }
+    },
+    {
+      "title": {
+        "en": "Use redundancy when it helps",
+        "pt-BR": "Usar redundância quando ela ajuda"
+      },
+      "visual": {
+        "en": "The two paths appear together, with a failure cross on A and data on the available alternative B. A note states that two active accesses use more resources. A fades and B remains; the final note says the overlap ends while the available path remains.",
+        "pt-BR": "Os dois caminhos aparecem juntos, com uma cruz de falha em A e dados na alternativa disponível B. Uma nota informa que dois acessos ativos usam mais recursos. A perde destaque e B permanece; a nota final informa que a sobreposição termina e o caminho disponível continua."
+      },
+      "start": 75.54166666666667,
+      "end": 89.125,
+      "narration": {
+        "en": "Using two paths consumes more resources. Redundancy can therefore be limited to the transition. Its protection depends on alternatives that remain available when one path fails.",
+        "pt-BR": "Usar dois caminhos consome mais recursos. Por isso, a redundância pode acompanhar apenas a transição. Sua proteção depende de alternativas que continuem disponíveis quando um dos caminhos falha."
+      }
+    },
+    {
+      "title": {
+        "en": "The relationship remains",
+        "pt-BR": "A relação permanece"
+      },
+      "visual": {
+        "en": "Lia and Davi return in a split screen, making small hand gestures. The moving tram scenery remains visible beside Lia. A dissolve reveals the series closing card: the official PRP logo, More Than One Path and prp-protocol.org on a cream background.",
+        "pt-BR": "Lia e Davi reaparecem em tela dividida, fazendo pequenos gestos com as mãos. A paisagem em movimento do bonde permanece visível junto a Lia. Uma dissolução revela o encerramento da série: logotipo oficial do PRP, More Than One Path e prp-protocol.org sobre fundo creme."
+      },
+      "start": 89.125,
+      "end": 101.04166666666667,
+      "narration": {
+        "en": "Prepare the next path before leaving the previous one. Mobility with continuity built around the relationship. PRP.",
+        "pt-BR": "Preparar o próximo caminho antes de deixar o anterior. Mobilidade com continuidade orientada pela relação. PRP."
+      }
+    }
+  ],
+  "subtitleCues": [
+    {
+      "start": 0.6,
+      "end": 4.57,
+      "en": "Lia is crossing the city while talking to Davi.",
+      "pt-BR": "Lia atravessa a cidade enquanto conversa com Davi."
+    },
+    {
+      "start": 4.57,
+      "end": 9.42,
+      "en": "Along the way, one tower's signal weakens and another grows stronger.",
+      "pt-BR": "Ao longo do trajeto, o sinal de uma torre diminui e o de outra melhora."
+    },
+    {
+      "start": 9.42,
+      "end": 15.16,
+      "en": "In this proposed mobility architecture, the device itself guides the change of access.",
+      "pt-BR": "Nesta proposta de mobilidade, o próprio dispositivo conduz a mudança de acesso."
+    },
+    {
+      "start": 16.23,
+      "end": 21.42,
+      "en": "Before leaving the first tower, the device prepares access through the second.",
+      "pt-BR": "Antes de abandonar a primeira torre, o aparelho prepara o acesso pela segunda."
+    },
+    {
+      "start": 21.42,
+      "end": 24.88,
+      "en": "A stronger signal is a reason to try.",
+      "pt-BR": "Sinal melhor é um motivo para tentar."
+    },
+    {
+      "start": 24.88,
+      "end": 30.07,
+      "en": "Authorization and an available path allow it to start using that access.",
+      "pt-BR": "A autorização e um caminho disponível permitem começar a usá-la."
+    },
+    {
+      "start": 31.14,
+      "end": 36.55,
+      "en": "During the transition, PRP can carry the same data over two authorized paths.",
+      "pt-BR": "Durante a transição, o PRP pode levar os mesmos dados por dois caminhos autorizados."
+    },
+    {
+      "start": 36.55,
+      "end": 42.37,
+      "en": "The redundancy is deliberate: one copy can arrive even when the other encounters a",
+      "pt-BR": "A redundância é deliberada: uma cópia pode chegar mesmo quando a outra encontra uma"
+    },
+    {
+      "start": 42.37,
+      "end": 44.04,
+      "en": "failure along the way.",
+      "pt-BR": "falha pelo caminho."
+    },
+    {
+      "start": 45.1,
+      "end": 49.78,
+      "en": "At the destination, the copies are recognized as the same data.",
+      "pt-BR": "No destino, as cópias são reconhecidas como o mesmo dado."
+    },
+    {
+      "start": 49.78,
+      "end": 54.88,
+      "en": "The duplicate is discarded before becoming a second delivery to the application.",
+      "pt-BR": "A repetição é descartada antes de virar uma segunda entrega à aplicação."
+    },
+    {
+      "start": 54.88,
+      "end": 59.98,
+      "en": "The paths change, but the communication remains bound to the same participants.",
+      "pt-BR": "Os caminhos mudam, mas a comunicação continua ligada aos mesmos participantes."
+    },
+    {
+      "start": 61.06,
+      "end": 67.36,
+      "en": "When the new path is ready to support the communication, the device leaves the previous one.",
+      "pt-BR": "Quando o novo caminho está pronto para sustentar a comunicação, o aparelho deixa o anterior."
+    },
+    {
+      "start": 67.36,
+      "end": 72.87,
+      "en": "In this architecture without a mobile core, the handover decision belongs to the client.",
+      "pt-BR": "Nesta arquitetura sem core móvel, a decisão de transição fica no cliente."
+    },
+    {
+      "start": 72.87,
+      "end": 74.84,
+      "en": "The relationship with Davi remains.",
+      "pt-BR": "A relação com Davi permanece."
+    },
+    {
+      "start": 75.89,
+      "end": 78.78,
+      "en": "Using two paths consumes more resources.",
+      "pt-BR": "Usar dois caminhos consome mais recursos."
+    },
+    {
+      "start": 78.78,
+      "end": 82.63,
+      "en": "Redundancy can therefore be limited to the transition.",
+      "pt-BR": "Por isso, a redundância pode acompanhar apenas a transição."
+    },
+    {
+      "start": 82.63,
+      "end": 88.4,
+      "en": "Its protection depends on alternatives that remain available when one path fails.",
+      "pt-BR": "Sua proteção depende de alternativas que continuem disponíveis quando um dos caminhos falha."
+    },
+    {
+      "start": 89.48,
+      "end": 93.72999999999999,
+      "en": "Prepare the next path before leaving the previous one.",
+      "pt-BR": "Preparar o próximo caminho antes de deixar o anterior."
+    },
+    {
+      "start": 93.72999999999999,
+      "end": 97.52000000000001,
+      "en": "Mobility with continuity built around the relationship. PRP.",
+      "pt-BR": "Mobilidade com continuidade orientada pela relação. PRP."
+    }
+  ],
+  "captionTiming": "Approximate phrase timing from approved English narration, not forced alignment",
+  "credits": "PRP Editorial; AI-assisted illustrations, synthetic narration, animated diagrams and local character gestures."
+}

@@ -1,0 +1,99 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:04.570
+Lia atravessa a cidade enquanto conversa com
+Davi.
+
+2
+00:00:04.570 --> 00:00:09.420
+Ao longo do trajeto, o sinal de uma torre
+diminui e o de outra melhora.
+
+3
+00:00:09.420 --> 00:00:15.160
+Nesta proposta de mobilidade, o próprio
+dispositivo conduz a mudança de acesso.
+
+4
+00:00:16.230 --> 00:00:21.420
+Antes de abandonar a primeira torre, o aparelho
+prepara o acesso pela segunda.
+
+5
+00:00:21.420 --> 00:00:24.880
+Sinal melhor é um motivo para tentar.
+
+6
+00:00:24.880 --> 00:00:30.070
+A autorização e um caminho disponível permitem
+começar a usá-la.
+
+7
+00:00:31.140 --> 00:00:36.550
+Durante a transição, o PRP pode levar os mesmos
+dados por dois caminhos autorizados.
+
+8
+00:00:36.550 --> 00:00:42.370
+A redundância é deliberada: uma cópia pode
+chegar mesmo quando a outra encontra uma
+
+9
+00:00:42.370 --> 00:00:44.040
+falha pelo caminho.
+
+10
+00:00:45.100 --> 00:00:49.780
+No destino, as cópias são reconhecidas como o
+mesmo dado.
+
+11
+00:00:49.780 --> 00:00:54.880
+A repetição é descartada antes de virar uma
+segunda entrega à aplicação.
+
+12
+00:00:54.880 --> 00:00:59.980
+Os caminhos mudam, mas a comunicação continua
+ligada aos mesmos participantes.
+
+13
+00:01:01.060 --> 00:01:07.360
+Quando o novo caminho está pronto para sustentar
+a comunicação, o aparelho deixa o anterior.
+
+14
+00:01:07.360 --> 00:01:12.870
+Nesta arquitetura sem core móvel, a decisão de
+transição fica no cliente.
+
+15
+00:01:12.870 --> 00:01:14.840
+A relação com Davi permanece.
+
+16
+00:01:15.890 --> 00:01:18.780
+Usar dois caminhos consome mais recursos.
+
+17
+00:01:18.780 --> 00:01:22.630
+Por isso, a redundância pode acompanhar apenas a
+transição.
+
+18
+00:01:22.630 --> 00:01:28.400
+Sua proteção depende de alternativas que
+continuem disponíveis quando um dos caminhos
+falha.
+
+19
+00:01:29.480 --> 00:01:33.730
+Preparar o próximo caminho antes de deixar o
+anterior.
+
+20
+00:01:33.730 --> 00:01:37.520
+Mobilidade com continuidade orientada pela
+relação. PRP.
+
