@@ -14,7 +14,14 @@
     "pt-BR"
   ],
   "maturity": "M3 partial animation; approved for website publication",
-  "publicationStatus": "authorized; delivery pending",
+  "publicationStatus": "published",
+  "publication": {
+    "deployedAt": "2026-10-07T17:52:13Z",
+    "verifiedAt": "2026-10-07T17:52:34Z",
+    "sourceCommit": "258f793c0e30ac28f68d287108b7d46b47ccbf50",
+    "deploymentURL": "https://github.com/prp-protocol/website/actions/runs/37662300660",
+    "channel": "website"
+  },
   "title": {
     "en": "More Than One Path",
     "pt-BR": "Mais de um caminho para chegar"
