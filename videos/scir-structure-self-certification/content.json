@@ -30,7 +30,14 @@
     "pt-BR"
   ],
   "format": "Technical lesson with narrated diagrams",
-  "publicationStatus": "authorized; delivery pending",
+  "publicationStatus": "published",
+  "publication": {
+    "deployedAt": "2026-10-09T21:24:05Z",
+    "verifiedAt": "2026-10-09T21:24:23Z",
+    "sourceCommit": "e0ab70860716b58d7ac2387a740b74417b23417a",
+    "deploymentURL": "https://github.com/prp-protocol/website/actions/runs/37993135246",
+    "channel": "website"
+  },
   "credits": "PRP Editorial — AI-assisted production, code-generated diagrams and synthetic narration.",
   "chapters": [
     {
