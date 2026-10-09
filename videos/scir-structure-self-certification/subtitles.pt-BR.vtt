@@ -1,0 +1,162 @@
+WEBVTT
+
+1
+00:00:05.800 --> 00:00:10.212
+SCIR significa Self-Certifying Identifier Reference.
+
+2
+00:00:11.717 --> 00:00:19.484
+Ele identifica um objeto e permite verificar o vínculo entre seu identificador
+e o material certificante apresentado.
+
+3
+00:00:21.008 --> 00:00:24.143
+O mesmo envelope distingue quatro classes.
+
+4
+00:00:25.967 --> 00:00:30.053
+IDENTITY referencia uma identidade vinculada a uma chave pública.
+
+5
+00:00:32.175 --> 00:00:40.786
+ALIAS referencia um texto canônico que funciona como ponto de encontro para
+descoberta por interesses. Diferentes interesses podem ter seus próprios
+
+6
+00:00:40.786 --> 00:00:46.720
+aliases, um participante pode se associar a vários e uma consulta pode
+encontrar múltiplos candidatos.
+
+7
+00:00:48.842 --> 00:00:51.895
+MULTICAST referencia uma transmissão lógica.
+
+8
+00:00:54.008 --> 00:00:55.843
+GROUPCAST referencia um grupo.
+
+9
+00:00:57.967 --> 00:01:04.666
+Para multicast e groupcast, o identificador deriva de material imutável de
+gênese.
+
+10
+00:01:06.175 --> 00:01:12.454
+O primeiro byte contém a classe nos dois bits inferiores. Os seis bits
+restantes devem ser zero.
+
+11
+00:01:14.383 --> 00:01:20.119
+Os dois bytes seguintes identificam a suite de referência, com o byte mais
+significativo primeiro.
+
+12
+00:01:22.050 --> 00:01:26.659
+Depois vem o identificador, cujo comprimento é definido pela suite.
+
+13
+00:01:28.592 --> 00:01:36.057
+O SCIR completo contém três bytes de cabeçalho mais o comprimento do
+identificador definido pela suite.
+
+14
+00:01:37.592 --> 00:01:46.497
+As suites atuais usam identificadores de 32 ou 48 bytes, produzindo
+referências de 35 ou 51 bytes.
+
+15
+00:01:48.008 --> 00:01:51.155
+Novas suites podem definir outros comprimentos de identificador.
+
+16
+00:01:52.675 --> 00:01:56.425
+A tabela compara as cinco suites de referência atuais.
+
+17
+00:01:57.967 --> 00:02:07.951
+Elas usam Ed25519, ML-DSA ou uma combinação de ambos, com o hash e o
+comprimento do identificador indicados em cada linha.
+
+18
+00:02:09.467 --> 00:02:17.338
+Os tamanhos de chave pública se aplicam a IDENTITY; o hash e o comprimento do
+identificador se aplicam às quatro classes.
+
+19
+00:02:20.175 --> 00:02:29.072
+Autocertificação significa que podemos recalcular o identificador a partir do
+material certificante apresentado e comparar o resultado com a referência
+
+20
+00:02:29.072 --> 00:02:29.602
+esperada.
+
+21
+00:02:30.925 --> 00:02:36.614
+Para IDENTITY, primeiro validamos a codificação canônica da chave pública.
+
+22
+00:02:37.925 --> 00:02:42.848
+O Strong ID resulta do hash de um domínio fixo, da suite e dessa chave.
+
+23
+00:02:44.175 --> 00:02:51.524
+Um ALIAS permite procurar participantes associados a um interesse, em vez de
+selecionar uma identidade individual antecipadamente.
+
+24
+00:02:52.842 --> 00:03:01.166
+A relação pode ser muitos para muitos: vários participantes compartilham um
+interesse e cada participante pode ter múltiplos interesses.
+
+25
+00:03:02.467 --> 00:03:11.801
+A aplicação define o significado desses interesses; o PRP trata o texto
+canônico usado para formar cada referência.
+
+26
+00:03:13.133 --> 00:03:17.336
+Para um ALIAS, o material certificante é texto canônico.
+
+27
+00:03:18.842 --> 00:03:23.985
+Primeiro aplicamos normalização Unicode NFC e codificação UTF-8.
+
+28
+00:03:25.300 --> 00:03:27.645
+O comprimento conta bytes, não letras.
+
+29
+00:03:28.967 --> 00:03:33.088
+Maiúsculas, pontuação e espaços continuam significativos.
+
+30
+00:03:34.425 --> 00:03:40.323
+Aqui usamos um vetor da especificação e a suite com SHA-256.
+
+31
+00:03:41.633 --> 00:03:48.692
+O hash recebe um domínio próprio, a classe, a suite, o comprimento e o texto
+canônico.
+
+32
+00:03:50.008 --> 00:03:54.919
+Repetir o cálculo produz exatamente a mesma referência.
+
+33
+00:03:56.258 --> 00:03:59.068
+Isso comprova o vínculo com aquele texto.
+
+34
+00:04:00.383 --> 00:04:06.966
+Um SCIR contém uma classe, uma suite de referência e um identificador definido
+pela suite.
+
+35
+00:04:08.800 --> 00:04:13.990
+A autocertificação verifica o vínculo com o material certificante apresentado.
+
+36
+00:04:15.800 --> 00:04:16.845
+PRP.
+

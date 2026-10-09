@@ -41,11 +41,53 @@
         <h1>PRP videos</h1>
         <p>Films about identities, autonomy, and communication through relationships.</p>
       </div>
+      <nav class="video-collection-nav" aria-label="Video collections">
+        <a href="#technical-series">PRP Technical Series</a>
+        <a href="#conceptual-films">Conceptual films</a>
+      </nav>
+
+      <section id="technical-series" class="video-collection technical-series" aria-labelledby="technical-series-title">
+        <div class="section-heading">
+          <p class="eyebrow">Technical lessons</p>
+          <h2 id="technical-series-title">PRP Technical Series</h2>
+          <p>Focused technical lessons on PRP structures and mechanisms, explained through diagrams and worked examples.</p>
+        </div>
+        <div class="video-grid">
+          <article id="scir-structure-self-certification" class="video-card" aria-labelledby="scir-title">
+            <div class="section-heading">
+              <p class="eyebrow">Episode 01 · Narrated diagrams</p>
+              <h3 id="scir-title">SCIR: Structure and Self-Certification</h3>
+              <p>Episode 01 of the PRP Technical Series explains the four SCIR classes, the binary envelope, reference suites, identifier verification and an ALIAS example.</p>
+              <details lang="pt-BR">
+                <summary>SCIR: estrutura e autocertificação</summary>
+                <p>O episódio 01 da Série técnica PRP explica as quatro classes SCIR, o envelope binário, as suites de referência, a verificação do identificador e um exemplo de ALIAS.</p>
+              </details>
+            </div>
+            <video class="project-video" controls playsinline preload="metadata" poster="videos/scir-structure-self-certification/poster.png" width="1280" height="720" aria-labelledby="scir-title" aria-describedby="scir-language">
+              <source src="assets/videos/scir-structure-self-certification-publication-v1.mp4" type="video/mp4">
+              <track kind="subtitles" src="videos/scir-structure-self-certification/captions.en.vtt" srclang="en" label="English narration">
+              <track kind="subtitles" src="videos/scir-structure-self-certification/subtitles.pt-BR.vtt" srclang="pt-BR" label="Português (tradução)">
+              Your browser does not support embedded video. <a href="assets/videos/scir-structure-self-certification-publication-v1.mp4">Download the episode</a>.
+            </video>
+            <p id="scir-language" class="video-language">261.542 seconds. English narration and on-screen English captions. PRP Editorial — AI-assisted production, code-generated diagrams and synthetic narration. <a href="assets/videos/scir-structure-self-certification-publication-v1.mp4" download>Download the episode (MP4, 7,482,307 bytes)</a>.<br>
+              Read the synopsis, complete narration and visual descriptions: <a href="videos/scir-structure-self-certification/index.html" hreflang="en">English</a> · <a href="videos/scir-structure-self-certification/pt.html" lang="pt-BR" hreflang="pt-BR">Português</a>.<br>
+              Text downloads: <a href="videos/scir-structure-self-certification/captions.en.vtt" download>English narration (VTT)</a> · <a href="videos/scir-structure-self-certification/subtitles.pt-BR.vtt" download>Portuguese subtitles (VTT)</a> · <a href="videos/scir-structure-self-certification/content.json" download>Bilingual text (JSON)</a>.<br>
+              Optional subtitles do not hide the embedded English captions. Portuguese is a translation, not dubbing; visual descriptions are text, not an audio-description track. Caption times follow narration clips; subdivisions within clips are approximate.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="conceptual-films" class="video-collection" aria-labelledby="conceptual-films-title">
+        <div class="section-heading">
+          <h2 id="conceptual-films-title">Conceptual films</h2>
+          <p><a href="#technical-series">Explore the technical series</a></p>
+        </div>
       <div class="video-grid">
       <article id="meet-prp" class="video-card" aria-labelledby="meet-prp-title">
         <div class="section-heading">
           <p class="eyebrow">Start here · Introduction</p>
-          <h2 id="meet-prp-title">Meet PRP</h2>
+          <h3 id="meet-prp-title">Meet PRP</h3>
           <p>A short introduction to PRP: communication built around participants and relationships, identities independent of connectivity providers, and household devices without mandatory manufacturer accounts.</p>
           <p>Illustrated video with partial animation.</p>
         </div>
@@ -65,7 +107,7 @@
       <article id="one-person-many-contexts" class="video-card" aria-labelledby="video-title">
         <div class="section-heading">
           <p class="eyebrow">Identities &amp; autonomy</p>
-          <h2 id="video-title">One Person. Many Contexts. Your Choice.</h2>
+          <h3 id="video-title">One Person. Many Contexts. Your Choice.</h3>
           <p>A 90-second film about choosing identities and keeping relationship contexts separate.</p>
         </div>
         <video class="project-video" controls playsinline preload="metadata" width="1280" height="720" aria-labelledby="video-title" aria-describedby="video-language">
@@ -84,7 +126,7 @@
       <article id="agreements-in-motion" class="video-card" aria-labelledby="agreements-in-motion-title">
         <div class="section-heading">
           <p class="eyebrow">Applications &amp; agreements</p>
-          <h2 id="agreements-in-motion-title">Agreements in Motion</h2>
+          <h3 id="agreements-in-motion-title">Agreements in Motion</h3>
           <p>A journey shows how compatible applications negotiate within conditions set by passenger and driver, with PRP as their foundation.</p>
         </div>
         <video class="project-video" controls playsinline preload="metadata" width="1280" height="720" aria-labelledby="agreements-in-motion-title" aria-describedby="agreements-in-motion-language">
@@ -103,7 +145,7 @@
       <article id="beyond-the-line-of-sight" class="video-card" aria-labelledby="beyond-the-line-of-sight-title">
         <div class="section-heading">
           <p class="eyebrow">Communication across delays</p>
-          <h2 id="beyond-the-line-of-sight-title">Beyond the Line of Sight</h2>
+          <h3 id="beyond-the-line-of-sight-title">Beyond the Line of Sight</h3>
           <p>An illustrative future scenario explores communication across Earth, the Moon, and Mars, where distance and delay shape delivery.</p>
         </div>
         <video class="project-video" controls playsinline preload="metadata" width="1280" height="720" aria-labelledby="beyond-the-line-of-sight-title" aria-describedby="beyond-the-line-of-sight-language">
@@ -122,7 +164,7 @@
       <article id="mobile-without-the-operator" class="video-card" aria-labelledby="mobile-without-the-operator-title">
         <div class="section-heading">
           <p class="eyebrow">Mobility · Narrated animatic</p>
-          <h2 id="mobile-without-the-operator-title">Mobile, Without the Operator</h2>
+          <h3 id="mobile-without-the-operator-title">Mobile, Without the Operator</h3>
           <p>An illustrated look at PRP mobility: identities instead of phone numbers, connectivity across providers and media, autonomous household devices, and group communication for civil protection.</p>
           <p>Illustrated, narrated animatic; character animation remains unfinished.</p>
         </div>
@@ -142,7 +184,7 @@
       <article id="when-the-adversary-is-a-government" class="video-card" aria-labelledby="government-adversary-title">
         <div class="section-heading">
           <p class="eyebrow">Autonomy · Narrated animatic</p>
-          <h2 id="government-adversary-title">When the Adversary Is a Government</h2>
+          <h3 id="government-adversary-title">When the Adversary Is a Government</h3>
           <p>An illustrated exploration of censorship, interception and access blocking, and how PRP's architecture can support more autonomous communication, including local communication when external access is cut off. Not a claim of immunity to every adversary.</p>
           <p>Illustrated, narrated animatic; character animation remains unfinished.</p>
         </div>
@@ -162,7 +204,7 @@
       <article id="sovereignty-without-isolation" class="video-card" aria-labelledby="sovereignty-title" data-editorial-maturity="M4">
         <div class="section-heading">
           <p class="eyebrow">Sovereignty · Conceptual film</p>
-          <h2 id="sovereignty-title">Sovereignty Without Isolation</h2>
+          <h3 id="sovereignty-title">Sovereignty Without Isolation</h3>
           <p>A research team keeps collaborating across borders. This conceptual film illustrates how layered PRP relationships and willing participants can preserve alternative paths when direct connections are blocked. Continuity depends on available paths and participating peers.</p>
           <p>Not an experimental demonstration or a claim of universal anonymity or immunity to every block. Identities known at the client's last hop are not automatically known to the ISP. Integrated profile validation remains a separate activity.</p>
         </div>
@@ -182,7 +224,7 @@
       <article id="one-transmission-many-viewers" class="video-card" aria-labelledby="multicast-title" data-editorial-maturity="M4">
         <div class="section-heading">
           <p class="eyebrow">Multicast · Conceptual film</p>
-          <h2 id="multicast-title">One Transmission. Many Viewers.</h2>
+          <h3 id="multicast-title">One Transmission. Many Viewers.</h3>
           <p>An independent creator streams from a single phone. This conceptual film illustrates how neighboring PRP participants cooperate to expand a distribution tree, while transmission reference and source authority remain distinct from the paths carrying the data. Reach depends on participating aggregators, available paths and capacity.</p>
           <details lang="pt-BR">
             <summary>Uma transmissão, muitos espectadores.</summary>
@@ -206,7 +248,7 @@
       <article id="the-group-continues" class="video-card" aria-labelledby="groupcast-title" data-editorial-maturity="M3">
         <div class="section-heading">
           <p class="eyebrow">Groupcast · Conceptual film · Partial animation</p>
-          <h2 id="groupcast-title">The Group Continues</h2>
+          <h3 id="groupcast-title">The Group Continues</h3>
           <p>A fictional international assembly illustrates how PRP groupcast organizes participation while independent multicast streams carry delegates' voices to one another and to a wider public audience.</p>
           <details lang="pt-BR">
             <summary>O grupo continua</summary>
@@ -230,7 +272,7 @@
       <article id="more-than-one-path" class="video-card" aria-labelledby="redundancy-title" data-editorial-maturity="M3">
         <div class="section-heading">
           <p class="eyebrow">Redundancy · Conceptual film · Partial animation</p>
-          <h2 id="redundancy-title">More Than One Path</h2>
+          <h3 id="redundancy-title">More Than One Path</h3>
           <p>Lia talks to Davi while a tram crosses the city. A proposed client-led mobility architecture illustrates preparing a new authorized access, temporarily sending duplicate data over two paths and discarding repeated copies at the receiver.</p>
           <details lang="pt-BR">
             <summary>Mais de um caminho para chegar</summary>
@@ -252,6 +294,7 @@
       </article>
 
       </div>
+      </section>
     </main>
 
     <footer class="site-footer">

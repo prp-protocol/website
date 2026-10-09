@@ -1,0 +1,153 @@
+{
+  "id": "V015",
+  "revision": "publication-v1",
+  "textRevision": "text-v1",
+  "series": {
+    "id": "prp-technical-series",
+    "title": {
+      "en": "PRP Technical Series",
+      "pt-BR": "Série técnica PRP"
+    },
+    "episode": 1
+  },
+  "title": {
+    "en": "SCIR: Structure and Self-Certification",
+    "pt-BR": "SCIR: estrutura e autocertificação"
+  },
+  "summary": {
+    "en": "Episode 01 of the PRP Technical Series explains the four SCIR classes, the binary envelope, reference suites, identifier verification and an ALIAS example.",
+    "pt-BR": "O episódio 01 da Série técnica PRP explica as quatro classes SCIR, o envelope binário, as suites de referência, a verificação do identificador e um exemplo de ALIAS."
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/scir-structure-self-certification-publication-v1.mp4",
+  "movieSHA256": "71961660341cf7cd1e0661e6643cfcefc9e3bc138c1a0cd56b8e5850e14e95dc",
+  "movieBytes": 7482307,
+  "durationSeconds": 261.5416666666667,
+  "frames": 6277,
+  "fps": 24,
+  "audioLanguage": "en",
+  "languages": [
+    "en",
+    "pt-BR"
+  ],
+  "format": "Technical lesson with narrated diagrams",
+  "publicationStatus": "authorized; delivery pending",
+  "credits": "PRP Editorial — AI-assisted production, code-generated diagrams and synthetic narration.",
+  "chapters": [
+    {
+      "title": {
+        "en": "Introduction",
+        "pt-BR": "Introdução"
+      },
+      "start": 0,
+      "end": 20.208333333333336,
+      "narration": {
+        "en": "SCIR stands for Self-Certifying Identifier Reference. It identifies an object and lets us verify the binding between its identifier and presented certifying material.",
+        "pt-BR": "SCIR significa Self-Certifying Identifier Reference. Ele identifica um objeto e permite verificar o vínculo entre seu identificador e o material certificante apresentado."
+      },
+      "visual": {
+        "en": "A title card introduces SCIR, its full name and the topic. A dark diagram then lists object, typed reference and self-certification.",
+        "pt-BR": "A abertura apresenta SCIR, seu nome completo e o tema. Um diagrama escuro apresenta objeto, referência tipada e autocertificação."
+      }
+    },
+    {
+      "title": {
+        "en": "Four classes",
+        "pt-BR": "Quatro classes"
+      },
+      "start": 20.208333333333336,
+      "end": 65.375,
+      "narration": {
+        "en": "The same envelope distinguishes four classes. IDENTITY references an identity bound to a public key. ALIAS references canonical text that serves as a rendezvous for interest-based discovery. Different interests can have their own aliases, a participant can associate with several, and a query can find multiple candidates. MULTICAST references a logical transmission. GROUPCAST references a group. For multicast and groupcast, the identifier is derived from immutable genesis material.",
+        "pt-BR": "O mesmo envelope distingue quatro classes. IDENTITY referencia uma identidade vinculada a uma chave pública. ALIAS referencia um texto canônico que funciona como ponto de encontro para descoberta por interesses. Diferentes interesses podem ter seus próprios aliases, um participante pode se associar a vários e uma consulta pode encontrar múltiplos candidatos. MULTICAST referencia uma transmissão lógica. GROUPCAST referencia um grupo. Para multicast e groupcast, o identificador deriva de material imutável de gênese."
+      },
+      "visual": {
+        "en": "Four rows appear in sequence: 00 IDENTITY — canonical public key; 01 ALIAS — canonical interest text; 02 MULTICAST and 03 GROUPCAST — immutable genesis.",
+        "pt-BR": "Quatro linhas aparecem em sequência: 00 IDENTITY — chave pública canônica; 01 ALIAS — texto canônico de interesse; 02 MULTICAST e 03 GROUPCAST — gênese imutável."
+      }
+    },
+    {
+      "title": {
+        "en": "Binary envelope",
+        "pt-BR": "Envelope binário"
+      },
+      "start": 65.375,
+      "end": 111.875,
+      "narration": {
+        "en": "The first byte carries the class in its lowest two bits. The remaining six bits must be zero. The next two bytes identify the reference suite, most significant byte first. The identifier follows, with a length defined by that suite. The complete SCIR contains three header bytes plus the identifier length defined by the suite. The current suites use 32 or 48 identifier bytes, producing references of 35 or 51 bytes. New suites can define other identifier lengths.",
+        "pt-BR": "O primeiro byte contém a classe nos dois bits inferiores. Os seis bits restantes devem ser zero. Os dois bytes seguintes identificam a suite de referência, com o byte mais significativo primeiro. Depois vem o identificador, cujo comprimento é definido pela suite. O SCIR completo contém três bytes de cabeçalho mais o comprimento do identificador definido pela suite. As suites atuais usam identificadores de 32 ou 48 bytes, produzindo referências de 35 ou 51 bytes. Novas suites podem definir outros comprimentos de identificador."
+      },
+      "visual": {
+        "en": "Three fields show a one-byte header at offset 0, a two-byte reference suite at offsets 1–2 and an L-byte identifier from offset 3. The total is 3 + L; current examples show 35 and 51 bytes.",
+        "pt-BR": "Três campos mostram um cabeçalho de um byte no offset 0, uma suite de dois bytes nos offsets 1–2 e um identificador de L bytes a partir do offset 3. O total é 3 + L; exemplos atuais mostram 35 e 51 bytes."
+      }
+    },
+    {
+      "title": {
+        "en": "Reference suites",
+        "pt-BR": "Suites de referência"
+      },
+      "start": 111.875,
+      "end": 139.375,
+      "narration": {
+        "en": "The table compares the five current reference suites. They use Ed25519, ML-DSA, or a combination of both, with the hash and identifier length shown in each row. The public-key sizes apply to IDENTITY; the hash and identifier length apply across the four classes.",
+        "pt-BR": "A tabela compara as cinco suites de referência atuais. Elas usam Ed25519, ML-DSA ou uma combinação de ambos, com o hash e o comprimento do identificador indicados em cada linha. Os tamanhos de chave pública se aplicam a IDENTITY; o hash e o comprimento do identificador se aplicam às quatro classes."
+      },
+      "visual": {
+        "en": "The complete five-row table lists suite, IDENTITY key material, hash, identifier bytes and SCIR bytes. 0001: Ed25519, BLAKE3-256, 32/35; 0002: Ed25519, SHA-256, 32/35; 0003: ML-DSA-65, SHA-256, 32/35; 0004: ML-DSA-87, SHA-384, 48/51; 0005: Ed25519 plus ML-DSA-87, BLAKE3-256, 32/35.",
+        "pt-BR": "A tabela completa de cinco linhas mostra suite, material de chave IDENTITY, hash, bytes do identificador e do SCIR. 0001: Ed25519, BLAKE3-256, 32/35; 0002: Ed25519, SHA-256, 32/35; 0003: ML-DSA-65, SHA-256, 32/35; 0004: ML-DSA-87, SHA-384, 48/51; 0005: Ed25519 mais ML-DSA-87, BLAKE3-256, 32/35."
+      }
+    },
+    {
+      "title": {
+        "en": "Self-certification",
+        "pt-BR": "Autocertificação"
+      },
+      "start": 139.375,
+      "end": 163.375,
+      "narration": {
+        "en": "Self-certification means that we can recompute the identifier from presented certifying material and compare the result with the expected reference. For IDENTITY, we first validate the public key's canonical encoding. The Strong ID is the hash of a fixed domain, the suite, and that key.",
+        "pt-BR": "Autocertificação significa que podemos recalcular o identificador a partir do material certificante apresentado e comparar o resultado com a referência esperada. Para IDENTITY, primeiro validamos a codificação canônica da chave pública. O Strong ID resulta do hash de um domínio fixo, da suite e dessa chave."
+      },
+      "visual": {
+        "en": "Three panels show canonical public-key material, HASH_S(domain || suite:u16be || canonical_public_key), and recomputation followed by comparison. The domain is ASCII(\"PRP-STRONG-ID-v4\").",
+        "pt-BR": "Três painéis mostram a chave pública canônica, HASH_S(domain || suite:u16be || canonical_public_key) e a recomputação seguida de comparação. O domínio é ASCII(\"PRP-STRONG-ID-v4\")."
+      }
+    },
+    {
+      "title": {
+        "en": "ALIAS example",
+        "pt-BR": "Exemplo de ALIAS"
+      },
+      "start": 163.375,
+      "end": 239.58333333333334,
+      "narration": {
+        "en": "An ALIAS lets us look for participants associated with an interest instead of selecting an individual identity in advance. The relationship can be many-to-many: several participants share an interest, and each participant can have multiple interests. The application defines what those interests mean; PRP handles the canonical text used to form each reference. For an ALIAS, the certifying material is canonical text. We first apply Unicode NFC normalization and UTF-8 encoding. The length counts bytes, not letters. Case, punctuation, and spaces remain significant. Here we use a specification vector and the suite with SHA-256. The hash receives a dedicated domain, the class, the suite, the length, and the canonical text. Repeating the calculation produces exactly the same reference. This establishes the binding to that text.",
+        "pt-BR": "Um ALIAS permite procurar participantes associados a um interesse, em vez de selecionar uma identidade individual antecipadamente. A relação pode ser muitos para muitos: vários participantes compartilham um interesse e cada participante pode ter múltiplos interesses. A aplicação define o significado desses interesses; o PRP trata o texto canônico usado para formar cada referência. Para um ALIAS, o material certificante é texto canônico. Primeiro aplicamos normalização Unicode NFC e codificação UTF-8. O comprimento conta bytes, não letras. Maiúsculas, pontuação e espaços continuam significativos. Aqui usamos um vetor da especificação e a suite com SHA-256. O hash recebe um domínio próprio, a classe, a suite, o comprimento e o texto canônico. Repetir o cálculo produz exatamente a mesma referência. Isso comprova o vínculo com aquele texto."
+      },
+      "visual": {
+        "en": "Three interests connect to multiple participants. The next diagram uses rideshare:airport:gru, NFC, UTF-8 and a 21-byte length. SHA-256 receives the dedicated domain, class, suite, text length and text. The resulting 35-byte SCIR is shown in hexadecimal and matches the specification vector.",
+        "pt-BR": "Três interesses se conectam a múltiplos participantes. O diagrama seguinte usa rideshare:airport:gru, NFC, UTF-8 e comprimento de 21 bytes. SHA-256 recebe domínio próprio, classe, suite, tamanho do texto e texto. O SCIR resultante de 35 bytes aparece em hexadecimal e coincide com o vetor da especificação."
+      }
+    },
+    {
+      "title": {
+        "en": "Closing",
+        "pt-BR": "Encerramento"
+      },
+      "start": 239.58333333333334,
+      "end": 261.5416666666667,
+      "narration": {
+        "en": "A SCIR contains a class, a reference suite, and a suite-defined identifier. Self-certification verifies the binding to the presented certifying material. PRP.",
+        "pt-BR": "Um SCIR contém uma classe, uma suite de referência e um identificador definido pela suite. A autocertificação verifica o vínculo com o material certificante apresentado. PRP."
+      },
+      "visual": {
+        "en": "A summary shows class, suite and identifier, followed by recomputation and comparison. The closing card has the PRP logo on a light background, the episode title and prp-protocol.org. The spoken signature is PRP.",
+        "pt-BR": "O resumo mostra classe, suite e identificador, seguido de recomputação e comparação. O cartão final traz o logotipo PRP sobre fundo claro, título do episódio e prp-protocol.org. A assinatura falada é PRP."
+      }
+    }
+  ],
+  "accessibility": {
+    "pt-BR": "Tradução, não dublagem. Descrição visual em texto, não audiodescrição. Tempos de legendas derivados dos clipes; subdivisões internas aproximadas.",
+    "en": "Portuguese translation, not dubbing. Visual descriptions are text, not audio description. Caption times follow narration clips; subdivisions within clips are approximate."
+  }
+}

@@ -1,0 +1,155 @@
+WEBVTT
+
+1
+00:00:05.800 --> 00:00:10.212
+SCIR stands for Self-Certifying Identifier Reference.
+
+2
+00:00:11.717 --> 00:00:19.484
+It identifies an object and lets us verify the binding between its identifier
+and presented certifying material.
+
+3
+00:00:21.008 --> 00:00:24.143
+The same envelope distinguishes four classes.
+
+4
+00:00:25.967 --> 00:00:30.053
+IDENTITY references an identity bound to a public key.
+
+5
+00:00:32.175 --> 00:00:42.423
+ALIAS references canonical text that serves as a rendezvous for interest-based
+discovery. Different interests can have their own aliases, a participant can
+
+6
+00:00:42.423 --> 00:00:46.720
+associate with several, and a query can find multiple candidates.
+
+7
+00:00:48.842 --> 00:00:51.895
+MULTICAST references a logical transmission.
+
+8
+00:00:54.008 --> 00:00:55.843
+GROUPCAST references a group.
+
+9
+00:00:57.967 --> 00:01:04.666
+For multicast and groupcast, the identifier is derived from immutable genesis
+material.
+
+10
+00:01:06.175 --> 00:01:12.454
+The first byte carries the class in its lowest two bits. The remaining six
+bits must be zero.
+
+11
+00:01:14.383 --> 00:01:20.119
+The next two bytes identify the reference suite, most significant byte first.
+
+12
+00:01:22.050 --> 00:01:26.659
+The identifier follows, with a length defined by that suite.
+
+13
+00:01:28.592 --> 00:01:36.057
+The complete SCIR contains three header bytes plus the identifier length
+defined by the suite.
+
+14
+00:01:37.592 --> 00:01:46.497
+The current suites use 32 or 48 identifier bytes, producing references of 35
+or 51 bytes.
+
+15
+00:01:48.008 --> 00:01:51.155
+New suites can define other identifier lengths.
+
+16
+00:01:52.675 --> 00:01:56.425
+The table compares the five current reference suites.
+
+17
+00:01:57.967 --> 00:02:07.951
+They use Ed25519, ML-DSA, or a combination of both, with the hash and
+identifier length shown in each row.
+
+18
+00:02:09.467 --> 00:02:17.338
+The public-key sizes apply to IDENTITY; the hash and identifier length apply
+across the four classes.
+
+19
+00:02:20.175 --> 00:02:29.602
+Self-certification means that we can recompute the identifier from presented
+certifying material and compare the result with the expected reference.
+
+20
+00:02:30.925 --> 00:02:36.614
+For IDENTITY, we first validate the public key's canonical encoding.
+
+21
+00:02:37.925 --> 00:02:42.848
+The Strong ID is the hash of a fixed domain, the suite, and that key.
+
+22
+00:02:44.175 --> 00:02:51.524
+An ALIAS lets us look for participants associated with an interest instead of
+selecting an individual identity in advance.
+
+23
+00:02:52.842 --> 00:03:01.166
+The relationship can be many-to-many: several participants share an interest,
+and each participant can have multiple interests.
+
+24
+00:03:02.467 --> 00:03:11.801
+The application defines what those interests mean; PRP handles the canonical
+text used to form each reference.
+
+25
+00:03:13.133 --> 00:03:17.336
+For an ALIAS, the certifying material is canonical text.
+
+26
+00:03:18.842 --> 00:03:23.985
+We first apply Unicode NFC normalization and UTF-8 encoding.
+
+27
+00:03:25.300 --> 00:03:27.645
+The length counts bytes, not letters.
+
+28
+00:03:28.967 --> 00:03:33.088
+Case, punctuation, and spaces remain significant.
+
+29
+00:03:34.425 --> 00:03:40.323
+Here we use a specification vector and the suite with SHA-256.
+
+30
+00:03:41.633 --> 00:03:48.692
+The hash receives a dedicated domain, the class, the suite, the length, and
+the canonical text.
+
+31
+00:03:50.008 --> 00:03:54.919
+Repeating the calculation produces exactly the same reference.
+
+32
+00:03:56.258 --> 00:03:59.068
+This establishes the binding to that text.
+
+33
+00:04:00.383 --> 00:04:06.966
+A SCIR contains a class, a reference suite, and a suite-defined identifier.
+
+34
+00:04:08.800 --> 00:04:13.990
+Self-certification verifies the binding to the presented certifying material.
+
+35
+00:04:15.800 --> 00:04:16.845
+PRP.
+

@@ -255,13 +255,35 @@ h3 {
   }
 }
 
-.video-card h2 {
+.video-card h2,
+.video-card h3 {
   font-size: clamp(28px, 4vw, 42px);
   line-height: 1.15;
 }
 
 .video-card .video-language {
   margin-bottom: 0;
+}
+
+.video-collection-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  margin: 24px 0 40px;
+}
+
+.video-collection,
+.video-collection .video-card {
+  scroll-margin-top: 140px;
+}
+
+.video-collection + .video-collection {
+  margin-top: 64px;
+}
+
+.technical-series {
+  border-top: 4px solid var(--accent);
+  padding-top: 24px;
 }
 
 .split {
