@@ -178,26 +178,35 @@ carrier mechanism and the protocol it carries.
 
 ## Track 5 — regulatory and data protection assessment
 
-**Current state:** planned; scope and acceptance checkpoints to be defined.
+**Current state:** ANATEL consultation submitted; ANPD assessment planned.
 
 These two assessment workstreams are separate from IETF standardization and
-IANA registrations. They record planned project work, not a claim of regulatory
-compliance, certification, authority approval, or an ongoing submission.
+IANA registrations. The submitted ANATEL consultation is limited to the question
+below; it does not complete a comprehensive regulatory assessment. Neither
+workstream constitutes a claim of regulatory compliance, certification or
+authority approval.
 
-### ANATEL regulatory assessment
+### ANATEL consultation submitted
 
-**Current state:** scope to be defined.
+**Current state:** consultation submitted, as reported by the project holder.
 
-The proposed first checkpoint is an applicability assessment identifying the
-components, services, operations, and responsible parties within scope. Use
-that assessment to define applicable requirements, supporting evidence, review
-responsibilities, and the appropriate procedure, including whether formal
-interaction with ANATEL is needed. The submission route, if any, and completion
-criteria remain to be defined.
+A consultation has been submitted to ANATEL about identifier-retention
+obligations in native PRP communications without participant IP addresses.
+
+SEI process: 53500.146906/2026-42.
+
+[Follow the ANATEL consultation](https://www.gov.br/anatel/pt-br/acesso-a-informacao/pesquisa-publica-do-sei)
+in ANATEL’s public SEI search by entering the process number in the “Nº SEI”
+field. This is the general public search, not an individual process link;
+the search requires JavaScript.
+
+This filing does not constitute regulatory approval or a compliance finding.
+PRP is in the standardization stage. Commercial framing and judicial-order
+questions are outside this narrow identifier-retention consultation.
 
 ### ANPD data protection assessment
 
-**Current state:** scope to be defined.
+**Current state:** planned; scope to be defined. No ANPD filing is asserted.
 
 The proposed first checkpoint is an applicability assessment identifying the
 data processing activities, services, operations, and responsible parties within
