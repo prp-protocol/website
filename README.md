@@ -18,10 +18,14 @@ accept additional cards as the ecosystem grows.
 
 ## Local preview
 
-The video collection lives in `videos.html`, with approved MP4 files under
-`assets/videos/`. Add one article per film to `.video-grid`, using a unique
-anchor and title, duration, caption information, and a download link. Keep the
-home page as an entry point to the collection.
+The conceptual video collection lives in `videos.html`, with Meet PRP first.
+The technical episode catalog lives in `technical-series.html`: add one numbered
+article per episode, with its title, summary, duration and links to its EN/PT
+episode pages. Keep technical players on those individual pages so the catalog
+can grow without loading every video. Approved MP4 files live under
+`assets/videos/`; preserve their bytes and existing episode URLs.
+Keep the home page as an entry point to the collection. The legacy technical
+anchors in `videos.html` remain as visible links to the technical catalog.
 
 Open `index.html` in a browser, or serve the directory with any static server:
 
