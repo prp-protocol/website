@@ -18,6 +18,13 @@ accept additional cards as the ecosystem grows.
 
 ## Local preview
 
+The global header is rendered into every HTML page by
+`python3 scripts/sync-navigation.py`; run it after adding pages or changing
+navigation. `python3 scripts/sync-navigation.py --check` detects drift.
+Edit the menu in that script and its isolated styling in `site-navigation.css`.
+Episode language and transcript navigation remain separate. The global menu is
+English on all pages, explicitly marked with `lang="en"` on PT pages.
+
 The introductory Meet PRP player lives on `index.html`. The remaining conceptual
 films live in `videos.html`; its old Meet PRP anchor links to the home player.
 Technical model, layer diagrams and design principles live in `architecture.html`;
