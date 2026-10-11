@@ -265,6 +265,40 @@ h3 {
   margin-bottom: 0;
 }
 
+/* Catalog entries and the standalone introduction are not three-row players. */
+.video-card.episode-card,
+.video-card.intro-card {
+  display: block;
+  grid-row: auto;
+  overflow-wrap: anywhere;
+}
+
+.episode-card > :last-child {
+  margin-bottom: 0;
+}
+
+.home-intro {
+  display: block;
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.home-intro .hero-copy {
+  max-width: 900px;
+}
+
+.home-intro h1 {
+  max-width: 18ch;
+  font-size: clamp(42px, 7vw, 80px);
+  line-height: 1.05;
+}
+
+#meet-prp,
+#architecture,
+#principles {
+  scroll-margin-top: 140px;
+}
+
 .video-collection-nav {
   display: flex;
   flex-wrap: wrap;

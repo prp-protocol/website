@@ -18,7 +18,11 @@ accept additional cards as the ecosystem grows.
 
 ## Local preview
 
-The conceptual video collection lives in `videos.html`, with Meet PRP first.
+The introductory Meet PRP player lives on `index.html`. The remaining conceptual
+films live in `videos.html`; its old Meet PRP anchor links to the home player.
+Technical model, layer diagrams and design principles live in `architecture.html`;
+legacy home-page anchors remain linked entry points. Keep roadmap and sponsor
+content on the home page, with their existing status and disclaimers.
 The technical episode catalog lives in `technical-series.html`: add one numbered
 article per episode, with its title, summary, duration and links to its EN/PT
 episode pages. Keep technical players on those individual pages so the catalog
@@ -26,6 +30,8 @@ can grow without loading every video. Approved MP4 files live under
 `assets/videos/`; preserve their bytes and existing episode URLs.
 Keep the home page as an entry point to the collection. The legacy technical
 anchors in `videos.html` remain as visible links to the technical catalog.
+Use `.episode-card` for catalog entries and `.intro-card` for the standalone
+introduction: they use normal block flow, not the three-row player subgrid.
 
 Open `index.html` in a browser, or serve the directory with any static server:
 
