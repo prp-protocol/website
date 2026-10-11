@@ -45,16 +45,19 @@ Then open <http://localhost:8000>.
 
 - `origin` is the internal Gitea repository. Commit completed changes to
   `main`; the Agentmux publisher sends those commits to Gitea.
-- `github` is the public `prp-protocol/website` repository. After the Gitea
-  publication is complete, run `./scripts/publish-github.sh` from a clean
-  `main` branch. The remote uses HTTPS so publication works through the managed
-  proxy after authentication with GitHub CLI.
-- The publication script sends the same commit to GitHub's `main` and
-  `gh-pages` branches. This keeps the public source and the GitHub Pages source
-  identical.
+- The public destination is `prp-protocol/website`. Use the granted
+  `github-prp-website` managed publisher from a clean `main`, with a verified
+  commit-specific bundle and its SHA-256. Check remote state before publishing.
+  Do not use the legacy direct-push script or obtain credentials.
+- As authorized by the owner on 2026-10-11, public publication does not wait
+  for internal Gitea synchronization. Internal synchronization remains managed
+  independently; this does not authorize a direct internal push.
+- The managed publisher updates GitHub's `main` and `gh-pages` together.
+  Verify the Pages deployment and publicly served content separately: a Git
+  publication receipt alone is not evidence of public delivery.
 
-Do not edit `gh-pages` directly. Every published GitHub revision must first
-exist as a regular commit on `main`.
+Do not edit `gh-pages` directly. Every published GitHub revision must exist as
+a regular commit on `main`.
 
 ## Access analytics
 
