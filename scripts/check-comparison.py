@@ -2,6 +2,7 @@
 """Check static comparison content, safe links and reproducible standalone rendering."""
 from collections import Counter
 from html.parser import HTMLParser
+from html import escape
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import hashlib,json,shutil,subprocess,tempfile
@@ -46,7 +47,13 @@ for p,page in pages.items():
 for c in d['cells']:
     p=OUT/'cells'/(c['id']+'.html');assert p in pages
     for url in c['sources']:assert url in pages[p].links,(p,url)
-for c in d['columns']:assert c['website'] in pages[OUT/'index.html'].links
+assert '<h2>Selected stacks</h2>' not in (OUT/'index.html').read_text()
+for c in d['columns']:
+    assert c['website'] in pages[OUT/'index.html'].links
+    assert 'stacks/'+c['id']+'.html' in pages[OUT/'index.html'].links
+    profile=OUT/'stacks'/(c['id']+'.html')
+    assert profile in pages and escape(c['profile']) in profile.read_text()
+    assert '../index.html#col-'+c['id'] in pages[profile].links
 manifest=json.loads((OUT/'manifest.json').read_text())
 assert set(manifest['files'])=={str(p.relative_to(OUT)) for p in OUT.rglob('*') if p.is_file() and p.name!='manifest.json'}
 for name,digest in manifest['files'].items():assert hashlib.sha256((OUT/name).read_bytes()).hexdigest()==digest,name

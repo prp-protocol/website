@@ -67,16 +67,17 @@ def main():
     body=intro+'<div class="wrap" tabindex="0" role="region" aria-label="Scrollable protocol comparison"><table class="matrix"><caption>Selected protocol stacks and capabilities</caption><thead><tr><th scope="col">Criterion</th>'
     for c in d['columns']:
         mark=('<img src="logos/'+esc(c['logo'])+'" alt="'+esc(c['title'])+' mark">') if c['logo'] else esc(c['title'])
-        body+='<th scope="col" id="col-'+c['id']+'"><a class="brand'+(' dark' if c['id']=='TO' else '')+'" href="logos.html#'+c['id']+'">'+mark+'</a><a href="'+esc(c['website'])+'">'+esc(c['title'])+'</a><br><small><a href="#profile-'+c['id']+'">Selected stack</a></small></th>'
+        body+='<th scope="col" id="col-'+c['id']+'"><a class="brand'+(' dark' if c['id']=='TO' else '')+'" href="logos.html#'+c['id']+'">'+mark+'</a><a href="'+esc(c['website'])+'">'+esc(c['title'])+'</a><br><small><a id="profile-'+c['id']+'" href="stacks/'+c['id']+'.html" aria-label="Selected stack: '+esc(c['title'])+'">Selected stack</a></small></th>'
     body+='</tr></thead><tbody>'
     for r in d['criteria']:
         body+='<tr><th scope="row" id="row-'+r['id']+'">'+r['id']+' · '+esc(r['title'])+'<details><summary>Definition</summary>'+esc(r['definition'])+'</details></th>'
         for col in d['columns']:
             c=byid[r['id']+'-'+col['id']];status=c['status'];body+='<td class="'+('U' if status=='?' else status)+'"><a href="cells/'+c['id']+'.html" aria-label="'+esc(c['id']+': '+LABEL[status])+'">'+LABEL[status]+'</a></td>'
         body+='</tr>'
-    body+='</tbody></table></div><section class="content"><h2>Selected stacks</h2>'
-    for c in d['columns']:body+='<article id="profile-'+c['id']+'"><h3>'+esc(c['title'])+'</h3><p>'+esc(c['profile'])+'</p><a href="#col-'+c['id']+'">Back to column</a></article>'
-    write('index.html','Protocol and stack comparison',body+'</section>')
+    write('index.html','Protocol and stack comparison',body+'</tbody></table></div>')
+    for c in d['columns']:
+        body='<main class="content"><p><a href="../index.html#col-'+c['id']+'">Back to column</a></p><h1>'+esc(c['title'])+' — selected stack</h1><p>'+esc(c['profile'])+'</p><p><a href="'+esc(c['website'])+'">Official project website</a> · <a href="../logos.html#'+c['id']+'">Logo credits</a> · <a href="../methodology.html">Methodology and limits</a></p></main>'
+        write('stacks/'+c['id']+'.html',c['title']+' — selected stack',body)
     for c in d['cells']:
         body='<main class="content"><p><a href="../index.html#row-'+c['feature']+'">Back to matrix</a></p><h1>'+c['id']+': '+LABEL[c['status']]+'</h1>'
         for title,key in [('Rationale','reason'),('Assessment method','method'),('Source context','source_label'),('Outstanding qualification','qualification')]:
