@@ -7,12 +7,14 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 ITEMS = [('About', 'index.html#model'), ('Videos', 'videos.html'),
          ('Architecture', 'architecture.html'), ('Technical series', 'technical-series.html'),
+         ('Comparison', 'comparison/'),
          ('Roadmap', 'index.html#roadmap'), ('Sponsors', 'index.html#sponsors'),
          ('Journal', 'https://journal.prp-protocol.org/')]
 START, END = '<!-- Shared navigation -->', '<!-- End shared navigation -->'
 
-def render(path):
-    prefix = '../../' if path.parent != ROOT else ''
+def render(path, prefix=None):
+    if prefix is None:
+        prefix = '../../' if path.parent != ROOT else ''
     links = []
     for label, target in ITEMS:
         current = ' aria-current="page"' if path.parent == ROOT and target == path.name else ''
@@ -57,6 +59,13 @@ for path in sorted(ROOT.glob('*.html')) + sorted((ROOT/'videos').glob('*/*.html'
         changed.append(str(path.relative_to(ROOT)))
         if '--check' not in sys.argv:
             path.write_text(text)
+if (ROOT/'comparison').is_dir():
+    for path, text in [(ROOT/'comparison/navigation.html', render(ROOT/'comparison/index.html', '{{ROOT}}')),
+                       (ROOT/'comparison/navigation.css', (ROOT/'site-navigation.css').read_text())]:
+        if not path.exists() or path.read_text() != text:
+            changed.append(str(path.relative_to(ROOT)))
+            if '--check' not in sys.argv:
+                path.write_text(text)
 if '--check' in sys.argv and changed:
     sys.exit('Navigation drift: '+', '.join(changed))
 print('Navigation consistent' if not changed else 'Updated '+str(len(changed))+' pages')
