@@ -59,17 +59,42 @@ HTML or `data.json` to change decisions. No runtime JavaScript is needed.
 
 ## Approved updates
 
-1. Receive a coherent, explicitly approved editorial snapshot via editorial →
-   orchestrator → website, with revision/date, package and manifest hashes,
-   signature, and changed cell IDs (or an explicit no-decision-change statement).
-2. Recover equivalent delivery first. Verify catalog custody, signer, exact bytes,
-   safe regular archive paths and every individual manifest hash before importing.
-3. Compare IDs and verdict changes with the handoff. Replace the coherent data,
-   renderer and assets together; reapply/review the website-only wrapper adaptation.
-   Retain the source JSON byte-for-byte. Remove obsolete generated outputs only
-   when explicitly identified by the new snapshot; preserve stable IDs/history.
-4. Update this source receipt, rerender and validate. Update expected counts in
-   the checker only when the approved snapshot changes them. Check desktop/mobile
+Workflow adopted under REPORT 39b2c21af7898ea3 on 2026-10-15. The editorial
+contract is `pesquisa/prp-estado-da-arte-v1/PUBLICATION.md` in the read-only
+editorial repository. This adoption does not publish any new research revision.
+
+Editorial owns criteria titles, definitions, methods and research actions;
+column labels, profiles and official links; verdicts, rationales, sources,
+qualifications and existing mark-reference/credit metadata. Website owns the
+renderer, validation, navigation, HTML/CSS and logo binaries. All labels come
+from JSON. Criterion labels currently appear in matrix rows/definitions; cell
+pages identify criteria by stable IDs, not copied titles. Profiles use column
+labels. Renaming F13 must not change F13, F13-PN, anchors or URLs. Substantive
+criteria changes require affected-decision review; genuinely new criteria need
+new stable IDs. Never recycle or renumber identifiers.
+
+1. Receive ONE explicitly approved, sealed schema-v1 `data.json` via editorial →
+   orchestrator → website, plus detached signature and coordination receipt:
+   revision/date, bytes/SHA256, all status counts and changed criterion, column
+   and cell IDs (empty arrays explicitly mean unchanged). Recover equivalent work.
+   Editorial's `--data-only` export has full-export JSON byte parity; do not rerun
+   or synchronize private editorial sources here.
+2. Independently verify catalog custody, digest, size and expected signer. Save
+   that evidence and its reference in the receipt. The importer requires detached
+   GPG verification against `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`, checks
+   exact bytes, schema, unique/stable IDs, complete grid, statuses, safe source
+   URLs, private-path exclusion and existing logo references/hashes. Catalog
+   evidence is a separately checked prerequisite, not inferred from a filename
+   or the receipt's prose. Cryptographic validity does not establish external
+   web-of-trust identity.
+3. Routine import NEVER imports HTML/CSS/renderers or logo binaries. Full exports
+   are review/initial-provisioning artifacts only. New schema, new/retired IDs or
+   new/changed binary assets require a separately identified coordination; the
+   routine importer rejects them. Preserve old sealed packages and Git history.
+4. Stage the exact JSON with website-owned files, regenerate twice and verify
+   deterministic output and ownership before applying. Update this source receipt
+   with the approved delivery; `--apply` records its machine-readable receipt in
+   `scripts/comparison-approved.json`. Run all checks below. Check desktop/mobile
    scrolling, keyboard access, collapsed definitions, representative evidence,
    external title links, local logos and credits in a browser.
 5. Commit the complete snapshot once and publish through the managed website
@@ -79,6 +104,39 @@ HTML or `data.json` to change decisions. No runtime JavaScript is needed.
 6. Verify successful Pages deployment, downloaded data/manifest and generated
    file hashes, HTTP/MIME and public browser behavior. Return the exact commit,
    deployment receipt/time, changed IDs and evidence to the orchestrator.
+
+Example receipt (values must come from the authorized handoff, not this example):
+
+```json
+{
+  "authority": "REPORT <approved update>",
+  "catalog_receipt": "<path/reference to independently checked broker evidence>",
+  "revision": "<approved revision>", "date": "YYYY-MM-DD",
+  "bytes": 0, "sha256": "<sealed JSON digest>",
+  "status_counts": {"Y": 0, "N": 0, "?": 0},
+  "changed_ids": {"criteria": [], "columns": [], "cells": []}
+}
+```
+
+```sh
+# Dry-run verifies signature, receipt, schema and two temporary rebuilds.
+python3 scripts/import-comparison.py /sealed/object --signature /sealed/signature.asc --receipt /working/approved-receipt.json
+# Only after review; repository writes, NOT deployment:
+python3 scripts/import-comparison.py /sealed/object --signature /sealed/signature.asc --receipt /working/approved-receipt.json --apply
+python3 scripts/test-comparison-import.py
+python3 scripts/check-comparison.py
+python3 scripts/sync-navigation.py --check
+git diff --check
+```
+
+Use `--gnupghome` only for an explicitly provisioned public verification key
+store; do not hunt credentials or import an unverified replacement signer.
+The baseline receipt predates JSON-only delivery and identifies the verified
+historical package; it is not a fabricated standalone JSON seal. Temporary
+rename/escaping and invalid-input fixtures never enter production content.
+Imports stage coherent files locally; only a reviewed Git commit and the
+managed publisher provide atomic public delivery. Roll back any interrupted
+local import before committing; never publish a partially prepared worktree.
 
 ## Rollback
 

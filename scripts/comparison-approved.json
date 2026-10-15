@@ -1,0 +1,9 @@
+{
+  "revision": "1.97",
+  "date": "2026-10-15",
+  "bytes": 777710,
+  "sha256": "0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a",
+  "status_counts": {"Y": 433, "N": 303, "?": 62},
+  "authority": "REPORT e146065a177b6923",
+  "catalog_receipt": "Historical full package e53a0204b791b6010baca2fa8fc21d48d407e5cb78b1acd5695a321cc9ff47a5; verified signature and per-file manifest at adoption."
+}
