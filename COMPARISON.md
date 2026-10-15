@@ -3,8 +3,10 @@
 Public route: `/comparison/`. Stable evidence URLs use criterion and stack IDs,
 for example `/comparison/cells/F01-PN.html`, never review-round numbers.
 Selected stack descriptions have their own stable pages, for example
-`/comparison/stacks/PN.html`, reached through the “Selected stack” link under
-each project title. Project titles retain their official external links. Legacy
+`/comparison/stacks/PN.html`, reached through the circled information icon beside
+each project title (accessible name: “Selected stack: [project]”). Its touch area
+is at least 44 × 44 px. Mobile headers use smaller logos and a narrower sticky
+criterion column. Project titles retain their official external links. Legacy
 `#profile-ID` anchors point to those links; full profiles are not repeated below
 the matrix. Profiles are generated unchanged from the same approved JSON.
 

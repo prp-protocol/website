@@ -28,6 +28,7 @@ LABEL={'Y':'Yes','N':'No','?':'Pending'}
 # Scope project-mark styling so it cannot affect the shared site brand.
 CSS=CSS.replace('.brand', '.matrix .brand')
 CSS+='body{padding:0}.comparison-layout{padding:24px}body .site-header{position:relative}.wrap:focus-visible{outline:3px solid #165e70;outline-offset:3px}@media(max-width:600px){body{padding:0}.comparison-layout{padding:12px}}'
+CSS+='''.matrix .brand{height:44px;margin-bottom:4px}.matrix .brand img{max-height:38px;max-width:100%}.stack-heading{display:flex;align-items:center;gap:4px}.project-title{flex:1;min-width:0;overflow-wrap:anywhere}.stack-info{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;min-height:44px;text-decoration:none;font-size:22px}.stack-info span{display:grid;place-items:center;width:18px;height:18px;border:1.5px solid currentColor;border-radius:50%;font:bold 14px/1 system-ui}.stack-info:hover{background:#c9dad5;border-radius:6px}.matrix td a{display:flex;align-items:center;justify-content:center;min-height:44px}@media(max-width:600px){.matrix th,.matrix td{padding:6px;min-width:110px;width:110px}.matrix th:first-child{min-width:140px;width:140px;font-size:14px;line-height:1.35}.matrix thead th{font-size:14px;line-height:1.25}.matrix .brand{height:36px;min-height:44px;margin-bottom:0}.matrix .brand img{max-width:76px;max-height:30px}.matrix details{padding:4px;margin:6px 0}.matrix summary{min-height:32px;display:list-item;align-content:center}}'''
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path);ap.add_argument('--out',type=Path,required=True);args=ap.parse_args()
@@ -67,7 +68,7 @@ def main():
     body=intro+'<div class="wrap" tabindex="0" role="region" aria-label="Scrollable protocol comparison"><table class="matrix"><caption>Selected protocol stacks and capabilities</caption><thead><tr><th scope="col">Criterion</th>'
     for c in d['columns']:
         mark=('<img src="logos/'+esc(c['logo'])+'" alt="'+esc(c['title'])+' mark">') if c['logo'] else esc(c['title'])
-        body+='<th scope="col" id="col-'+c['id']+'"><a class="brand'+(' dark' if c['id']=='TO' else '')+'" href="logos.html#'+c['id']+'">'+mark+'</a><a href="'+esc(c['website'])+'">'+esc(c['title'])+'</a><br><small><a id="profile-'+c['id']+'" href="stacks/'+c['id']+'.html" aria-label="Selected stack: '+esc(c['title'])+'">Selected stack</a></small></th>'
+        body+='<th scope="col" id="col-'+c['id']+'"><a class="brand'+(' dark' if c['id']=='TO' else '')+'" href="logos.html#'+c['id']+'">'+mark+'</a><div class="stack-heading"><a class="project-title" href="'+esc(c['website'])+'">'+esc(c['title'])+'</a><a class="stack-info" id="profile-'+c['id']+'" href="stacks/'+c['id']+'.html" aria-label="Selected stack: '+esc(c['title'])+'" title="Read selected stack: '+esc(c['title'])+'"><span aria-hidden="true">i</span></a></div></th>'
     body+='</tr></thead><tbody>'
     for r in d['criteria']:
         body+='<tr><th scope="row" id="row-'+r['id']+'">'+r['id']+' · '+esc(r['title'])+'<details><summary>Definition</summary>'+esc(r['definition'])+'</details></th>'

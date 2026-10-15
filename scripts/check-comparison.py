@@ -48,6 +48,7 @@ for c in d['cells']:
     p=OUT/'cells'/(c['id']+'.html');assert p in pages
     for url in c['sources']:assert url in pages[p].links,(p,url)
 assert '<h2>Selected stacks</h2>' not in (OUT/'index.html').read_text()
+assert (OUT/'index.html').read_text().count('class="stack-info"')==len(d['columns'])
 for c in d['columns']:
     assert c['website'] in pages[OUT/'index.html'].links
     assert 'stacks/'+c['id']+'.html' in pages[OUT/'index.html'].links
