@@ -27,8 +27,8 @@ receipt=json.loads((ROOT/'scripts/comparison-approved.json').read_text())
 assert d['revision']==receipt['revision'] and d['date']==receipt['date']
 assert len(raw)==receipt['bytes'] and hashlib.sha256(raw).hexdigest()==receipt['sha256']
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
-assert len(d['criteria'])==49 and len(d['columns'])==21
-assert len(d['cells'])==1029 and {c['id'] for c in d['cells']}==expected
+assert len(d['criteria'])==53 and len(d['columns'])==24
+assert len(d['cells'])==1272 and {c['id'] for c in d['cells']}==expected
 assert 'K02' not in {r['id'] for r in d['criteria']}
 assert all(c['status'] in ['Y','N','?'] for c in d['cells'])
 assert dict(Counter(c['status'] for c in d['cells']))==receipt['status_counts']

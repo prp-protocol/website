@@ -12,30 +12,36 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 2.14, English schema-v1, 2026-10-15; authority REPORT 4a3e8be9a797f116.
-- Editorial delivery commit: `be87e73475bcfc9e9e71838c21151bdd10c30330`.
-- Approved JSON SHA256: `7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835` (987272 bytes).
-- Sealed editorial receipt SHA256: `da66243dccaa92a08396e500b398496cce27ca8b443ab0825ef84673160d0e9d` (9021 bytes).
-- Exact baseline 1.97 SHA256: `0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a`.
+- Revision 2.69, English schema-v1, 2026-10-15; authority REPORT 3436707b2335a963.
+- Editorial delivery commit: `4b98e32128c12ae84c10d4742a5bb7e60f9ffa93`.
+- Approved JSON SHA256: `67d189343b908c17b055952f9d7a13d15e71e19fbee4ef521c0aade520373e51` (1312317 bytes).
+- Sealed editorial receipt SHA256: `77706c68f6d74860a5a950a2b1d9ed8428df319562e499a3fc3d0105a8d53278` (11343 bytes).
+- Exact baseline 2.14 SHA256: `7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 49 criteria, 21 stacks, 1029 cells: 507 Yes, 320 No and 202 Pending.
+The snapshot has 53 criteria, 24 stacks, 1272 cells: 617 Yes, 370 No and 285 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This coordinated expansion adds D01, D02, D03, E01, E02, E03, E04, E05,
-K01, L01 and L02 (231 cells); K02 is absent. No previous IDs are retired or
-renumbered. The receipt lists 11 changed criterion records, PN/PI profiles
-updated to selected 0x0202 and 243 changed cell records including additions.
-Exhaustive IDs are in `scripts/comparison-approved.json`. The 12 previously
-existing changed cells are F06-PN, F06-PI, F09-CG, F09-LT, F15-PN, F15-PI,
-F23-CG, F23-LT, C04-PN, C04-PI, C08-CG and C08-LT.
-Increased Pending includes new criteria, not 140 regressions. D01-IP/D01-BA
-remain undecided. L01 use/implementation does not establish modification
-compatibility. Evidence does not certify runtime/security/interoperability or
-global scale. Website renderer, wrappers, CSS, logos and credits are retained;
-only JSON is consumed from editorial. Historical packages remain unchanged.
+This coordinated expansion adds F24, F25, S04 and D04, and columns RI (IPv6
+IoT/RPL), HP (HIPv2/ESP), CX (CCNx 1.0): 243 new cells. K02 is absent; no old
+IDs are retired or renumbered. The receipt lists 5 changed criterion records,
+5 changed column records and 295 changed cells including additions. Exhaustive
+IDs and new asset credits are in `scripts/comparison-approved.json`.
+G04-HP/G04-CX Yes concerns distributed work without a mandatory single
+coordinator, not proven global capacity. F23-CX remains Pending, including the
+unresolved consumer retry/attachment mechanism. Increased Pending includes new
+rows/columns, not 83 regressions. No runtime/security/interoperability/global-scale
+certification is implied. Website presentation and all old logos are retained.
+Only approved JSON and three explicitly coordinated neutral SVG labels are
+imported; historical sealed packages remain unchanged.
+
+New independently signed assets (exact bytes, safe static typography):
+
+- `logos/hipv2.svg`, 328 bytes: `d836317b845bf765811c594420841ae5c1d4e480bc20c5d07b2774917e66174e`.
+- `logos/ccnx.svg`, 327 bytes: `b6fe33cda3f2bf2162015577d7a97d7b77d2940b7d2d9c6a5373e8f0c8b3c644`.
+- `logos/iot-rpl.svg`, 330 bytes: `fff20dd148fd75e85bddfe45c8766dadc94afa56040ed4c7dac5ef2837548bae`.
 
 ## Rebuild and validate
 
@@ -94,9 +100,12 @@ new stable IDs. Never recycle or renumber identifiers.
    are review/initial-provisioning artifacts only. New schema, new/retired IDs or
    new/changed binary assets require a separately identified coordination; the
    routine importer rejects them. Preserve old sealed packages and Git history.
-   The coordinated 2.14 expansion uses `--expansion-r214`, gated to the exact
-   source/baseline digests above, exact additions, no removals and unchanged
-   mark/asset metadata. It does not enable arbitrary later expansion.
+   Snapshot-specific exceptions `--expansion-r214` and `--expansion-r269` are
+   pinned to their exact source/baseline digests, additions and no removals.
+   For 2.69, `--asset-objects` supplies only the three exact hashes above, after
+   all five catalog objects/signatures and SVG safety have been independently
+   verified. Assets are staged with JSON before regeneration; existing assets
+   cannot be overwritten. Neither exception enables arbitrary later expansion.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in

@@ -104,13 +104,26 @@ def changes(old, new, allowed_added=None):
     return result
 
 
-def check_receipt(raw, root, receipt, old, expansion_r214=False):
+def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
     require(new['revision'] == receipt['revision'] and new['date'] == receipt['date'], 'Revision/date mismatch')
     require(dict(Counter(c['status'] for c in new['cells'])) == receipt['status_counts'], 'Status counts mismatch')
     added = None
+    require(not (expansion_r214 and expansion_r269), 'Select one coordinated expansion')
+    if expansion_r269:
+        require(receipt['sha256']=='67d189343b908c17b055952f9d7a13d15e71e19fbee4ef521c0aade520373e51', 'Expansion only authorized for exact 2.69 snapshot')
+        require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()=='7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835', 'Expansion baseline must be exact 2.14')
+        old_rows={r['id'] for r in old['criteria']};old_cols={c['id'] for c in old['columns']}
+        rows={'F24','F25','S04','D04'};cols={'RI','HP','CX'}
+        added=dict(criteria=sorted(rows),columns=sorted(cols),cells=sorted({r+'-'+c for r in old_rows|rows for c in old_cols|cols}-{r+'-'+c for r in old_rows for c in old_cols}))
+        require({k:sorted(v) for k,v in receipt['added_ids'].items()}==added, 'Expansion additions mismatch')
+        require(receipt['removed_ids']==dict(criteria=[],columns=[],cells=[]), 'Retirement not authorized')
+        previous={m['file']:m for m in old['marks']};current={m['file']:m for m in new['marks']}
+        require(all(current.get(k)==v for k,v in previous.items()), 'Existing credit changes not authorized')
+        require({k:v for k,v in current.items() if k not in previous}=={m['file']:m for m in receipt['new_assets']}, 'New asset metadata mismatch')
+        require({c['id']:c['logo'] for c in new['columns'] if c['id'] in old_cols}=={c['id']:c['logo'] for c in old['columns']}, 'Existing logo changes not authorized')
     if expansion_r214:
         require(receipt['sha256']=='7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835', 'Expansion only authorized for exact 2.14 snapshot')
         require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()=='0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a', 'Expansion baseline must be exact 1.97')

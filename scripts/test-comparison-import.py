@@ -89,6 +89,6 @@ after = {str(p.relative_to(OUT)): hashlib.sha256(p.read_bytes()).hexdigest()
          for p in OUT.rglob('*') if p.is_file()}
 assert before == after, 'Fixture modified production content or website assets'
 print(json.dumps(dict(result='PASS',fixture='temporary F13 rename and escaping',
-    stable_cells=len(original['cells']),stable_profiles=21,negative_cases=14,
+    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=14,
     exact_json=True,website_ownership_preserved=True,production_unchanged=True,
     signature_note='Fixture tests staging only; no sealed input or signature verification claimed.')))
