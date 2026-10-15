@@ -92,22 +92,33 @@ def validate(raw, root):
     return d
 
 
-def changes(old, new):
+def changes(old, new, allowed_added=None):
     result = {}
     for kind in ('criteria', 'columns', 'cells'):
         before = {x['id']: x for x in old[kind]}
         after = {x['id']: x for x in new[kind]}
-        require(before.keys() == after.keys(), 'ID-set change requires separate coordination: ' + kind)
-        result[kind] = sorted(k for k in before if before[k] != after[k])
+        allowed = set((allowed_added or {}).get(kind, []))
+        require(set(after)-set(before) == allowed and not set(before)-set(after),
+                'ID-set change requires separate coordination: ' + kind)
+        result[kind] = sorted(k for k in after if k not in before or before[k] != after[k])
     return result
 
 
-def check_receipt(raw, root, receipt, old):
+def check_receipt(raw, root, receipt, old, expansion_r214=False):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
     require(new['revision'] == receipt['revision'] and new['date'] == receipt['date'], 'Revision/date mismatch')
     require(dict(Counter(c['status'] for c in new['cells'])) == receipt['status_counts'], 'Status counts mismatch')
-    delta = changes(old, new)
+    added = None
+    if expansion_r214:
+        require(receipt['sha256']=='7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835', 'Expansion only authorized for exact 2.14 snapshot')
+        require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()=='0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a', 'Expansion baseline must be exact 1.97')
+        criteria = 'D01 D02 D03 E01 E02 E03 E04 E05 K01 L01 L02'.split()
+        added = dict(criteria=criteria, columns=[], cells=sorted(r+'-'+c['id'] for r in criteria for c in old['columns']))
+        require({k:sorted(v) for k,v in receipt['added_ids'].items()} == added, 'Expansion additions mismatch')
+        require(receipt['removed_ids']==dict(criteria=[],columns=[],cells=[]), 'Retirement not authorized')
+        require(new['marks']==old['marks'] and [(c['id'],c['logo']) for c in new['columns']]==[(c['id'],c['logo']) for c in old['columns']], 'Asset/credit changes not authorized')
+    delta = changes(old, new, added)
     require(delta == {k: sorted(v) for k, v in receipt['changed_ids'].items()}, 'Changed-ID receipt mismatch')
     return new, delta

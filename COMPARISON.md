@@ -12,27 +12,30 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 1.97, English, 2026-10-15; authority REPORT e146065a177b6923.
-- Editorial delivery commit: `c6d2f21ad6947189099c8312f4e9557ab01d8689`.
-- Package SHA256: `e53a0204b791b6010baca2fa8fc21d48d407e5cb78b1acd5695a321cc9ff47a5` (749182 bytes).
-- Original manifest SHA256: `e3ed4df85c7256843a41575c17ddbeb6f9c2ce729117a5d319da3230fdb83bc9`.
-- Approved data SHA256: `0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a` (777710 bytes).
+- Revision 2.14, English schema-v1, 2026-10-15; authority REPORT 4a3e8be9a797f116.
+- Editorial delivery commit: `be87e73475bcfc9e9e71838c21151bdd10c30330`.
+- Approved JSON SHA256: `7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835` (987272 bytes).
+- Sealed editorial receipt SHA256: `da66243dccaa92a08396e500b398496cce27ca8b443ab0825ef84673160d0e9d` (9021 bytes).
+- Exact baseline 1.97 SHA256: `0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 38 criteria, 21 stacks, 798 cells and 62 Pending decisions.
+The snapshot has 49 criteria, 21 stacks, 1029 cells: 507 Yes, 320 No and 202 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-Revision 1.97 changes 31 records from 1.92: F04-LT; F05-PN; F05-PI; F05-BP;
-F05-LP; F05-TO; F05-I2; F05-YG; F05-CJ; F05-SC; F05-RT; F05-MT; F05-GN;
-F05-BL; F09-CG; F09-LT; F10-CG; F10-LT; F13-IP; F13-NS; F13-MT; F21-CG;
-F21-LT; C01-CG; C01-LT; S02-LT; S03-LT; G02-CG; G02-LT; G04-CG; G04-LT.
-Exactly ten verdicts change Pending → Yes: F04-LT, F10-CG, F10-LT, F21-CG,
-F21-LT, C01-CG, C01-LT, S02-LT, G02-CG, G02-LT. F05/F13 wording and CG/LT
-profiles follow the approved snapshot; documentary evidence does not imply
-full-stack runtime certification. Upstream renderer is byte-identical to the
-1.92 export, so the reviewed website presentation adaptations remain unchanged.
+This coordinated expansion adds D01, D02, D03, E01, E02, E03, E04, E05,
+K01, L01 and L02 (231 cells); K02 is absent. No previous IDs are retired or
+renumbered. The receipt lists 11 changed criterion records, PN/PI profiles
+updated to selected 0x0202 and 243 changed cell records including additions.
+Exhaustive IDs are in `scripts/comparison-approved.json`. The 12 previously
+existing changed cells are F06-PN, F06-PI, F09-CG, F09-LT, F15-PN, F15-PI,
+F23-CG, F23-LT, C04-PN, C04-PI, C08-CG and C08-LT.
+Increased Pending includes new criteria, not 140 regressions. D01-IP/D01-BA
+remain undecided. L01 use/implementation does not establish modification
+compatibility. Evidence does not certify runtime/security/interoperability or
+global scale. Website renderer, wrappers, CSS, logos and credits are retained;
+only JSON is consumed from editorial. Historical packages remain unchanged.
 
 ## Rebuild and validate
 
@@ -91,6 +94,9 @@ new stable IDs. Never recycle or renumber identifiers.
    are review/initial-provisioning artifacts only. New schema, new/retired IDs or
    new/changed binary assets require a separately identified coordination; the
    routine importer rejects them. Preserve old sealed packages and Git history.
+   The coordinated 2.14 expansion uses `--expansion-r214`, gated to the exact
+   source/baseline digests above, exact additions, no removals and unchanged
+   mark/asset metadata. It does not enable arbitrary later expansion.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in
@@ -131,8 +137,8 @@ git diff --check
 
 Use `--gnupghome` only for an explicitly provisioned public verification key
 store; do not hunt credentials or import an unverified replacement signer.
-The baseline receipt predates JSON-only delivery and identifies the verified
-historical package; it is not a fabricated standalone JSON seal. Temporary
+The historical 1.97 receipt predates JSON-only delivery and identifies its verified
+package; 2.14 is a separately signed JSON and receipt delivery. Temporary
 rename/escaping and invalid-input fixtures never enter production content.
 Imports stage coherent files locally; only a reviewed Git commit and the
 managed publisher provide atomic public delivery. Roll back any interrupted
@@ -141,7 +147,8 @@ local import before committing; never publish a partially prepared worktree.
 ## Rollback
 
 Identify the last approved, publicly verified commit. Create a new forward commit
-restoring that complete comparison snapshot and matching navigation integration;
+restoring that complete comparison snapshot, approved receipt, matching grid
+checks and navigation integration;
 do not reset or force-push history. Repeat rebuild, validation and managed deploy,
 then verify public bytes and report the rollback. Do not mix old data with new
 cell pages. Prior snapshots remain recoverable through Git history.

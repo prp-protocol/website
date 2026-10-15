@@ -27,8 +27,9 @@ receipt=json.loads((ROOT/'scripts/comparison-approved.json').read_text())
 assert d['revision']==receipt['revision'] and d['date']==receipt['date']
 assert len(raw)==receipt['bytes'] and hashlib.sha256(raw).hexdigest()==receipt['sha256']
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
-assert len(d['criteria'])==38 and len(d['columns'])==21
-assert len(d['cells'])==798 and {c['id'] for c in d['cells']}==expected
+assert len(d['criteria'])==49 and len(d['columns'])==21
+assert len(d['cells'])==1029 and {c['id'] for c in d['cells']}==expected
+assert 'K02' not in {r['id'] for r in d['criteria']}
 assert all(c['status'] in ['Y','N','?'] for c in d['cells'])
 assert dict(Counter(c['status'] for c in d['cells']))==receipt['status_counts']
 criteria={c['id']:c for c in d['criteria']}
@@ -36,7 +37,7 @@ for criterion in criteria.values():
     assert escape(criterion['title']) in (OUT/'index.html').read_text()
     assert escape(criterion['definition']) in (OUT/'index.html').read_text()
 pages={p:Page(p.read_text()) for p in OUT.rglob('*.html') if p.name!='navigation.html'}
-assert pages[OUT/'index.html'].details==38 and pages[OUT/'index.html'].open_details==0
+assert pages[OUT/'index.html'].details==len(d['criteria']) and pages[OUT/'index.html'].open_details==0
 for p,page in pages.items():
     assert not page.scripts,p
     for link in page.links:

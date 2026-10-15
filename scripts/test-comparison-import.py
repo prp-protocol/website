@@ -43,7 +43,7 @@ index = outputs['index.html'].decode()
 assert escape(criterion['title']) in index and escape(criterion['definition']) in index
 old_view, new_view = View((OUT/'index.html').read_text()), View(index)
 assert old_view.ids == new_view.ids and old_view.links == new_view.links and not new_view.scripts
-assert len([x for x in new_view.links if x.startswith('cells/')]) == 798
+assert len([x for x in new_view.links if x.startswith('cells/')]) == len(original['cells'])
 assert 'row-F13' in new_view.ids and 'cells/F13-PN.html' in new_view.links
 # Current criterion-label views are matrix row titles/definitions. Cell pages
 # deliberately use stable IDs (not copied mutable criterion labels); profiles
@@ -89,6 +89,6 @@ after = {str(p.relative_to(OUT)): hashlib.sha256(p.read_bytes()).hexdigest()
          for p in OUT.rglob('*') if p.is_file()}
 assert before == after, 'Fixture modified production content or website assets'
 print(json.dumps(dict(result='PASS',fixture='temporary F13 rename and escaping',
-    stable_cells=798,stable_profiles=21,negative_cases=14,
+    stable_cells=len(original['cells']),stable_profiles=21,negative_cases=14,
     exact_json=True,website_ownership_preserved=True,production_unchanged=True,
     signature_note='Fixture tests staging only; no sealed input or signature verification claimed.')))

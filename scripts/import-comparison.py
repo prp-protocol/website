@@ -13,10 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SIGNER = 'BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A'
 
 
-def prepare(snapshot, receipt, destination):
+def prepare(snapshot, receipt, destination, expansion_r214=False):
     api = runpy.run_path(str(destination/'validate.py'))
     old = api['validate']((destination/'data.json').read_bytes(), destination)
-    data, delta = api['check_receipt'](snapshot, destination, receipt, old)
+    data, delta = api['check_receipt'](snapshot, destination, receipt, old, expansion_r214)
     with tempfile.TemporaryDirectory(prefix='comparison-import-') as tmp:
         stage = Path(tmp)/'comparison'
         shutil.copytree(destination, stage)
@@ -44,6 +44,7 @@ def main():
     ap.add_argument('--signature', required=True, type=Path)
     ap.add_argument('--gnupghome', type=Path, help='Explicit public verification key store, if required')
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--expansion-r214', action='store_true', help='REPORT 4a3e8be9a797f116: exact approved 1.97 to 2.14 expansion only')
     args = ap.parse_args()
     receipt = json.loads(args.receipt.read_text())
     if not receipt.get('authority') or not receipt.get('catalog_receipt'):
@@ -54,7 +55,7 @@ def main():
     if signature.returncode or not any(line.startswith('[GNUPG:] VALIDSIG '+SIGNER+' ') for line in signature.stdout.splitlines()):
         raise ValueError('Signature verification failed for approved broker signer')
     raw = args.snapshot.read_bytes()
-    outputs, delta = prepare(raw, receipt, ROOT/'comparison')
+    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214)
     if args.apply:
         # Repository staging only; publication is separately authorized and managed.
         for name, data in outputs.items():
