@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "1.92",
+  "revision": "1.97",
   "date": "2026-10-15",
   "language": "en",
   "scope": "Documented capabilities and explicitly qualified scale evidence; not implementation certification",
@@ -36,14 +36,14 @@
     {
       "id": "CG",
       "title": "DTN / CGR–SABR",
-      "profile": "IPv4 / TCP / TLS 1.3 / TCPCLv4 / BPv7 + BPSec, with CGR routing procedures from SABR CCSDS 734.3-B-1 (2019). Documentary composition; executable integration not yet qualified. Locally provisioned numeric peers, private IPv4, private-use ipn identifiers (RFC 9758), singleton destinations, supplied contact/range plans and local clocks. Participant-operated certificate trust with NODE-ID validation, no online OCSP, DNS or SNI dependency. Final-pair BCB-AES-GCM payload protection and BIB-HMAC-SHA2 verification with locally provisioned pairwise keys; no relay-held final keys. No application authentication wrapper, anonymity overlay, multicast extension or shared-reference directory. BPv7 mapping of SABR priority/critical metadata and custody-dependent behavior remains an explicit integration question, not silently credited.",
+      "profile": "IPv4 / TCP / TLS 1.3 / TCPCLv4 / BPv7 + BPSec, with CGR routing procedures from SABR CCSDS 734.3-B-1 (2019). Documentary composition; executable integration not yet qualified. Locally provisioned numeric peers, private IPv4, private-use ipn identifiers (RFC 9758), singleton destinations, supplied contact/range plans and local clocks. Participant-operated certificate trust with NODE-ID validation, no online OCSP, DNS or SNI dependency. Final-pair BCB-AES-GCM payload protection and BIB-HMAC-SHA2 verification with locally provisioned pairwise keys; no relay-held final keys. No application authentication wrapper, anonymity overlay, multicast extension or shared-reference directory. BPv7 mapping of SABR priority/critical metadata and custody-dependent behavior remains an explicit integration question, not silently credited. BPv7 source witness: ION 154a4cc7354b26661169f8d8b75a4002cd509a9f for native final-source delivery and origin-side critical-bundle replication. Exact-origin pairwise keys, primary and payload integrity coverage, and application checks of both verification flags are required. This pins these BP-layer mechanisms only; complete TCPCL/TLS or LTP/Encapsulation/AOS integration, critical metadata propagation at later hops, custody mapping and simultaneous on-wire path use remain unqualified.",
       "website": "https://ccsds.org/publications/allpubs/entry/3167/",
       "logo": "cgr-sabr.svg"
     },
     {
       "id": "LT",
       "title": "DTN / LTP",
-      "profile": "BPv7 + BPSec / LTP RFC 5326 / Encapsulation Packet Protocol 133.1-B-3 / AOS virtual-channel packet service 732.0-B-4 (2021 documentary baseline, not latest edition); CGR/SABR 734.3-B-1 routing. LTP segment binding follows 734.1-B-1 Annex B. No UDP, IP, TCPCL or TLS. Bidirectional adjacent links, locally supplied contact/range plans, peer/engine mapping, clocks and keys; singleton BP endpoints. All-red block transfer selected; optional green-part service is not credited. Final-pair BCB-AES-GCM and BIB-HMAC-SHA2 protect payload and authenticate a configured remote security source; no relay-held final keys. No link encryption/SDLS, anonymity overlay, application authentication wrapper or independent-participant discovery directory. Executable bindings, BPv7/SABR metadata mapping and allocation rules remain unqualified. CCSDS mission conformance and unrestricted local engine/channel assignment are not asserted.",
+      "profile": "BPv7 + BPSec / LTP RFC 5326 / Encapsulation Packet Protocol 133.1-B-3 / AOS virtual-channel packet service 732.0-B-4 (2021 documentary baseline, not latest edition); CGR/SABR 734.3-B-1 routing. LTP segment binding follows 734.1-B-1 Annex B. No UDP, IP, TCPCL or TLS. Bidirectional adjacent links, locally supplied contact/range plans, peer/engine mapping, clocks and keys; singleton BP endpoints. All-red block transfer selected; optional green-part service is not credited. Final-pair BCB-AES-GCM and BIB-HMAC-SHA2 protect payload and authenticate a configured remote security source; no relay-held final keys. No link encryption/SDLS, anonymity overlay, application authentication wrapper or independent-participant discovery directory. Executable bindings, BPv7/SABR metadata mapping and allocation rules remain unqualified. CCSDS mission conformance and unrestricted local engine/channel assignment are not asserted. BPv7 source witness: ION 154a4cc7354b26661169f8d8b75a4002cd509a9f for native final-source delivery and origin-side critical-bundle replication. Exact-origin pairwise keys, primary and payload integrity coverage, and application checks of both verification flags are required. This pins these BP-layer mechanisms only; complete TCPCL/TLS or LTP/Encapsulation/AOS integration, critical metadata propagation at later hops, custody mapping and simultaneous on-wire path use remain unqualified. Identity witness for independent deployment: private-use ipn EIDs confined to one administrative domain, with locally generated pairwise BPSec keys and exact-EID receiver policies. EID uniqueness and key distribution are configured by the participants; no public-key self-certification, automatic trust or global uniqueness is claimed. This does not settle AOS SCID allocation in S03.",
       "website": "https://www.rfc-editor.org/rfc/rfc5326.html",
       "logo": "ltp.svg"
     },
@@ -184,10 +184,10 @@
     },
     {
       "id": "F05",
-      "title": "Persistent relationship as an architectural object",
-      "definition": "Continuity and authorization context independent of session and carrier lifetimes.",
+      "title": "Peer continuity and authorization across sessions",
+      "definition": "A peer continuity and authorization context survives the end of a session and a change of carrier. No particular object name, data structure or protocol-specific lifecycle is required. A stable identity key alone does not establish retained authorization context.",
       "method": "Specification",
-      "research_action": "Find an equivalent continuity and authorization contract; a stable key alone is insufficient."
+      "research_action": "Establish what peer continuity and authorization state survives session termination and carrier changes, and how it is reused for a later session. Evaluate documented behavior regardless of implementation terminology; a stable key alone is insufficient."
     },
     {
       "id": "F06",
@@ -240,10 +240,10 @@
     },
     {
       "id": "F13",
-      "title": "Groupcast with PRP-equivalent semantics",
-      "definition": "Multiple senders with distributed group authority and continuity; matching terminology is insufficient.",
+      "title": "Group with multiple authorized senders and continuity across sessions",
+      "definition": "Multiple authorized participants can send to a group. Membership and group authority are distributed, and group continuity is independent of individual session lifetimes. Matching terminology or a particular implementation is not required.",
       "method": "Specification",
-      "research_action": "Compare membership, authority, continuity, multiple senders and distribution semantics."
+      "research_action": "Identify sender authorization, membership and distributed authority rules; trace group continuity across session termination and subsequent participation. Apply the same behavioral requirements to every selected stack."
     },
     {
       "id": "F14",
@@ -1380,15 +1380,20 @@
       "id": "F04-LT",
       "feature": "F04",
       "stack": "LT",
-      "status": "?",
-      "reason": "Not established for this selected composition. Trace reference creation and key binding; distinguish identity, certificate and locator. Evaluate only the stated non-IP LTP composition.",
-      "method": "Specification",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "status": "Y",
+      "reason": "In the declared exact-origin pairwise-key profile, the source EID selects a configured security policy and is protected by primary-block integrity together with payload coverage. Verification is independent of LTP engine/channel locators. This is a pre-established cryptographic EID-to-key binding, not a self-certifying EID or public verification by arbitrary observers. The verifier also holds the symmetric key, so this is not nonrepudiation.",
+      "method": "Specification plus pinned receiver-policy analysis; no runtime experiment",
+      "source_label": "BIB-HMAC-SHA2 integrity scope and native EID-indexed receiver policy",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9173.html#section-3.2",
+        "https://www.rfc-editor.org/rfc/rfc9172.html#section-6",
+        "https://www.rfc-editor.org/rfc/rfc9758.html#section-5.5",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/bpsec/policy/bpsec_policy_rule.c"
       ],
-      "qualification": "Trace reference creation and key binding; distinguish identity, certificate and locator. Evaluate only the stated non-IP LTP composition."
+      "editorial_references": [
+        "round193-sources.json"
+      ],
+      "qualification": "Keep the same EID/key policy while changing provisioned adjacent transport mapping; verify primary and payload authentication, reject source substitution and test wrong keys. Complete transport integration and secure key provisioning remain unqualified."
     },
     {
       "id": "F04-LP",
@@ -1605,7 +1610,7 @@
       "feature": "F05",
       "stack": "PN",
       "status": "Y",
-      "reason": "PRP Architecture section 4.2 defines a persistent continuity and authorization context that can exist without a session, path or carrier. Relationship Lifecycle section 4 separates relationship policy, session generation, trajectories and aliases. This establishes the architectural object required by F05 for both carrier profiles; it does not certify storage durability, recovery implementation or application permissions.",
+      "reason": "PRP Architecture section 4.2 defines a persistent continuity and authorization context that can exist without a session, path or carrier. Relationship Lifecycle section 4 separates relationship policy, session generation, trajectories and aliases. This establishes the persistent context required by F05 for both carrier profiles; it does not certify storage durability, recovery implementation or application permissions.",
       "method": "Individual review of inherited classification; no protocol execution",
       "source_label": "Primary specification and explicit selected-stack analysis",
       "sources": [],
@@ -1620,7 +1625,7 @@
       "feature": "F05",
       "stack": "PI",
       "status": "Y",
-      "reason": "PRP Architecture section 4.2 defines a persistent continuity and authorization context that can exist without a session, path or carrier. Relationship Lifecycle section 4 separates relationship policy, session generation, trajectories and aliases. This establishes the architectural object required by F05 for both carrier profiles; it does not certify storage durability, recovery implementation or application permissions.",
+      "reason": "PRP Architecture section 4.2 defines a persistent continuity and authorization context that can exist without a session, path or carrier. Relationship Lifecycle section 4 separates relationship policy, session generation, trajectories and aliases. This establishes the persistent context required by F05 for both carrier profiles; it does not certify storage durability, recovery implementation or application permissions.",
       "method": "Individual review of inherited classification; no protocol execution",
       "source_label": "Primary specification and explicit selected-stack analysis",
       "sources": [],
@@ -1649,7 +1654,7 @@
       "feature": "F05",
       "stack": "BP",
       "status": "N",
-      "reason": "BP registrations describe local endpoint membership, not a peer relationship carrying a continuity and authorization contract. Persistent EIDs, certificates and retained bundles do not supply that architectural object in the selected composition. This is a scope inference, not a denial of application-defined relationships.",
+      "reason": "BP registrations describe local endpoint membership, not a peer relationship carrying a continuity and authorization contract. Persistent EIDs, certificates and retained bundles do not supply that persistent context in the selected composition. This is a scope inference, not a denial of application-defined relationships.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / selected profile",
       "sources": [
@@ -1693,7 +1698,7 @@
       "feature": "F05",
       "stack": "LP",
       "status": "N",
-      "reason": "Peer IDs and peer addresses do not define the required persistent continuity-and-authorization object in this minimal composition. Applications can add one. Scope inference.",
+      "reason": "Peer IDs and peer addresses do not define the required persistent continuity and authorization context in this minimal composition. Applications can add one. Scope inference.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / selected profile",
       "sources": [
@@ -1707,7 +1712,7 @@
       "feature": "F05",
       "stack": "TO",
       "status": "Y",
-      "reason": "With onion-v3 client authorization enabled, the service retains authorized-client public-key records and the client retains service-bound private credentials across circuits and transport sessions. This supplies the persistent authorization context required by F05, beyond a stable service name. It is not equivalence to every PRP relationship operation or immediate revocation of established streams.",
+      "reason": "With onion-v3 client authorization enabled, the service retains authorized-client public-key records and the client retains service-bound private credentials across circuits and transport sessions. This supplies the persistent authorization context required by F05, beyond a stable service name. This does not establish immediate revocation of established streams.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit profile inference",
       "sources": [
@@ -1721,7 +1726,7 @@
       "feature": "F05",
       "stack": "I2",
       "status": "N",
-      "reason": "Core I2P supplies destinations, tunnels and client-router sessions, not a separate peer relationship lifecycle. I2CP explicitly destroys its session on disconnect. Persistent destination keys alone do not satisfy F05. Scope inference; Streaming remains excluded.",
+      "reason": "Core I2P supplies destinations, tunnels and client-router sessions, not a peer continuity and authorization context surviving session termination. I2CP explicitly destroys its session on disconnect. Persistent destination keys alone do not satisfy F05. Scope inference; Streaming remains excluded.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit profile inference",
       "sources": [
@@ -1735,7 +1740,7 @@
       "feature": "F05",
       "stack": "YG",
       "status": "N",
-      "reason": "The selected composition supplies node keys, configured peerings and routes. It does not define a separate relationship object with continuity and authorization lifecycle independent of its transport sessions. Application relationships are outside this composition. Scope inference.",
+      "reason": "The selected composition supplies node keys, configured peerings and routes. It does not define a peer continuity and authorization context independent of its transport sessions. Application relationships are outside this composition. Scope inference.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit profile inference",
       "sources": [
@@ -1749,7 +1754,7 @@
       "feature": "F05",
       "stack": "CJ",
       "status": "N",
-      "reason": "CryptoAuth sessions and persistent node keys provide authentication and forwarding, not the separate relationship lifecycle required by F05. A configured peer or key is insufficient under the same rule applied to libp2p. Scope inference for the selected composition.",
+      "reason": "CryptoAuth sessions and persistent node keys provide authentication and forwarding, not the persistent peer continuity and authorization context required by F05. A configured peer or key is insufficient under the same rule applied to libp2p. Scope inference for the selected composition.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit profile inference",
       "sources": [
@@ -1777,7 +1782,7 @@
       "feature": "F05",
       "stack": "SC",
       "status": "N",
-      "reason": "The selected SCION/application-UDP composition supplies endpoint addresses and packet-carried forwarding paths, not a persistent relationship authorization/continuity object independent of transport lifetime. An application could supply such an object, but is not included. Scope inference.",
+      "reason": "The selected SCION/application-UDP composition supplies endpoint addresses and packet-carried forwarding paths, not a persistent peer authorization and continuity context independent of transport lifetime. An application could supply such a context, but is not included. Scope inference.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / selected profile",
       "sources": [
@@ -1791,7 +1796,7 @@
       "feature": "F05",
       "stack": "RT",
       "status": "N",
-      "reason": "The selected Link owns connection state and keys and is torn down after its stale/keepalive timeout. A persistent destination key is not a separate relationship object carrying continuity and authorization beyond connection lifetimes. Scope inference for Link, not all applications built on Reticulum.",
+      "reason": "The selected Link owns connection state and keys and is torn down after its stale/keepalive timeout. A persistent destination key is not a retained context carrying peer continuity and authorization beyond connection lifetimes. Scope inference for Link, not all applications built on Reticulum.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / selected profile",
       "sources": [
@@ -1819,7 +1824,7 @@
       "feature": "F05",
       "stack": "MT",
       "status": "N",
-      "reason": "In this composition the retained peer key and destination route support later messages, but do not form the required persistent authorization/continuity relationship object. Direct-message cryptography derives a key for a packet; retaining an identity alone does not meet F05. Scope inference from the selected message model.",
+      "reason": "In this composition the retained peer key and destination route support later messages, but do not form the required persistent authorization and continuity context. Direct-message cryptography derives a key for a packet; retaining an identity alone does not meet F05. Scope inference from the selected message model.",
       "method": "Documentary and code analysis; no execution",
       "source_label": "Meshtastic official documentation / pinned firmware 8e6a88d",
       "sources": [
@@ -1833,7 +1838,7 @@
       "feature": "F05",
       "stack": "GN",
       "status": "N",
-      "reason": "CADET channels and their tunnel session persist while connected, but the selected profile supplies no final-peer authorization/continuity object independent of session lifetime. Stable peer keys alone do not meet F05.",
+      "reason": "CADET channels and their tunnel session persist while connected, but the selected profile supplies no final-peer authorization and continuity context independent of session lifetime. Stable peer keys alone do not meet F05.",
       "method": "Documentary analysis and selected-profile inference; no execution",
       "source_label": "GNUnet CADET handbook, v0.20.x documentary baseline",
       "sources": [
@@ -1889,7 +1894,7 @@
       "feature": "F05",
       "stack": "BL",
       "status": "N",
-      "reason": "IPv6 forwarding and Babel routes supply no persistent final-peer authorization object; destination reachability is not a relationship.",
+      "reason": "IPv6 forwarding and Babel routes supply no persistent final-peer authorization context; destination reachability is not a relationship.",
       "method": "Documentary analysis and selected-profile inference; no execution",
       "source_label": "IPv6 base protocol, RFC 8200",
       "sources": [
@@ -2845,28 +2850,28 @@
       "feature": "F09",
       "stack": "CG",
       "status": "?",
-      "reason": "Not yet established for this composition. Verify concurrent useful paths in the selected BPv7/SABR realization; separate ordinary single-neighbor selection from critical-bundle copies.",
-      "method": "Specification",
-      "source_label": "CGR/SABR scope and research tasks",
-      "sources": [],
-      "editorial_references": [
-        "round188.html"
+      "reason": "The pinned critical-bundle path now establishes multiple proactive enqueue operations, resolving the replication mechanism separately in F10. Concurrent useful on-wire delivery through the selected complete stack still needs overlapping contacts, independently serviced outducts and a verified schedule. Multiple queued copies alone do not prove simultaneous path use.",
+      "method": "Source analysis; scheduling and complete binding remain unqualified",
+      "source_label": "Pinned ION route-entry enqueue path",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/ipn/ipnfw.c"
       ],
-      "qualification": "Verify concurrent useful paths in the selected BPv7/SABR realization; separate ordinary single-neighbor selection from critical-bundle copies."
+      "editorial_references": [],
+      "qualification": "Configure overlapping contacts and independently serviced outducts for the selected full stack. Capture useful copies concurrently, excluding sequential failover, queue-only overlap and probes."
     },
     {
       "id": "F09-LT",
       "feature": "F09",
       "stack": "LT",
       "status": "?",
-      "reason": "Not established for this selected composition. Verify concurrent useful paths in the selected BPv7/SABR realization; separate ordinary single-neighbor selection from critical-bundle copies.",
-      "method": "Specification",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "reason": "The pinned critical-bundle path now establishes multiple proactive enqueue operations, resolving the replication mechanism separately in F10. Concurrent useful on-wire delivery through the selected complete stack still needs overlapping contacts, independently serviced outducts and a verified schedule. Multiple queued copies alone do not prove simultaneous path use.",
+      "method": "Source analysis; scheduling and complete binding remain unqualified",
+      "source_label": "Pinned ION route-entry enqueue path",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/ipn/ipnfw.c"
       ],
-      "qualification": "Verify concurrent useful paths in the selected BPv7/SABR realization; separate ordinary single-neighbor selection from critical-bundle copies."
+      "editorial_references": [],
+      "qualification": "Configure overlapping contacts and independently serviced outducts for the selected full stack. Capture useful copies concurrently, excluding sequential failover, queue-only overlap and probes."
     },
     {
       "id": "F09-LP",
@@ -3144,29 +3149,41 @@
       "id": "F10-CG",
       "feature": "F10",
       "stack": "CG",
-      "status": "?",
-      "reason": "Not yet established for this composition. SABR 2.4.5 specifies proactive copies for critical bundles. Pin the BPv7 implementation and exact critical-QoS mapping before crediting this composition.",
-      "method": "Specification and test",
-      "source_label": "CGR/SABR scope and research tasks",
-      "sources": [],
-      "editorial_references": [
-        "round188.html"
+      "status": "Y",
+      "reason": "Pinned ION BPv7 maps the client critical option to BP_MINIMUM_LATENCY and stores it in the originating bundle. CGR selects a best eligible route per proximate node; sendCriticalBundle clones and enqueues copies for distinct route-entry neighbors before any loss. This is an origin-side proactive-replication witness with two provisioned distinct routes, not a claim that critical metadata survives every subsequent hop or that neighbors imply physically disjoint paths. The same source explicitly bypasses ordinary reforwarding for critical bundles, because they were already queued on eligible routes. Proactive duplication is therefore not an unconditional delivery guarantee.",
+      "method": "Source audit of an explicit BP-layer witness; no execution",
+      "source_label": "Pinned ION BPv7 client, CGR selector and IPN forwarder",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/ipn/ipnfw.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbp.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbpP.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/cgr/libcgr.c"
       ],
-      "qualification": "SABR 2.4.5 specifies proactive copies for critical bundles. Pin the BPv7 implementation and exact critical-QoS mapping before crediting this composition."
+      "editorial_references": [
+        "round193-sources.json",
+        "round195-sources.json"
+      ],
+      "qualification": "Integrate the selected convergence layers; send one marked bundle over two independent routes and capture both copies before any loss. Check next-neighbor suppression, forwarding duplicate guard, final delivery duplication, resource cost and metadata at subsequent hops. No physical diversity, performance or end-to-end deduplication result is claimed."
     },
     {
       "id": "F10-LT",
       "feature": "F10",
       "stack": "LT",
-      "status": "?",
-      "reason": "Not established for this selected composition. SABR 2.4.5 specifies proactive copies for critical bundles. Pin the BPv7 implementation and exact critical-QoS mapping before crediting this composition.",
-      "method": "Specification and test",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "status": "Y",
+      "reason": "Pinned ION BPv7 maps the client critical option to BP_MINIMUM_LATENCY and stores it in the originating bundle. CGR selects a best eligible route per proximate node; sendCriticalBundle clones and enqueues copies for distinct route-entry neighbors before any loss. This is an origin-side proactive-replication witness with two provisioned distinct routes, not a claim that critical metadata survives every subsequent hop or that neighbors imply physically disjoint paths. The same source explicitly bypasses ordinary reforwarding for critical bundles, because they were already queued on eligible routes. Proactive duplication is therefore not an unconditional delivery guarantee.",
+      "method": "Source audit of an explicit BP-layer witness; no execution",
+      "source_label": "Pinned ION BPv7 client, CGR selector and IPN forwarder",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/ipn/ipnfw.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbp.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbpP.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/cgr/libcgr.c"
       ],
-      "qualification": "SABR 2.4.5 specifies proactive copies for critical bundles. Pin the BPv7 implementation and exact critical-QoS mapping before crediting this composition."
+      "editorial_references": [
+        "round193-sources.json",
+        "round195-sources.json"
+      ],
+      "qualification": "Integrate the selected convergence layers; send one marked bundle over two independent routes and capture both copies before any loss. Check next-neighbor suppression, forwarding duplicate guard, final delivery duplication, resource cost and metadata at subsequent hops. No physical diversity, performance or end-to-end deduplication result is claimed."
     },
     {
       "id": "F10-LP",
@@ -4006,7 +4023,7 @@
       "feature": "F13",
       "stack": "IP",
       "status": "N",
-      "reason": "PIM-SM supplies multicast delivery trees; it does not provide the PRP-equivalent distributed group authority and relationship-continuity contract required by this row.",
+      "reason": "PIM-SM supplies multicast delivery trees; it does not provide distributed group membership authority and authorization with group continuity across sessions. Multicast tree state alone does not establish these behaviors.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit IP composition",
       "sources": [
@@ -4174,7 +4191,7 @@
       "feature": "F13",
       "stack": "NS",
       "status": "N",
-      "reason": "Application-relay fanout is neither network multicast nor PRP-equivalent distributed groupcast. Scope inference.",
+      "reason": "The selected NIP-01 relay/event composition distributes messages but does not specify distributed group membership authority and group continuity across sessions. Application-relay fanout alone does not establish these behaviors. Scope inference for the selected stack, not the entire Nostr ecosystem.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / selected profile",
       "sources": [
@@ -4188,7 +4205,7 @@
       "feature": "F13",
       "stack": "MT",
       "status": "N",
-      "reason": "Shared-key channels and multi-sender flooding do not implement the criterion's distributed group-authority and continuity object. Participants can broadcast, but a common channel key does not by itself supply PRP-equivalent groupcast semantics. Selected-profile inference.",
+      "reason": "The selected shared-key channels and multi-sender flooding support broadcasting, but do not specify distributed group membership authority and group continuity across sessions. Possession of a common channel key alone does not establish these behaviors. Selected-profile inference.",
       "method": "Documentary and code analysis; no execution",
       "source_label": "Meshtastic official documentation / pinned firmware 8e6a88d",
       "sources": [
@@ -6179,29 +6196,39 @@
       "id": "F21-CG",
       "feature": "F21",
       "stack": "CG",
-      "status": "?",
-      "reason": "BPSec security-source identity can name the bundle origin or a waypoint. The declared final-pair keys constrain the intended source but do not by themselves establish which verified identity and coverage flags the application receives. Resolve the native API binding of authenticated primary source and payload; do not import the separate Secure DTN implementation witness.",
-      "method": "Documentary review; no new runtime experiment",
-      "source_label": "Primary specification and bounded profile inference",
+      "status": "Y",
+      "reason": "Pinned ION BpDelivery associates bundleSourceEid, primaryIntegrityVerified and payloadAuthVerified with the delivered ADU. Receiver policy selection includes the bundle source; successful BIB target verification sets the corresponding flags. With exact-origin policies, distinct sender/receiver-only keys and primary-plus-payload coverage, the application may treat the source as authenticated only when both flags are true. This supplies final-peer provenance without another application authentication exchange; unflagged delivery is not authenticated.",
+      "method": "Independent scope review of the pinned API witness used in Secure DTN; no inherited verdict or experiment",
+      "source_label": "Pinned native BP delivery and BPSec receiver-policy code",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9172.html#section-2.2"
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/include/bp.h",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbp.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/ext/bpsec/bib.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/bpsec/policy/bpsec_policy_rule.c"
       ],
-      "editorial_references": [],
-      "qualification": "Pin implementation/API and exact-origin policies; test primary-source substitution, invalid or absent BIB, payload substitution and restart. Credit only identity bound to the delivered item after verification."
+      "editorial_references": [
+        "round193-sources.json"
+      ],
+      "qualification": "Pin complete security/convergence-layer integration and exercise valid, missing, corrupted, wrong-key and source-substitution bundles through bp_receive. Verify both flags and source/ADU association after restart; do not treat waypoint-only keys, one flag, or an address alone as final-peer proof. This is shared-key authentication, not nonrepudiation or replay protection."
     },
     {
       "id": "F21-LT",
       "feature": "F21",
       "stack": "LT",
-      "status": "?",
-      "reason": "BPSec security-source identity can name the bundle origin or a waypoint. The declared final-pair keys constrain the intended source but do not by themselves establish which verified identity and coverage flags the application receives. Resolve the native API binding of authenticated primary source and payload; do not import the separate Secure DTN implementation witness.",
-      "method": "Documentary review; no new runtime experiment",
-      "source_label": "Primary specification and bounded profile inference",
+      "status": "Y",
+      "reason": "Pinned ION BpDelivery associates bundleSourceEid, primaryIntegrityVerified and payloadAuthVerified with the delivered ADU. Receiver policy selection includes the bundle source; successful BIB target verification sets the corresponding flags. With exact-origin policies, distinct sender/receiver-only keys and primary-plus-payload coverage, the application may treat the source as authenticated only when both flags are true. This supplies final-peer provenance without another application authentication exchange; unflagged delivery is not authenticated.",
+      "method": "Independent scope review of the pinned API witness used in Secure DTN; no inherited verdict or experiment",
+      "source_label": "Pinned native BP delivery and BPSec receiver-policy code",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9172.html#section-2.2"
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/include/bp.h",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbp.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/ext/bpsec/bib.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/bpsec/policy/bpsec_policy_rule.c"
       ],
-      "editorial_references": [],
-      "qualification": "Pin implementation/API and exact-origin policies; test primary-source substitution, invalid or absent BIB, payload substitution and restart. Credit only identity bound to the delivered item after verification."
+      "editorial_references": [
+        "round193-sources.json"
+      ],
+      "qualification": "Pin complete security/convergence-layer integration and exercise valid, missing, corrupted, wrong-key and source-substitution bundles through bp_receive. Verify both flags and source/ADU association after restart; do not treat waypoint-only keys, one flag, or an address alone as final-peer proof. This is shared-key authentication, not nonrepudiation or replay protection."
     },
     {
       "id": "F21-LP",
@@ -7089,29 +7116,39 @@
       "id": "C01-CG",
       "feature": "C01",
       "stack": "CG",
-      "status": "?",
-      "reason": "Not yet established for this composition. Block one laboratory path; measure recovery, loss and discovery dependence on that path. Assess only the explicit CGR/SABR profile; no automatic inheritance from Secure DTN.",
-      "method": "Specification and test",
-      "source_label": "CGR/SABR scope and research tasks",
-      "sources": [],
-      "editorial_references": [
-        "round188.html"
+      "status": "Y",
+      "reason": "A bounded native ION witness uses a non-critical bundle still queued when its selected contact becomes unusable. ipnfw schedules xmitOverdue at contact end; bpclock invokes bpReforwardBundle, which returns the retained bundle for new route computation. CGR excludes blocked egress plans and can select another provisioned feasible contact before expiry. This credits recovery with interruption, not undetected downstream discard after successful handoff or universal failure detection.",
+      "method": "Bounded source-level recovery witness; no full-stack execution",
+      "source_label": "Pinned ION contact-expiry event, reforward path and route exclusion",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/daemon/bpclock.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/ipn/ipnfw.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbpP.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/cgr/libcgr.c"
       ],
-      "qualification": "Block one laboratory path; measure recovery, loss and discovery dependence on that path. Assess only the explicit CGR/SABR profile; no automatic inheritance from Secure DTN."
+      "editorial_references": [
+        "round195-sources.json"
+      ],
+      "qualification": "Prevent transmission on the initial scheduled contact, retain one non-critical bundle, then observe timeout and delivery via a separately provisioned authorized route with capacity before lifetime expiry. Verify selected convergence-layer integration, latency, loss and no application resubmission. Critical bundles take a different path; downstream black holes after transfer success need separate evidence."
     },
     {
       "id": "C01-LT",
       "feature": "C01",
       "stack": "LT",
-      "status": "?",
-      "reason": "Not established for this selected composition. Block one laboratory path; measure recovery, loss and discovery dependence on that path. Evaluate only the stated non-IP LTP composition.",
-      "method": "Specification and test",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "status": "Y",
+      "reason": "A bounded native ION witness uses a non-critical bundle still queued when its selected contact becomes unusable. ipnfw schedules xmitOverdue at contact end; bpclock invokes bpReforwardBundle, which returns the retained bundle for new route computation. CGR excludes blocked egress plans and can select another provisioned feasible contact before expiry. This credits recovery with interruption, not undetected downstream discard after successful handoff or universal failure detection.",
+      "method": "Bounded source-level recovery witness; no full-stack execution",
+      "source_label": "Pinned ION contact-expiry event, reforward path and route exclusion",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/daemon/bpclock.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/ipn/ipnfw.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbpP.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/cgr/libcgr.c"
       ],
-      "qualification": "Block one laboratory path; measure recovery, loss and discovery dependence on that path. Evaluate only the stated non-IP LTP composition."
+      "editorial_references": [
+        "round195-sources.json"
+      ],
+      "qualification": "Prevent transmission on the initial scheduled contact, retain one non-critical bundle, then observe timeout and delivery via a separately provisioned authorized route with capacity before lifetime expiry. Verify selected convergence-layer integration, latency, loss and no application resubmission. Critical bundles take a different path; downstream black holes after transfer success need separate evidence."
     },
     {
       "id": "C01-LP",
@@ -9824,15 +9861,20 @@
       "id": "S02-LT",
       "feature": "S02",
       "stack": "LT",
-      "status": "?",
-      "reason": "Not established for this selected composition. Distinguish locally generated cryptographic keys from engine/EID/channel assignment; identify a complete usable identity profile.",
-      "method": "Specification",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "status": "Y",
+      "reason": "Participants can locally generate the symmetric BPSec key and agree its binding to a private-use EID within their independent domain. The selected local security policy supplies that key; no external cryptographic issuer or CA must authorize it. Counterpart acceptance and private-EID uniqueness still require configuration. This is pairwise identity, not a globally verifiable public-key identity. External lower-layer allocation is separately assessed in S03.",
+      "method": "Specification plus pinned receiver-policy analysis; no runtime experiment",
+      "source_label": "BPSec local key policy and private-use ipn identifier scope",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9173.html#section-3.8.1",
+        "https://www.rfc-editor.org/rfc/rfc9172.html#section-6",
+        "https://www.rfc-editor.org/rfc/rfc9758.html#section-5.5",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/bpsec/policy/bpsec_policy_rule.c"
       ],
-      "qualification": "Distinguish locally generated cryptographic keys from engine/EID/channel assignment; identify a complete usable identity profile."
+      "editorial_references": [
+        "round193-sources.json"
+      ],
+      "qualification": "Exercise locally generated key provisioning and exact-origin policy on both participants; reject mismatched bindings. Enforce private-EID domain confinement and verify identifier uniqueness. S03-LT remains Pending for AOS SCID allocation."
     },
     {
       "id": "S02-LP",
@@ -10119,14 +10161,17 @@
       "feature": "S03",
       "stack": "LT",
       "status": "?",
-      "reason": "AOS 732.0-B-4 section 4.1.2.2.3 identifies SANA assignment of spacecraft identifiers. Section 4.1.2.3 permits virtual-channel selection subject to its reserved-value rules. The unresolved allocation question is therefore the SCID scope for an independent deployment, not unrestricted uncertainty over every channel ID. The previously established private LTP engine range does not answer it.",
-      "method": "Documentary review; no new runtime experiment",
-      "source_label": "Primary specification and bounded profile inference",
+      "reason": "Recovered CCSDS 320.0-M-7 with July 2019 corrigendum: section 2 delegates non-radiating simulation/test SCIDs to local management, and section 3.4.6 notes simulator self-assignment with no RF radiation. Operational Q-SCID assignment remains under SANA in section 3.4.1. The simulator exception does not establish allocation-free operation of the selected general space-link profile; do not silently narrow the column to a laboratory deployment.",
+      "method": "Recovered primary document; scope distinction, no deployment test",
+      "source_label": "CCSDS SCID assignment procedures, corrected issue 7",
       "sources": [
-        "https://ccsds.org/Pubs/732x0b4.pdf"
+        "https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01/320x0m7c1.pdf",
+        "https://ccsds.org/publications/allpubs/entry/3109/"
       ],
-      "editorial_references": [],
-      "qualification": "Inspect the referenced SCID assignment procedures and any independent/test-use provision; distinguish a documented local allocation from merely operating with an unassigned number."
+      "editorial_references": [
+        "round195-sources.json"
+      ],
+      "qualification": "Establish whether an independent operational non-radiating AOS deployment outside simulator scope has a permitted local SCID rule. Otherwise distinguish an explicitly limited simulator witness from operational spacecraft allocation; retain the existing LTP and private-ipn findings."
     },
     {
       "id": "S03-LP",
@@ -10735,29 +10780,37 @@
       "id": "G02-CG",
       "feature": "G02",
       "stack": "CG",
-      "status": "?",
-      "reason": "Not yet established for this composition. Trace local repair and propagation, including underlay; identify cases requiring wider updates. Assess only the explicit CGR/SABR profile; no automatic inheritance from Secure DTN.",
-      "method": "Architecture and control trace",
-      "source_label": "CGR/SABR scope and research tasks",
-      "sources": [],
-      "editorial_references": [
-        "round188.html"
+      "status": "Y",
+      "reason": "Bounded architectural witness: external nodes retain a destination-range exit toward gateway G, while a destination changes attachment inside the region behind G. ION local exit and egress-plan/outduct commands can redirect the affected regional forwarding without changing the external range-to-G contract. SABR informative C1.2 describes range/gateway routing; ION supplies concrete local configuration operations. For CG, keep the gateway and its externally routed IP prefix unchanged; change only the local numeric peer/outduct and local IP reachability. This is an operator-provisioned local repair, not automatic endpoint-controlled mobility or a guarantee for every topology change.",
+      "method": "Documented configuration-level witness; no integrated runtime test",
+      "source_label": "SABR informative C1.2 and pinned ION ipnrc/bprc local routing commands",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/ipnrc.pod",
+        "https://ccsds.org/Pubs/734x3b1.pdf",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/bprc.pod"
       ],
-      "qualification": "Trace local repair and propagation, including underlay; identify cases requiring wider updates. Assess only the explicit CGR/SABR profile; no automatic inheritance from Secure DTN."
+      "editorial_references": [
+        "round196-sources.json"
+      ],
+      "qualification": "Exercise one behind-gateway attachment move with unchanged external range exits, gateway identity, external contact schedule and underlay reachability. Capture affected configuration updates and successful delivery; check that no update reaches unrelated nodes. Provision the new adjacent mapping, trust and contact capacity. If gateway reachability or externally promised capacity changes, wider notification may be required."
     },
     {
       "id": "G02-LT",
       "feature": "G02",
       "stack": "LT",
-      "status": "?",
-      "reason": "Not established for this selected composition. Trace local repair and propagation, including underlay; identify cases requiring wider updates. Evaluate only the stated non-IP LTP composition.",
-      "method": "Architecture and control trace",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "status": "Y",
+      "reason": "Bounded architectural witness: external nodes retain a destination-range exit toward gateway G, while a destination changes attachment inside the region behind G. ION local exit and egress-plan/outduct commands can redirect the affected regional forwarding without changing the external range-to-G contract. SABR informative C1.2 describes range/gateway routing; ION supplies concrete local configuration operations. For LT, keep the external gateway/contact schedule unchanged; update only the affected local LTP engine/outduct and adjacent Encapsulation/AOS mapping. This is an operator-provisioned local repair, not automatic endpoint-controlled mobility or a guarantee for every topology change.",
+      "method": "Documented configuration-level witness; no integrated runtime test",
+      "source_label": "SABR informative C1.2 and pinned ION ipnrc/bprc local routing commands",
+      "sources": [
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/ipnrc.pod",
+        "https://ccsds.org/Pubs/734x3b1.pdf",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/bprc.pod"
       ],
-      "qualification": "Trace local repair and propagation, including underlay; identify cases requiring wider updates. Evaluate only the stated non-IP LTP composition."
+      "editorial_references": [
+        "round196-sources.json"
+      ],
+      "qualification": "Exercise one behind-gateway attachment move with unchanged external range exits, gateway identity, external contact schedule and underlay reachability. Capture affected configuration updates and successful delivery; check that no update reaches unrelated nodes. Provision the new adjacent mapping, trust and contact capacity. If gateway reachability or externally promised capacity changes, wider notification may be required."
     },
     {
       "id": "G02-LP",
@@ -11331,28 +11384,36 @@
       "feature": "G04",
       "stack": "CG",
       "status": "?",
-      "reason": "Not yet established for this composition. Specify distributed computation and plan maintenance without a mandatory fixed-capacity coordinator.",
-      "method": "Architecture and bottleneck analysis",
-      "source_label": "CGR/SABR scope and research tasks",
-      "sources": [],
-      "editorial_references": [
-        "round188.html"
+      "reason": "Per-node routing and destination-range gateways distribute forwarding work, but the inspected evidence does not establish how the complete selected deployment partitions contact-plan generation, distribution, trust and recovery. SABR Annex B leaves plan distribution and identical-plan requirements outside its scope. That omission neither mandates a central coordinator nor demonstrates a scale-out plan-management design.",
+      "method": "Control-plane dependency review; unresolved deployment design",
+      "source_label": "SABR Annex B scope and C1.2 gateway routing; ION local configuration",
+      "sources": [
+        "https://ccsds.org/Pubs/734x3b1.pdf",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/ipnrc.pod",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/bprc.pod"
       ],
-      "qualification": "Specify distributed computation and plan maintenance without a mandatory fixed-capacity coordinator."
+      "editorial_references": [
+        "round196-sources.json"
+      ],
+      "qualification": "Specify independently managed contact-plan regions, gateway contracts, ownership of cross-region contacts, consistency and failure recovery, and how additional operators distribute plan-management and routing load. Account for the selected underlay and trust provisioning. Establish absence of an obligatory fixed-capacity coordinator without equating decentralized forwarding with complete scale-out."
     },
     {
       "id": "G04-LT",
       "feature": "G04",
       "stack": "LT",
       "status": "?",
-      "reason": "Not established for this selected composition. Specify distributed computation and plan maintenance without a mandatory fixed-capacity coordinator.",
-      "method": "Architecture and bottleneck analysis",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "reason": "Per-node routing and destination-range gateways distribute forwarding work, but the inspected evidence does not establish how the complete selected deployment partitions contact-plan generation, distribution, trust and recovery. SABR Annex B leaves plan distribution and identical-plan requirements outside its scope. That omission neither mandates a central coordinator nor demonstrates a scale-out plan-management design.",
+      "method": "Control-plane dependency review; unresolved deployment design",
+      "source_label": "SABR Annex B scope and C1.2 gateway routing; ION local configuration",
+      "sources": [
+        "https://ccsds.org/Pubs/734x3b1.pdf",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/ipnrc.pod",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/bprc.pod"
       ],
-      "qualification": "Specify distributed computation and plan maintenance without a mandatory fixed-capacity coordinator."
+      "editorial_references": [
+        "round196-sources.json"
+      ],
+      "qualification": "Specify independently managed contact-plan regions, gateway contracts, ownership of cross-region contacts, consistency and failure recovery, and how additional operators distribute plan-management and routing load. Account for the selected underlay and trust provisioning. Establish absence of an obligatory fixed-capacity coordinator without equating decentralized forwarding with complete scale-out."
     },
     {
       "id": "G04-LP",

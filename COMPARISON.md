@@ -12,17 +12,27 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 1.92, English, 2026-10-15; authority REPORT 056c6c851af67984.
-- Editorial contract commit: `5942bc983ed24b3200b88fbf75a98206c4c639f1`.
-- Package SHA256: `999bd441a83a402154472e9cf01dc2b31cc836e0ad8cd5b7871f7a100195800c` (754614 bytes).
-- Original manifest SHA256: `08d9c6d045d73db376010a563331d643cd06af1f5a7a819da3fcaadfcdbcfc0a`.
-- Approved data SHA256: `4e929778ac52927f2dcbe506f83ea36c1887757cb17407d2dfbd300306619b03`.
+- Revision 1.97, English, 2026-10-15; authority REPORT e146065a177b6923.
+- Editorial delivery commit: `c6d2f21ad6947189099c8312f4e9557ab01d8689`.
+- Package SHA256: `e53a0204b791b6010baca2fa8fc21d48d407e5cb78b1acd5695a321cc9ff47a5` (749182 bytes).
+- Original manifest SHA256: `e3ed4df85c7256843a41575c17ddbeb6f9c2ce729117a5d319da3230fdb83bc9`.
+- Approved data SHA256: `0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a` (777710 bytes).
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 38 criteria, 21 stacks, 798 cells and 72 Pending decisions.
+The snapshot has 38 criteria, 21 stacks, 798 cells and 62 Pending decisions.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
+
+Revision 1.97 changes 31 records from 1.92: F04-LT; F05-PN; F05-PI; F05-BP;
+F05-LP; F05-TO; F05-I2; F05-YG; F05-CJ; F05-SC; F05-RT; F05-MT; F05-GN;
+F05-BL; F09-CG; F09-LT; F10-CG; F10-LT; F13-IP; F13-NS; F13-MT; F21-CG;
+F21-LT; C01-CG; C01-LT; S02-LT; S03-LT; G02-CG; G02-LT; G04-CG; G04-LT.
+Exactly ten verdicts change Pending → Yes: F04-LT, F10-CG, F10-LT, F21-CG,
+F21-LT, C01-CG, C01-LT, S02-LT, G02-CG, G02-LT. F05/F13 wording and CG/LT
+profiles follow the approved snapshot; documentary evidence does not imply
+full-stack runtime certification. Upstream renderer is byte-identical to the
+1.92 export, so the reviewed website presentation adaptations remain unchanged.
 
 ## Rebuild and validate
 
@@ -40,8 +50,9 @@ or editorial modules. The first command above is only needed to propagate a site
 menu/style change into the local template. Render again after changing that template.
 Generated HTML is committed because hosting is static and build-free.
 
-Website adaptations are limited to the shared header, scoped mark styling, a
-main landmark and a focus outline on the scroll region. Regeneration preserves
+Website adaptations cover the shared header, scoped mark styling, a main
+landmark, scroll focus outline, compact mobile headers, accessible information
+icons and separate stack profile pages. Regeneration preserves
 them. The deployed `comparison/manifest.json` records all adapted file hashes;
 it is distinct from the original editorial manifest above. Do not edit generated
 HTML or `data.json` to change decisions. No runtime JavaScript is needed.

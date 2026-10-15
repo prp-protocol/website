@@ -22,11 +22,16 @@ class Page(HTMLParser):
             if key in a:self.links.append(a[key])
 
 d=json.loads((OUT/'data.json').read_text())
+assert d['revision']=='1.97'
+assert hashlib.sha256((OUT/'data.json').read_bytes()).hexdigest()=='0a53746ef35fb705de23a2e5acde20c3ecbfeb37baf565e15408b9febaa6436a'
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
 assert len(d['criteria'])==38 and len(d['columns'])==21
 assert len(d['cells'])==798 and {c['id'] for c in d['cells']}==expected
 assert all(c['status'] in ['Y','N','?'] for c in d['cells'])
-assert sum(c['status']=='?' for c in d['cells'])==72
+assert sum(c['status']=='?' for c in d['cells'])==62
+criteria={c['id']:c for c in d['criteria']}
+assert criteria['F05']['title']=='Peer continuity and authorization across sessions'
+assert criteria['F13']['title']=='Group with multiple authorized senders and continuity across sessions'
 pages={p:Page(p.read_text()) for p in OUT.rglob('*.html') if p.name!='navigation.html'}
 assert pages[OUT/'index.html'].details==38 and pages[OUT/'index.html'].open_details==0
 for p,page in pages.items():
