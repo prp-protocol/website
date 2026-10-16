@@ -12,36 +12,36 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 2.69, English schema-v1, 2026-10-15; authority REPORT 3436707b2335a963.
-- Editorial delivery commit: `4b98e32128c12ae84c10d4742a5bb7e60f9ffa93`.
-- Approved JSON SHA256: `67d189343b908c17b055952f9d7a13d15e71e19fbee4ef521c0aade520373e51` (1312317 bytes).
-- Sealed editorial receipt SHA256: `77706c68f6d74860a5a950a2b1d9ed8428df319562e499a3fc3d0105a8d53278` (11343 bytes).
-- Exact baseline 2.14 SHA256: `7c5876e4b797d4094dd9198facca00047e5d36f0bd37976d413679e70c164835`.
+- Revision 3.21, English schema-v1, 2026-10-16; authority REPORT 2b3d553136e2e1af.
+- Editorial delivery commit: `c89c6efff878763facfbb7feaf7a8bc4118fd6f4`.
+- Approved JSON SHA256: `85664e3ae45150b5601f5d295d653bbd31bf3f623eaa406557617aaa11d0ad62` (1392663 bytes).
+- Sealed editorial receipt SHA256: `aa9c757df946992a8e2eb9b5c52f5e7546795416e2dfc5e7883e5b4aca58cef0` (4110 bytes).
+- Exact baseline 2.69 SHA256: `67d189343b908c17b055952f9d7a13d15e71e19fbee4ef521c0aade520373e51`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 53 criteria, 24 stacks, 1272 cells: 617 Yes, 370 No and 285 Pending.
+The snapshot has 53 criteria, 24 stacks, 1272 cells: 697 Yes, 370 No and 205 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This coordinated expansion adds F24, F25, S04 and D04, and columns RI (IPv6
-IoT/RPL), HP (HIPv2/ESP), CX (CCNx 1.0): 243 new cells. K02 is absent; no old
-IDs are retired or renumbered. The receipt lists 5 changed criterion records,
-5 changed column records and 295 changed cells including additions. Exhaustive
-IDs and new asset credits are in `scripts/comparison-approved.json`.
-G04-HP/G04-CX Yes concerns distributed work without a mandatory single
-coordinator, not proven global capacity. F23-CX remains Pending, including the
-unresolved consumer retry/attachment mechanism. Increased Pending includes new
-rows/columns, not 83 regressions. No runtime/security/interoperability/global-scale
-certification is implied. Website presentation and all old logos are retained.
-Only approved JSON and three explicitly coordinated neutral SVG labels are
-imported; historical sealed packages remain unchanged.
+Grid and IDs remain unchanged; K02 is absent. F24/F25 criteria, HP/CX columns
+and 122 cell records changed. Transitions: 75 Pending → Yes, 5 Pending → No,
+5 No → Yes, plus rationale/qualification edits. Exhaustive IDs and credits are
+in `scripts/comparison-approved.json`. Website presentation is unchanged.
+F24 concerns retained configuration/permissions actually supplied, not invented
+cryptographic authorization. F25's 65536-byte endpoint TX+RX bound is a documentary
+scenario after 24h radio silence, 256 useful bytes, no loss, one hop to available
+access, retained provisioning and fresh sessions/discovery. It is not measured
+performance, energy, arbitrary configuration or a global infrastructure bound.
+HP/CX underlay/private-deployment qualifications remain intact. F25-LP's 62444
+byte-times witness includes mutual TLS/PeerID, both Identify streams,
+multistream-select and bounded certificates/metadata/packetization; no runtime
+or postquantum qualification follows. No security/interoperability certification.
 
-New independently signed assets (exact bytes, safe static typography):
-
-- `logos/hipv2.svg`, 328 bytes: `d836317b845bf765811c594420841ae5c1d4e480bc20c5d07b2774917e66174e`.
-- `logos/ccnx.svg`, 327 bytes: `b6fe33cda3f2bf2162015577d7a97d7b77d2940b7d2d9c6a5373e8f0c8b3c644`.
-- `logos/iot-rpl.svg`, 330 bytes: `fff20dd148fd75e85bddfe45c8766dadc94afa56040ed4c7dac5ef2837548bae`.
+Explicit signed asset exception: `logos/ccnx.jpg`, 16952 bytes, SHA256
+`5833201d23b8e161facb733564198018a8d53a8a463a234bb7751f9f7d85e106`.
+Active CX uses the user-supplied ProjectCCNx account mark with exact attribution
+and rights metadata. Historical `logos/ccnx.svg` and all unrelated logos remain.
 
 ## Rebuild and validate
 
@@ -106,6 +106,9 @@ new stable IDs. Never recycle or renumber identifiers.
    all five catalog objects/signatures and SVG safety have been independently
    verified. Assets are staged with JSON before regeneration; existing assets
    cannot be overwritten. Neither exception enables arbitrary later expansion.
+   `--asset-r321` similarly pins the exact 2.69/3.21 hashes and CCNx JPEG bytes,
+   permits only that active logo/credit substitution and no grid change. Verify
+   all three sealed signatures/custody before using `--asset-objects` with it.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in
