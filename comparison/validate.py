@@ -104,14 +104,22 @@ def changes(old, new, allowed_added=None):
     return result
 
 
-def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False):
+def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
     require(new['revision'] == receipt['revision'] and new['date'] == receipt['date'], 'Revision/date mismatch')
     require(dict(Counter(c['status'] for c in new['cells'])) == receipt['status_counts'], 'Status counts mismatch')
     added = None
-    require(sum((expansion_r214,expansion_r269,asset_r321))<=1, 'Select one coordinated exception')
+    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390))<=1, 'Select one coordinated exception')
+    if expansion_r390:
+        require(receipt['sha256']=='ffb2c335bf1b657783b58bc3e6befbf18baae1e4533741b312cf247c518119b1', 'Expansion only authorized for exact 3.90 snapshot')
+        require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()=='85664e3ae45150b5601f5d295d653bbd31bf3f623eaa406557617aaa11d0ad62', 'Expansion baseline must be exact 3.21')
+        added=dict(criteria=[],columns=['IL','LI'],cells=sorted(r['id']+'-'+c for r in old['criteria'] for c in ['IL','LI']))
+        require({k:sorted(v) for k,v in receipt['added_ids'].items()}==added, 'Expansion additions mismatch')
+        require(receipt['removed_ids']==dict(criteria=[],columns=[],cells=[]), 'Retirement not authorized')
+        require(new['marks']==old['marks'], 'Mark metadata change not authorized')
+        require({c['id']:c['logo'] for c in new['columns']}==dict({c['id']:c['logo'] for c in old['columns']},LI=None,IL=None), 'Asset change not authorized')
     if asset_r321:
         require(receipt['sha256']=='85664e3ae45150b5601f5d295d653bbd31bf3f623eaa406557617aaa11d0ad62', 'Asset exception only authorized for exact 3.21 snapshot')
         require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()=='67d189343b908c17b055952f9d7a13d15e71e19fbee4ef521c0aade520373e51', 'Asset exception baseline must be exact 2.69')

@@ -53,7 +53,7 @@ Then open <http://localhost:8000>.
 - `origin` is the internal Gitea repository. Commit completed changes to
   `main`; the Agentmux publisher sends those commits to Gitea.
 - The public destination is `prp-protocol/website`. Use the granted
-  `github-prp-website` managed publisher from a clean `main`, with a verified
+  `agentmux-github` managed publisher for `prp-protocol/website` from a clean `main`, with a verified
   commit-specific bundle and its SHA-256. Check remote state before publishing.
   Do not use the legacy direct-push script or obtain credentials.
 - As authorized by the owner on 2026-10-11, public publication does not wait

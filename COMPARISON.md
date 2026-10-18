@@ -12,36 +12,27 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 3.21, English schema-v1, 2026-10-16; authority REPORT 2b3d553136e2e1af.
-- Editorial delivery commit: `c89c6efff878763facfbb7feaf7a8bc4118fd6f4`.
-- Approved JSON SHA256: `85664e3ae45150b5601f5d295d653bbd31bf3f623eaa406557617aaa11d0ad62` (1392663 bytes).
-- Sealed editorial receipt SHA256: `aa9c757df946992a8e2eb9b5c52f5e7546795416e2dfc5e7883e5b4aca58cef0` (4110 bytes).
-- Exact baseline 2.69 SHA256: `67d189343b908c17b055952f9d7a13d15e71e19fbee4ef521c0aade520373e51`.
+- Revision 3.90, English schema-v1, 2026-10-17; authority REPORT 6c1749e0959251c5.
+- Editorial delivery commit: `b43cc1b08a007d78f6ac75b45a868c7bb99880c7`.
+- Approved JSON SHA256: `ffb2c335bf1b657783b58bc3e6befbf18baae1e4533741b312cf247c518119b1` (1561575 bytes).
+- Sealed editorial receipt SHA256: `ff322cefea72830396f55bdd4f1faeb003a4fc37ce3776cd3cbf124ad9d1dfeb` (6135 bytes).
+- Exact baseline 3.21 SHA256: `85664e3ae45150b5601f5d295d653bbd31bf3f623eaa406557617aaa11d0ad62`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 53 criteria, 24 stacks, 1272 cells: 697 Yes, 370 No and 205 Pending.
+The snapshot has 53 criteria, 26 stacks, 1378 cells: 771 Yes, 433 No and 174 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-Grid and IDs remain unchanged; K02 is absent. F24/F25 criteria, HP/CX columns
-and 122 cell records changed. Transitions: 75 Pending → Yes, 5 Pending → No,
-5 No → Yes, plus rationale/qualification edits. Exhaustive IDs and credits are
-in `scripts/comparison-approved.json`. Website presentation is unchanged.
-F24 concerns retained configuration/permissions actually supplied, not invented
-cryptographic authorization. F25's 65536-byte endpoint TX+RX bound is a documentary
-scenario after 24h radio silence, 256 useful bytes, no loss, one hop to available
-access, retained provisioning and fresh sessions/discovery. It is not measured
-performance, energy, arbitrary configuration or a global infrastructure bound.
-HP/CX underlay/private-deployment qualifications remain intact. F25-LP's 62444
-byte-times witness includes mutual TLS/PeerID, both Identify streams,
-multistream-select and bounded certificates/metadata/packetization; no runtime
-or postquantum qualification follows. No security/interoperability certification.
-
-Explicit signed asset exception: `logos/ccnx.jpg`, 16952 bytes, SHA256
-`5833201d23b8e161facb733564198018a8d53a8a463a234bb7751f9f7d85e106`.
-Active CX uses the user-supplied ProjectCCNx account mark with exact attribution
-and rights metadata. Historical `logos/ccnx.svg` and all unrelated logos remain.
+Explicitly approved expansion adds only LI (LISP) and IL (ILNPv6), with 106
+new cells and null logos. L02 is the only changed criterion record. The sealed
+receipt enumerates 186 changed/added cells (80 preexisting records), with no
+retirement or renumbering; K02 is absent. Exhaustive IDs are retained in
+`scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
+Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
+Documentary plausibility, bounded historical interoperability, selected profiles
+and measured results retain their distinct qualifications; no new runtime,
+security, postquantum, interoperability or global-capacity certification is implied.
 
 ## Rebuild and validate
 
@@ -109,6 +100,9 @@ new stable IDs. Never recycle or renumber identifiers.
    `--asset-r321` similarly pins the exact 2.69/3.21 hashes and CCNx JPEG bytes,
    permits only that active logo/credit substitution and no grid change. Verify
    all three sealed signatures/custody before using `--asset-objects` with it.
+   `--expansion-r390` admits only the exact 3.21/3.90 hashes, LI/IL and their
+   106 cells, with no new assets or mark changes. Unapproved expansions remain
+   rejected by the ordinary path. Grid checks and receipt travel with rollback.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in

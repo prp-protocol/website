@@ -19,7 +19,7 @@ ASSETS_R269 = {
 ASSETS_R321 = {'logos/ccnx.jpg': ('5833201d23b8e161facb733564198018a8d53a8a463a234bb7751f9f7d85e106',16952)}
 
 
-def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False):
+def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False):
     api = runpy.run_path(str(destination/'validate.py'))
     old = api['validate']((destination/'data.json').read_bytes(), destination)
     assets = assets or {}
@@ -36,7 +36,7 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
         for name,raw in assets.items():
             if (destination/name).exists(): raise ValueError('Refusing to overwrite existing asset')
             (stage/name).write_bytes(raw)
-        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321)
+        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390)
         (stage/'data.json').write_bytes(snapshot)
         subprocess.run(['python3', '-I', str(stage/'render.py'), '--out', str(stage)], check=True, capture_output=True)
         first = (stage/'manifest.json').read_bytes()
@@ -65,6 +65,7 @@ def main():
     ap.add_argument('--expansion-r214', action='store_true', help='REPORT 4a3e8be9a797f116: exact approved 1.97 to 2.14 expansion only')
     ap.add_argument('--expansion-r269', action='store_true', help='REPORT 3436707b2335a963: exact 2.14 to 2.69 expansion only')
     ap.add_argument('--asset-r321', action='store_true', help='REPORT 2b3d553136e2e1af: exact 3.21 CCNx JPEG exception')
+    ap.add_argument('--expansion-r390', action='store_true', help='REPORT 6c1749e0959251c5: exact 3.21 to 3.90 LI/IL expansion')
     ap.add_argument('--asset-objects', type=Path, help='Verified sealed object directory; snapshot-specific asset exception only')
     args = ap.parse_args()
     receipt = json.loads(args.receipt.read_text())
@@ -81,7 +82,7 @@ def main():
         if not (args.expansion_r269 or args.asset_r321): raise ValueError('Asset import not authorized')
         expected_assets=ASSETS_R321 if args.asset_r321 else ASSETS_R269
         assets={name:(args.asset_objects/digest).read_bytes() for name,(digest,size) in expected_assets.items()}
-    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321)
+    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390)
     if args.apply:
         # Repository staging only; publication is separately authorized and managed.
         for name, data in outputs.items():
