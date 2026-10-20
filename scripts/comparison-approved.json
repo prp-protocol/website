@@ -1,147 +1,28 @@
 {
-  "revision": "4.09",
+  "revision": "4.10",
   "date": "2026-10-20",
   "schema_version": 1,
-  "bytes": 1575245,
-  "sha256": "0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100",
+  "bytes": 1575553,
+  "sha256": "283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868",
   "status_counts": {
-    "Y": 779,
+    "Y": 780,
     "N": 436,
-    "?": 163
+    "?": 162
   },
-  "baseline_revision": "3.90",
-  "baseline_sha256": "ffb2c335bf1b657783b58bc3e6befbf18baae1e4533741b312cf247c518119b1",
-  "source_commit": "9e46b6367b3a228d4e4a809e3cbf068ce2609141",
-  "authorization": "User: Fa\u00e7a mais uma rodada e publique. Consolidated revision 4.09, website-only; JSON-only update.",
+  "baseline_revision": "4.09",
+  "baseline_sha256": "0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100",
+  "source_commit": "77e46f8994d55e3068ec8cafa4964b449b932fe0",
+  "authorization": "Owner requested correction of PRP G01: Podemos corrigir? Scoped correction of published matrix.",
   "changed_ids": {
-    "criteria": [
-      "G05"
-    ],
-    "columns": [
-      "MQ",
-      "HP"
-    ],
+    "criteria": [],
+    "columns": [],
     "cells": [
-      "F01-MQ",
-      "F01-HP",
-      "F03-MQ",
-      "F03-HP",
-      "F20-HP",
-      "F25-MQ",
-      "C02-MQ",
-      "C02-HP",
-      "C08-MQ",
-      "C08-HP",
-      "G01-MQ",
-      "G01-HP",
-      "G03-HP",
-      "G05-PN",
-      "G05-PI",
-      "G05-IP",
-      "G05-BP",
-      "G05-CG",
-      "G05-LT",
-      "G05-LP",
-      "G05-TO",
-      "G05-I2",
-      "G05-YG",
-      "G05-CJ",
-      "G05-MQ",
-      "G05-SC",
-      "G05-RT",
-      "G05-NS",
-      "G05-MT",
-      "G05-GN",
-      "G05-ND",
-      "G05-AX",
-      "G05-BA",
-      "G05-BL",
-      "G05-RI",
-      "G05-HP",
-      "G05-CX",
-      "G05-LI",
-      "G05-IL",
-      "E02-RT",
-      "L01-MQ",
-      "L01-HP"
+      "G01-PN"
     ]
   },
-  "added_ids": {
-    "criteria": [],
-    "columns": [],
-    "cells": []
-  },
-  "removed_ids": {
-    "criteria": [],
-    "columns": [],
-    "cells": []
-  },
-  "status_transitions": [
-    {
-      "id": "G05-PN",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-PI",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-IP",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-CG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "G05-LT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "G05-MQ",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-SC",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-RT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-HP",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "G05-IL",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "E02-RT",
-      "before": "?",
-      "after": "N"
-    }
-  ],
   "marks_changed": false,
   "assets_changed": false,
-  "git_publishing": "AGENTMUX_GIT_PUBLISHING absent; local commit, no direct push",
-  "qualifications": [
-    "G05 uses owner-approved architectural plausibility, not a global-scale benchmark or joint certification of historical thresholds.",
-    "G05-CG and G05-LT No applies specifically to the selected private-ipn singleton composition; not a family-wide DTN limitation.",
-    "Keep all source references and qualifications. Private research HTML and tests are not supplied for public publication."
-  ],
-  "authority": "REPORT 5e44ba21d0bc70cb; approved JSON-only revision 4.09",
-  "catalog_receipt": "comparison-409/catalog.json: two sealed objects and detached signatures independently verified; receipt 54fcb01c4da65f42d349ac0a258449e41e9a26d00791fa092317140aa11bc3e0",
-  "editorial_receipt_sha256": "54fcb01c4da65f42d349ac0a258449e41e9a26d00791fa092317140aa11bc3e0"
+  "authority": "REPORT 6c7bcdfdd7dd0309; approved JSON-only revision 4.10",
+  "catalog_receipt": "comparison-410/catalog.json: two sealed objects and detached signatures independently verified; receipt 7cbf4d4f020ae6f8761e550f50d037a1e9712d6cbb15a8ebc34bd607ef39c19c",
+  "editorial_receipt_sha256": "7cbf4d4f020ae6f8761e550f50d037a1e9712d6cbb15a8ebc34bd607ef39c19c"
 }

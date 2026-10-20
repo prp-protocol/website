@@ -12,21 +12,25 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 4.09, English schema-v1, 2026-10-20; authority REPORT 5e44ba21d0bc70cb.
-- Editorial delivery commit (local source attribution): `9e46b6367b3a228d4e4a809e3cbf068ce2609141`.
-- Approved JSON SHA256: `0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100` (1575245 bytes).
-- Sealed editorial receipt SHA256: `54fcb01c4da65f42d349ac0a258449e41e9a26d00791fa092317140aa11bc3e0` (2916 bytes).
-- Exact baseline 3.90 SHA256: `ffb2c335bf1b657783b58bc3e6befbf18baae1e4533741b312cf247c518119b1`.
+- Revision 4.10, English schema-v1, 2026-10-20; authority REPORT 6c7bcdfdd7dd0309.
+- Editorial delivery commit (local source attribution): `77e46f8994d55e3068ec8cafa4964b449b932fe0`.
+- Approved JSON SHA256: `283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868` (1575553 bytes).
+- Sealed editorial receipt SHA256: `7cbf4d4f020ae6f8761e550f50d037a1e9712d6cbb15a8ebc34bd607ef39c19c` (692 bytes).
+- Exact baseline 4.09 SHA256: `0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 53 criteria, 26 stacks, 1378 cells: 779 Yes, 436 No and 163 Pending.
+The snapshot has 53 criteria, 26 stacks, 1378 cells: 780 Yes, 436 No and 162 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This JSON-only update changes G05, columns MQ/HP and 42 cell records; 11 Pending
-decisions resolve to eight Yes and three No. No IDs are added, removed or
-renumbered; K02 is absent. Exhaustive IDs and status transitions are retained in
+This bounded JSON-only update changes only G01-PN from Pending to Yes, with its
+approved rationale and qualifications. Scoped catalogs, nonrecursive Bloom
+horizons and requester exploration provide the architectural witness; the
+DISC-005 introduction gate is removed from this state-placement criterion.
+G01-PI remains No. This does not assert integrated HS2, a global benchmark,
+cheap exhaustive search or application authorization. Criteria and profiles are
+unchanged. No IDs are added, removed or renumbered; K02 is absent. Changed IDs are retained in
 `scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
 G05 now assesses architectural plausibility under the common infrastructure and

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "4.09",
+  "revision": "4.10",
   "date": "2026-10-20",
   "language": "en",
   "scope": "Documented capabilities and explicitly qualified scale evidence; not implementation certification",
@@ -14899,16 +14899,19 @@
       "id": "G01-PN",
       "feature": "G01",
       "stack": "PN",
-      "status": "?",
-      "reason": "Identity-publication sections 2 and 4 already permit a controller to publish its own authenticated identity. Delegated publication is not therefore a necessary premise for every discovery construction. The contract/specification disagreement about publication of another identity remains real but is conditional on using delegation. Exact-discovery section 6 additionally scopes the VOPRF index by query relationship, direction, generation and token, explicitly not one rendezvous-global token index; section 2 distinguishes publication from query relationships. Together with per-egress Bloom aggregation, this supplies positive state-placement evidence, not yet a complete global-reachability witness.",
-      "method": "Architectural dependency correction and profile-specific state inventory",
-      "source_label": "Pinned PRP identity-publication sections 2/4 and exact-discovery sections 2/6/10",
+      "status": "Y",
+      "reason": "Yes at the architectural level for native PRP. The scoped Bloom discovery construction retains local destination catalogs, adjacency state and bounded nonrecursive horizon summaries; requester-directed exploration obtains further hints through contacts and confirms the destination exactly. Paths learned by the requester can be retained selectively. This construction does not require a transit router or control service to enumerate all globally reachable identities. Summary positives are candidates, not exact global routes. The global graph/catalog arrays in the experimental harness describe the simulated environment, not a mandatory directory queried by the deployed requester. The earlier DISC-005 authorized-introduction gate concerned a specific discovery exchange and is not a necessary condition for this state-placement criterion. This decision follows the mechanism inventory, not merely G05's Yes.",
+      "method": "Architectural state inventory and reconciliation of later evidence",
+      "source_label": "PRP architecture section 8.4; BloomRoute scoped catalogs, bounded horizons and observed-path exploration",
       "sources": [],
       "editorial_references": [
-        "round364-sources.json",
-        "round363-sources.json"
+        "round410.html",
+        "round410-evidence.json",
+        "round402-evidence.json",
+        "round402.html",
+        "round364-sources.json"
       ],
-      "qualification": "Withdraw the previous blanket requirement to reconcile DISC-004 before any G01 witness: a self-publication-only construction can avoid that issue. Still map how an arbitrary eligible target is found across aggregates and how successful proof yields authorized introduction without any mandatory globally complete table. Exact-discovery section 10 reserves that introduction to a future registered exchange under DISC-005. The VOPRF index statement is specific to that profile; relationship scoping alone does not bound aggregate storage or prove that no node retains all destinations. Do not silently select a lookup profile, infer global scalability, or require a G05 benchmark to decide architectural G01. No sibling specification change or new runtime experiment."
+      "qualification": "Conditional on reachable, published targets within the selected relationship views and usable adjacencies. G01 does not grant application access, require discovery of unpublished identities, or guarantee cheap exhaustive search. False positives, saturation and finite exploration budgets can make discovery expensive or unsuccessful; the adverse BloomRoute results remain relevant. The evidence is an architectural construction with modeled path/session transport, not integrated HS2 or normative DISC-005 interoperability. It does not establish measured world-scale capacity, latency or zero routing state. Optional recursive/global catalogs are not credited as the witness. PRP over the selected globally BGP-routed IP underlay remains No for whole-stack G01."
     },
     {
       "id": "G01-PI",
