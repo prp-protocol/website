@@ -12,27 +12,33 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 3.90, English schema-v1, 2026-10-17; authority REPORT 6c1749e0959251c5.
-- Editorial delivery commit: `b43cc1b08a007d78f6ac75b45a868c7bb99880c7`.
-- Approved JSON SHA256: `ffb2c335bf1b657783b58bc3e6befbf18baae1e4533741b312cf247c518119b1` (1561575 bytes).
-- Sealed editorial receipt SHA256: `ff322cefea72830396f55bdd4f1faeb003a4fc37ce3776cd3cbf124ad9d1dfeb` (6135 bytes).
-- Exact baseline 3.21 SHA256: `85664e3ae45150b5601f5d295d653bbd31bf3f623eaa406557617aaa11d0ad62`.
+- Revision 4.09, English schema-v1, 2026-10-20; authority REPORT 5e44ba21d0bc70cb.
+- Editorial delivery commit (local source attribution): `9e46b6367b3a228d4e4a809e3cbf068ce2609141`.
+- Approved JSON SHA256: `0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100` (1575245 bytes).
+- Sealed editorial receipt SHA256: `54fcb01c4da65f42d349ac0a258449e41e9a26d00791fa092317140aa11bc3e0` (2916 bytes).
+- Exact baseline 3.90 SHA256: `ffb2c335bf1b657783b58bc3e6befbf18baae1e4533741b312cf247c518119b1`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 53 criteria, 26 stacks, 1378 cells: 771 Yes, 433 No and 174 Pending.
+The snapshot has 53 criteria, 26 stacks, 1378 cells: 779 Yes, 436 No and 163 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-Explicitly approved expansion adds only LI (LISP) and IL (ILNPv6), with 106
-new cells and null logos. L02 is the only changed criterion record. The sealed
-receipt enumerates 186 changed/added cells (80 preexisting records), with no
-retirement or renumbering; K02 is absent. Exhaustive IDs are retained in
+This JSON-only update changes G05, columns MQ/HP and 42 cell records; 11 Pending
+decisions resolve to eight Yes and three No. No IDs are added, removed or
+renumbered; K02 is absent. Exhaustive IDs and status transitions are retained in
 `scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
-Documentary plausibility, bounded historical interoperability, selected profiles
-and measured results retain their distinct qualifications; no new runtime,
-security, postquantum, interoperability or global-capacity certification is implied.
+G05 now assesses architectural plausibility under the common infrastructure and
+workload assumptions. Historical numerical targets are sizing references, not
+jointly certified pass/fail thresholds. The website-owned methodology summary
+is aligned with that definition; the sealed JSON remains unchanged. G05-CG/LT
+No applies to the selected private-ipn singleton compositions, not a family-wide
+DTN/CGR/LTP incapacity; G05-BP remains Pending. Documentary plausibility, bounded
+historical interoperability, selected profiles and measured results retain their
+distinct qualifications. No runtime, security, postquantum, interoperability or
+global-capacity certification is implied. The ordinary importer is used without
+any schema, grid or asset exception.
 
 ## Rebuild and validate
 

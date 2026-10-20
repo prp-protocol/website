@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "revision": "3.90",
-  "date": "2026-10-17",
+  "revision": "4.09",
+  "date": "2026-10-20",
   "language": "en",
   "scope": "Documented capabilities and explicitly qualified scale evidence; not implementation certification",
   "columns": [
@@ -85,7 +85,7 @@
     {
       "id": "MQ",
       "title": "Multipath QUIC",
-      "profile": "IPv4 / UDP / QUIC (TLS 1.3) + multipath-21, optional proactive same-offset STREAM copies on two validated paths; numeric peers, locally generated certificates explicitly trusted by counterparts, mutual handshake authentication, no SNI requirement or online certificate service; independent private IPv4 deployment; separate trusted context keys, no cross-context tickets/token reuse, NAT or transit flow logging F16: local final-key allowlist, all-connection close on revocation, resumption and 0-RTT disabled.; G01 global deployment: conventional BGP-routed IPv4 Internet underlay; private deployment remains a separate S03 capability",
+      "profile": "IPv4 or IPv6 / UDP / QUIC (TLS 1.3) + multipath-21, optional proactive same-offset STREAM copies on two validated paths; numeric peers, locally generated certificates explicitly trusted by counterparts, mutual handshake authentication, no SNI requirement or online certificate service; independent private IPv4 deployment; separate trusted context keys, no cross-context tickets/token reuse, NAT or transit flow logging F16: local final-key allowlist, all-connection close on revocation, resumption and 0-RTT disabled.; G01 global deployment: conventional IPv6 Internet underlay with BGP/MP-BGP prefix routing; private deployment remains a separate S03 capability Global plausibility uses IPv6; retained private deployments and historical runtime/budget witnesses use IPv4.",
       "website": "https://quicwg.org/",
       "logo": "quic.png"
     },
@@ -162,7 +162,7 @@
     {
       "id": "HP",
       "title": "HIPv2 / ESP",
-      "profile": "IPv4 / HIPv2 control (RFC 7401) and ESP-protected user traffic (RFC 7402), with host mobility RFC 8046. Independent deployment uses private IPv4, known numeric initial locators and pinned peer Host Identities/HITs; locally generated ECDSA P-256 identities, ECDH P-256, HIP ECDSA/SHA-384 HIT suite 2 and ESP AES-128-CBC with HMAC-SHA-256 (transform 8). Ordinary application UDP is carried inside the protected host-to-host data path, not as a HIP underlay tunnel. No DNS, rendezvous service, external CA, NAT-traversal extension or application authentication wrapper is selected. One moving endpoint with a reachable known peer; no simultaneous-mobility guarantee. Documentary composition; exact executable integration remains unqualified. G01 global deployment: conventional BGP-routed IPv4 Internet underlay, matching IP, PRP-over-IP and Multipath QUIC. Independent private deployment remains the separate S03/S04 capability; adjacent-only private IP meshes are not this global case.",
+      "profile": "IPv4 or IPv6 / HIPv2 control (RFC 7401) and ESP-protected user traffic (RFC 7402), with host mobility RFC 8046. Independent deployment uses private IPv4, known numeric initial locators and pinned peer Host Identities/HITs; locally generated ECDSA P-256 identities, ECDH P-256, HIP ECDSA/SHA-384 HIT suite 2 and ESP AES-128-CBC with HMAC-SHA-256 (transform 8). Ordinary application UDP is carried inside the protected host-to-host data path, not as a HIP underlay tunnel. No DNS, rendezvous service, external CA, NAT-traversal extension or application authentication wrapper is selected. One moving endpoint with a reachable known peer; no simultaneous-mobility guarantee. Documentary composition; exact executable integration remains unqualified. G01 global deployment: conventional IPv6 Internet underlay with BGP/MP-BGP prefix routing, matching IP, PRP-over-IP and Multipath QUIC. Independent private deployment remains the separate S03/S04 capability; adjacent-only private IP meshes are not this global case. Global plausibility uses IPv6; retained private deployments and historical runtime/budget witnesses use IPv4.",
       "website": "https://www.rfc-editor.org/rfc/rfc7401.html",
       "logo": "hipv2.svg"
     },
@@ -471,10 +471,10 @@
     },
     {
       "id": "G05",
-      "title": "Global scale with bounded discovery and overhead",
-      "definition": "One connected network of at least 10 billion devices on contemporary equipment, evaluated in an agreed reference deployment calibrated to regional Internet interconnections and participant concentration. Existing destinations unknown to the origin: protocol-attributable discovery delay below 1 s; new participants discoverable across regions within 1 h. At least 99.9% of attempts meet deadlines, counting failures/timeouts. Control and unsolicited traffic below 5% of a 1 Gbit/s domestic access per direction. Required routing state below 64 GB per transit equipment, not per endpoint; distributed state and growing aggregate network memory are allowed, without a mandatory complete participant table at any one equipment. Include all required stack layers and declared load, ingress and mobility. At least 1,000 distinct destinations accessed per device per day, independently of concurrent payload activity; cold-origin and warm-cache cohorts must be explicit. See round174.html.",
-      "method": "Model and validation against approved operational limits",
-      "research_action": "Validate the approved limits simultaneously under declared cross-region workloads. Keep protocol processing, queueing, timers, retries and extra exchanges in discovery delay; subtract only a preregistered minimal physical-medium baseline and report total elapsed time too. Count all routing-essential structures per transit equipment across processes. No global monetary or aggregate-memory ceiling. Missing evidence is Pending, not No. Yes/No concerns the agreed regional reference deployment; missing evidence remains Pending. See round174-daily-destinations.json."
+      "title": "Plausibility of global operation",
+      "definition": "A credible architectural route to a connected network of at least 10 billion devices using contemporary equipment and realistic regional interconnection. Assess namespace, routing/discovery state placement, aggregation, control traffic, search work and update behavior in the selected complete stack. Distributed state and growing aggregate resources are allowed. Documentary mechanisms, resource models, proportional simulations and operational experience can support Yes; world-scale deployment or a full-scale simulation is not required. No requires an evidenced architectural or resource obstruction in the selected composition under the common setting; insufficient evidence remains Pending. Prior targets (1 s discovery, 1 h admission, 99.9% coverage, 5% of domestic 1 Gbit/s per direction, 64 GB per transit equipment and 1000 destinations/device/day) remain sizing references, not jointly certified pass/fail thresholds. Keep identities owned separate from destinations accessed. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending.",
+      "method": "Architectural plausibility assessment using documented evidence",
+      "research_action": "Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending. Documentary or bounded analytical evidence can suffice; no global simulation is required."
     },
     {
       "id": "E01",
@@ -721,11 +721,13 @@
       "feature": "F01",
       "stack": "MQ",
       "status": "N",
-      "reason": "The selected multipath QUIC composition retains UDP/IPv4 beneath QUIC. Adding paths or copying STREAM data across validated paths changes transport operation, not the presence of IP. No non-IP QUIC binding is selected.",
+      "reason": "The selected multipath QUIC composition retains UDP/IPv4/IPv6 beneath QUIC. Adding paths or copying STREAM data across validated paths changes transport operation, not the presence of IP. No non-IP QUIC binding is selected.",
       "method": "Individual review of inherited classification; no protocol execution",
       "source_label": "Primary specification and explicit selected-stack analysis",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9000.html#section-12"
+        "https://www.rfc-editor.org/rfc/rfc9000.html#section-12",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [],
       "qualification": ""
@@ -878,11 +880,13 @@
       "feature": "F01",
       "stack": "HP",
       "status": "N",
-      "reason": "The selected HIP control and ESP data paths both use IPv4. Identity/locator separation does not remove that layer.",
+      "reason": "The selected HIP control and ESP data paths both use IPv4/IPv6. Identity/locator separation does not remove that layer.",
       "method": "Documentary classification, no new runtime or interoperability test",
       "source_label": "Primary RFCs and explicit selected composition; retained source bytes, 2026-10-15",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc7401.html"
+        "https://www.rfc-editor.org/rfc/rfc7401.html",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round246-sources.json",
@@ -1472,11 +1476,13 @@
       "feature": "F03",
       "stack": "MQ",
       "status": "N",
-      "reason": "This selected stack includes routed IPv4 and therefore retains topology-dependent network-prefix and interface address configuration in its underlay. Automated provisioning does not eliminate that addressing model. An overlay may generate its own identity/address automatically; alternative non-IP compositions are not classified here. Scope inference from the declared stack and IP addressing model.",
+      "reason": "This selected stack includes routed IPv4/IPv6 and therefore retains topology-dependent network-prefix and interface address configuration in its underlay. Automated provisioning does not eliminate that addressing model. An overlay may generate its own identity/address automatically; alternative non-IP compositions are not classified here. Scope inference from the declared stack and IP addressing model.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / selected profile",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4632.html#section-3"
+        "https://www.rfc-editor.org/rfc/rfc4632.html#section-3",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [],
       "qualification": ""
@@ -1629,11 +1635,13 @@
       "feature": "F03",
       "stack": "HP",
       "status": "N",
-      "reason": "The selected private IPv4 network requires topology-dependent subnet/address provisioning. HIP identities remain distinct from these locators.",
+      "reason": "Both selected IP versions retain topology-dependent address/prefix provisioning. HIP identities remain distinct from these locators; automatic provisioning does not remove that model.",
       "method": "Documentary classification, no new runtime or interoperability test",
       "source_label": "Primary RFCs and explicit selected composition; retained source bytes, 2026-10-15",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc1918.html"
+        "https://www.rfc-editor.org/rfc/rfc1918.html",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round246-sources.json",
@@ -7839,12 +7847,14 @@
       "feature": "F20",
       "stack": "HP",
       "status": "Y",
-      "reason": "HIP association state and ESP security associations reside at the communicating hosts. The selected direct IPv4 transit forwards outer IP locators without mandatory per-HIP-association or application-flow entries. RFC 7402 section 3.2 places HIT/IP translation and ESP processing at the endpoints.",
+      "reason": "HIP association state and ESP security associations reside at the communicating hosts. The selected direct IPv4/IPv6 transit forwards outer IP locators without mandatory per-HIP-association or application-flow entries. RFC 7402 section 3.2 places HIT/IP translation and ESP processing at the endpoints.",
       "method": "Documentary role/state inventory; no runtime test",
       "source_label": "Primary protocol specifications and unchanged selected compositions",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2",
-        "https://www.rfc-editor.org/rfc/rfc9147.html"
+        "https://www.rfc-editor.org/rfc/rfc9147.html",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round260-sources.json"
@@ -9919,7 +9929,7 @@
       "feature": "F25",
       "stack": "MQ",
       "status": "Y",
-      "reason": "A bounded fresh mutually authenticated QUIC/TLS1.3 exchange plus multipath-21 setup fits the F25 budget with two validated paths. Reserve 16 crypto/handshake datagrams, eight CID/path-control datagrams, four proactively duplicated STREAM datagrams, two closes and four extra padded Initial ACK datagrams, each with UDP payload up to 1,232 bytes. Add 28 small ACK/PATH_ACK-only datagrams and eight ARP frames across both access interfaces. Including IPv4/UDP and Ethernet overhead, the total is at most 50,236 byte-times. Mandatory 1,200-byte Initial/path-probe padding is included.",
+      "reason": "A bounded fresh mutually authenticated QUIC/TLS1.3 exchange plus multipath-21 setup fits the F25 budget with two validated paths. Reserve 16 crypto/handshake datagrams, eight CID/path-control datagrams, four proactively duplicated STREAM datagrams, two closes and four extra padded Initial ACK datagrams, each with UDP payload up to 1,232 bytes. Add 28 small ACK/PATH_ACK-only datagrams and eight ARP frames across both access interfaces. Including IPv4/UDP and Ethernet overhead, the total is at most 50,236 byte-times. Mandatory 1,200-byte Initial/path-probe padding is included. This retained positive witness uses IPv4 only; the exact total is not an IPv6 overhead calculation.",
       "method": "Constructive documentary two-path byte envelope",
       "source_label": "QUIC transport/TLS and selected multipath-21 formats",
       "sources": [
@@ -10755,11 +10765,13 @@
       "feature": "C02",
       "stack": "MQ",
       "status": "N",
-      "reason": "In the selected direct IPv4/QUIC composition, the first IP forwarder sees the final endpoint locator. Encryption and multipath do not conceal that destination; no relay or onion layer is selected.",
+      "reason": "In the selected direct IPv4/IPv6/QUIC composition, the first IP forwarder sees the final endpoint locator. Encryption and multipath do not conceal that destination; no relay or onion layer is selected.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit profile inference",
       "sources": [
-        "https://datatracker.ietf.org/doc/html/rfc1812#section-5.2.1"
+        "https://datatracker.ietf.org/doc/html/rfc1812#section-5.2.1",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [],
       "qualification": ""
@@ -10913,11 +10925,13 @@
       "feature": "C02",
       "stack": "HP",
       "status": "N",
-      "reason": "The selected host-to-host ESP path retains outer IPv4 source and destination locators. A first transit router can see the final host locator; HIP identity separation and encrypted payload do not hide that destination.",
+      "reason": "The selected host-to-host ESP path retains outer IPv4/IPv6 source and destination locators. A first transit router can see the final host locator; HIP identity separation and encrypted payload do not hide that destination.",
       "method": "Documentary packet and dependency inventory; no traffic capture",
       "source_label": "Primary specifications and explicitly configured bootstrap/trust profiles",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2"
+        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round262-sources.json"
@@ -13047,11 +13061,13 @@
       "feature": "C08",
       "stack": "MQ",
       "status": "Y",
-      "reason": "Ordinary direct IPv4 forwarding requires no persistent final-participant history at transit routers. The selected underlay excludes NAT and transit flow logging. Endpoint connection records and an operator choosing surveillance are outside this capability claim.",
+      "reason": "Ordinary direct IPv4/IPv6 forwarding requires no persistent final-participant history at transit routers. The selected underlay excludes NAT and transit flow logging. Endpoint connection records and an operator choosing surveillance are outside this capability claim.",
       "method": "Documentary analysis",
       "source_label": "Primary specification / explicit profile inference",
       "sources": [
-        "https://datatracker.ietf.org/doc/html/rfc1812#section-5.2.1"
+        "https://datatracker.ietf.org/doc/html/rfc1812#section-5.2.1",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [],
       "qualification": ""
@@ -13227,11 +13243,13 @@
       "feature": "C08",
       "stack": "HP",
       "status": "Y",
-      "reason": "Ordinary IPv4 transit forwards the selected HIP/ESP traffic using current reachability information. The protocol does not require a transit archive of final Host Identities or completed host communications.",
+      "reason": "Ordinary IPv4/IPv6 transit forwards the selected HIP/ESP traffic using current reachability information. The protocol does not require a transit archive of final Host Identities or completed host communications.",
       "method": "Documentary bounded-witness and state inventory; no runtime execution",
       "source_label": "Primary forwarding, mobility and state specifications; selected-profile witnesses",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2"
+        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round265-sources.json"
@@ -15051,12 +15069,14 @@
       "feature": "G01",
       "stack": "MQ",
       "status": "N",
-      "reason": "For global deployment, explicitly select the same conventional BGP-routed IPv4 Internet underlay used by the IP column. QUIC and its multipath extension select endpoint paths over that underlay; they do not replace its global prefix reachability infrastructure. Edge defaults and multiple QUIC paths do not remove those upstream tables. This is a whole-stack profile verdict, not a claim that every possible IP topology requires a full table or that QUIC itself maintains BGP routes.",
+      "reason": "The global witness selects IPv6 with BGP/MP-BGP prefix routing. For global deployment, explicitly select the same conventional BGP-routed IPv4/IPv6 Internet underlay used by the IP column. QUIC and its multipath extension select endpoint paths over that underlay; they do not replace its global prefix reachability infrastructure. Edge defaults and multiple QUIC paths do not remove those upstream tables. This is a whole-stack profile verdict, not a claim that every possible IP topology requires a full table or that QUIC itself maintains BGP routes.",
       "method": "Documentary/code analysis; no protocol execution",
       "source_label": "Primary specification / pinned source and explicit deployment profile",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc9000.html",
-        "https://www.rfc-editor.org/rfc/rfc4271.html"
+        "https://www.rfc-editor.org/rfc/rfc4271.html",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [],
       "qualification": ""
@@ -15236,12 +15256,14 @@
       "feature": "G01",
       "stack": "HP",
       "status": "N",
-      "reason": "For the global case, explicitly select conventional BGP-routed IPv4, using the same convention as IP, PRP-over-IP and Multipath QUIC. HIP decouples host identity from locators but still sends to IP locators. Its identity and mobility mechanisms do not replace the global prefix reachability infrastructure of this selected underlay. Endpoint default routes relocate that responsibility upstream.",
+      "reason": "The global witness selects IPv6 with BGP/MP-BGP prefix routing. For the global case, explicitly select conventional BGP-routed IPv4/IPv6, using the same convention as IP, PRP-over-IP and Multipath QUIC. HIP decouples host identity from locators but still sends to IP locators. Its identity and mobility mechanisms do not replace the global prefix reachability infrastructure of this selected underlay. Endpoint default routes relocate that responsibility upstream.",
       "method": "Documentary composition and evidence reconciliation; no new runtime execution",
       "source_label": "Primary RFCs, explicit deployment convention and retained local experiment receipts",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc8046.html#section-1",
-        "https://www.rfc-editor.org/rfc/rfc4271.html#section-3.2"
+        "https://www.rfc-editor.org/rfc/rfc4271.html#section-3.2",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round134.html",
@@ -16000,11 +16022,13 @@
       "feature": "G03",
       "stack": "HP",
       "status": "Y",
-      "reason": "The selected caller already knows the peer HIT and numeric locator. Transit can use scoped IPv4 prefixes/defaults rather than a catalog of every Host Identity or every destination at every node.",
+      "reason": "The selected caller already knows the peer HIT and numeric locator. Transit can use scoped IPv4/IPv6 prefixes/defaults rather than a catalog of every Host Identity or every destination at every node.",
       "method": "Documentary bounded-witness and state inventory; no runtime execution",
       "source_label": "Primary forwarding, mobility and state specifications; selected-profile witnesses",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2"
+        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round265-sources.json"
@@ -16456,66 +16480,66 @@
       "id": "G05-PN",
       "feature": "G05",
       "stack": "PN",
-      "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Calibrate discovery shards, publication/churn and protected transit allocation; include upper aggregators and unresolved DISC signaling. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
+      "status": "Y",
+      "reason": "Yes is an editorial architectural-plausibility inference from complementary mechanisms, not an observed global deployment or a global resource bound. BloomRoute supplies population-sized filters, bounded nonrecursive summaries, requester-directed exploration and learned reuse. The newer production-resolver fixtures use observed full paths rather than free addressed shortcuts. With protected endpoint routes, a fixed 64 KiB persistent cache supports small recurring relationship sets; confirmed reuse costs about one contact, which can traverse multiple links. Universal concentration hints remain usable alongside selective nodes, so precision need not be uniform or a complete precise global catalog mandatory at each router. Together these provide a credible scaling route on regional/provider infrastructure. The inference accepts distributed equipment and variable selectivity within the common contemporary-resource setting; no specially favorable physical topology is substituted. It does not equate topological reachability with affordable search. Native transport is exercised through path/session fixtures, not real HS2.",
+      "method": "Editorial synthesis of proportional and bounded-client evidence",
+      "source_label": "BloomRoute reports pinned at 2b8ced0530e8121ee1890a056efe486361abf065",
       "sources": [],
       "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round402.html",
+        "round391-evidence.json",
+        "round400-common-scenario.json",
+        "round400.html",
+        "round401-evidence.json",
+        "round402-evidence.json"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "The detailed regional/global workload and resource mapping remains unvalidated. In the 100000-endpoint, eight-relation universal/priority sample, day-ten query success is 96.88% but distinct-relation coverage is only 75%. The intensive bounded learning study also reports substantial failures. Finite budgets censor discovery; neither affordable completion nor failure solely caused by arbitrary limits has been established for every missing target. The positive is not a claim that this resolver policy meets sustained-discovery qualification. Memory and maintenance figures apply to reduced populations and declared concurrency. Static topology, three seeds and modeled packet/setup sizes do not establish global congestion, churn, cryptographic performance or SLA compliance. Track discovery-cost tails, cache behavior and regional update/state concentration as engineering qualifications. Apply this same plausibility standard to other stacks; neither absence of a proved obstruction nor connectivity alone warrants Yes."
     },
     {
       "id": "G05-PI",
       "feature": "G05",
       "stack": "PI",
-      "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Include the same PRP costs plus UDP/IP transport and the declared global Internet control plane; do not bound PRP identities by IPv4 address count. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
+      "status": "Y",
+      "reason": "Yes is an editorial architectural-plausibility inference from complementary mechanisms, not an observed global deployment or a global resource bound. BloomRoute supplies population-sized filters, bounded nonrecursive summaries, requester-directed exploration and learned reuse. The newer production-resolver fixtures use observed full paths rather than free addressed shortcuts. With protected endpoint routes, a fixed 64 KiB persistent cache supports small recurring relationship sets; confirmed reuse costs about one contact, which can traverse multiple links. Universal concentration hints remain usable alongside selective nodes, so precision need not be uniform or a complete precise global catalog mandatory at each router. Together these provide a credible scaling route on regional/provider infrastructure. The inference accepts distributed equipment and variable selectivity within the common contemporary-resource setting; no specially favorable physical topology is substituted. It does not equate topological reachability with affordable search. The selected IP substrate and its routing costs remain part of the composition; no integrated global PI benchmark is claimed.",
+      "method": "Editorial synthesis of proportional and bounded-client evidence",
+      "source_label": "BloomRoute reports pinned at 2b8ced0530e8121ee1890a056efe486361abf065",
       "sources": [],
       "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round402.html",
+        "round391-evidence.json",
+        "round400-common-scenario.json",
+        "round400.html",
+        "round401-evidence.json",
+        "round402-evidence.json"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "The detailed regional/global workload and resource mapping remains unvalidated. In the 100000-endpoint, eight-relation universal/priority sample, day-ten query success is 96.88% but distinct-relation coverage is only 75%. The intensive bounded learning study also reports substantial failures. Finite budgets censor discovery; neither affordable completion nor failure solely caused by arbitrary limits has been established for every missing target. The positive is not a claim that this resolver policy meets sustained-discovery qualification. Memory and maintenance figures apply to reduced populations and declared concurrency. Static topology, three seeds and modeled packet/setup sizes do not establish global congestion, churn, cryptographic performance or SLA compliance. Track discovery-cost tails, cache behavior and regional update/state concentration as engineering qualifications. Apply this same plausibility standard to other stacks; neither absence of a proved obstruction nor connectivity alone warrants Yes."
     },
     {
       "id": "G05-IP",
       "feature": "G05",
       "stack": "IP",
-      "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Model IPv6 as well as IPv4; distinguish endpoints from advertised prefixes and quantify BGP state/churn and forwarding resources. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv"
+      "status": "Y",
+      "reason": "IPv6 supplies the namespace while prefix aggregation separates inter-domain routing state from individual endpoint count. The selected BGP/MP-BGP control plane and regional/provider hierarchy provide a credible global construction; CIDR's deployment experience is documented in RFC 4632. This satisfies plausibility using the same evidentiary standard as PRP, without requiring a new ten-billion-device test. The retained plausibility inference uses conventional Internet regional/provider routing, rather than a bespoke substitute physical topology; MQ/HIP add peer-local connection/association state. It is documentary architectural evidence, not a completed paired scenario execution.",
+      "method": "Architectural plausibility assessment using documented evidence",
+      "source_label": "RFC 4632 sections 3–5 and 9; RFC 4291 addressing architecture",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4632.html",
+        "https://www.rfc-editor.org/rfc/rfc4291.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "editorial_references": [
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
+      ],
+      "qualification": "Credit applies to the selected IPv4/IPv6 composition with IPv6 for address-space growth, not ten billion unique public IPv4 addresses. Deaggregation, multihoming, churn and provisioning affect resources. No simultaneous certification of the historical numeric targets or exact current endpoint count is asserted. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-BP",
       "feature": "G05",
       "stack": "BP",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Separate EIDs from IP locators; model bundle retention, contact durations, BPSec work and storage during disconnection. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16524,45 +16548,54 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-CG",
       "feature": "G05",
       "stack": "CG",
-      "status": "?",
-      "reason": "Not yet established for this composition. Construct the same regional population and daily destination workload; account for contact-plan distribution, updates, route computation, storage and all selected underlays. No spacecraft-network result automatically qualifies ten billion endpoints.",
-      "method": "Model and validation against approved operational limits",
-      "source_label": "CGR/SABR scope and research tasks",
-      "sources": [],
-      "editorial_references": [
-        "round188.html"
+      "status": "N",
+      "reason": "No for the selected private-ipn singleton deployment. RFC 9758 reserves node numbers 1 through 0x3FFF for private use: at most 16383 distinct bundle nodes in one such domain. Private source/destination EIDs cannot cross administrative domains. Reusing that range in disconnected domains does not supply the connected ten-billion-device witness. Additional service numbers distinguish services on a node, not new independently identified nodes.",
+      "method": "Documentary necessary-condition bound; no execution",
+      "source_label": "RFC 9758 sections 3.4.3, 3.5, 5.5, 5.7 and 9.2",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9758.html"
       ],
-      "qualification": "Construct the same regional population and daily destination workload; account for contact-plan distribution, updates, route computation, storage and all selected underlays. No spacecraft-network result automatically qualifies ten billion endpoints."
+      "editorial_references": [
+        "round409.html",
+        "round409-bound.json"
+      ],
+      "qualification": "This is a selected-profile namespace obstruction, not a claim that BPv7, CGR/SABR or LTP is intrinsically unable to scale globally. Global allocator identifiers, another endpoint naming scheme or a translating gateway composition require an explicit global profile and renewed analysis of routing, discovery, security bindings and resources. They are not silently added here. No performance experiment, hardware failure or global impossibility theorem is asserted. The private deployment remains useful and its other capabilities remain credited. The BP column also selects dtn collective names; its separate G05 question is not decided by this singleton-profile bound."
     },
     {
       "id": "G05-LT",
       "feature": "G05",
       "stack": "LT",
-      "status": "?",
-      "reason": "Not established for this selected composition. Include contact distribution, full-red session retention, retransmissions, acknowledgments, stopped/resumed timers, bundle storage and actual AOS capacities in the common regional workload; 64 GB is per transit equipment.",
-      "method": "Model and validation against approved operational limits",
-      "source_label": "LTP composition and residual questions",
-      "sources": [],
-      "editorial_references": [
-        "round189.html"
+      "status": "N",
+      "reason": "No for the selected private-ipn singleton deployment. RFC 9758 reserves node numbers 1 through 0x3FFF for private use: at most 16383 distinct bundle nodes in one such domain. Private source/destination EIDs cannot cross administrative domains. Reusing that range in disconnected domains does not supply the connected ten-billion-device witness. Additional service numbers distinguish services on a node, not new independently identified nodes.",
+      "method": "Documentary necessary-condition bound; no execution",
+      "source_label": "RFC 9758 sections 3.4.3, 3.5, 5.5, 5.7 and 9.2",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9758.html"
       ],
-      "qualification": "Include contact distribution, full-red session retention, retransmissions, acknowledgments, stopped/resumed timers, bundle storage and actual AOS capacities in the common regional workload; 64 GB is per transit equipment."
+      "editorial_references": [
+        "round409.html",
+        "round409-bound.json"
+      ],
+      "qualification": "This is a selected-profile namespace obstruction, not a claim that BPv7, CGR/SABR or LTP is intrinsically unable to scale globally. Global allocator identifiers, another endpoint naming scheme or a translating gateway composition require an explicit global profile and renewed analysis of routing, discovery, security bindings and resources. They are not silently added here. No performance experiment, hardware failure or global impossibility theorem is asserted. The private deployment remains useful and its other capabilities remain credited. The BP column also selects dtn collective names; its separate G05 question is not decided by this singleton-profile bound."
     },
     {
       "id": "G05-LP",
       "feature": "G05",
       "stack": "LP",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Model selected QUIC connections, peer discovery/bootstrap, connection limits and shared IP routing; do not silently add a DHT or relay. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16571,17 +16604,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-TO",
       "feature": "G05",
       "stack": "TO",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Model directory/consensus distribution, relay circuits, rendezvous, crypto and relay bandwidth; directory entries are not all client devices. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16590,17 +16626,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-I2",
       "feature": "G05",
       "stack": "I2",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Separate Destination/LeaseSet state from router/floodfill state; measure lookup, publication, tunnels and relay crypto/bandwidth. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16609,17 +16648,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-YG",
       "feature": "G05",
       "stack": "YG",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Model adjacent-only private-IP mesh, tree/DHT state, lookup path length, churn and congestion at upper roles. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16628,17 +16670,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-CJ",
       "feature": "G05",
       "stack": "CJ",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Measure native routing/search and neighbor/session state; distinguish address capacity from search and delivery costs. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16647,102 +16692,98 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-MQ",
       "feature": "G05",
       "stack": "MQ",
-      "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Include selected multipath QUIC endpoint connections and crypto plus global IP routing; count independent paths and loss. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv"
+      "status": "Y",
+      "reason": "The global witness now explicitly uses IPv6 with conventional BGP/MP-BGP prefix routing. Its 128-bit namespace accommodates the reference population; regional/provider prefix aggregation avoids requiring one global route per device. QUIC connection and validated-path state is held by communicating peers.  Known numeric peer locators are already part of this selected composition: delivery does not require network-wide identity search or a mandatory global peer catalog. Bounded peer working sets and a bounded number of paths allow participants and their state to be distributed across ordinary regional networks. Together these provide an architectural plausibility witness under G05, extending the same aggregated IPv6 underlay rationale used for IP. The retained plausibility inference uses conventional Internet regional/provider routing, rather than a bespoke substitute physical topology; MQ/HIP add peer-local connection/association state. It is documentary architectural evidence, not a completed paired scenario execution.",
+      "method": "Architectural plausibility inference for explicitly selected IPv6 composition",
+      "source_label": "IPv6 addressing, multiprotocol BGP and peer-local protocol state",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html",
+        "https://www.rfc-editor.org/rfc/rfc9000.html",
+        "https://www.rfc-editor.org/rfc/rfc7401.html",
+        "https://www.rfc-editor.org/rfc/rfc7402.html",
+        "https://www.ietf.org/archive/id/draft-ietf-quic-multipath-21.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "editorial_references": [
+        "round393.html",
+        "round400-common-scenario.json",
+        "round400.html"
+      ],
+      "qualification": "This is an editorial plausibility inference, not a measured 10-billion-device deployment or a guarantee of the historical latency, memory and traffic sizing targets. It assumes aggregatable allocations and distributed demand, not arbitrary global deaggregation or all-to-all simultaneous sessions. Initial locators/trust are supplied as selected; arbitrary identity-to-locator discovery is not added. Historical IPv4 runtime and byte-budget evidence remains IPv4-only; no new IPv6 implementation test is claimed. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-SC",
       "feature": "G05",
       "stack": "SC",
-      "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Model endpoint count separately from ASes, path segments, beaconing and revocation; quantify control services and paths. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv"
+      "status": "Y",
+      "reason": "Editorial plausibility inference: SCION addresses combine ISD, AS and an AS-local host address. Reusing IPv4 host addresses in different ASes does not collide in that namespace. Its control plane discovers and registers selected AS path segments; endpoints combine segments, and packets carry forwarding paths. Regional ISDs separate intra-domain and core discovery. Thus growing the host population within regional ASes does not require one inter-domain route or beacon per host. The selected IPv4/UDP underlay can connect border services while endpoint addresses remain AS-local. A distributed path-service deployment and bounded selected path sets provide a credible scaling route on existing regional interconnections.",
+      "method": "Primary documentary review and conditional architectural sizing",
+      "source_label": "SCION official overview, control-plane architecture and address/path header",
+      "sources": [
+        "https://docs.scion.org/en/latest/overview.html",
+        "https://docs.scion.org/en/latest/control-plane.html",
+        "https://docs.scion.org/en/latest/protocols/scion-header.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "editorial_references": [
+        "round408.html",
+        "round408-sizing.json",
+        "round400-common-scenario.json"
+      ],
+      "qualification": "Architectural inference, not a measured global deployment or implementation qualification. Use the common physical regional infrastructure and workload; no extra inter-region links or favorable substitute topology are assumed. The sizing examples are explicit planning assumptions, not measured record sizes, cache-hit rates or throughput. Place additional service capacity inside existing regional sites and charge its memory, replication and traffic. Arbitrary deaggregation, all-to-all simultaneous sessions, pathological churn and exhaustive path retention are not the witness. Actual skew, control traffic, certificate/DNS updates, CPU, failures and link provisioning need engineering sizing. The historical latency and memory references are not jointly certified. Existing implementation, independent-evidence and security cells are unchanged."
     },
     {
       "id": "G05-RT",
       "feature": "G05",
       "stack": "RT",
-      "status": "?",
-      "reason": "Global operational capacity is not demonstrated under the approved G05 limits. Native scoped discovery, regional announcements and cyclic-mesh delivery work, including full Link exchanges in the closing fixtures. Failed star/tree scenarios do not establish a universal No: a rootless analytical mesh avoids their necessary central bottleneck, although its complete native capacity remains unqualified. Address-space size, local success and configurable admission thresholds do not establish ten-billion-device operation with the required timing, coverage, domestic noise and full transit memory simultaneously. The defensible classification remains Pending, not Yes or No. This evidence review is concluded without claiming the underlying binary question has been resolved. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No. Under the revised 1,000-destination daily workload, sixteen mixed-cache probes now compose native path_request with native request_path admission. Warm cached announcements schedule responses without recursive fan-out; unknown routes fan out to eligible modes. In a synthetic simultaneous burst, only the first unknown destination emits, but every unknown request is marked engaged; retries one second later emit nothing without resolution or expiry. A path entry whose cached announce is absent neither schedules a response nor falls back to recursive search in the tested branch. These controlled branch observations identify requirements for usable-cache accounting and burst recovery; they are not an end-to-end native deployment failure or universal No. Two subsequent native SerialInterface runs replace mocked branch execution with actual OS PTYs, worker threads, IFAC and peer replies. Paced requests discover and deliver to all 16 destinations; a 16-destination burst reaches only one, including after early retries and the tested delayed recovery schedule. No relay queue drops or IFAC/protocol violations were recorded. Raw local elapsed times are recorded per destination; this small SINGLE-delivery fixture does not qualify the selected global Link deployment, the corrected timing definition or 99.9% coverage. The burst result applies to this fixture and retry schedule, not all native configurations. Round 183 retains read-only snapshots of ingress burst flags, cooldown counters, request timestamps, discovery expiry and interface counters while extending caller retries to four-second intervals. All 16 destinations recover with exact deliveries after 55–115 seconds from first request; the original schedule reaches zero in this execution. Snapshots show ingress containment and discovery entries without downstream transmission, but do not isolate every suppression branch. These observations diagnose the small fixture; they do not establish a qualified global construction. Round 184 corrects the historical diagnostic field named engaged: it counted all discovery entries, not their engaged flag. Native logging and source inspection distinguish the 45-second in-flight request gate from the 15-second discovery lifetime; early batching can create an engaged=False entry without forwarding. See the trace and bounded interpretation in round184.html. Round 185 translates the regional daily-destination workload into conditional late-discovery, retry and pending-state budgets. The 99.9% deadline applies within the eligible cold-lookup cohort; warm accesses cannot dilute its failure rate. No fixture failure fraction is extrapolated to global traffic. Round 186 measures source-shaped native pending-table allocations separately from duplicate-request tags in six fresh CPython subprocesses. The native tag sets rotate by count rather than by the 45-second in-flight lifetime, so their synthetic all-retained footprint is not extrapolated as steady-state per-target memory. This is a representation measurement, not live-daemon capacity. Round 187 joins the measured pending-table coefficient with the existing equal-origin-group working-set model for the ten largest operator-region groups in each ten-billion-device scenario. It distinguishes coverage-compatible late-cohort accounting from an all-requests-held memory stress case. These remain conditional origin-gateway representations, not physical placement or full transit memory.",
-      "method": "Three native Reticulum processes per run, SerialInterface/pyserial over rate-enforced OS PTYs, per-destination timing and exact payload verification",
-      "source_label": "Completed evidence assessment under approved G05 rules",
+      "status": "Y",
+      "reason": "Yes is an editorial architectural-plausibility inference under the same complementary-evidence standard used for PRP, not a measured global deployment. Native Reticulum 1.5.5 fixtures establish scoped regional catalogs, recursive lookup stopping at catalog gateways, exact replies and reusable learned core paths. The new shared-catalog fixture passed 24 lookup/delivery cases: two independent origin cores use the same catalog shards without cross-bank request leakage or a complete catalog replica per origin bank. Unknown queries fan out across catalog gateways, not all endpoints; known core paths avoid that fanout. Combined with origin working-set sizing and explicit shard/refresh/load sensitivities, this supplies a credible distributed-state scaling route. Additional service paths or replicas are charged as capacity needs rather than assumed free. A native target-directed regional index is not required when bounded gateway fanout can be provisioned. The selected serial/IFAC composition is retained; no IP backbone, application DHT or Bloom extension is added.",
+      "method": "Editorial synthesis of native shared catalogs and conditional resource sizing",
+      "source_label": "Reticulum 1.5.5 native fixtures and explicit resource model",
       "sources": [
-        "https://reticulum.network/manual/networks.html",
-        "https://reticulum.network/manual/interfaces.html"
+        "https://reticulum.network/manual/interfaces.html",
+        "https://reticulum.network/manual/understanding.html",
+        "https://ftdichip.com/products/ft232hl/"
       ],
       "editorial_references": [
-        "round187.html",
-        "round170-disposition.json",
-        "round170-validation.json",
-        "round160-protocol.json",
-        "round168-mesh-model.json",
-        "round167-retention.json",
-        "round169-native-mesh.json",
-        "round170-link-seed7.json",
-        "round170-link-seed19.json",
-        "round170-link-seed43.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv",
-        "round174-daily-destinations.json",
-        "round180.html",
-        "round181-mixed-discovery.json",
-        "probe_reticulum_mixed_discovery.py",
-        "round182-pty-burst.json",
-        "round182-pty-paced.json",
-        "probe_reticulum_pty_recovery.py",
-        "reticulum_pty_node.py",
-        "round183-pty-diagnostic.json",
-        "reticulum_pty_diagnostic_node.py",
-        "probe_reticulum_pty_diagnostic.py",
-        "round184-pty-logged.json",
-        "probe_reticulum_pty_logged.py",
-        "reticulum_pty_logged_node.py",
-        "round185-admission-budgets.json",
-        "round186-pending-memory.json",
-        "measure_reticulum_pending_memory.py",
-        "round187-joined-state.json"
+        "round407.html",
+        "round398-regional-evidence.json",
+        "round398.html",
+        "round161-scope.json",
+        "round162-regions.json",
+        "round163-cached-regions.json",
+        "round164-announces.json",
+        "round400-common-scenario.json",
+        "round400.html",
+        "round403-costs.json",
+        "round404-working-sets.json",
+        "round404.html",
+        "round405-native.json",
+        "probe_reticulum_sharded_regions.py",
+        "round406-provisioning.json",
+        "round407-native.json",
+        "round407-sizing.json",
+        "probe_reticulum_shared_catalogs.py"
       ],
-      "qualification": "Measure the fraction of eligible cold lookups delayed past one second, including admission and retry waits, separately per regional/load cohort; qualify retry traffic and all routing-essential state on explicitly placed contemporary equipment. Conditional round185 budgets are not measured failure probabilities or a qualified construction."
+      "qualification": "This is an editorial inference, not certification or a claim that the native fixture authors measured global capacity. The analytical example assumes small recurring relationships and 0.2 additional unresolved interests/device/day; 1000 daily accesses are not converted automatically into that miss rate. The intensive workload remains an unresolved sensitivity. The faster UART hardware specification does not establish driver compatibility, long-haul links or end-to-end RNS throughput. Service-path counts are optimistic inverse-budget estimates, not executed hardware inventories. Catalog placement, physical regional embedding, intermediate learned state, expiry, announcements, retries, crypto CPU, congestion and burst demand remain engineering qualifications. A small graph is mechanism evidence only. No full shared-topology simulation, global resource bound or guarantee of discovery latency/coverage is claimed. Keep the earlier adverse and intensive cases; reassess if a concrete common-setting obstruction is established."
     },
     {
       "id": "G05-NS",
       "feature": "G05",
       "stack": "NS",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Distinguish users, clients and relay connections; count fanout, retained events, subscriptions, relay bandwidth and query indexes. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16751,17 +16792,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-MT",
       "feature": "G05",
       "stack": "MT",
       "status": "N",
-      "reason": "The selected standalone LoRa mesh cannot supply ten billion independently addressable ordinary PKI endpoints in one global routing namespace. NodeNum and packet from/to fields are 32-bit. Both hot NodeDB and the warm key store select one peer key by NodeNum, not by (domain, NodeNum) or full public key. Outbound PKI resolves that key using p->to; a client-supplied different key is rejected, rather than selecting a second peer with the same number. PKI then sets channel to zero, so channel names are not a hierarchical destination namespace. Even granting every 32-bit value, there are only 4,294,967,296 labels, below 10,000,000,000. This is a necessary-condition contradiction for globally addressable endpoints, not a measured maximum node count or a claim that a four-billion-node mesh works. Disjoint local meshes may reuse numbers but do not form the selected globally reachable system; added inter-mesh gateways/translation are not in this profile. Missing benchmarks alone would remain Pending. Here the negative follows from the narrower native addressing/key-selection model, not simply from the absence of a positive scale study. The approved G05 operational limits retain the same ten-billion-device minimum, so the namespace contradiction survives this revision. Distributed state does not enlarge the selected native endpoint namespace. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The retained No follows from the previously inspected selected standalone LoRa mesh's 32-bit NodeNum destination/key-selection namespace: even all 2^32 labels cannot identify 10 billion independently keyed, globally addressable endpoints. Disconnected meshes reusing labels do not satisfy the connected-network target. This necessary-condition obstruction survives the plausibility standard; no global benchmark is required. Added gateways or a collision-disambiguating hierarchy would change the selected profile.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Meshtastic NodeNum, destination fields, authoritative key stores and PKI send path",
       "sources": [
         "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/generated/meshtastic/mesh.pb.h",
@@ -16777,17 +16821,20 @@
         "round160-protocol.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "No radio/load experiment was executed. This bound is specific to the selected single native routing namespace and ordinary independently keyed endpoints. Reopen if a concrete native hierarchy or collision-disambiguating destination/key-selection mechanism is added to the selected profile. Local disconnected deployments and application-managed key replacement do not establish that mechanism."
+      "qualification": "No radio/load experiment was executed. This bound is specific to the selected single native routing namespace and ordinary independently keyed endpoints. Reopen if a concrete native hierarchy or collision-disambiguating destination/key-selection mechanism is added to the selected profile. Local disconnected deployments and application-managed key replacement do not establish that mechanism. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-GN",
       "feature": "G05",
       "stack": "GN",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Calibrate R5N lookups, CORE neighbors, CADET paths, churn and shared IP routing; do not equate a sparse DHT with measured capacity. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16796,17 +16843,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-ND",
       "feature": "G05",
       "stack": "ND",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. For the declared G01 flooding tree, count network-wide Interest copies and per-request PIT state; calibrate Data return and cache locality. Table-free reachability is not inexpensive. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16815,17 +16865,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-AX",
       "feature": "G05",
       "stack": "AX",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Inventory callsign/SSID namespace and NET/ROM advertised routes, serial bandwidth and transport state; a large enough namespace is only a necessary condition. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16834,17 +16887,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-BA",
       "feature": "G05",
       "stack": "BA",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Measure originator and translation-table state per role, announcements and forwarding bandwidth under the selected IV/bonding profile. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16853,17 +16909,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-BL",
       "feature": "G05",
       "stack": "BL",
       "status": "?",
-      "reason": "The approved criterion now fixes 1-second existing-destination discovery, 1-hour ingress, 99.9% deadline coverage, domestic control/unsolicited traffic below 50 Mbit/s per direction and routing state below 64 decimal GB per transit equipment. Distributed state is allowed with no aggregate memory or monetary ceiling; no single equipment may require a complete participant table. The selected stack has not yet been qualified against these simultaneous limits. Model prefixes rather than assuming one route per device; count source feasibility, advertisements, filters, aggregation and reconvergence at all levels. Round171 evaluates an agreed Internet-calibrated regional deployment, not every imaginable construction. All quantitative bounds remain. Regional calibration alone establishes neither capacity nor failure; previous arbitrary star/tree failures do not automatically become No.",
-      "method": "Owner-approved regional reference-deployment criterion reconciliation",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
       "sources": [],
       "editorial_references": [
@@ -16872,17 +16931,20 @@
         "round136-scale-plan.json",
         "round171-protocol.json",
         "round171-regions.tsv",
-        "round171-sources.tsv"
+        "round171-sources.tsv",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Freeze the common regional substrate/workload and this stack realization, then demonstrate simultaneous compliance or a concrete failure under round171-protocol.json. Freeze contemporary equipment and native state-placement profiles for each stack before classification; count full routing-essential state and simultaneous delay/noise obligations."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-RI",
       "feature": "G05",
       "stack": "RI",
       "status": "?",
-      "reason": "New approved IPv6 IoT / RPL composition. No verdict is inherited from plain IP or another selected stack. Assess the explicit 6LoWPAN, routing, UDP and end-to-end DTLS profile together.",
-      "method": "Column registration and research inventory",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Primary standards for the declared composition; no new implementation qualification",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc6550.html",
@@ -16897,75 +16959,95 @@
         "https://www.rfc-editor.org/rfc/rfc8446.html"
       ],
       "editorial_references": [
-        "round244.html#iot-rpl"
+        "round244.html#iot-rpl",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Validate the approved limits simultaneously under declared cross-region workloads. Keep protocol processing, queueing, timers, retries and extra exchanges in discovery delay; subtract only a preregistered minimal physical-medium baseline and report total elapsed time too. Count all routing-essential structures per transit equipment across processes. No global monetary or aggregate-memory ceiling. Missing evidence is Pending, not No. Yes/No concerns the agreed regional reference deployment; missing evidence remains Pending. See round174-daily-destinations.json. Preserve the declared PSK-only DTLS, RPL mode and leaf/forwarder roles; do not substitute a cloud broker or an application-security layer."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-HP",
       "feature": "G05",
       "stack": "HP",
-      "status": "?",
-      "reason": "New approved criterion or composition. No verdict is inherited from another profile or inferred from a sovereignty label. Evidence must cover this exact selected stack.",
-      "method": "Evidence inventory; no new runtime qualification",
-      "source_label": "Approved editorial scope and primary protocol specifications",
+      "status": "Y",
+      "reason": "The global witness now explicitly uses IPv6 with conventional BGP/MP-BGP prefix routing. Its 128-bit namespace accommodates the reference population; regional/provider prefix aggregation avoids requiring one global route per device. HIP associations and ESP security associations are held by communicating hosts.  Known numeric peer locators are already part of this selected composition: delivery does not require network-wide identity search or a mandatory global peer catalog. Bounded peer working sets and a bounded number of paths allow participants and their state to be distributed across ordinary regional networks. Together these provide an architectural plausibility witness under G05, extending the same aggregated IPv6 underlay rationale used for IP. The retained plausibility inference uses conventional Internet regional/provider routing, rather than a bespoke substitute physical topology; MQ/HIP add peer-local connection/association state. It is documentary architectural evidence, not a completed paired scenario execution.",
+      "method": "Architectural plausibility inference for explicitly selected IPv6 composition",
+      "source_label": "IPv6 addressing, multiprotocol BGP and peer-local protocol state",
       "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html",
+        "https://www.rfc-editor.org/rfc/rfc9000.html",
         "https://www.rfc-editor.org/rfc/rfc7401.html",
         "https://www.rfc-editor.org/rfc/rfc7402.html",
-        "https://www.rfc-editor.org/rfc/rfc8046.html"
+        "https://www.ietf.org/archive/id/draft-ietf-quic-multipath-21.html"
       ],
       "editorial_references": [
-        "round245.html"
+        "round393.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Validate the approved limits simultaneously under declared cross-region workloads. Keep protocol processing, queueing, timers, retries and extra exchanges in discovery delay; subtract only a preregistered minimal physical-medium baseline and report total elapsed time too. Count all routing-essential structures per transit equipment across processes. No global monetary or aggregate-memory ceiling. Missing evidence is Pending, not No. Yes/No concerns the agreed regional reference deployment; missing evidence remains Pending. See round174-daily-destinations.json."
+      "qualification": "This is an editorial plausibility inference, not a measured 10-billion-device deployment or a guarantee of the historical latency, memory and traffic sizing targets. It assumes aggregatable allocations and distributed demand, not arbitrary global deaggregation or all-to-all simultaneous sessions. Initial locators/trust are supplied as selected; arbitrary identity-to-locator discovery is not added. Historical IPv4 runtime and byte-budget evidence remains IPv4-only; no new IPv6 implementation test is claimed. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-CX",
       "feature": "G05",
       "stack": "CX",
       "status": "?",
-      "reason": "New approved criterion or composition. No verdict is inherited from another profile or inferred from a sovereignty label. Evidence must cover this exact selected stack.",
-      "method": "Evidence inventory; no new runtime qualification",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "Approved editorial scope and primary protocol specifications",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc8569.html",
         "https://www.rfc-editor.org/rfc/rfc8609.html"
       ],
       "editorial_references": [
-        "round245.html"
+        "round245.html",
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
       ],
-      "qualification": "Validate the approved limits simultaneously under declared cross-region workloads. Keep protocol processing, queueing, timers, retries and extra exchanges in discovery delay; subtract only a preregistered minimal physical-medium baseline and report total elapsed time too. Count all routing-essential structures per transit equipment across processes. No global monetary or aggregate-memory ceiling. Missing evidence is Pending, not No. Yes/No concerns the agreed regional reference deployment; missing evidence remains Pending. See round174-daily-destinations.json."
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-LI",
       "feature": "G05",
       "stack": "LI",
       "status": "?",
-      "reason": "LISP has been added to the comparison; evidence for this specific criterion has not yet been assessed.",
-      "method": "Model and validation against approved operational limits",
+      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
+      "method": "Architectural plausibility assessment using documented evidence",
       "source_label": "RFC 9300 (data plane) and RFC 9301 (control plane)",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc9300.html",
         "https://www.rfc-editor.org/rfc/rfc9301.html"
       ],
-      "editorial_references": [],
-      "qualification": "For the declared LISP composition: Validate the approved limits simultaneously under declared cross-region workloads. Keep protocol processing, queueing, timers, retries and extra exchanges in discovery delay; subtract only a preregistered minimal physical-medium baseline and report total elapsed time too. Count all routing-essential structures per transit equipment across processes. No global monetary or aggregate-memory ceiling. Missing evidence is Pending, not No. Yes/No concerns the agreed regional reference deployment; missing evidence remains Pending. See round174-daily-destinations.json. Do not inherit capabilities from optional LISP extensions or mapping-system implementations without explicitly selecting them."
+      "editorial_references": [
+        "round391.html",
+        "round400-common-scenario.json",
+        "round400.html"
+      ],
+      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
     },
     {
       "id": "G05-IL",
       "feature": "G05",
       "stack": "IL",
-      "status": "?",
-      "reason": "ILNPv6 has been admitted with an explicit composition; this criterion still requires its own evidence assessment.",
-      "method": "Model and validation against approved operational limits",
-      "source_label": "ILNP experimental RFCs 6740–6744",
+      "status": "Y",
+      "reason": "Editorial plausibility inference: ILNPv6 forwards on aggregatable 64-bit Locators using IPv6 routing, while Identifier/Locator communication state belongs to active correspondents. DNS NID/L64 records distribute discovery through existing delegated authorities and caches. The namespace therefore does not require ten billion globally advertised host routes or a complete host directory in every router. Regional provider aggregation, distributed DNS service and finite peer working sets supply a credible route to the common population. This credits the selected TCP composition, without adding multipath transport, authentication or an overlay directory.",
+      "method": "Primary documentary review and conditional architectural sizing",
+      "source_label": "RFC 6740 sections 3.2 and 4.2–4.4; RFC 6741 host state; RFC 6742 NID/L64 and deployment; RFC 6743 updates",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc6740.html",
         "https://www.rfc-editor.org/rfc/rfc6741.html",
-        "https://www.rfc-editor.org/rfc/rfc6744.html"
+        "https://www.rfc-editor.org/rfc/rfc6742.html",
+        "https://www.rfc-editor.org/rfc/rfc6743.html"
       ],
-      "editorial_references": [],
-      "qualification": "For the declared ILNPv6/TCP profile: Validate the approved limits simultaneously under declared cross-region workloads. Keep protocol processing, queueing, timers, retries and extra exchanges in discovery delay; subtract only a preregistered minimal physical-medium baseline and report total elapsed time too. Count all routing-essential structures per transit equipment across processes. No global monetary or aggregate-memory ceiling. Missing evidence is Pending, not No. Yes/No concerns the agreed regional reference deployment; missing evidence remains Pending. See round174-daily-destinations.json. Distinguish ILNP identifiers/locators from ordinary IPv6 address semantics and optional security or multipath extensions."
+      "editorial_references": [
+        "round408.html",
+        "round408-sizing.json",
+        "round400-common-scenario.json"
+      ],
+      "qualification": "Architectural inference, not a measured global deployment or implementation qualification. Use the common physical regional infrastructure and workload; no extra inter-region links or favorable substitute topology are assumed. The sizing examples are explicit planning assumptions, not measured record sizes, cache-hit rates or throughput. Place additional service capacity inside existing regional sites and charge its memory, replication and traffic. Arbitrary deaggregation, all-to-all simultaneous sessions, pathological churn and exhaustive path retention are not the witness. Actual skew, control traffic, certificate/DNS updates, CPU, failures and link provisioning need engineering sizing. The historical latency and memory references are not jointly certified. Existing implementation, independent-evidence and security cells are unchanged."
     },
     {
       "id": "E01-PN",
@@ -17658,15 +17740,19 @@
       "id": "E02-RT",
       "feature": "E02",
       "stack": "RT",
-      "status": "?",
-      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding.",
-      "method": "Initial evidence inventory; no new execution",
-      "source_label": "Approved criterion and initial research task",
-      "sources": [],
-      "editorial_references": [
-        "round201.html#E02"
+      "status": "N",
+      "reason": "The official project cryptography page, retrieved on 20 October 2026, explicitly states that Reticulum has not been externally security audited. The public audit discussion describes organizing a review and its proposed scope, rather than publishing a completed report. No qualifying independent formal analysis of this networking stack was located in the bounded review. The dated evidence inventory is therefore No on the basis of the project's declared audit status, rather than search silence alone. A security paper about a different blockchain protocol named Reticulum does not qualify.",
+      "method": "Dated project-declared audit status with bounded independent-analysis search",
+      "source_label": "Official Reticulum cryptography page and public audit-planning discussion",
+      "sources": [
+        "https://reticulum.network/crypto.html",
+        "https://github.com/markqvist/Reticulum/discussions/628"
       ],
-      "qualification": "Find the actual report and authorship; distinguish implementation audit, protocol analysis and formal verification. Confirm coverage of the selected composition rather than only an underlying primitive."
+      "editorial_references": [
+        "round399-sources.json",
+        "round399.html"
+      ],
+      "qualification": "A dated evidence-maturity assessment, not a finding of insecurity. The official page does not give a publication date or explicitly enumerate every possible formal analysis; an unlocated report could supersede this inventory. Reassess when a published independent audit or formal analysis covering security-critical mechanisms of the selected profile is supplied. Unpublished work and primitive-level reviews are not established by this finding."
     },
     {
       "id": "E02-NS",
@@ -21484,12 +21570,14 @@
       "feature": "L01",
       "stack": "MQ",
       "status": "Y",
-      "reason": "IPv4/UDP, QUIC/TLS 1.3 and multipath-21 are publicly specified within the IETF rights framework for implementation and use. Code-component reuse permits modification; the constraints on republishing altered RFC prose do not prohibit implementing or using the protocol commercially.",
+      "reason": "IPv4/IPv6/UDP, QUIC/TLS 1.3 and multipath-21 are publicly specified within the IETF rights framework for implementation and use. Code-component reuse permits modification; the constraints on republishing altered RFC prose do not prohibit implementing or using the protocol commercially.",
       "method": "Documentary classification; no new runtime, interoperability or security experiment",
       "source_label": "Primary documents, published reports and versioned source review, 2026-10-15",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc8721.html#section-4.3",
-        "https://trustee.ietf.org/wp-content/uploads/Corrected-TLP-5.0-legal-provsions.pdf"
+        "https://trustee.ietf.org/wp-content/uploads/Corrected-TLP-5.0-legal-provsions.pdf",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [],
       "qualification": "Retain applicable notices and each document publication-era terms. No conformance endorsement or patent license is inferred; this answers the owner-clarified use criterion, not unrestricted alteration of official RFC text."
@@ -21671,13 +21759,15 @@
       "feature": "L01",
       "stack": "HP",
       "status": "Y",
-      "reason": "The selected IPv4/UDP, HIPv2, ESP and HIP mobility RFCs fall within the IETF publication and implementation-rights framework. Their public specifications permit implementation and use without a commercial or field-of-use restriction. Applicable code-component grants permit reuse and modification.",
+      "reason": "The selected IPv4/IPv6/UDP, HIPv2, ESP and HIP mobility RFCs fall within the IETF publication and implementation-rights framework. Their public specifications permit implementation and use without a commercial or field-of-use restriction. Applicable code-component grants permit reuse and modification.",
       "method": "Documentary rights-scope interpretation; no patent clearance",
       "source_label": "IETF Trust TLP, publication-era guidance and RFC stream notices",
       "sources": [
         "https://trustee.ietf.org/documents/trust-legal-provisions/tlp-5/",
         "https://www.rfc-editor.org/rfc/rfc8721.html#section-4.3",
-        "https://trustee.ietf.org/documents/trust-legal-provisions/copyright-policy-and-tlp-faq/"
+        "https://trustee.ietf.org/documents/trust-legal-provisions/copyright-policy-and-tlp-faq/",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
       ],
       "editorial_references": [
         "round267-sources.json"
