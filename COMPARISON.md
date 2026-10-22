@@ -12,25 +12,31 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 4.39, English schema-v1, 2026-10-22; authority REPORT 5f2d802e46ad97fc.
-- Editorial delivery commit (local source attribution): `5ce3be1a838b83c6365de1154a637a83e27e9ebd`.
-- Approved JSON SHA256: `2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6` (1614081 bytes).
-- Sealed editorial receipt SHA256: `65a48925f62f471cbcf05e18f04c51ba1650cd4529af406dca07b2d0c96fd70a` (3233 bytes).
-- Exact baseline 4.10 SHA256: `283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868`.
+- Revision 4.72, English schema-v1, 2026-10-22; authority REPORT ffdacb5b3ceaac0c.
+- Editorial delivery commit (local source attribution): `6489774b767fb86f51f12f5ad73ed5f9d0c55fa6`.
+- Approved JSON SHA256: `06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa` (1902754 bytes).
+- Sealed editorial receipt SHA256: `601cbe0be7cc0e43a0a3ffff60811fabab4a65fef7fa7d4db9a6bd3ab13ea958` (11508 bytes).
+- Exact baseline 4.39 SHA256: `2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 53 criteria, 26 stacks, 1378 cells: 796 Yes, 442 No and 140 Pending.
+The snapshot has 63 criteria, 26 stacks, 1638 cells: 865 Yes, 574 No and 199 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This accumulated JSON-only update changes 38 cell records and seven qualified
-column profiles (LP, I2, MQ, ND, AX, RI, LI), with 22 Pending resolutions:
-16 Yes and six No. Criteria remain unchanged. D01-PN is included; G01-PN remains
-Yes, G01-PI No, and E03-CJ Pending. No IDs are added, removed or renumbered;
-K02 is absent. Exhaustive changed IDs and verdict transitions are retained in
+This explicitly authorized expansion adds only F26–F35 and their 260 cells.
+There are 11 changed/added criterion records (including F15), two changed profiles
+(PN/PI) and 296 changed/added cell records. Fifteen previously public Pending
+cells resolve (12 Yes, three No); the new grid is not counted as 260 resolutions.
+All previous IDs and URLs remain, with no removal or renumbering; K02 is absent.
+Exhaustive additions, changed IDs and existing-cell transitions are retained in
 `scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
+Preserve CPU versus network exhaustion and negotiated receive-window scope.
+ALIAS/digest-object witnesses are selected constructions, not registry allocation.
+F31 PRP custody covers E2E/multicast channels and authorized consumers, not public
+CDN storage; ALIAS knowledge grants no access. Normative custody and the author's
+reuse clarification retain separate attribution. No blanket certification follows.
 LP/LI G05 No applies only to the selected IPv4 compositions, not universal
 libp2p/LISP impossibility. NET/ROM and batman-adv bounds remain source/architecture
 inferences, not executed world-scale benchmarks. Evidence dates, licensing scope
@@ -43,8 +49,8 @@ No applies to the selected private-ipn singleton compositions, not a family-wide
 DTN/CGR/LTP incapacity; G05-BP remains Pending. Documentary plausibility, bounded
 historical interoperability, selected profiles and measured results retain their
 distinct qualifications. No runtime, security, postquantum, interoperability or
-global-capacity certification is implied. The ordinary importer is used without
-any schema, grid or asset exception.
+global-capacity certification is implied. The exact snapshot-bound
+`--expansion-r472` option is required; ordinary import still rejects grid changes.
 
 ## Rebuild and validate
 
@@ -115,6 +121,10 @@ new stable IDs. Never recycle or renumber identifiers.
    `--expansion-r390` admits only the exact 3.21/3.90 hashes, LI/IL and their
    106 cells, with no new assets or mark changes. Unapproved expansions remain
    rejected by the ordinary path. Grid checks and receipt travel with rollback.
+   `--expansion-r472` admits only the exact 4.39/4.72 hashes and F26–F35 with
+   their 260 cells, no removed IDs, new columns or changed marks/assets. It is
+   mutually exclusive with historical exceptions. Wrong baseline/output hashes,
+   extra additions, removals and the ordinary path remain rejected.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in

@@ -47,7 +47,7 @@ assert len([x for x in new_view.links if x.startswith('cells/')]) == len(origina
 assert 'row-F13' in new_view.ids and 'cells/F13-PN.html' in new_view.links
 # Current criterion-label views are matrix row titles/definitions. Cell pages
 # deliberately use stable IDs (not copied mutable criterion labels); profiles
-# use column labels. All 798 cell pages and all 21 profiles remain byte-identical.
+# use column labels. All existing cell pages and profiles remain byte-identical.
 for name, data in outputs.items():
     if name not in ('data.json', 'manifest.json', 'index.html'):
         assert data == (OUT/name).read_bytes(), name
@@ -76,6 +76,21 @@ bad=copy.deepcopy(original);bad['criteria'][0]['id']='F99'
 try: api['changes'](original,bad)
 except ValueError: pass
 else: raise AssertionError('Accepted ID-set change')
+# A complete, well-formed extra row must still fail the ordinary import path.
+extra=copy.deepcopy(original)
+row=copy.deepcopy(extra['criteria'][0]);old_id=row['id'];row['id']='F99';extra['criteria'].append(row)
+for cell in list(extra['cells']):
+    if cell['feature']==old_id:
+        added=copy.deepcopy(cell);added['feature']='F99';added['id']='F99-'+added['stack'];extra['cells'].append(added)
+expanded=(json.dumps(extra)+'\n').encode()
+exp_receipt=dict(revision=extra['revision'],date=extra['date'],bytes=len(expanded),sha256=hashlib.sha256(expanded).hexdigest(),status_counts=dict(Counter(c['status'] for c in extra['cells'])),changed_ids=dict(criteria=['F99'],columns=[],cells=['F99-'+c['id'] for c in extra['columns']]))
+api['validate'](expanded,OUT)
+try: api['check_receipt'](expanded,OUT,exp_receipt,original)
+except ValueError: pass
+else: raise AssertionError('Ordinary import accepted complete unauthorized expansion')
+try: api['check_receipt'](expanded,OUT,exp_receipt,original,expansion_r472=True)
+except ValueError: pass
+else: raise AssertionError('4.72 exception accepted another snapshot')
 with tempfile.TemporaryDirectory(prefix='comparison-bad-signature-') as tmp:
     tmp=Path(tmp)
     (tmp/'data.json').write_bytes(payload)
@@ -89,6 +104,6 @@ after = {str(p.relative_to(OUT)): hashlib.sha256(p.read_bytes()).hexdigest()
          for p in OUT.rglob('*') if p.is_file()}
 assert before == after, 'Fixture modified production content or website assets'
 print(json.dumps(dict(result='PASS',fixture='temporary F13 rename and escaping',
-    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=14,
+    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=16,
     exact_json=True,website_ownership_preserved=True,production_unchanged=True,
     signature_note='Fixture tests staging only; no sealed input or signature verification claimed.')))
