@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "revision": "4.10",
-  "date": "2026-10-20",
+  "revision": "4.39",
+  "date": "2026-10-22",
   "language": "en",
   "scope": "Documented capabilities and explicitly qualified scale evidence; not implementation certification",
   "columns": [
@@ -50,7 +50,7 @@
     {
       "id": "LP",
       "title": "libp2p",
-      "profile": "IPv4 / UDP / QUIC (TLS 1.3) / libp2p; known numeric peers and Peer IDs, migration enabled; independent deployment uses private IPv4; separate logical peer keys/stores per context, no resumption, NAT or transit flow logging; no pubsub F16: final Peer ID allowlist through ConnectionGater plus coordinated closure of all revoked-peer connections. G01 global deployment: conventional BGP-routed IPv4 Internet underlay, matching the IP/MQ global case; private deployments remain separate S03 capabilities.",
+      "profile": "IPv4 / UDP / QUIC (TLS 1.3) / libp2p; known numeric peers and Peer IDs, migration enabled; independent deployment uses private IPv4; separate logical peer keys/stores per context, no resumption, NAT or transit flow logging; no pubsub F16: final Peer ID allowlist through ConnectionGater plus coordinated closure of all revoked-peer connections. G01 global deployment: conventional BGP-routed IPv4 Internet underlay, matching the IP/MQ global case; private deployments remain separate S03 capabilities. K01 configuration witness: both endpoints use go-libp2p v0.50.0 with Go 1.26.5 and quic-go v0.62.0, TLS 1.3 without resumption; the selected successful handshake negotiates X25519MLKEM768 (4588). Defaults also permit classical peers: this is not a universal no-downgrade policy. Other per-cell witnesses retain their stated configurations.",
       "website": "https://libp2p.io/",
       "logo": "libp2p.png"
     },
@@ -64,7 +64,7 @@
     {
       "id": "I2",
       "title": "I2P",
-      "profile": "IPv4 / TCP / NTCP2 / I2P destinations and tunnels; locally supplied fresh RouterInfo bundle, numeric NTCP2 contacts and known destination keys; multiple active outbound tunnels with at least two remote hops, tunneled destination lookups; correct local clock; no online reseed or external naming service; isolated router/destination key contexts without shared family declarations; independent private IPv4 with i2np.allowLocal and local bootstrap/network configuration; concurrent-tunnel policy is architectural, ordinary Java per-pair selection is sticky; transit-only C08 role with optional identity-bearing traffic/debug history disabled G01 global deployment: conventional BGP-routed IPv4 Internet underlay, matching the IP/MQ global case; private deployments remain separate S03 capabilities.",
+      "profile": "IPv4 / TCP / NTCP2 / I2P destinations and tunnels; locally supplied fresh RouterInfo bundle, numeric NTCP2 contacts and known destination keys; multiple active outbound tunnels with at least two remote hops, tunneled destination lookups; correct local clock; no online reseed or external naming service; isolated router/destination key contexts without shared family declarations; independent private IPv4 with i2np.allowLocal and local bootstrap/network configuration; concurrent-tunnel policy is architectural, ordinary Java per-pair selection is sticky; transit-only C08 role with optional identity-bearing traffic/debug history disabled G01 global deployment: conventional BGP-routed IPv4 Internet underlay, matching the IP/MQ global case; private deployments remain separate S03 capabilities. K01 witness: i2pd 2.58.0 with OpenSSL 3.5 or newer, OPENSSL_PQ enabled, both destinations supporting type 6 (ML-KEM-768/X25519), and the selected session actually using type 6. The Yes covers hybrid-established traffic, not the initial New Session payload or classical-type sessions; no universal fail-closed policy is inferred.",
       "website": "https://geti2p.net/",
       "logo": "i2p.svg"
     },
@@ -85,7 +85,7 @@
     {
       "id": "MQ",
       "title": "Multipath QUIC",
-      "profile": "IPv4 or IPv6 / UDP / QUIC (TLS 1.3) + multipath-21, optional proactive same-offset STREAM copies on two validated paths; numeric peers, locally generated certificates explicitly trusted by counterparts, mutual handshake authentication, no SNI requirement or online certificate service; independent private IPv4 deployment; separate trusted context keys, no cross-context tickets/token reuse, NAT or transit flow logging F16: local final-key allowlist, all-connection close on revocation, resumption and 0-RTT disabled.; G01 global deployment: conventional IPv6 Internet underlay with BGP/MP-BGP prefix routing; private deployment remains a separate S03 capability Global plausibility uses IPv6; retained private deployments and historical runtime/budget witnesses use IPv4.",
+      "profile": "IPv4 or IPv6 / UDP / QUIC (TLS 1.3) + multipath-21, optional proactive same-offset STREAM copies on two validated paths; numeric peers, locally generated certificates explicitly trusted by counterparts, mutual handshake authentication, no SNI requirement or online certificate service; independent private IPv4 deployment; separate trusted context keys, no cross-context tickets/token reuse, NAT or transit flow logging F16: local final-key allowlist, all-connection close on revocation, resumption and 0-RTT disabled.; G01 global deployment: conventional IPv6 Internet underlay with BGP/MP-BGP prefix routing; private deployment remains a separate S03 capability Global plausibility uses IPv6; retained private deployments and historical runtime/budget witnesses use IPv4. K01 configuration: picoquic c124cbe975f71b150ea929d325804335d2bdaa34, Picotls f06553b877ada93c860dd1db9002eabf7365292d, OpenSSL 3.5.0 default provider, with the initiating TLS context restricted to X25519MLKEM768 (4588). Classical fallback under default preferences does not inherit this Yes. The local witness tests key establishment and STREAM traffic in the native simulator, not multipath operation.",
       "website": "https://quicwg.org/",
       "logo": "quic.png"
     },
@@ -127,14 +127,14 @@
     {
       "id": "ND",
       "title": "NDN / NFD",
-      "profile": "NDN packet format v0.3 / NFD 24.07 with direct Ethernet faces and local Unix-socket applications; no IP face, DNS discovery or public testbed enrollment. Known content/key names, local FIB configuration and local trust anchors; ECDSA P-256 Data signatures validated by the consumer. No content-encryption extension, mandatory signed consumer Interests, application sync/group protocol or DTN extension. Data-producer authentication is distinct from live peer authentication. F18 witness: positive-capacity CS with admission/serving enabled, solicited staged cache transfers, bounded contacts before eviction/freshness expiry; no custody or restart durability claim. G01 witness: connected tree of direct Ethernet adjacencies; native multicast v5 strategy at /, root-prefix next hops to every neighbor, and local producer registrations only. Known globally scoped names, no forwarding hints, NLSR, global directory or IP underlay. Interest lifetime/hop budget covers the tree diameter; provision resources for the offered load. This flooding construction establishes reachability, not G05 capacity or efficient routing.",
+      "profile": "NDN packet format v0.3 / NFD 24.07 with direct Ethernet faces and local Unix-socket applications; no IP face, DNS discovery or public testbed enrollment. Known content/key names, local FIB configuration and local trust anchors; ECDSA P-256 Data signatures validated by the consumer. No content-encryption extension, mandatory signed consumer Interests, application sync/group protocol or DTN extension. Data-producer authentication is distinct from live peer authentication. F18 witness: positive-capacity CS with admission/serving enabled, solicited staged cache transfers, bounded contacts before eviction/freshness expiry; no custody or restart durability claim. G01 witness: connected tree of direct Ethernet adjacencies; native multicast v5 strategy at /, root-prefix next hops to every neighbor, and local producer registrations only. Known globally scoped names, no forwarding hints, NLSR, global directory or IP underlay. Interest lifetime/hop budget covers the tree diameter; provision resources for the offered load. This flooding construction establishes reachability, not G05 capacity or efficient routing. D01 binding: NFD 24.07 at a1480a7c947dc6a48ee12c6c0637fc488c0c73a1 on Linux, direct Ethernet faces through libpcap, started with root authority and configured to reduce its effective user/group IDs. The documented privilege reduction is reversible; local Unix-socket applications remain distinct from their forwarder. This source-based finding is not an execution result or a verdict on alternative NDN implementations.",
       "website": "https://named-data.net/",
       "logo": "ndn.png"
     },
     {
       "id": "AX",
       "title": "AX.25 / NET/ROM",
-      "profile": "AX.25 v2 / classic NET/ROM network and transport circuits over direct radio/serial links; known callsigns/SSIDs, locally configured routing ports and NET/ROM announcements. Historical protocol description plus Linux AX.25 port configuration; no IP encapsulation, TCP/IP payload service, BBS mailbox or added cryptography. Executable version not yet qualified. S01/S03/C06 credit the private direct-serial role with locally provisioned labels; no claim about radio licensing or public callsign acceptance.",
+      "profile": "AX.25 v2 / classic NET/ROM network and transport circuits over direct radio/serial links; known callsigns/SSIDs, locally configured routing ports and NET/ROM announcements. Historical protocol description plus Linux AX.25 port configuration; no IP encapsulation, TCP/IP payload service, BBS mailbox or added cryptography. Executable version not yet qualified. S01/S03/C06 credit the private direct-serial role with locally provisioned labels; no claim about radio licensing or public callsign acceptance. D01 implementation binding: Linux v6.12 kernel NET/ROM and AX.25, ax25-tools 0.0.10-rc5+git20230513+d3e6d4f, direct KISS serial attachment, and active netromd announcement reception/transmission and route aging. Application UID/callsign mapping is provisioned administratively. This is a source-qualified privilege finding, not a newly executed serial deployment; it does not qualify unrelated implementations or other evidence criteria.",
       "website": "https://www.ax25.net/",
       "logo": "ax25-netrom.svg"
     },
@@ -155,7 +155,7 @@
     {
       "id": "RI",
       "title": "IPv6 IoT / RPL",
-      "profile": "6LoWPAN (RFC 4944/6282) / IPv6 / RPL (RFC 6550, non-storing downward routing with RFC 6554, OF0 RFC 6552) / UDP / DTLS 1.3 (RFC 9147). IEEE 802.15.4 link binding; endpoint leaf role, participant-operated RPL root and routers. Locally provisioned ULA prefix, numeric peer addresses, 6LoWPAN neighbor discovery RFC 6775. RPL unsecured mode on an access-controlled link; DTLS does not protect routing control. End-to-end DTLS with distinct locally provisioned pairwise external PSKs, psk_ke and TLS_AES_128_GCM_SHA256; no 0-RTT, tickets or application authentication overlay. Fresh PSK handshakes allowed; no forward-secrecy claim for this PSK-only choice. No DNS, public CA, cloud broker, CoAP or MQTT dependency. No DTLS-terminating gateway: the final peers hold the traffic keys. Documentary composition; complete executable integration and sleep/overhead behavior remain unqualified.",
+      "profile": "6LoWPAN (RFC 4944/6282) / IPv6 / RPL (RFC 6550, non-storing downward routing with RFC 6554, OF0 RFC 6552) / UDP / DTLS 1.3 (RFC 9147). IEEE 802.15.4 link binding; endpoint leaf role, participant-operated RPL root and routers. Locally provisioned ULA prefix, numeric peer addresses, 6LoWPAN neighbor discovery RFC 6775. RPL unsecured mode on an access-controlled link; DTLS does not protect routing control. End-to-end DTLS with distinct locally provisioned pairwise external PSKs, psk_ke and TLS_AES_128_GCM_SHA256; no 0-RTT, tickets or application authentication overlay. Fresh PSK handshakes allowed; no forward-secrecy claim for this PSK-only choice. No DNS, public CA, cloud broker, CoAP or MQTT dependency. No DTLS-terminating gateway: the final peers hold the traffic keys. Documentary composition; complete executable integration and sleep/overhead behavior remain unqualified. C03 configuration: enable IEEE 802.15.4 AES-128-CCM link security at level 7 (ENC-MIC128) for all established data frames carrying 6LoWPAN, including RPL unicast and multicast control, on every observed adjacency. Provision link keys locally, including a key usable for multicast delivery, and maintain non-repeating frame counters. This credits a passive radio observer without link keys; MAC headers remain visible and authorized routers decrypt RPL controls. RPL remains in unsecured mode; final-pair DTLS keys stay separate.",
       "website": "https://www.rfc-editor.org/rfc/rfc6550.html",
       "logo": "iot-rpl.svg"
     },
@@ -176,7 +176,7 @@
     {
       "id": "LI",
       "title": "LISP",
-      "profile": "IPv4 / UDP / LISP (RFC 9300 data plane and RFC 9301 control plane) / inner IPv4 / application UDP; configured EID prefixes and RLOCs; numeric peer and mapping-service addresses; participant-operated Map-Resolver and Map-Server with locally provisioned registration keys. No LISP-SEC, endpoint TLS/IPsec, or application identity layer selected.",
+      "profile": "IPv4 / UDP / LISP (RFC 9300 data plane and RFC 9301 control plane) / inner IPv4 / application UDP; configured EID prefixes and RLOCs; numeric peer and mapping-service addresses; participant-operated Map-Resolver and Map-Server with locally provisioned registration keys. No LISP-SEC, endpoint TLS/IPsec, or application identity layer selected. F09 architectural witness: two reachable best-priority RLOCs with zero weights, both delivering to the same destination EID; the ITR alternates successive useful packets of one UDP communication between them. Keep the outer UDP source port stable for the inner flow. Distinct provisioned underlay routes are required; no modified wire format or claimed implementation default.",
       "website": "https://www.rfc-editor.org/rfc/rfc9300.html",
       "logo": null
     },
@@ -3996,17 +3996,19 @@
       "id": "F09-LI",
       "feature": "F09",
       "stack": "LI",
-      "status": "?",
-      "reason": "RFC 9300 permits load sharing, but the inspected lispers.net select_rloc implementation hashes source/destination addresses and ports into one best RLOC for a stable UDP flow. That concrete default does not establish concurrent paths for one communication. The base specification does not mandate that particular scheduler, so this is not sufficient for a family-wide No either.",
-      "method": "Specification review; unchanged selected profile",
-      "source_label": "rfc9300.html#section-9; rfc9300.html#section-12",
+      "status": "Y",
+      "reason": "Architectural Yes with an explicit optional packet scheduler. RFC 9300 section 9 gives the client-side ITR distribution choice when the eligible best-priority RLOCs have zero weights. Section 12 makes its flow-hash selection algorithm optional. Select two reachable locators for the same destination EID and alternate successive useful UDP packets between them over distinct provisioned paths. Both paths carry the same communication while it is active. Keeping the outer UDP source port constant preserves the separate per-flow source-port recommendation. This supplies the previously missing scheduler policy at the architectural capability level, using the same optional-policy standard already applied to IP F09.",
+      "method": "Normative policy analysis and explicit architectural witness; no execution",
+      "source_label": "RFC 9300 sections 9 and 12; optional-policy parity with F09-IP",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc9300.html#section-9",
-        "https://www.rfc-editor.org/rfc/rfc9300.html#section-12",
-        "https://github.com/farinacci/lispers.net/blob/a61c30bfdf628f9728cf072dbd2417d07d62d70b/lisp/lisp.py#L14528"
+        "https://www.rfc-editor.org/rfc/rfc9300.html#section-12"
       ],
-      "editorial_references": [],
-      "qualification": "Locate a per-communication scheduler within the selected base composition or explicitly bind the compared deployment to the inspected flow-hash policy before resolving. No source code was executed."
+      "editorial_references": [
+        "round412.html",
+        "round412-evidence.json"
+      ],
+      "qualification": "This optional deployment policy is now explicit in the LI profile; it is not the flow-hashed behavior observed in lispers.net a61c30b. No existing implementation is asserted to expose this policy, and no traffic test, performance gain or independent interoperability result was produced. Two RLOCs alone do not prove distinct physical routes. Reordering and path MTU differences remain deployment concerns. Selection is at the ITR, not autonomous endpoint control; F20/F23 and all other verdicts are unchanged."
     },
     {
       "id": "F09-IL",
@@ -9858,16 +9860,26 @@
       "feature": "F25",
       "stack": "TO",
       "status": "?",
-      "reason": "The owner conditionally approved the 64 KiB budget if it unlocks evidence-backed decisions. IP and NDN witnesses now do so. Bound directory/descriptor refresh, circuit establishment and authorized rendezvous at the waking client.",
-      "method": "Constructive plausibility bound; no runtime measurement",
-      "source_label": "Approved endpoint budget and documentary wire-size accounting",
-      "sources": [],
-      "editorial_references": [
-        "round313.html",
-        "round313-budget.json",
-        "round313-prior.json"
+      "reason": "Tor client-operation permits use of a consensus that expired less than 24 hours ago when no live consensus is available. Therefore 24 hours of radio silence does not itself imply that this tolerance has elapsed: a consensus with two hours of validity left at shutdown is only 22 hours past expiry on return. Clients can select microdescriptor consensuses and retain cached descriptors. Separately, directory mirrors support consensus diffs from a known consensus; directory compression includes deflate and recommended LZMA for consensuses and diffs. The size of an uncompressed full consensus is consequently not a mandatory endpoint transfer lower bound for this workload. Four public CollecTor microdescriptor consensuses, valid-after 10:00 UTC on 19–22 October 2026, were downloaded and hashed. Local XZ preset-6 compression of full documents produced 677460–690468 bytes. GNU ed-style differences between consecutive daily documents, compressed with the same setting, produced 62348, 77212 and 79548 bytes. Applying each uncompressed difference reconstructed the next document exactly. Only the first diagnostic difference fits within 65536 bytes, leaving 3188 bytes before any other traffic. Deflate level 9 produced 74814, 91308 and 92984 bytes for the same differences. These are measured document transformations, not a Tor endpoint capture or mirror response. Source inspection of Tor tag tor-0.4.8.16 separates cached-consensus usability from refresh scheduling. networkstatus_consensus_is_bootstrapping returns false for a validated reasonably-live consensus. However, update_consensus_networkstatus_downloads sets the next fetch time to now whenever the consensus is outside its strict validity interval, then checks outstanding requests, retry readiness and missing certificates before requesting a fresh consensus. fetch_networkstatus_callback checks normally every 60 seconds, or every second during the specified testing or bootstrap cases. This interval is not a guaranteed grace period after wake. The reasonably-live predicate in this version includes the exact 24-hour expiry boundary. DisableNetwork delays fetches but also closes outbound connections, so it does not provide directory-only suppression while useful traffic continues.",
+      "method": "Source control-flow trace of usability, scheduling and disable-network behavior",
+      "source_label": "Tor tor-0.4.8.16 networkstatus.c, mainloop.c and manual; SHA-256 pins",
+      "sources": [
+        "https://spec.torproject.org/dir-spec/client-operation.html",
+        "https://spec.torproject.org/dir-spec/directory-cache-operation.html",
+        "https://spec.torproject.org/dir-spec/standards-compliance.html",
+        "https://collector.torproject.org/recent/relay-descriptors/microdescs/consensus-microdesc/"
       ],
-      "qualification": "Bound directory/descriptor refresh, circuit establishment and authorized rendezvous at the waking client. Budget approval is no longer pending. No overhead measurement or implementation qualification is inferred."
+      "editorial_references": [
+        "round437.html",
+        "round313-budget.json",
+        "round313-prior.json",
+        "round435-sources.json",
+        "round436-measurements.json",
+        "round436_probe.py",
+        "round437-sources.json",
+        "round437-cases.json"
+      ],
+      "qualification": "F25-TO remains Pending. Cache usability does not establish zero refresh traffic. The inspected scheduler does not establish that a complete refresh necessarily finishes before useful delivery either. Do not charge an entire response solely from a scheduled request. The remaining witness must specify retained directory material, loop phase and request state, and count endpoint bytes actually required through delivery, including fresh connections, onion-service lookup and rendezvous. Round436 local GNU-diff compression is not the actual Tor response. This is a version-bounded source trace, not execution of Tor or a statement about every implementation. No criterion or profile change is made."
     },
     {
       "id": "F25-I2",
@@ -9913,16 +9925,17 @@
       "feature": "F25",
       "stack": "CJ",
       "status": "?",
-      "reason": "The owner conditionally approved the 64 KiB budget if it unlocks evidence-backed decisions. IP and NDN witnesses now do so. Bound peering, route repair and final-peer encrypted transfer.",
-      "method": "Constructive plausibility bound; no runtime measurement",
-      "source_label": "Approved endpoint budget and documentary wire-size accounting",
-      "sources": [],
-      "editorial_references": [
-        "round313.html",
-        "round313-budget.json",
-        "round313-prior.json"
+      "reason": "The retained cjdns f5902ac source contains CryptoNoise based on BoringTun, with a cjdns-specific additional-data encoding. SessionInnerMut.update_additional serializes an optional previous-session index, the configured credential challenge, a protocol-version entity and four-byte alignment. The historical 120-byte CryptoAuth handshake description therefore cannot be applied indiscriminately to this source. A selected-mode inventory is needed before adding peering, route-server discovery and final-peer encryption costs.",
+      "method": "Versioned wire-structure and construction-path inspection; no execution or total budget",
+      "source_label": "Retained pinned cjdns source and GNUnet 0.20.0 release archive; reviewed 2026-10-22",
+      "sources": [
+        "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/rust/cjdns_sys/src/crypto/crypto_noise.rs"
       ],
-      "qualification": "Bound peering, route repair and final-peer encrypted transfer. Budget approval is no longer pending. No overhead measurement or implementation qualification is inferred."
+      "editorial_references": [
+        "round419-sources.json",
+        "round419.html"
+      ],
+      "qualification": "Pin the actual selected handshake mode and both endpoint builds. Account for fresh outer peering and final-peer session establishment, credential/version entities, handshake responses/cookies when applicable, switch/session headers, ordinary path lookup and route-server announcement/query traffic crossing the endpoint interface, UDP/IPv4/Ethernet and fresh ARP. Preserve private peering credentials and the selected route-server architecture; neither old DHT-only behavior nor a bare WireGuard handshake is an equivalent whole-stack witness. The record identifies source components, not a total byte bound or a default-mode claim. F25 remains Pending."
     },
     {
       "id": "F25-MQ",
@@ -10015,34 +10028,36 @@
       "feature": "F25",
       "stack": "MT",
       "status": "?",
-      "reason": "Pinned RadioInterface.h limits the LoRa packet to 255 bytes, with a 16-byte Meshtastic header and 12-byte PKI overhead. Thus perhapsEncode permits at most 227 bytes of encoded protobuf Data for a PKI packet, not 227 application bytes. The generated Data payload capacity is 233 bytes; port/length/bitfield metadata consumes further on-wire space. Router.cpp explicitly returns TOO_LARGE when the encoded PKI packet exceeds the radio limit. The inspected send path does not divide an oversized packet. Consequently one 256-useful-byte native packet is not a valid accounting witness.",
-      "method": "Source-level packet-capacity audit; not full endpoint-byte accounting or runtime measurement",
-      "source_label": "Exact selected Meshtastic firmware commit: radio constants, generated Data schema and PKI encode guards",
+      "reason": "The selected Router.cpp supplies a concrete small-message candidate. For a direct PKI message with portnum 1, 128 useful payload bytes, explicit zero bitfield and other optional Data fields unset, protobuf encoding occupies 135 bytes: 2 for portnum, 3+128 for payload and 2 for bitfield. Adding the 16-byte Meshtastic header and 12-byte PKI overhead yields 163 bytes, below 255. perhapsEncode signs normal broadcasts rather than ordinary PKI unicasts; checkXeddsaReceivePolicy explicitly accepts the successfully decoded pki_encrypted branch even under STRICT without an additional XEdDSA signature. Two such messages would carry 256 useful bytes with a 326-byte radio-packet subtotal.",
+      "method": "Source-path inspection and independent protobuf size calculation; no protocol execution",
+      "source_label": "Pinned Meshtastic source and GNUnet 0.20.0 release; reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/RadioInterface.h",
-        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/Router.cpp",
-        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/generated/meshtastic/mesh.pb.h"
+        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/Router.cpp"
       ],
       "editorial_references": [
-        "round333-sources.json"
+        "round420-sources.json",
+        "round420-packet.json",
+        "round420.html"
       ],
-      "qualification": "The criterion says exchange 256 useful bytes but does not explicitly require one atomic application message. Earlier rounds required native fragmentation; owner clarification has now been requested on whether multiple independently delivered native messages are allowed. Do not silently change that workload interpretation or infer a No merely from single-packet capacity. If multiple messages are allowed, establish their complete encoding, retained trusted-peer metadata, wake/control traffic, ACKs and physical-radio framing within 65,536 bytes. If one message is required, locate a native fragmentation/reassembly path in the selected composition; the checked oversized send path rejects rather than fragments. No complete traffic bound or radio execution has been established."
+      "qualification": "Pending workload clarification: the owner has been asked whether 256 useful bytes may be delivered in multiple independent native messages. No answer or criterion change is inferred. The 326-byte subtotal excludes LoRa physical coding/preamble/header/CRC, wake-up broadcasts, node metadata, ACKs and other endpoint-facing traffic. It is not a complete F25 budget, fragmentation/reassembly capability, cryptographic execution or radio measurement. Retain independently verified peer keys and PKI-capable build; trace the complete one-hop wake-up configuration and preserve STRICT. A single 256-byte native message remains too large for the inspected path."
     },
     {
       "id": "F25-GN",
       "feature": "F25",
       "stack": "GN",
       "status": "?",
-      "reason": "The owner conditionally approved the 64 KiB budget if it unlocks evidence-backed decisions. IP and NDN witnesses now do so. Bound HELLO/connectivity refresh, CADET tunnel creation and useful delivery.",
-      "method": "Constructive plausibility bound; no runtime measurement",
-      "source_label": "Approved endpoint budget and documentary wire-size accounting",
-      "sources": [],
-      "editorial_references": [
-        "round313.html",
-        "round313-budget.json",
-        "round313-prior.json"
+      "reason": "The GNUnet 0.20.0 CADET wire inventory now distinguishes connection creation, authenticated tunnel key exchange, channel opening and useful data. ConnectionCreate includes a connection ID, monotime fields/signature and the whole peer path; the connection source sets/signs monotime in the applicable creation branch. TunnelKeyExchange carries ephemeral and ratchet public keys; TunnelKeyExchangeAuth additionally carries a KDF proof. ChannelOpen and its acknowledgement are separate structures, followed by application data and optional reliable-delivery acknowledgements inside encrypted tunnel messages. The legacy UDP plugin adds its own message header, reserved field and sender identity, and has fragmentation machinery. Additional lower-layer controls are now located in the selected release. Legacy TRANSPORT validation uses a challenge PING and a signed PONG with expiration and a variable address suffix. CORE send_key explicitly sends ephemeral key material plus an encrypted PING, with a PONG response path. Its initial key retry interval is ten seconds and periodic rekey interval twelve hours. CORE EncryptedMessage adds its own header, IV seed, full hash MAC, sequence/reserved fields and timestamp around higher-layer traffic. These cannot be omitted from a CADET-only packet inventory.",
+      "method": "Source-path inspection and independent protobuf size calculation; no protocol execution",
+      "source_label": "Pinned Meshtastic source and GNUnet 0.20.0 release; reviewed 2026-10-22",
+      "sources": [
+        "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz"
       ],
-      "qualification": "Bound HELLO/connectivity refresh, CADET tunnel creation and useful delivery. Budget approval is no longer pending. No overhead measurement or implementation qualification is inferred."
+      "editorial_references": [
+        "round420-sources.json",
+        "round420-packet.json",
+        "round420.html"
+      ],
+      "qualification": "Count the executed message sequence, not just one key-exchange header. For a bounded direct-neighbor candidate using the supplied HELLO contact, establish whether/how R5N and peerinfo traffic cross the measured interface; retained configuration does not preserve expired sessions. Add legacy TRANSPORT validation and connection setup, CORE key exchange and framing, CADET connection/KX/channel messages, final useful data, acknowledgements, UDP plugin envelopes/fragmentation, IPv4/Ethernet and neighbor repair. Verify message multiplicity and timer conditions in the chosen no-loss configuration before comparing with 65,536 bytes. Do not substitute newer TNG/AEAD message layouts for the selected 0.20.0 legacy UDP profile. No measured or complete documentary bound yet; F25 remains Pending. Include the discovered TRANSPORT PING/PONG and CORE key/PING/PONG exchanges, CORE message-type advertisement/confirmation, and the variable transport-address suffix. Verify retry timing against actual successful establishment; the 24-hour silence must not reuse a CORE session simply because identity keys are retained. The located timer values and structures are source evidence, not a completion-time or total-byte bound."
     },
     {
       "id": "F25-ND",
@@ -10192,32 +10207,46 @@
       "id": "F25-LI",
       "feature": "F25",
       "stack": "LI",
-      "status": "?",
-      "reason": "LISP has been added to the comparison; evidence for this specific criterion has not yet been assessed.",
-      "method": "Protocol analysis under an agreed reference workload",
-      "source_label": "RFC 9300 (data plane) and RFC 9301 (control plane)",
+      "status": "Y",
+      "reason": "A configured IPv4/UDP leaf behind the existing LISP xTR meets the endpoint-interface budget. Allow four minimum Ethernet ARP frames (336 byte-times) for cold neighbor repair and two packets each carrying 256 useful bytes (2 x (256 + 8 UDP + 20 IPv4 + 38 Ethernet byte-times) = 644). Total 980, below 65,536. RFC 9300 sections 4 and 4.2 place mapping and encapsulation at the xTR, not at this ordinary leaf. The retained numeric EID, static local route and provisioned infrastructure require no endpoint DNS or transport-session establishment.",
+      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
+      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9300.html",
-        "https://www.rfc-editor.org/rfc/rfc9301.html"
+        "https://www.rfc-editor.org/rfc/rfc9300.html#section-4.2",
+        "https://www.rfc-editor.org/rfc/rfc9301.html",
+        "https://www.rfc-editor.org/rfc/rfc791.html",
+        "https://www.rfc-editor.org/rfc/rfc768.html",
+        "https://www.rfc-editor.org/rfc/rfc826.html"
       ],
-      "editorial_references": [],
-      "qualification": "For the declared LISP composition: Specify useful payload size, message frequency, peer count, sleep interval, link loss, path length and accounting boundary. Report mandatory protocol-byte and exchange costs separately from implementation-specific excess, link framing and retransmissions under the agreed loss model. Include helper/gateway obligations explicitly rather than treating offload as free. Establish a common budget before classification; implementation measurements alone do not prove an architectural lower bound. Do not inherit capabilities from optional LISP extensions or mapping-system implementations without explicitly selecting them."
+      "editorial_references": [
+        "round418-sources.json",
+        "round418-budget.json"
+      ],
+      "qualification": "Bounded Ethernet leaf witness, not a sleeping xTR. Infrastructure, including current xTR mappings and registration, remains available as F25 permits; only the endpoint loses learned neighbor state. Map-Request/Reply/Register traffic and outer UDP/LISP headers remain on infrastructure-facing interfaces and are not falsely counted as zero network cost. The peer is off-link, so the leaf repairs its gateway neighbor entry; the gateway can learn the leaf mapping from that exchange. Four ARP frames reserve an additional repair pair. No loss, retries, unrelated broadcasts, endpoint DHCP, DNS or authentication wrapper; two 256-byte useful messages, one in each direction, exceed the required useful-byte total. This supplies no cryptographic authorization. No packet capture or implementation qualification."
     },
     {
       "id": "F25-IL",
       "feature": "F25",
       "stack": "IL",
-      "status": "?",
-      "reason": "ILNPv6 has been admitted with an explicit composition; this criterion still requires its own evidence assessment.",
-      "method": "Protocol analysis under an agreed reference workload",
-      "source_label": "ILNP experimental RFCs 6740–6744",
+      "status": "Y",
+      "reason": "A stationary ILNPv6/TCP endpoint can resume with fresh discovery and a fresh connection within a conservative 18,432-byte endpoint budget. Reserve twenty IPv6 access-control frames at 512 byte-times (10,240), two DNS queries and responses at 1,024 each (4,096), twelve TCP control frames at 256 each (3,072), and two 256-useful-byte TCP data frames at 512 each (1,024). The data envelopes include a 40-byte IPv6 header, a 16-byte ILNP destination-options header carrying a 96-bit nonce, up to 60 bytes of TCP header and 38 Ethernet byte-times: 410, below the allocated 512. Fresh nonces and identifier-only transport checksum binding are retained; this does not substitute an ordinary IPv6 TCP session.",
+      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
+      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
       "sources": [
+        "https://www.rfc-editor.org/rfc/rfc6744.html#section-2",
         "https://www.rfc-editor.org/rfc/rfc6740.html",
         "https://www.rfc-editor.org/rfc/rfc6741.html",
-        "https://www.rfc-editor.org/rfc/rfc6744.html"
+        "https://www.rfc-editor.org/rfc/rfc6742.html",
+        "https://www.rfc-editor.org/rfc/rfc4861.html",
+        "https://www.rfc-editor.org/rfc/rfc4862.html",
+        "https://www.rfc-editor.org/rfc/rfc3810.html",
+        "https://www.rfc-editor.org/rfc/rfc9293.html"
       ],
-      "editorial_references": [],
-      "qualification": "For the declared ILNPv6/TCP profile: Specify useful payload size, message frequency, peer count, sleep interval, link loss, path length and accounting boundary. Report mandatory protocol-byte and exchange costs separately from implementation-specific excess, link framing and retransmissions under the agreed loss model. Include helper/gateway obligations explicitly rather than treating offload as free. Establish a common budget before classification; implementation measurements alone do not prove an architectural lower bound. Distinguish ILNP identifiers/locators from ordinary IPv6 address semantics and optional security or multipath extensions."
+      "editorial_references": [
+        "round418-sources.json",
+        "round418-budget.json"
+      ],
+      "qualification": "Constructive configuration witness, not a measurement or universal bound. One retained local NID, unchanged valid locator/prefix, link-local address and configured numeric recursive resolver; one peer DNS name of at most 64 wire octets, one NID and one L64 answer, no alias chain, DNSSEC or additional security wrapper. Two separate UDP DNS queries allow both answers without relying on additional-section processing. The ordinary IPv6 resolver/bootstrap role is included in the endpoint budget. The twenty access frames cover two address checks (one DAD probe each), router solicitation/advertisement, two MLD reports for each of two solicited-node groups plus a query, and three NS/NA pairs; remaining slots are reserve. Provisioned lifetimes remain valid and delivery completes before periodic refreshes. Twelve TCP controls cover a fresh three-way handshake, independent acknowledgments and graceful close; do not retain a TCP session, nonce or learned neighbor entry across sleep. The unchanged locator needs no Locator Update or DNS update. No losses, fallback, unrelated traffic or retry; no cryptographic peer authentication is claimed. Existing mobility capability is unchanged but is not exercised by this stationary wake-up witness."
     },
     {
       "id": "C01-PN",
@@ -11284,17 +11313,22 @@
       "id": "C03-RI",
       "feature": "C03",
       "stack": "RI",
-      "status": "?",
-      "reason": "DTLS protects established endpoint records, while RPL is explicitly in unsecured mode and its control messages are outside DTLS. RFC 6550 permits protection by another layer, so the access-controlled link description is insufficient to decide passive visibility of the complete stack.",
-      "method": "Documentary mechanism inventory; no traffic-analysis experiment",
-      "source_label": "Primary packet-format, signaling and padding specifications",
+      "status": "Y",
+      "reason": "RFC 6550 sections 3.2.3 and 10.1 explicitly allow unsecured-mode RPL to rely on link-layer security. The previously unspecified access-controlled link is now bound to encrypted IEEE 802.15.4 data frames, rather than authentication alone. Linux v6.12 defines ENC_MIC128 as level 7. Its llsec_key_alloc selects ccm(aes), and llsec_do_encrypt_auth separates the MAC header as associated data from the payload passed to crypto_aead_encrypt when the ENC bit is set. The TX path invokes this function before transmission. Thus the 6LoWPAN dispatch/compression/fragment fields and the carried IPv6, ICMPv6 and RPL control fields are inside the encrypted MAC payload. This includes established DIS/DIO/DAO/DAO-ACK traffic when carried in the configured protected data frames. The positive finding uses the same visible-outer-framing allowance as C03-MQ/LP.",
+      "method": "Explicit configuration selection and clear/encrypted field mapping; no runtime execution",
+      "source_label": "RFC 6550 and Linux v6.12 link-security source, reviewed 2026-10-22",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc6550.html#section-10.1"
+        "https://www.rfc-editor.org/rfc/rfc6550.html#section-10.1",
+        "https://github.com/torvalds/linux/blob/v6.12/net/mac802154/llsec.c",
+        "https://github.com/torvalds/linux/blob/v6.12/net/mac802154/tx.c",
+        "https://github.com/torvalds/linux/blob/v6.12/include/linux/ieee802154.h"
       ],
       "editorial_references": [
-        "round263-sources.json"
+        "round425.html",
+        "round425-sources.json",
+        "round425-fields.json"
       ],
-      "qualification": "Specify whether IEEE 802.15.4 link confidentiality is enabled and the observer location. Inventory established RPL controls and endpoint records under that binding; do not equate access control with encryption or infer No solely from exposed DTLS framing."
+      "qualification": "This is a documentary mechanism/configuration witness, not a complete Linux RPL/DTLS executable qualification or radio capture. All relevant adjacencies and multicast transmissions must use the selected encryption policy; access control, MIC-only levels 1-3, or a mix of protected data with plaintext RPL controls does not satisfy it. Frame-control fields, MAC addresses, auxiliary security headers, frame counters/key selectors, sizes and timing remain observable. MAC acknowledgements and other link-management frames are not claimed hidden; the inspected Linux path even marks control-frame security support as incomplete. A locally captured pre-encryption TX packet is not proof of plaintext over the air. Link-key holders and forwarding routers can read RPL and IP routing information. No active-probe defense, endpoint-location anonymity, PQ protection, unprivileged operation, or traffic-analysis resistance is inferred. Keys and frame-counter lifecycle require correct provisioning. C02/F14, C04, D01 and the complete-stack execution evidence are unchanged; this is not an assertion that RPL unsecured mode encrypts itself."
     },
     {
       "id": "C03-HP",
@@ -16541,22 +16575,23 @@
       "feature": "G05",
       "stack": "BP",
       "status": "?",
-      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
-      "method": "Architectural plausibility assessment using documented evidence",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv",
-        "round391.html",
-        "round400-common-scenario.json",
-        "round400.html"
+      "reason": "Further pinned ION source tracing establishes three allocation components for each new destination reached through addNode: an IonNode object, its red-black-tree entry and an initially empty embargo list. IonNode contains the destination number, embargo-list address and routing-object address. This is created before the static-exit lookup described in round417. ion.c supplies destroyIonNode and invokes it when dropVdb destroys the complete nodes tree, after routing objects are cleared. Thus a concrete teardown path exists; the inspected source does not establish bounded live eviction for exit-only destinations.",
+      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
+      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
+      "sources": [
+        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/ici/library/rfx.c",
+        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/ici/include/ion.h",
+        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/ici/library/ion.c",
+        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/ici/library/smrbt.c",
+        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/ici/library/smlist.c"
       ],
-      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
+      "editorial_references": [
+        "round418.html#G05-BP",
+        "round417.html",
+        "round418-sources.json",
+        "round418-budget.json"
+      ],
+      "qualification": "Still Pending. Inventory allocator, tree, list and lock overhead on the selected ABI rather than equating sizeof(IonNode) with total memory. Search remaining call sites for live reclamation or a supported bounded-routing configuration. Derive the distinct-destination working set per regional gateway from the common workload; 1000 accesses/day/device is not 1000 new destinations and does not force each gateway to see the entire population. Quantify gateway distribution, lookup work, queue and key state. A shutdown cleanup is not online eviction; failure of this ION witness is not an impossibility proof for BPv7. No runtime or whole-repository lifecycle audit performed."
     },
     {
       "id": "G05-CG",
@@ -16596,23 +16631,20 @@
       "id": "G05-LP",
       "feature": "G05",
       "stack": "LP",
-      "status": "?",
-      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
-      "method": "Architectural plausibility assessment using documented evidence",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv",
-        "round391.html",
-        "round400-common-scenario.json",
-        "round400.html"
+      "status": "N",
+      "reason": "No for the selected IPv4/UDP/QUIC/libp2p composition, which explicitly excludes NAT. One connected, conventionally routed IPv4 namespace has at most 2^32 address values, fewer than the reference ten billion devices even before reserved ranges. Peer IDs and UDP ports distinguish peers or services but do not provide routable addresses for additional independently attached devices. Reusing private addresses in disconnected domains does not connect those domains. The selected direct numeric-peer composition contains no translating gateway or relay/addressing layer that removes this obstruction.",
+      "method": "Selected-profile namespace and source-based resource bounds; no runtime experiment",
+      "source_label": "RFC 791 section 3.1; existing LP selected-profile IPv4 and no-NAT binding",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc791.html",
+        "https://www.rfc-editor.org/rfc/rfc9000.html"
       ],
-      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
+      "editorial_references": [
+        "round400-common-scenario.json",
+        "round438-sources.json",
+        "round438-bounds.json"
+      ],
+      "qualification": "This is a necessary-condition result for the currently selected global IPv4 profile, not a limitation of libp2p Peer IDs, QUIC or every libp2p deployment. IPv6 is a legitimate alternative but has not been silently substituted. An explicitly adopted IPv6 global witness would reopen this cell and require its routing/state argument, as already done separately for IP and Multipath QUIC. Multiple processes sharing one host address do not turn that host into multiple independently attached devices. No runtime or global performance claim."
     },
     {
       "id": "G05-TO",
@@ -16879,45 +16911,45 @@
       "id": "G05-AX",
       "feature": "G05",
       "stack": "AX",
-      "status": "?",
-      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
-      "method": "Architectural plausibility assessment using documented evidence",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv",
-        "round391.html",
-        "round400-common-scenario.json",
-        "round400.html"
+      "status": "N",
+      "reason": "No for the selected Linux 6.12 classic NET/ROM with active netromd and direct KISS links. nr_node_get compares exact callsigns in a linked list; nr_route_frame drops a nonlocal packet when that exact destination has no route. There is no prefix/default-route fallback in this path. netromd transmits individual eligible node records and installs received records, rather than aggregating regional destinations or performing demand-driven global discovery. Full destination reachability therefore requires a near-global destination catalog at an access forwarder; adding regional forwarders does not partition that access catalog. For ten billion native destination nodes, the selected struct fields alone consume at least 340 GB with 32-bit pointers or 460 GB with 64-bit pointers, before list links, locks, references, alignment and neighbor objects. A complete NODES advertisement contains at least 210 GB of destination records per advertising port before framing. Exact linked-list lookup adds linear search work. These replicated-state/control costs obstruct the common contemporary regional deployment, independently of radio speed.",
+      "method": "Selected-profile namespace and source-based resource bounds; no runtime experiment",
+      "source_label": "Linux v6.12 nr_route.c and netrom.h; ax25-tools 0.0.10-rc5+git20230513+d3e6d4f netromr.c/netromt.c",
+      "sources": [
+        "https://github.com/torvalds/linux/blob/v6.12/net/netrom/nr_route.c",
+        "https://github.com/torvalds/linux/blob/v6.12/include/net/netrom.h"
       ],
-      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
+      "editorial_references": [
+        "round438.html",
+        "round426-sources.json",
+        "round400-common-scenario.json",
+        "round438-sources.json",
+        "round438-bounds.json"
+      ],
+      "qualification": "Architectural/source-based plausibility decision, not an allocation, latency or global throughput benchmark. Bounds count independently addressed native NET/ROM destination nodes, not application users behind a shared node. A BBS/proxy or another hierarchical network layer would change this selected end-to-end service. Quality/obsolescence filters can reduce the catalog by removing reachability; they are not aggregation or a lookup service for omitted destinations. No all-to-all simultaneous traffic is assumed: the missing-route path and proactive catalog are independent of the 1000 destinations/day working set. The common physical regional graph is unchanged. The 64-GB reference is not promoted to a universal hardware ceiling; widespread unpartitioned state and repeated advertisements underpin the decision. Local amateur-radio use remains outside this global-capacity finding."
     },
     {
       "id": "G05-BA",
       "feature": "G05",
       "stack": "BA",
-      "status": "?",
-      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
-      "method": "Architectural plausibility assessment using documented evidence",
-      "source_label": "Owner-approved G05 limits and existing stack-specific evidence",
-      "sources": [],
-      "editorial_references": [
-        "round171.html",
-        "round160-protocol.json",
-        "round136-scale-plan.json",
-        "round171-protocol.json",
-        "round171-regions.tsv",
-        "round171-sources.tsv",
-        "round391.html",
-        "round400-common-scenario.json",
-        "round400.html"
+      "status": "N",
+      "reason": "The selected Linux 6.12 native BATMAN_IV mesh lacks a credible global-state partition for the common ten-billion-device setting. Source Ethernet traffic registers/refreshes each attached client in the local translation table; the default inactivity timeout is 600 seconds. A smooth schedule of 1000 accesses per device per day, spaced 86.4 seconds apart with staggered phases, keeps clients active without burst pressure. Remote translation changes are synchronized through OGMs and table requests, independently of local destination demand. The 64-bit field-only lower bound from round431 is 54 bytes per represented remote client: a near-global replica costs approximately 540 GB before padding, originator lists and other state. This state is repeated at mesh forwarders, including access equipment, rather than partitioned by region or the 1000 destinations each client uses. Adding ordinary mesh forwarders does not shard the remote table. The local table-size guard rejects new clients whose table would exceed the supported response size; it is not a global aggregation mechanism. Together these are an architectural/resource obstruction for this selected native deployment on the common contemporary equipment envelope.",
+      "method": "Architecture/state-lifetime trace and conservative memory accounting; no runtime benchmark",
+      "source_label": "Pinned Linux 6.12 source and common population/workload; reviewed 2026-10-22",
+      "sources": [
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/translation-table.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/soft-interface.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/main.h",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/types.h"
       ],
-      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
+      "editorial_references": [
+        "round432.html",
+        "round432-sources.json",
+        "round432-model.json",
+        "round431-model.json",
+        "round400-common-scenario.json"
+      ],
+      "qualification": "Source-based plausibility verdict, not a measured global benchmark or a claim that batman-adv is unsuitable for local meshes. The evenly spaced schedule is an explicit ordinary-use realization of the shared daily workload, not an observed Internet trace or a new mandatory timing rule. The memory bound applies to concurrently represented remote attached clients; local clients are subtracted. It does not multiply identities owned by daily destinations. Moving devices into mesh-originator roles also requires per-originator reachability state (G01-BA), rather than eliminating global state. Bridge-loop avoidance suppresses duplicate backbone advertisements; it is not a selected inter-region namespace partition. Gateway mode is off and an IP hierarchy, NAT or another inter-mesh routing layer would change the selected stack. The 64-GB figure remains a sizing reference: the finding is widespread replicated state, not failure of a newly imposed simultaneous benchmark threshold. No allocation stress, packet loss, throughput or CPU measurement was run."
     },
     {
       "id": "G05-BL",
@@ -16997,39 +17029,45 @@
       "feature": "G05",
       "stack": "CX",
       "status": "?",
-      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
-      "method": "Architectural plausibility assessment using documented evidence",
-      "source_label": "Approved editorial scope and primary protocol specifications",
+      "reason": "RFC 8569 supports hierarchical longest-prefix forwarding and a pending Interest table. This separates two scaling costs: aggregate producer prefix routes and outstanding request state, rather than a mandatory entry for every content name ever accessed. A candidate placement-aligned hierarchy can use the selected static FIB configuration and known names; it does not supply automatic global content discovery. The shared workload implies about 115.74 million originating accesses/second globally when spread evenly over a day. Pending-state accounting is per traversed forwarder: arrival rate multiplied by residence time and bytes/entry. At one million Interests/second, four seconds and an assumed 512 bytes per entry, it is 2.048 GB, excluding other state. Neither this illustrative rate nor the entry-size assumption is an executed implementation measurement. The pinned Athena candidate adds concrete qualifications to the round433 request-state model. athena.c creates the default PIT with capacity 100000. New-key admission checks entryTable size and invokes expired-entry purging only when that capacity has been reached. Thus expiration is not an independently scheduled reclamation event in this PIT source. A matched response removes the matched key from the hash, timeout and link-cleanup indexes. An Interest with a ContentObjectHashRestriction can add a second, nameless entry after the one capacity check. The threshold therefore is not a strict 100000-record allocation bound: with 99999 existing keys, a new named and distinct nameless key can bring the table to 100001. Each entry has six pointers plus separately owned message, key, bit-vector, timestamp and indexing objects. Six pointers are not the total entry memory footprint.",
+      "method": "Source lifecycle/admission trace; analytical boundary cases, no execution",
+      "source_label": "RFC-based round433 model and pinned Athena f89da532 source",
       "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8609.html",
         "https://www.rfc-editor.org/rfc/rfc8569.html",
-        "https://www.rfc-editor.org/rfc/rfc8609.html"
+        "https://github.com/PARC/Athena/blob/f89da532c8690af88dfb81e708007022833625ca/ccnx/forwarder/athena/athena_PIT.c"
       ],
       "editorial_references": [
+        "round434.html",
         "round245.html",
         "round391.html",
         "round400-common-scenario.json",
-        "round400.html"
+        "round400.html",
+        "round433-model.json",
+        "round433-sources.json",
+        "round434-sources.json",
+        "round434-model.json"
       ],
-      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
+      "qualification": "Keep G05-CX Pending. The rate-times-residence model remains an abstract active-request estimate; this candidate additionally requires index multiplicity, lazy reclamation, admission and heap allocation accounting. The 100001 case is a source-derived boundary calculation, not a reproduced fault, exploit or unbounded-memory claim. Distinct hash keys and spare allocation capacity are assumptions. No claim that this historical Athena revision implements the selected ECDSA profile completely: E03-CX remains independently Pending. No runtime capacity, global placement, cryptographic throughput or legitimate-service-under-attack result is inferred. These implementation details are not mandatory properties of all CCNx forwarders."
     },
     {
       "id": "G05-LI",
       "feature": "G05",
       "stack": "LI",
-      "status": "?",
-      "reason": "The common G05 standard is now architectural plausibility, not simultaneous quantitative qualification. The existing record for this composition has not yet been individually reassessed for a sufficient positive scaling argument or a concrete obstruction. Pending denotes that evidence task, not a requirement to deploy or simulate the whole world.",
-      "method": "Architectural plausibility assessment using documented evidence",
-      "source_label": "RFC 9300 (data plane) and RFC 9301 (control plane)",
+      "status": "N",
+      "reason": "No for the selected inner-IPv4 LISP composition. RFC 9300 defines an IPv4 EID as a 32-bit host identifier: at most 2^32 distinct EIDs in a connected address space, below ten billion devices. Multiple RLOCs change reachability to an EID rather than enlarge its namespace. Instance IDs permit overlapping isolated spaces, but section 8 requires source and destination EIDs to belong to the same Instance ID. Merely multiplying isolated instances therefore does not supply the connected common scenario; no inter-instance translating service is selected.",
+      "method": "Selected-profile namespace and source-based resource bounds; no runtime experiment",
+      "source_label": "RFC 9300 sections 3 (EID), 5 (address-family combinations) and 8 (Instance IDs)",
       "sources": [
         "https://www.rfc-editor.org/rfc/rfc9300.html",
         "https://www.rfc-editor.org/rfc/rfc9301.html"
       ],
       "editorial_references": [
-        "round391.html",
         "round400-common-scenario.json",
-        "round400.html"
+        "round438-sources.json",
+        "round438-bounds.json"
       ],
-      "qualification": "Identify the selected stack's scaling mechanism and likely bottlenecks; use available models, proportional experiments or deployment evidence. Explain extrapolation assumptions and contemporary resource requirements. Do not demand global deployment, full-scale simulation or simultaneous measured compliance with all historical sizing targets. Apply this same standard to every column. Preserve this column's selected composition. Use the same Internet-shaped regional infrastructure, population, access workload and contemporary equipment envelope for every composition. Protocol-specific routing, discovery, caching and placement policies may differ on that infrastructure. Do not substitute a more favorable physical topology, omit regions, silently add links or assume an independently chosen cache-hit rate. Count additional equipment and its placement explicitly under the same resource envelope. An evidenced inability to serve this common setting can justify No; impossibility in every imaginable topology is not required. Missing evidence remains Pending."
+      "qualification": "The bound is on the selected inner IPv4 profile, not on LISP generally. RFC 9300 explicitly supports IPv6 EIDs, including IPv6-in-IPv4; choosing that global composition would remove this particular bound and require a fresh mapping/routing plausibility assessment. No requirement for one RLOC per endpoint is assumed. Mapping-cache distribution cannot repair insufficient EID namespace by itself. No profile, implementation or security verdict is changed."
     },
     {
       "id": "G05-IL",
@@ -17284,14 +17322,17 @@
       "feature": "E01",
       "stack": "SC",
       "status": "?",
-      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding.",
-      "method": "Initial evidence inventory; no new execution",
+      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding. JPAN README at fbc7aabe1accb81385b943508bf6a835e58c2d95 identifies a pure-Java SCION endpoint stack supporting UDP and SCMP (README artifact version 0.8.0). It distinguishes rudimentary simulated-network JUnit tests from recommended testing against the reference SCION network or SCIONLab. This is a concrete second-codebase candidate, not a completed independent interoperability report.",
+      "method": "Primary implementation README and publisher-deposited metadata; no execution or full-paper qualification",
       "source_label": "Approved criterion and initial research task",
-      "sources": [],
-      "editorial_references": [
-        "round201.html#E01"
+      "sources": [
+        "https://github.com/scionproto-contrib/jpan/blob/fbc7aabe1accb81385b943508bf6a835e58c2d95/README.md"
       ],
-      "qualification": "Identify implementers, code lineage, versions, selected profile, exchanged functions and a public test report; distinguish an interoperability goal from a completed test."
+      "editorial_references": [
+        "round430.html",
+        "round430-sources.json"
+      ],
+      "qualification": "Identify JPAN contributor/team relationships and a dated public exchange with the reference implementation, including both versions, topology and selected functions. Recommended test environments, sample programs and a distinct programming language alone establish neither an executed exchange nor independent teams."
     },
     {
       "id": "E01-RT",
@@ -18136,17 +18177,21 @@
       "feature": "E03",
       "stack": "CJ",
       "status": "?",
-      "reason": "Pinned client f5902ac and Rust route server 46c9c1b now have a concrete source-level interface map. SubnodePathfinder sends sq=gr with 16-byte src/tar addresses; service.rs consumes those fields and returns n (destination public key plus big-endian routing label) and np (version encoding), consumed through ReplySerializer. ReachabilityAnnouncer sends sq=ann and signed announcement bytes; the server invokes AnnouncementPacket.check() before parse(), with Ed25519 detached verification of bytes following the 64-byte signature. Both sides construct the state hash by iterated SHA-512 over previous 64-byte hash followed by announcement bytes; the server stores newest first and iterates in reverse. The client checks the returned 64-byte stateHash and resets on mismatch. These are concrete matching interfaces, not just public repository availability.",
-      "method": "Source-level interface mapping; no build, traffic test or full dependency audit",
+      "reason": "Pinned client f5902ac and Rust route server 46c9c1b now have a concrete source-level interface map. SubnodePathfinder sends sq=gr with 16-byte src/tar addresses; service.rs consumes those fields and returns n (destination public key plus big-endian routing label) and np (version encoding), consumed through ReplySerializer. ReachabilityAnnouncer sends sq=ann and signed announcement bytes; the server invokes AnnouncementPacket.check() before parse(), with Ed25519 detached verification of bytes following the 64-byte signature. Both sides construct the state hash by iterated SHA-512 over previous 64-byte hash followed by announcement bytes; the server stores newest first and iterates in reverse. The client checks the returned 64-byte stateHash and resets on mismatch. These are concrete matching interfaces, not just public repository availability. The pinned client and Rust route server use a 20-minute announcement horizon. Both retain the newest announcement, ignore ephemeral link-state entities for redundancy, replace version/encoding entities by type and peers by peer number. The server drops announcements older than the horizon. The client intentionally retains a nonredundant expired announcement, detects the resulting state-hash mismatch, clears its local announcement list and sets the next message reset flag. The server reset branch creates fresh node state. This is an explicit recovery path, not evidence of identical retained lists at every instant or an executed interoperability test. Registry metadata for 413 distinct locked dependency versions was retrieved without fetch errors. Two previously unlocated Git dependency notices were found at their actual filenames: BoringTun LICENSE.md and bendy-cjdns LICENSE-BSD3 contain BSD-3-Clause terms.",
+      "method": "Pinned source lifecycle trace and dependency license inventory; no execution",
       "source_label": "Pinned cjdns client and route-server archives; query, announcement, signature and state-hash source paths",
       "sources": [
         "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/subnode/ReachabilityAnnouncer.c",
-        "https://github.com/CJDNS-Development-Team/CJDNS/blob/46c9c1b6828f746f00733c10d8e82c5295107514/cjdns-snode/src/server/service.rs"
+        "https://github.com/CJDNS-Development-Team/CJDNS/blob/46c9c1b6828f746f00733c10d8e82c5295107514/cjdns-snode/src/server/service.rs",
+        "https://github.com/cjdelisle/boringtun/blob/f288b2f461e7322a278b63b1ddc4ab705b5b7462/LICENSE.md",
+        "https://github.com/CJDNS-Development-Team/bendy-cjdns/blob/21849683c9e9b83b8d217d044c1da78ee573926b/LICENSE-BSD3"
       ],
       "editorial_references": [
-        "round366-sources.json"
+        "round366-sources.json",
+        "round439.html",
+        "round439-sources.json"
       ],
-      "qualification": "This removes the absence of located query/announcement/signature/hash paths as a blocker, but does not assert complete runtime interoperability. Finish the required component/license inventory and establish compatible announcement retention, expiry and reset semantics for the selected pair. The C signer uses randomized Ed25519 nonce construction; no cross-implementation signature test was run here. Static matching fields and hash recurrence do not prove identical retained message lists. Existing GPLv3 repository and crate notices remain relevant, but a complete dependency inventory is not yet established. E03 remains Pending; E01 independent interoperability and G01/G04 architectural verdicts are not changed. No older DHT substitution, repaired source or newly published implementation is credited."
+      "qualification": "E03-CJ remains Pending. The registry metadata includes ring 0.16.20 marked non-standard and constant_time_eq 0.1.5 under CC0-1.0; metadata alone does not establish that every necessary component satisfies the selected OSI-license criterion. Inspect the actual bundled notices and dependency roles rather than treating these labels as prohibitions or silently relabeling CC0. Complete public profile integration and selected build dependencies remain to be qualified. This lifecycle trace closes a source-location gap, not cryptographic, runtime, independent-implementation or global-capacity acceptance."
     },
     {
       "id": "E03-MQ",
@@ -18364,16 +18409,21 @@
       "feature": "E03",
       "stack": "HP",
       "status": "?",
-      "reason": "The HIPL manual supplies a concrete dual-version implementation candidate, but its HIPv2 setting does not by itself demonstrate coverage of the selected final RFCs, ECDSA P-256/SHA-384 HIT suite, ESP transform 8 and RFC 8046 behavior.",
-      "method": "Documentary and source review; no new runtime execution",
+      "reason": "The HIPL manual supplies a concrete dual-version implementation candidate, but its HIPv2 setting does not by itself demonstrate coverage of the selected final RFCs, ECDSA P-256/SHA-384 HIT suite, ESP transform 8 and RFC 8046 behavior. The pinned OpenHIP branch contains ECDSA generation and ESP transform-8 constants, but hitgen defaults advertise HIT suite 1 and ESP transforms 1 through 6. Constants are not a complete selected-profile implementation witness. A separate 2024 developer report records working RSA/EdDSA base exchanges and AES/SHA-256 ESP, while identifying ECDSA as nonworking in its OpenSSL 3 branch.",
+      "method": "Pinned candidate source trace and developer report; no execution",
       "source_label": "Primary specifications, retained implementation sources and deployment documentation",
       "sources": [
-        "https://mkomu.kapsi.fi/hipl/manual/HOWTO.html#ch_dual_version_support"
+        "https://www.ida.liu.se/~TDDE21/info/hip_report_2024.pdf",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/util/hitgen.c",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/linux/hip_linux_umh.c",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/include/hip/hip_proto.h"
       ],
       "editorial_references": [
-        "round270-sources.json"
+        "round428.html",
+        "round270-sources.json",
+        "round428-sources.json"
       ],
-      "qualification": "Pin public source and dependencies, inspect licenses and map each selected algorithm and mobility exchange. Distinguish an older HIP version-2 draft implementation from final-RFC coverage. D02/D03 dependency findings are not E03 certification."
+      "qualification": "Locate a public revision with working ECDSA P-256, ECDH P-256, SHA-384 HIT suite 2, ESP transform 8 and RFC 8046 mobility together; inspect its license/dependencies. The report does not establish that later revisions remain broken, and absence of a qualified candidate is not a No verdict."
     },
     {
       "id": "E03-CX",
@@ -18737,30 +18787,41 @@
       "feature": "E04",
       "stack": "BA",
       "status": "?",
-      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding.",
-      "method": "Initial evidence inventory; no new execution",
-      "source_label": "Approved criterion and initial research task",
-      "sources": [],
-      "editorial_references": [
-        "round201.html#E04"
+      "reason": "The publisher-provided full text on ResearchGate was readable this round. Table 1 identifies batman-adv 2022.3, batctl debian-2020.4-2 and Linux 6.1.21-v8+. Sections 3.2-3.3 use iperf3 UDP, up to eleven Raspberry Pi nodes, 24-hour indoor and 1000-second outdoor tests. This resolves the implementation/version question, but not the algorithm-IV setting or equivalence to the selected Linux 6.12 native-frame profile.",
+      "method": "Documentary methods review and conditional field-size lower bound; no runtime measurement",
+      "source_label": "Publisher-provided article text and pinned Linux 6.12 source, reviewed 2026-10-22",
+      "sources": [
+        "https://doi.org/10.3390/telecom5040051",
+        "https://www.researchgate.net/publication/384834532_Experimental_Performance_Comparison_of_Proactive_Routing_Protocols_in_Wireless_Mesh_Network_Using_Raspberry_Pi_4"
       ],
-      "qualification": "Identify independent execution and reproducible artifacts; list measured latency, wire overhead, mobility or other metric and workload. Distinguish theoretical header size from measured traffic."
+      "editorial_references": [
+        "round431.html",
+        "round430-sources.json",
+        "round431-sources.json",
+        "round431-model.json"
+      ],
+      "qualification": "Recover the actual routing-algorithm/configuration and measurement-layer mapping. The methods identify UDP application measurements; do not attribute those numbers directly to bare native Ethernet forwarding or assume BATMAN_IV from the package version. Full text is now readable; an access failure is no longer the sole blocker."
     },
     {
       "id": "E04-BL",
       "feature": "E04",
       "stack": "BL",
       "status": "?",
-      "reason": "The 2013 report A delay-based metric for the Babel routing protocol contains evaluation results, real-network and simulated experiments, and a methodology appendix. Its author Baptiste Jonglez implemented and co-designed the measured extension during an internship supervised by Babel developer Juliusz Chroboczek and Matthieu Boutier. The report therefore supplies implementation-associated measurements, not the independent execution required by E04.",
-      "method": "Documentary evidence and profile matching; no runtime execution or operator contact",
-      "source_label": "Primary operator statements and author-hosted research report",
+      "reason": "The recovered methods identify Babel 1.13.1 and iperf3 UDP on Raspbian 11/Linux 6.1.21-v8+. They specify durations and node counts, but the inspected experiment settings do not identify the workload address family or provide the Babel configuration. The exact selected IPv6 composition remains unqualified.",
+      "method": "Documentary methods review and conditional field-size lower bound; no runtime measurement",
+      "source_label": "Publisher-provided article text and pinned Linux 6.12 source, reviewed 2026-10-22",
       "sources": [
-        "https://www.irif.fr/~jch/research/rapport-jonglez-2013.pdf"
+        "https://doi.org/10.3390/telecom5040051",
+        "https://www.researchgate.net/publication/384834532_Experimental_Performance_Comparison_of_Proactive_Routing_Protocols_in_Wireless_Mesh_Network_Using_Raspberry_Pi_4"
       ],
       "editorial_references": [
-        "round282-sources.json"
+        "round431.html",
+        "round282-sources.json",
+        "round430-sources.json",
+        "round431-sources.json",
+        "round431-model.json"
       ],
-      "qualification": "Seek a separate evaluation team with reproducible artifacts and a measured function matching the selected IPv6/Babel profile. Retain this report as useful engineering evidence; reject it only as a sufficient witness for independence. Its RTT-extension/overlay experiment must not be relabeled a test of the selected ULA hierarchy or global-scale workload. Do not infer that no independent measurements exist."
+      "qualification": "Locate the workload addresses, Babel configuration and reproducibility material, and finish the independence review. An IPv6 Babel control channel does not by itself establish an IPv6 application workload. Preserve the external study as evidence without transferring its measured results to the selected profile."
     },
     {
       "id": "E04-RI",
@@ -19260,17 +19321,20 @@
       "id": "D01-PN",
       "feature": "D01",
       "stack": "PN",
-      "status": "?",
-      "reason": "The portable candidate is now mapped at its actual transport boundary. The test selects PRP_WIRE_V4_SESSION_PREFERRED, which resolves to 0x0202, and preferred identity 0x0005. session_start sends the complete canonical M1 directly to the callback; session_step sends complete M2, while session_send_item encodes an E2E item, seals it and passes that protected record to the callback. The fixture callback copies records through in-memory queues. The service_alias argument is checked locally but is not assigned to the encoded E2E item: its presence in the API is not evidence of a wire-v4 service-alias incompatibility. The kernel-path continuing privilege finding from round352 remains unchanged.",
-      "method": "Source-level framing and suite audit; no execution",
-      "source_label": "Pinned portable session implementation/test and authoritative wire-v4 suite header",
+      "status": "Y",
+      "reason": "Architectural Yes, based on the author's explicit endpoint model and the inspected portable processing boundary. A native PRP endpoint is an ordinary user process owning its identity and relationship state. It exchanges complete PRP records through a provisioned system transport interface; receiving a complete record does not itself require a raw Ethernet socket or administrative network authority. The endpoint need not configure the carrier, routing or host-wide networking. Linux userspace is the examined architectural target. The portable session API separates record processing from transport callbacks. Requiring the endpoint itself to implement privileged Ethernet access conflated transport provisioning with routine endpoint operation. This is a capability assessment, not a claim that the current native Linux interface has already implemented this unprivileged path.",
+      "method": "Author-confirmed architectural capability with retained implementation qualification",
+      "source_label": "Owner clarification and approval, 2026-10-20; retained portable API and Linux privilege audits",
       "sources": [],
       "editorial_references": [
-        "round353.html",
+        "round411.html",
+        "round411-evidence.json",
+        "round352-operation-map.json",
+        "round352-sources.json",
         "round353-boundary.json",
         "round353-sources.json"
       ],
-      "qualification": "Native selected-profile composition is still missing: bind the callback records to the required protected adjacency/E2E scopes, scoped-HS2 framing, route authority, Ethernet framing and MTU/fragmentation policy before testing privilege drop. Merely carrying these records over AF_PACKET or increasing the MTU would demonstrate a carrier adapter, not automatically the complete selected composition. Remove the earlier service-alias mismatch suspicion as a blocker for this portable API; wire encoding was inspected. No privileged QEMU setup or protocol execution was performed because the composition prerequisite has not been established. A future experiment must preserve selected suite and semantics, use provisioned descriptors/user-owned state and show ordinary TX/RX plus fresh session operations without continuing privileged userspace assistance. Current portable in-memory success is not native-network evidence. No universal impossibility or No verdict is inferred."
+      "qualification": "Author-confirmed architecture plus source-level separation, not an executed unprivileged native stack. The inspected Linux generic-netlink path requires GENL_ADMIN_PERM for session and TX operations; delegated receive access alone does not remove that restriction. That implementation remains unqualified for complete ordinary-user TX/RX and new-session operation. Privileged initial installation, carrier provisioning and any continuing privileged userspace mediator must be disclosed; no such mediator is silently counted as unprivileged runtime. The architectural witness requires a suitably scoped endpoint interface, not permission to transmit arbitrary raw frames. Tests with in-memory callbacks do not demonstrate native Ethernet, HS2, framing, MTU handling or the selected protected composition under a checked UID and capability set. No kernel code or security policy was changed."
     },
     {
       "id": "D01-PI",
@@ -19542,31 +19606,41 @@
       "id": "D01-ND",
       "feature": "D01",
       "stack": "ND",
-      "status": "?",
-      "reason": "NFD 24.07 documents an effective-UID/GID drop that can be reversed during normal execution. Its PrivilegeHelper saves the initial effective IDs and uses seteuid/setegid to restore them. Linux Ethernet faces are documented with CAP_NET_RAW and CAP_NET_ADMIN; a local Unix-socket application alone does not remove the privilege requirements of its local forwarder. The FAQ also offers macOS BPF-device permissions, and EthernetTransport uses libpcap injection and capture; these are concrete alternative authority boundaries, not yet an unprivileged complete-endpoint result.",
-      "method": "Documentary candidate and privilege-boundary review; no runtime experiment",
-      "source_label": "Pinned NFD 24.07 and picoquic primary source/documentation, 2026-10-15",
+      "status": "N",
+      "reason": "The identified Linux NFD Ethernet configuration retains elevated authority during routine operation. PrivilegeHelper records its original effective IDs; drop changes only effective IDs, while raise restores the privileged values. The newly traced PcapHelper::activate calls pcap_activate inside PrivilegeHelper::runElevated, which raises privileges for the operation and then drops them again. EthernetTransport uses this activation path, and EthernetFactory handles interfaces added after startup as well as face requests. Thus the mechanism is not merely a privileged installer followed by irreversible privilege removal. It fails D01 for this pinned configuration even when its current effective UID is an ordinary account. The documented Linux file-capability alternative also grants elevated networking authority (CAP_NET_RAW and CAP_NET_ADMIN).",
+      "method": "Privilege lifecycle and live face-activation source trace; no runtime test",
+      "source_label": "Pinned NFD 24.07 source and official FAQ, reviewed 2026-10-22",
       "sources": [
-        "https://github.com/named-data/NFD/blob/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/docs/FAQ.rst",
+        "https://github.com/named-data/NFD/blob/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/face/pcap-helper.cpp",
+        "https://github.com/named-data/NFD/blob/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/face/ethernet-factory.cpp",
         "https://github.com/named-data/NFD/blob/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/common/privilege-helper.cpp",
-        "https://github.com/named-data/NFD/blob/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/face/ethernet-transport.cpp"
+        "https://github.com/named-data/NFD/blob/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/docs/FAQ.rst"
       ],
-      "editorial_references": [],
-      "qualification": "Qualify the entire endpoint, including NFD, on an identified OS. Determine whether any retained credentials or delegated raw-packet device rights are equivalent elevated networking authority under D01. For Linux, trace saved IDs and capabilities rather than just the effective UID. For macOS, document BPF permissions and helper lifetimes. No No verdict is inferred merely because the standard Linux setup retains privileges."
+      "editorial_references": [
+        "round427.html",
+        "round427-sources.json"
+      ],
+      "qualification": "This No is scoped to the identified NFD/Linux direct-Ethernet deployment, not all possible NDN implementations. It does not mean each packet needs a fresh elevation: established faces use their existing capture/injection handles. An application using a local Unix socket may itself be unprivileged, but D01 includes the local forwarder and any continuing helper. The macOS BPF-permission alternative and a hypothetical permanently reduced, pre-opened-face design are not qualified by this finding. No OS changes, capability grants, packet capture, runtime privilege test or complete-stack interoperability test was performed."
     },
     {
       "id": "D01-AX",
       "feature": "D01",
       "stack": "AX",
-      "status": "?",
-      "reason": "Linux 6.12 nr_create permits NET/ROM SOCK_SEQPACKET sockets without a capability check. nr_bind/nr_connect accept an administratively provisioned UID-to-callsign association without granting arbitrary-callsign privileges. This establishes an unprivileged socket path, but not the privilege boundary of the complete selected serial endpoint and NET/ROM announcement machinery.",
-      "method": "Documentary code/dependency analysis; no new execution or radio operation",
-      "source_label": "Primary source and official installation review 2026-10-15",
+      "status": "N",
+      "reason": "The unprivileged NET/ROM application socket does not cover the selected endpoint control plane. In the pinned ax25-tools source, netromd receives NODES announcements and calls receive_nodes; netromr.c installs learned entries using SIOCADDRT. Periodically, netromd calls transmit_nodes; netromt.c invokes SIOCNRDECOBS to age routes. Linux v6.12 nr_ioctl explicitly checks capable(CAP_NET_ADMIN) on both commands, returning EPERM otherwise. These checks occur when the recurring operations execute, not only when a socket is opened or the interface installed. The identified Linux/netromd configuration therefore does not satisfy D01: routine operation needs an elevated network-administration actor. Moving that actor into a helper would not make the complete endpoint unprivileged under the existing criterion.",
+      "method": "Recurring syscall/capability trace with explicit executable binding; no runtime test",
+      "source_label": "Debian-retained ax25-tools upstream archive and Linux v6.12 source, reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/af_netrom.c"
+        "https://sources.debian.org/src/ax25-tools/0.0.10-rc5%2Bgit20230513%2Bd3e6d4f-3/netrom/netromr.c/",
+        "https://sources.debian.org/src/ax25-tools/0.0.10-rc5%2Bgit20230513%2Bd3e6d4f-3/netrom/netromt.c/",
+        "https://github.com/torvalds/linux/blob/v6.12/net/netrom/af_netrom.c"
       ],
-      "editorial_references": [],
-      "qualification": "Identify serial line-discipline setup and the lifetime/privileges of announcement and route-maintenance helpers. Determine whether an ordinary endpoint needs any privileged process during routine operation; do not equate an unprivileged socket with an unprivileged complete stack."
+      "editorial_references": [
+        "round426.html",
+        "round426-sources.json",
+        "round426-privileges.json"
+      ],
+      "qualification": "The No is scoped to the explicitly identified active-announcement Linux/netromd configuration, not a claim that the NET/ROM wire protocol makes every alternative implementation privileged. Application SOCK_SEQPACKET use with a provisioned UID/callsign mapping can remain unprivileged. nrattach configures an interface and exits; kissattach installs the serial line discipline and remains alive holding the attachment. Those setup/lifetime facts are separate from the decisive recurring route-maintenance checks. A pre-opened socket does not bypass nr_ioctl capability checks. Static routing without netromd, a userspace implementation, or a different kernel authority model would require a separately qualified configuration. No live serial/radio test, privilege escalation, hardware or OS change was performed."
     },
     {
       "id": "D01-BA",
@@ -19634,18 +19708,23 @@
       "feature": "D01",
       "stack": "HP",
       "status": "?",
-      "reason": "RFC 6538 sections 2.1-2.2 documents kernel-integrated and userspace HIP implementations. Its userspace approach still diverts and reinjects packets, for example through TAP plus routing or filtering rules; userspace is not evidence of unprivileged execution. The HIPL manual explicitly requires root for its experimental Android hipd port, a historical implementation-specific limitation. RFC 7402 sections 3.2 and 3.4 and Appendix A describe alternative ESP integration choices rather than prescribing an OS privilege model.",
-      "method": "Documentary privilege-boundary analysis; historical implementation distinguished from selected profile",
+      "reason": "RFC 6538 sections 2.1-2.2 documents kernel-integrated and userspace HIP implementations. Its userspace approach still diverts and reinjects packets, for example through TAP plus routing or filtering rules; userspace is not evidence of unprivileged execution. The HIPL manual explicitly requires root for its experimental Android hipd port, a historical implementation-specific limitation. RFC 7402 sections 3.2 and 3.4 and Appendix A describe alternative ESP integration choices rather than prescribing an OS privilege model. Pinned OpenHIP hipv2_new_crypto source uses TUNSETIFF and raw ESP sockets in src/linux/hip_linux_umh.c. These are concrete privileged networking setup paths, but they do not alone establish the credentials retained after setup. The separate 2024 developer report documents a root-run CORE test environment; emulator privileges are not a measurement of daemon privileges.",
+      "method": "Pinned candidate source trace and developer report; no execution",
       "source_label": "IETF HIP experiment report, ESP integration specification and HIPL author manual; retained source hashes",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc6538.html",
         "https://www.rfc-editor.org/rfc/rfc7402.html",
-        "https://mkomu.kapsi.fi/hipl/manual/HOWTO.html"
+        "https://mkomu.kapsi.fi/hipl/manual/HOWTO.html",
+        "https://www.ida.liu.se/~TDDE21/info/hip_report_2024.pdf",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/util/hitgen.c",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/linux/hip_linux_umh.c",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/include/hip/hip_proto.h"
       ],
       "editorial_references": [
-        "round328-sources.json"
+        "round428.html",
+        "round328-sources.json",
+        "round428-sources.json"
       ],
-      "qualification": "Identify a supported HIPv2 executable covering the selected RFC 7401/7402/8046 profile, OS/version, routine process credentials, and ownership of packet interception, ESP SA updates and mobility updates. Separate installation-only setup and delegated descriptors from any continuing privileged helper. The older HIP experiment report and Android port do not establish either a current unprivileged witness or a universal inability to provide one. No runtime test performed."
+      "qualification": "First identify a build matching the selected ECDSA profile; then trace retained credentials, delegated descriptors, SA and mobility updates. The 2024 report identifies ECDSA as nonworking in its own OpenSSL 3 branch. Do not transfer either that defect or the older branch privilege model to every HIP implementation."
     },
     {
       "id": "D01-CX",
@@ -20915,16 +20994,21 @@
       "feature": "D04",
       "stack": "HP",
       "status": "?",
-      "reason": "RFC 6317 lets an application enumerate local HITs and select one with bind or source-HIT policy. It does not establish that an ordinary user can create and install a new independently controlled HI into the host HIP/IPsec subsystem without per-identity administration.",
-      "method": "Documentary API and source-path review; no execution",
+      "reason": "RFC 6317 lets an application enumerate local HITs and select one with bind or source-HIT policy. It does not establish that an ordinary user can create and install a new independently controlled HI into the host HIP/IPsec subsystem without per-identity administration. Pinned OpenHIP hitgen implements local ECDSA key generation, accepts -file for identity XML output, and sets the output permissions to owner read/write. Before parsing arguments it checks SYSCONFDIR and tries to create it if absent. This identifies a candidate key-generation path and its filesystem precondition; it does not prove autonomous registration in a running HIP/IPsec endpoint.",
+      "method": "Pinned candidate source trace and developer report; no execution",
       "source_label": "HIP API RFC and pinned CICN implementation source",
       "sources": [
-        "https://datatracker.ietf.org/doc/html/rfc6317#section-4.4"
+        "https://www.ida.liu.se/~TDDE21/info/hip_report_2024.pdf",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/util/hitgen.c",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/linux/hip_linux_umh.c",
+        "https://bitbucket.org/openhip/openhip/src/52157e5e68a82a80fd252c6c9b63a6a77da24e27/src/include/hip/hip_proto.h"
       ],
       "editorial_references": [
-        "round272-sources.json"
+        "round428.html",
+        "round272-sources.json",
+        "round428-sources.json"
       ],
-      "qualification": "Trace key generation, registration permissions, key custody and SA installation in a concrete HIPv2 implementation. Selecting an already installed HIT is not autonomous identity creation; the API alone proves neither Yes nor No."
+      "qualification": "Check the selected-profile daemon identity import, registration ACLs, per-user key custody and SA ownership. A writable output file and local key generation are insufficient to establish that ordinary users can independently activate identities. No executable or multi-user test performed."
     },
     {
       "id": "D04-CX",
@@ -21070,18 +21154,21 @@
       "id": "K01-LP",
       "feature": "K01",
       "stack": "LP",
-      "status": "?",
-      "reason": "The selected profile names QUIC with TLS 1.3, but does not fix the negotiated TLS key-exchange group. QUIC packet encryption and the certificate signature algorithm do not determine whether endpoint establishment uses a classical or post-quantum/hybrid key exchange.",
-      "method": "Documentary and source review; no new runtime execution",
-      "source_label": "Primary specifications, retained implementation sources and deployment documentation",
+      "status": "Y",
+      "reason": "The previously unspecified end-to-end group now has an explicit versioned witness. Go 1.26.5 selects X25519MLKEM768 with both modern endpoints under the default preference list. Its pinned key schedule concatenates the ML-KEM shared secret followed by the X25519 secret and passes that result into the TLS 1.3 handshake-secret derivation; the client performs the matching decapsulation and concatenation. The official libp2p TLS identity component retains certificate-chain and expected-Peer-ID verification and disables session tickets. A local QUIC execution using that component negotiated group 4588 at both ends, authenticated both peer keys and exchanged 256 useful bytes in each direction without resumption. This is sufficient for the documented passive recorded-traffic confidentiality construction in K01, within the assumptions of X25519/ML-KEM and TLS 1.3.",
+      "method": "Versioned configuration selection, source mapping and positive/negative execution",
+      "source_label": "Pinned public libp2p/Go source plus local five-case QUIC/TLS component execution, 2026-10-22",
       "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9001.html#section-4",
-        "https://github.com/libp2p/specs/blob/master/quic/README.md"
+        "https://github.com/libp2p/go-libp2p/blob/3c2c902122cb6fae3897f729a3dbb9d4665ae90d/p2p/security/tls/crypto.go",
+        "https://github.com/golang/go/blob/c19862e5f8415b4f24b189d065ed739517c548ba/src/crypto/tls/key_schedule.go"
       ],
       "editorial_references": [
-        "round270-sources.json"
+        "round421.html",
+        "round421-runtime.json",
+        "round421-sources.json",
+        "round421-harness.go"
       ],
-      "qualification": "Pin the implementation/version and configured groups, then inspect the actual group, KDF/transcript composition and fallback policy. Do not assign No from mandatory classical support alone or Yes from an available optional hybrid. No profile change is made in this round."
+      "qualification": "Configuration-specific Yes, not a claim about every libp2p build or peer. The control run with a classical-only server succeeded using X25519 (29), proving that defaults do permit classical fallback. A component configuration limiting CurvePreferences to group 4588 succeeded against the hybrid peer and failed against the classical peer; this custom TLS configuration is not presented as a stock libp2p host CLI option. A wrong expected Peer ID also failed. Execution covers loopback IPv4/UDP/QUIC and the official libp2p TLS identity component, not a complete libp2p host, Identify, ConnectionGater revocation, migration or independent interoperability. Native QUIC transport source uses the same Identity.ConfigForPeer path without overriding the TLS group list; applicability to that path is a source inference. The matrix explicitly selects the versioned hybrid negotiation case. Peer ID and certificate signatures remain classical: no post-quantum active-attacker authentication, independent cryptographic audit or deployment guarantee. No extension of the F25 byte witness to this execution is inferred."
     },
     {
       "id": "K01-TO",
@@ -21101,16 +21188,23 @@
       "id": "K01-I2",
       "feature": "K01",
       "stack": "I2",
-      "status": "?",
-      "reason": "I2P documents both classical ECIES-X25519 and a hybrid ECIES variant combining X25519 with ML-KEM types 5/6/7. The selected column specifies destinations/NTCP2 but not an end-to-end encryption type. NTCP2 alone cannot decide this cell; neither a blanket classical-only No nor an unconditional hybrid Yes is supported by that selection.",
-      "method": "Documentary endpoint/profile analysis; no new software execution",
-      "source_label": "Primary documentation and code reviewed 2026-10-15",
+      "status": "Y",
+      "reason": "Pinned i2pd 2.58.0 implements type-6 end-to-end ratchet establishment. NewSessionReplyMessage first mixes the X25519 ephemeral agreement, encapsulates to the received ML-KEM key, authenticates the ciphertext in the transcript and calls MixKey on the KEM secret. It then mixes the additional X25519 agreement before deriving directional ratchet keys and the reply payload key. HandleNewOutgoingSessionReply performs matching decapsulation and key derivation. Crypto.cpp implements MixKey using HKDF with the current chaining key and the 32-byte secret. This supports a documentary Yes for the selected hybrid key establishment against passive recorded-traffic decryption, subject to the component cryptographic assumptions. It is an endpoint ratchet construction, not an inference from adjacent-router NTCP2 protection.",
+      "method": "Documentary source mapping with explicit hybrid profile and first-flight boundary",
+      "source_label": "Pinned official i2pd 2.58.0 source and I2P hybrid specification, reviewed 2026-10-22",
       "sources": [
-        "https://i2p.net/en/docs/specs/ecies-hybrid/",
-        "https://i2p.net/en/docs/specs/ecies/"
+        "https://github.com/PurpleI2P/i2pd/blob/e8d59c83754a0809b753ea7f59021160f755abad/libi2pd/ECIESX25519AEADRatchetSession.cpp",
+        "https://github.com/PurpleI2P/i2pd/blob/e8d59c83754a0809b753ea7f59021160f755abad/libi2pd/Crypto.cpp",
+        "https://github.com/PurpleI2P/i2pd/blob/e8d59c83754a0809b753ea7f59021160f755abad/libi2pd/Crypto.h",
+        "https://github.com/PurpleI2P/i2pd/blob/e8d59c83754a0809b753ea7f59021160f755abad/libi2pd/Destination.cpp",
+        "https://github.com/PurpleI2P/i2pd/blob/e8d59c83754a0809b753ea7f59021160f755abad/libi2pd/LeaseSet.cpp",
+        "https://www.i2p.net/en/docs/specs/ecies-hybrid/"
       ],
-      "editorial_references": [],
-      "qualification": "Pin the destination encryption type and implementation/version; inspect hybrid transcript/KDF, first-message protection and fallback/type preference policy. The hybrid specification labels implementation/testing/rollout in progress. Do not infer deployment or downgrade resistance from specification availability."
+      "editorial_references": [
+        "round422.html",
+        "round422-sources.json"
+      ],
+      "qualification": "The initial New Session flight carries an ML-KEM public key but has not incorporated a KEM shared secret: its payload is outside this post-quantum confidentiality claim. WrapSingleMessage can include a payload in that flight; no automatic application-data deferral was established. Reply and subsequent hybrid-derived traffic are the positive witness. Destination.cpp accepts an explicit encryption-type list and uses its first nonzero type as a preference; PQ-enabled defaults also include classical types. LeaseSet.cpp chooses a supported preferred type, or a higher supported available type when that preference is absent. Preference is therefore not a universal minimum-security requirement. Builds below OpenSSL 3.5 skip PQ types; those builds and sessions selecting type 4 are excluded. Both endpoints and the actual selected type must match the witness. No PQ authentication, full-traffic PQ anonymity, independent audit, local handshake execution or interoperability result is claimed. Other cells keep their own configurations."
     },
     {
       "id": "K01-YG",
@@ -21144,20 +21238,22 @@
       "id": "K01-MQ",
       "feature": "K01",
       "stack": "MQ",
-      "status": "?",
-      "reason": "The hybrid candidate is now traced beyond a preference constant. Picoquic conditionally registers ptls_openssl_x25519mlkem768. Its pinned Picotls OpenSSL header enables that path for OpenSSL >= 3.5, and openssl.c binds the group to EVP KEM creation/exchange with encapsulation and decapsulation. A separate BoringSSL branch exists. This is executable source-path evidence, not a negotiated-session observation.",
-      "method": "Source-path and version-boundary review; no runtime execution",
-      "source_label": "Pinned picoquic/Picotls source and selected IETF draft",
+      "status": "Y",
+      "reason": "The previously unselected TLS group now has a pinned hybrid configuration and an executed witness. A local static OpenSSL 3.5.0 build provides X25519MLKEM768 to the pinned Picotls and picoquic sources. With the client restricted through picoquic_set_key_exchange to group 4588, the server completed the hybrid exchange and produced a 64-byte combined secret. The native QUIC simulator then delivered 256 useful bytes in each direction through the existing test callbacks. Picotls passes the combined KEM secret into its TLS 1.3 key schedule. OpenSSL mlx_kem.c places the ML-KEM and ECDH secrets in separate portions of the combined buffer and checks their lengths. This supports the bounded passive recorded-traffic confidentiality claim for the selected hybrid construction, under its cryptographic assumptions.",
+      "method": "Explicit hybrid configuration, isolated provider build, native simulator positive/negative controls",
+      "source_label": "Pinned official picoquic/Picotls/OpenSSL sources and local three-case execution, 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/private-octopus/picoquic/c124cbe975f71b150ea929d325804335d2bdaa34/picoquic/picoquic_ptls_openssl.c",
-        "https://raw.githubusercontent.com/h2o/picotls/f06553b877ada93c860dd1db9002eabf7365292d/include/picotls/openssl.h",
-        "https://raw.githubusercontent.com/h2o/picotls/f06553b877ada93c860dd1db9002eabf7365292d/lib/openssl.c",
-        "https://raw.githubusercontent.com/private-octopus/picoquic/c124cbe975f71b150ea929d325804335d2bdaa34/picoquic/tls_api.c"
+        "https://github.com/private-octopus/picoquic/blob/c124cbe975f71b150ea929d325804335d2bdaa34/picoquic/tls_api.c",
+        "https://github.com/h2o/picotls/blob/f06553b877ada93c860dd1db9002eabf7365292d/lib/openssl.c",
+        "https://github.com/openssl/openssl/blob/openssl-3.5.0/providers/implementations/kem/mlx_kem.c"
       ],
       "editorial_references": [
-        "round278-sources.json"
+        "round423.html",
+        "round423-runtime.json",
+        "round423-sources.json",
+        "round423-harness.patch"
       ],
-      "qualification": "Pin an actual provider/build and require the selected hybrid group at both peers, then verify negotiation and failure behavior when unavailable. Compile-time availability does not establish runtime provider availability or exclude classical fallback. The comparison profile still does not select a TLS group; retain Pending rather than silently changing it. Other builds/providers are not ruled out. No claim of post-quantum certificate authentication or completed cryptographic audit."
+      "qualification": "Default preferences are not a fail-closed PQ policy: a default client successfully exchanged the same data with a classical-only server using X25519 (29). The client restricted to group 4588 was instead rejected by that server with TLS handshake_failure (QUIC error 0x128), without reaching ready. The test changes make unsupported algorithms fail rather than silently skip, add group/secret-length observation, and add data and negative controls; they do not change the cryptographic implementation. The first negative assertion incorrectly expected a nonzero simulator-loop return; it was corrected to inspect the actual TLS error and connection state, retaining the original log. This is native code execution over simulated packet delivery, not two independent implementations, a live multipath run or a public deployment. Test certificate/SNI settings are the upstream fixture, not a revalidation of the column's complete mutual-authentication/no-SNI configuration. No PQ certificate authentication, security audit, throughput result or extension of earlier byte-budget witnesses is claimed. OpenSSL 3.5.0 is an isolated reproducibility pin, not a deployment recommendation."
     },
     {
       "id": "K01-SC",
@@ -21697,14 +21793,18 @@
       "feature": "L01",
       "stack": "AX",
       "status": "?",
-      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding.",
-      "method": "Initial evidence inventory; no new execution",
-      "source_label": "Approved criterion and initial research task",
-      "sources": [],
-      "editorial_references": [
-        "round201.html#L01"
+      "reason": "The historical NET/ROM 1.3 manual now supplies a concrete rights notice: Software 2000 attributes the document and software separately, and conditions use/copying of its software on a license or nondisclosure agreement. That software restriction does not establish a prohibition on independent implementation of the described protocol. The AX.25 2.2 revision dated 11 November 1997, retrieved from TAPR, attributes copyright to TAPR and ARRL but supplies no general implementation grant in the inspected rights notice. This is an additional historical candidate, not a silent replacement of the selected AX.25 v2 profile. Neither document closes L01; the cell remains Pending rather than being marked No from the proprietary NET/ROM product notice.",
+      "method": "Documentary rights-scope review; no holder consultation or legal clearance",
+      "source_label": "Historical Software 2000 manual and TAPR-hosted AX.25 document, reviewed 2026-10-22",
+      "sources": [
+        "https://hamgate.ampr.org/docs/1987_netrom_version_1_3.pdf",
+        "https://files.tapr.org/tech_docs/AX25/AX25.2.2.1997.pdf"
       ],
-      "qualification": "Inspect authoritative specification licenses and third-party contributions across the selected stack. Do not substitute the implementation license for the specification license."
+      "editorial_references": [
+        "round424.html",
+        "round424-sources.json"
+      ],
+      "qualification": "Locate an attributable implementation/use permission for the exact AX.25 v2 and classic NET/ROM specification path, or a complete alternative licensed description of that same profile. The AX.25 2.2 notice cannot automatically license earlier editions. The NET/ROM scan is publisher material retained by an archival host; no publisher signature was verified. Linux implementation licensing, RF licensing, copyright permission and patent commitments remain separate questions. Failed HTTP requests and searches are not evidence that permission does not exist."
     },
     {
       "id": "L01-BA",
@@ -21864,65 +21964,80 @@
       "id": "L02-IP",
       "feature": "L02",
       "stack": "IP",
-      "status": "?",
-      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding.",
-      "method": "Initial evidence inventory; no new execution",
-      "source_label": "Approved criterion and initial research task",
-      "sources": [],
-      "editorial_references": [
-        "round201.html#L02"
+      "status": "Y",
+      "reason": "The pinned gVisor netstack IPv4 and IPv6 source files explicitly carry Apache-2.0 notices attributed to The gVisor Authors. Section 3 of the attached license grants royalty-free patent rights for contributor-controlled claims necessarily infringed by their contributions alone or with the licensed Work. This is a concrete implementation-bound declaration for IP code under the same bounded-holder rule used for PRP and other L02 positives. The evidence is the express patent clause and its attachment to the IP implementations, not simply public code or the absence of IETF disclosures.",
+      "method": "Documentary patent-declaration scope review; no runtime or legal clearance",
+      "source_label": "Pinned public license clauses and source/package attribution, reviewed 2026-10-22",
+      "sources": [
+        "https://raw.githubusercontent.com/google/gvisor/c5ab48fa9b2d23e861cc3fd17be01b3b4338be14/LICENSE",
+        "https://raw.githubusercontent.com/google/gvisor/c5ab48fa9b2d23e861cc3fd17be01b3b4338be14/pkg/tcpip/network/ipv4/ipv4.go",
+        "https://raw.githubusercontent.com/google/gvisor/c5ab48fa9b2d23e861cc3fd17be01b3b4338be14/pkg/tcpip/network/ipv6/ipv6.go",
+        "https://gvisor.dev/docs/architecture_guide/networking/"
       ],
-      "qualification": "Locate an attributable holder declaration or applicable express royalty-free patent grant for this selected protocol or implementation. Record covered claims, holder, conditions and publication status. A bounded holder declaration is sufficient under the same rule as PRP; no complete-stack third-party clearance, registry entry or public filing is required. Copyright permission, absence of known patents and RAND language alone do not establish this commitment. Missing evidence remains Pending, not proof of royalties."
+      "editorial_references": [
+        "round413-sources.json"
+      ],
+      "qualification": "Published grant limited to the Apache-licensed gVisor contributions and Work, with patent-litigation termination and other license conditions. The root file also lists MIT/BSD components; those are not silently assigned the Apache patent grant. No rights are asserted for Linux, BGP/PIM implementations, dependencies, independent reimplementations or other holders. This is not clearance of the complete IP composition or a finding that any patent exists. gVisor is an additional licensing witness, not a substitution for the comparison deployment or evidence of its complete feature set."
     },
     {
       "id": "L02-BP",
       "feature": "L02",
       "stack": "BP",
-      "status": "?",
-      "reason": "The selected ION source at 154a4cc publishes a Caltech BSD-style license permitting use and redistribution. Its root license has no express patent grant or non-assertion commitment. This copyright evidence alone cannot resolve L02. The finding is limited to this examined license; it does not establish that no separate holder declaration exists.",
-      "method": "Documentary commitment review; no patent clearance or runtime experiment",
-      "source_label": "Primary holder disclosures and pinned implementation license, reviewed 2026-10-17",
+      "status": "Y",
+      "reason": "DTN7-RS supplies a published patent-grant witness for the BPv7 layer common to this composition. At the pinned commit, package dtn7 0.22.0 identifies RFC 9171 and offers MIT OR Apache-2.0; COPYRIGHT attributes the project to Lars Baumgaertner. Selecting Apache-2.0 invokes section 3, an express royalty-free grant for contributor-controlled claims necessarily infringed by contributions alone or with the licensed Work. The README applies the dual-license terms to intentional contributions unless expressly stated otherwise. This meets the existing holder-bounded, implementation-bound L02 rule. These three cells share one BP-layer witness; they are not three independent grants or a complete-stack patent clearance.",
+      "method": "Common-layer, holder-bounded patent-declaration review; no runtime or legal clearance",
+      "source_label": "Pinned DTN7-RS license, attribution, package metadata and BP code; 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/license.txt"
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/LICENSE-APACHE",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/COPYRIGHT",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/README.md",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/Cargo.toml",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/src/core/bundlepack.rs"
       ],
       "editorial_references": [
-        "round374-sources.json"
+        "round414-sources.json"
       ],
-      "qualification": "Locate an attributable patent-specific declaration or applicable express grant for the selected protocol or implementation. For CGR/LTP, prior CCSDS no-known-patent and RAND statements remain distinct from royalty-free commitments. Do not infer royalties, infringement or patent-free status from the absence of an express root-license clause."
+      "qualification": "Credit only covered DTN7-RS contributions and the licensed Work under the Apache option, with patent-litigation termination and other conditions. No grant is attributed to NASA/JPL/Caltech ION, CCSDS, TCPCL/TLS, CGR/SABR, LTP, Encapsulation/AOS, dependencies or unrelated patent holders. No promise covers every independently written BP implementation. The new witness does not replace the selected deployment or demonstrate its complete security, routing or carrier composition; E03 and other technical cells remain unchanged. License selection is not a finding of patent existence, validity, infringement or legal enforceability."
     },
     {
       "id": "L02-CG",
       "feature": "L02",
       "stack": "CG",
-      "status": "?",
-      "reason": "The selected ION source at 154a4cc publishes a Caltech BSD-style license permitting use and redistribution. Its root license has no express patent grant or non-assertion commitment. This copyright evidence alone cannot resolve L02. The finding is limited to this examined license; it does not establish that no separate holder declaration exists.",
-      "method": "Documentary commitment review; no patent clearance or runtime experiment",
-      "source_label": "Primary holder disclosures and pinned implementation license, reviewed 2026-10-17",
+      "status": "Y",
+      "reason": "DTN7-RS supplies a published patent-grant witness for the BPv7 layer common to this composition. At the pinned commit, package dtn7 0.22.0 identifies RFC 9171 and offers MIT OR Apache-2.0; COPYRIGHT attributes the project to Lars Baumgaertner. Selecting Apache-2.0 invokes section 3, an express royalty-free grant for contributor-controlled claims necessarily infringed by contributions alone or with the licensed Work. The README applies the dual-license terms to intentional contributions unless expressly stated otherwise. This meets the existing holder-bounded, implementation-bound L02 rule. These three cells share one BP-layer witness; they are not three independent grants or a complete-stack patent clearance.",
+      "method": "Common-layer, holder-bounded patent-declaration review; no runtime or legal clearance",
+      "source_label": "Pinned DTN7-RS license, attribution, package metadata and BP code; 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/license.txt",
-        "https://ccsds.org/Pubs/734x3b1.pdf"
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/LICENSE-APACHE",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/COPYRIGHT",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/README.md",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/Cargo.toml",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/src/core/bundlepack.rs"
       ],
       "editorial_references": [
-        "round374-sources.json"
+        "round414-sources.json"
       ],
-      "qualification": "Locate an attributable patent-specific declaration or applicable express grant for the selected protocol or implementation. For CGR/LTP, prior CCSDS no-known-patent and RAND statements remain distinct from royalty-free commitments. Do not infer royalties, infringement or patent-free status from the absence of an express root-license clause."
+      "qualification": "Credit only covered DTN7-RS contributions and the licensed Work under the Apache option, with patent-litigation termination and other conditions. No grant is attributed to NASA/JPL/Caltech ION, CCSDS, TCPCL/TLS, CGR/SABR, LTP, Encapsulation/AOS, dependencies or unrelated patent holders. No promise covers every independently written BP implementation. The new witness does not replace the selected deployment or demonstrate its complete security, routing or carrier composition; E03 and other technical cells remain unchanged. License selection is not a finding of patent existence, validity, infringement or legal enforceability."
     },
     {
       "id": "L02-LT",
       "feature": "L02",
       "stack": "LT",
-      "status": "?",
-      "reason": "The selected ION source at 154a4cc publishes a Caltech BSD-style license permitting use and redistribution. Its root license has no express patent grant or non-assertion commitment. This copyright evidence alone cannot resolve L02. The finding is limited to this examined license; it does not establish that no separate holder declaration exists.",
-      "method": "Documentary commitment review; no patent clearance or runtime experiment",
-      "source_label": "Primary holder disclosures and pinned implementation license, reviewed 2026-10-17",
+      "status": "Y",
+      "reason": "DTN7-RS supplies a published patent-grant witness for the BPv7 layer common to this composition. At the pinned commit, package dtn7 0.22.0 identifies RFC 9171 and offers MIT OR Apache-2.0; COPYRIGHT attributes the project to Lars Baumgaertner. Selecting Apache-2.0 invokes section 3, an express royalty-free grant for contributor-controlled claims necessarily infringed by contributions alone or with the licensed Work. The README applies the dual-license terms to intentional contributions unless expressly stated otherwise. This meets the existing holder-bounded, implementation-bound L02 rule. These three cells share one BP-layer witness; they are not three independent grants or a complete-stack patent clearance.",
+      "method": "Common-layer, holder-bounded patent-declaration review; no runtime or legal clearance",
+      "source_label": "Pinned DTN7-RS license, attribution, package metadata and BP code; 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/nasa-jpl/ION-DTN/154a4cc7354b26661169f8d8b75a4002cd509a9f/license.txt",
-        "https://ccsds.org/Pubs/734x3b1.pdf"
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/LICENSE-APACHE",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/COPYRIGHT",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/README.md",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/Cargo.toml",
+        "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/src/core/bundlepack.rs"
       ],
       "editorial_references": [
-        "round374-sources.json"
+        "round414-sources.json"
       ],
-      "qualification": "Locate an attributable patent-specific declaration or applicable express grant for the selected protocol or implementation. For CGR/LTP, prior CCSDS no-known-patent and RAND statements remain distinct from royalty-free commitments. Do not infer royalties, infringement or patent-free status from the absence of an express root-license clause."
+      "qualification": "Credit only covered DTN7-RS contributions and the licensed Work under the Apache option, with patent-litigation termination and other conditions. No grant is attributed to NASA/JPL/Caltech ION, CCSDS, TCPCL/TLS, CGR/SABR, LTP, Encapsulation/AOS, dependencies or unrelated patent holders. No promise covers every independently written BP implementation. The new witness does not replace the selected deployment or demonstrate its complete security, routing or carrier composition; E03 and other technical cells remain unchanged. License selection is not a finding of patent existence, validity, infringement or legal enforceability."
     },
     {
       "id": "L02-LP",
@@ -21967,16 +22082,20 @@
       "feature": "L02",
       "stack": "I2",
       "status": "?",
-      "reason": "i2pd 2.58.0 LICENSE attributes the code to the PurpleI2P Project and grants BSD-3-Clause permissions. It contains no express patent grant or non-assertion clause. This is a specific checked source, not an inference from a missing search result.",
-      "method": "Documentary negative-evidence boundary; Pending retained, not a No finding",
-      "source_label": "Pinned implementation licenses and source notices, reviewed 2026-10-17",
+      "reason": "i2pd 2.58.0 LICENSE attributes the code to the PurpleI2P Project and grants BSD-3-Clause permissions. It contains no express patent grant or non-assertion clause. This is a specific checked source, not an inference from a missing search result. Additional candidate checked: The root Apache license file belongs to optional Google Material Icons according to the README. The workspace declares MIT for the I2P implementation. The presence of LICENSE-APACHE therefore does not supply an express patent grant for the router.",
+      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
+      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/PurpleI2P/i2pd/2.58.0/LICENSE"
+        "https://raw.githubusercontent.com/eepnet/emissary/9b43484a21d5a1291c4881cdae62a36c527f8c0f/README.md",
+        "https://raw.githubusercontent.com/PurpleI2P/i2pd/2.58.0/LICENSE",
+        "https://raw.githubusercontent.com/eepnet/emissary/9b43484a21d5a1291c4881cdae62a36c527f8c0f/LICENSE",
+        "https://raw.githubusercontent.com/eepnet/emissary/9b43484a21d5a1291c4881cdae62a36c527f8c0f/Cargo.toml"
       ],
       "editorial_references": [
-        "round378-sources.json"
+        "round418-sources.json",
+        "round418-budget.json"
       ],
-      "qualification": "The examined material does not establish the required express holder commitment. Locate a separate patent-specific declaration or an applicable implementation grant with identified scope and conditions. Do not repeat this root-license check without a changed version or new document. No patent existence, infringement, royalty obligation, lack of implied rights or universal freedom-to-operate conclusion follows. No holder contact was made."
+      "qualification": "The examined material does not establish the required express holder commitment. Locate a separate patent-specific declaration or an applicable implementation grant with identified scope and conditions. Do not repeat this root-license check without a changed version or new document. No patent existence, infringement, royalty obligation, lack of implied rights or universal freedom-to-operate conclusion follows. No holder contact was made. This new candidate is also insufficient; do not infer patent rights from an unrelated bundled license."
     },
     {
       "id": "L02-YG",
@@ -22053,33 +22172,41 @@
       "id": "L02-RT",
       "feature": "L02",
       "stack": "RT",
-      "status": "?",
-      "reason": "The 1.5.5 manual provides an explicit public-domain declaration for the protocol and permits independent implementation, but the reviewed declaration does not identify patent claims, declaring patent holders or a patent-specific grant/non-assertion scope. The reference LICENSE provides permissions over the software and documentation with restrictions, rather than an explicit patent commitment. L01 can therefore be resolved without treating the same evidence as a complete L02 finding.",
-      "method": "Documentary rights-scope review; no runtime or legal clearance",
-      "source_label": "Version-pinned primary repositories and official manuals, 2026-10-15",
+      "status": "Y",
+      "reason": "The previously identified independent Reticulum implementation Leviculum declares AGPL-3.0-or-later in its workspace, attributed to Lew Palm, and its core crate inherits that license. The pinned LICENSE contains AGPLv3 section 11, expressly granting royalty-free rights under each contributor's essential patent claims for its contributor version. This qualifies as a published, implementation-bound declaration. It does not derive a patent promise from the Python reference license or the protocol public-domain statement.",
+      "method": "Documentary patent-declaration scope review; no runtime or legal clearance",
+      "source_label": "Pinned public license clauses and source/package attribution, reviewed 2026-10-22",
       "sources": [
-        "https://github.com/markqvist/Reticulum/blob/7f2b3b9b524c9386316379af1313b43a5e4f7a5d/docs/source/whatis.rst",
-        "https://github.com/markqvist/Reticulum/blob/7f2b3b9b524c9386316379af1313b43a5e4f7a5d/docs/source/zen.rst",
-        "https://github.com/markqvist/Reticulum/blob/7f2b3b9b524c9386316379af1313b43a5e4f7a5d/LICENSE"
+        "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/LICENSE",
+        "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/Cargo.toml",
+        "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/leviculum-core/Cargo.toml",
+        "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/README.md"
       ],
-      "editorial_references": [],
-      "qualification": "Locate an attributable holder declaration or applicable express royalty-free patent grant for this selected protocol or implementation. Record covered claims, holder, conditions and publication status. A bounded holder declaration is sufficient under the same rule as PRP; no complete-stack third-party clearance, registry entry or public filing is required. Copyright permission, absence of known patents and RAND language alone do not establish this commitment. Missing evidence remains Pending, not proof of royalties."
+      "editorial_references": [
+        "round336-sources.json",
+        "round413-sources.json"
+      ],
+      "qualification": "Credit contributor-controlled essential claims within the licensed Leviculum contributor versions only; claims arising solely from further modifications are excluded by the definition. License compliance, including applicable source and network-interaction obligations, remains required. This is not a declaration by Mark Qvist, a waiver of dependency/third-party rights or a promise for all Reticulum reimplementations. E03-RT remains Pending: the previous selected-1.5.5 coverage and dependency gaps are not resolved by a patent clause. The same distinction already applies to the Arti L02 witness with incomplete selected implementation coverage. No interoperability, maturity, performance or legal-enforceability finding is made."
     },
     {
       "id": "L02-NS",
       "feature": "L02",
       "stack": "NS",
-      "status": "?",
-      "reason": "The pinned nostr-rs-relay LICENSE attributes the code to Greg Heartsfield and uses MIT terms without an express patent clause. This supplies copyright permission, not the patent-specific declaration required by L02.",
-      "method": "Documentary negative-evidence boundary; Pending retained, not a No finding",
-      "source_label": "Pinned implementation licenses and source notices, reviewed 2026-10-17",
+      "status": "Y",
+      "reason": "The public Nostrmo and nostr_sdk repositories maintained by haorendashu publish GPLv3 license texts. The pinned application selects the inspected SDK commit through its packages/nostr_sdk gitlink and local package dependency. The SDK Event class explicitly implements NIP-01 event serialization, SHA-256 identifiers and Schnorr signing/verification calls. GPLv3 section 11 supplies an express royalty-free patent grant under each contributor's essential claims for its contributor version. This additional client/SDK witness satisfies the existing holder-bounded L02 rule without inferring a patent grant from nostr-rs-relay's MIT license.",
+      "method": "Documentary patent-grant and source-role mapping; no runtime or legal clearance",
+      "source_label": "Pinned Nostrmo and SDK license, gitlink and NIP-01 source; reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/scsibug/nostr-rs-relay/b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4/LICENSE"
+        "https://raw.githubusercontent.com/haorendashu/nostr_sdk/94209a87b42f275199842751f052be1b8ed94b0f/LICENSE",
+        "https://raw.githubusercontent.com/haorendashu/nostrmo/5f3166cea733de60d318ea00a4401dd07bf62df2/LICENSE",
+        "https://raw.githubusercontent.com/haorendashu/nostrmo/5f3166cea733de60d318ea00a4401dd07bf62df2/.gitmodules",
+        "https://raw.githubusercontent.com/haorendashu/nostrmo/5f3166cea733de60d318ea00a4401dd07bf62df2/pubspec.yaml",
+        "https://raw.githubusercontent.com/haorendashu/nostr_sdk/94209a87b42f275199842751f052be1b8ed94b0f/lib/event.dart"
       ],
       "editorial_references": [
-        "round378-sources.json"
+        "round416-sources.json"
       ],
-      "qualification": "The examined material does not establish the required express holder commitment. Locate a separate patent-specific declaration or an applicable implementation grant with identified scope and conditions. Do not repeat this root-license check without a changed version or new document. No patent existence, infringement, royalty obligation, lack of implied rights or universal freedom-to-operate conclusion follows. No holder contact was made."
+      "qualification": "Published implementation-bound grant, limited to the covered contributor versions and claims controlled by their contributors; the repository maintainer identity is haorendashu, not an independently verified civil identity. Claims arising only from further modifications are excluded by the license definition. License compliance remains required. No grant is attributed to NIP authors generally, nostr-rs-relay, crypto dependencies, other submodules or independent implementations. This does not replace the selected relay or establish TLS configuration, two-relay publication, memory-only retention or complete dependency coverage. Optional NIPs in the application are not added to Basic Nostr. No runtime, interoperability or legal-enforceability conclusion."
     },
     {
       "id": "L02-MT",
@@ -22139,19 +22266,20 @@
       "id": "L02-AX",
       "feature": "L02",
       "stack": "AX",
-      "status": "?",
-      "reason": "Linux 6.12 NET/ROM af_netrom.c declares GPL-2.0-or-later, but kernel COPYING selects GPLv2-only for the kernel as a whole. The file-level later-version option does not establish a GPLv3 license for the selected composed Linux implementation. No conclusion about an isolated relicensing or implied patent rights is made.",
-      "method": "Documentary negative-evidence boundary; Pending retained, not a No finding",
-      "source_label": "Pinned implementation licenses and source notices, reviewed 2026-10-17",
+      "status": "Y",
+      "reason": "LinBPQ L2Code.c, L3Code.c and L4Code.c at the pinned commit carry copyright notices attributed to John Wiseman G8BPQ and explicitly license LinBPQ/BPQ32 under GPL version 3 or later. The inspected files contain AX.25 frame handling, NET/ROM node/routing messages and NET/ROM transport connection handling. GPLv3 section 11 supplies an express royalty-free patent grant for each contributor version under that contributor's essential patent claims. This is an additional implementation-bound witness under the existing L02 rule, separate from the previously inconclusive Linux kernel GPLv2 composition.",
+      "method": "Documentary patent-grant and code-role mapping; no runtime or legal clearance",
+      "source_label": "Pinned LinBPQ source notices and official GPLv3 section 11, reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/af_netrom.c",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/COPYING",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/LICENSES/preferred/GPL-2.0"
+        "https://raw.githubusercontent.com/g8bpq/linbpq/228047d76f410e13a564fb00787516f69b96ff44/L3Code.c",
+        "https://raw.githubusercontent.com/g8bpq/linbpq/228047d76f410e13a564fb00787516f69b96ff44/L2Code.c",
+        "https://raw.githubusercontent.com/g8bpq/linbpq/228047d76f410e13a564fb00787516f69b96ff44/L4Code.c",
+        "https://www.gnu.org/licenses/gpl-3.0.txt"
       ],
       "editorial_references": [
-        "round378-sources.json"
+        "round415-sources.json"
       ],
-      "qualification": "The examined material does not establish the required express holder commitment. Locate a separate patent-specific declaration or an applicable implementation grant with identified scope and conditions. Do not repeat this root-license check without a changed version or new document. No patent existence, infringement, royalty obligation, lack of implied rights or universal freedom-to-operate conclusion follows. No holder contact was made."
+      "qualification": "Credit only the covered LinBPQ contributor versions and controlled essential claims; claims arising solely from further modifications are excluded by the license definition. License compliance remains required. The repository has no root LICENSE/COPYING in the inspected tree; attribution rests on explicit source notices referring to the GPL and the official GPLv3 text, not a repository badge. No grant is inferred for Linux, original NET/ROM vendors, third-party libraries or independent implementations. This does not audit all repository files or qualify a complete executable profile. Optional TCP transport, INP3 and BBS behavior present in LinBPQ are not added to the selected direct-radio/serial composition. No runtime, radio operation or legal enforceability finding; all other cells remain unchanged."
     },
     {
       "id": "L02-BA",
@@ -22176,16 +22304,20 @@
       "feature": "L02",
       "stack": "BL",
       "status": "?",
-      "reason": "The pinned babeld LICENCE attributes the code to Juliusz Chroboczek and uses MIT terms without an express patent clause. A grant in a cryptographic dependency is not automatically a declaration covering Babel routing contributions.",
-      "method": "Documentary negative-evidence boundary; Pending retained, not a No finding",
-      "source_label": "Pinned implementation licenses and source notices, reviewed 2026-10-17",
+      "reason": "The pinned babeld LICENCE attributes the code to Juliusz Chroboczek and uses MIT terms without an express patent clause. A grant in a cryptographic dependency is not automatically a declaration covering Babel routing contributions. Additional candidate checked: The alternate Babel engine is MIT-licensed. Its babel-protocol crate inherits the workspace license; its crate license points to the MIT root text. No express patent clause is supplied by this additional implementation witness.",
+      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
+      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/jech/babeld/3d61ea1e843e2c5f9706c74d1adad4e1d24d44b9/LICENCE"
+        "https://raw.githubusercontent.com/bnkrr/babel-rs/fff471709b97640644fe76f2406ecd348b0fea71/README.md",
+        "https://raw.githubusercontent.com/jech/babeld/3d61ea1e843e2c5f9706c74d1adad4e1d24d44b9/LICENCE",
+        "https://raw.githubusercontent.com/bnkrr/babel-rs/fff471709b97640644fe76f2406ecd348b0fea71/LICENSE",
+        "https://raw.githubusercontent.com/bnkrr/babel-rs/fff471709b97640644fe76f2406ecd348b0fea71/crates/babel-protocol/Cargo.toml"
       ],
       "editorial_references": [
-        "round378-sources.json"
+        "round418-sources.json",
+        "round418-budget.json"
       ],
-      "qualification": "The examined material does not establish the required express holder commitment. Locate a separate patent-specific declaration or an applicable implementation grant with identified scope and conditions. Do not repeat this root-license check without a changed version or new document. No patent existence, infringement, royalty obligation, lack of implied rights or universal freedom-to-operate conclusion follows. No holder contact was made."
+      "qualification": "The examined material does not establish the required express holder commitment. Locate a separate patent-specific declaration or an applicable implementation grant with identified scope and conditions. Do not repeat this root-license check without a changed version or new document. No patent existence, infringement, royalty obligation, lack of implied rights or universal freedom-to-operate conclusion follows. No holder contact was made. This new candidate is also insufficient; do not infer patent rights from an unrelated bundled license."
     },
     {
       "id": "L02-RI",
@@ -22227,17 +22359,20 @@
       "id": "L02-CX",
       "feature": "L02",
       "stack": "CX",
-      "status": "?",
-      "reason": "The archived Distillery notice explicitly separates its BSD copyright terms from patent rights and states that the distribution grants no PARC patent rights, referring to FRAND licensing. This cannot establish a royalty-free patent grant within an identified holder-controlled scope.",
-      "method": "Documentary and source review; no new runtime execution",
-      "source_label": "Primary specifications, retained implementation sources and deployment documentation",
+      "status": "Y",
+      "reason": "Cisco disclosure 3627, submitted 11 July 2019, explicitly identifies RFC 8569 and RFC 8609. It declares a conditional non-assertion policy for necessary Cisco-controlled patent claims when implementing the specified technology. This is a concrete holder commitment, beyond the older Distillery copyright notice and general FRAND language. L02 evaluates a declared policy rather than an effective license; the attributable conditional commitment therefore qualifies as Yes, with its activation condition and scope recorded explicitly.",
+      "method": "Documentary policy review under the common holder-bounded L02 rule; activation distinguished from declaration",
+      "source_label": "Cisco holder declaration in IETF Datatracker and RFC status notices; reviewed 2026-10-22",
       "sources": [
-        "https://raw.githubusercontent.com/parc-ccnx-archive/CCNx_Distillery/2c2ac350f4282e65a07949eb94f605cd9a73608d/README.md"
+        "https://datatracker.ietf.org/ipr/3627/",
+        "https://www.rfc-editor.org/rfc/rfc8569.html",
+        "https://www.rfc-editor.org/rfc/rfc8609.html"
       ],
       "editorial_references": [
+        "round429-sources.json",
         "round270-sources.json"
       ],
-      "qualification": "Locate an attributable holder declaration or applicable express royalty-free patent grant for this selected protocol or implementation. Record covered claims, holder, conditions and publication status. A bounded holder declaration is sufficient under the same rule as PRP; no complete-stack third-party clearance, registry entry or public filing is required. Copyright permission, absence of known patents and RAND language alone do not establish this commitment. Missing evidence remains Pending, not proof of royalties."
+      "qualification": "The declaration conditions the non-assertion route on adoption as an IETF standard. RFC 8569 and RFC 8609 are Experimental IRTF documents; their publication does not establish fulfillment of that condition. No presently effective royalty-free license is asserted. Other terms include compliance and reciprocity, defensive assertion (including past royalties) after specified patent litigation, and exclusion of product portions unnecessary for compliance. A royalty-bearing option also exists. Credit only the declared Cisco-controlled scope; no third-party clearance, patent-validity or enforceability conclusion."
     },
     {
       "id": "L02-LI",

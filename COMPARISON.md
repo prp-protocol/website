@@ -12,27 +12,29 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 4.10, English schema-v1, 2026-10-20; authority REPORT 6c7bcdfdd7dd0309.
-- Editorial delivery commit (local source attribution): `77e46f8994d55e3068ec8cafa4964b449b932fe0`.
-- Approved JSON SHA256: `283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868` (1575553 bytes).
-- Sealed editorial receipt SHA256: `7cbf4d4f020ae6f8761e550f50d037a1e9712d6cbb15a8ebc34bd607ef39c19c` (692 bytes).
-- Exact baseline 4.09 SHA256: `0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100`.
+- Revision 4.39, English schema-v1, 2026-10-22; authority REPORT 5f2d802e46ad97fc.
+- Editorial delivery commit (local source attribution): `5ce3be1a838b83c6365de1154a637a83e27e9ebd`.
+- Approved JSON SHA256: `2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6` (1614081 bytes).
+- Sealed editorial receipt SHA256: `65a48925f62f471cbcf05e18f04c51ba1650cd4529af406dca07b2d0c96fd70a` (3233 bytes).
+- Exact baseline 4.10 SHA256: `283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 53 criteria, 26 stacks, 1378 cells: 780 Yes, 436 No and 162 Pending.
+The snapshot has 53 criteria, 26 stacks, 1378 cells: 796 Yes, 442 No and 140 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This bounded JSON-only update changes only G01-PN from Pending to Yes, with its
-approved rationale and qualifications. Scoped catalogs, nonrecursive Bloom
-horizons and requester exploration provide the architectural witness; the
-DISC-005 introduction gate is removed from this state-placement criterion.
-G01-PI remains No. This does not assert integrated HS2, a global benchmark,
-cheap exhaustive search or application authorization. Criteria and profiles are
-unchanged. No IDs are added, removed or renumbered; K02 is absent. Changed IDs are retained in
+This accumulated JSON-only update changes 38 cell records and seven qualified
+column profiles (LP, I2, MQ, ND, AX, RI, LI), with 22 Pending resolutions:
+16 Yes and six No. Criteria remain unchanged. D01-PN is included; G01-PN remains
+Yes, G01-PI No, and E03-CJ Pending. No IDs are added, removed or renumbered;
+K02 is absent. Exhaustive changed IDs and verdict transitions are retained in
 `scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
+LP/LI G05 No applies only to the selected IPv4 compositions, not universal
+libp2p/LISP impossibility. NET/ROM and batman-adv bounds remain source/architecture
+inferences, not executed world-scale benchmarks. Evidence dates, licensing scope
+and conditional PQ witnesses remain qualified. Pending is not absence proof.
 G05 now assesses architectural plausibility under the common infrastructure and
 workload assumptions. Historical numerical targets are sizing references, not
 jointly certified pass/fail thresholds. The website-owned methodology summary

@@ -1,28 +1,186 @@
 {
-  "revision": "4.10",
-  "date": "2026-10-20",
+  "revision": "4.39",
+  "date": "2026-10-22",
   "schema_version": 1,
-  "bytes": 1575553,
-  "sha256": "283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868",
+  "bytes": 1614081,
+  "sha256": "2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6",
   "status_counts": {
-    "Y": 780,
-    "N": 436,
-    "?": 162
+    "Y": 796,
+    "N": 442,
+    "?": 140
   },
-  "baseline_revision": "4.09",
-  "baseline_sha256": "0fb5661ffb9a1f29110030feb5d83373c7471f8d55103d581adc13586c4bb100",
-  "source_commit": "77e46f8994d55e3068ec8cafa4964b449b932fe0",
-  "authorization": "Owner requested correction of PRP G01: Podemos corrigir? Scoped correction of published matrix.",
+  "baseline_revision": "4.10",
+  "baseline_sha256": "283d03e58e0e40ece34438f8716108c6eec9bf23acd67e982b9097a53f8be868",
+  "source_commit": "5ce3be1a838b83c6365de1154a637a83e27e9ebd",
+  "authorization": "Owner explicitly requested: Pode fazer mais uma rodada e publicar. Approved complete accumulated snapshot after one additional documentary round.",
   "changed_ids": {
     "criteria": [],
-    "columns": [],
+    "columns": [
+      "LP",
+      "I2",
+      "MQ",
+      "ND",
+      "AX",
+      "RI",
+      "LI"
+    ],
     "cells": [
-      "G01-PN"
+      "F09-LI",
+      "F25-TO",
+      "F25-CJ",
+      "F25-MT",
+      "F25-GN",
+      "F25-LI",
+      "F25-IL",
+      "C03-RI",
+      "G05-BP",
+      "G05-LP",
+      "G05-AX",
+      "G05-BA",
+      "G05-CX",
+      "G05-LI",
+      "E01-SC",
+      "E03-CJ",
+      "E03-HP",
+      "E04-BA",
+      "E04-BL",
+      "D01-PN",
+      "D01-ND",
+      "D01-AX",
+      "D01-HP",
+      "D04-HP",
+      "K01-LP",
+      "K01-I2",
+      "K01-MQ",
+      "L01-AX",
+      "L02-IP",
+      "L02-BP",
+      "L02-CG",
+      "L02-LT",
+      "L02-I2",
+      "L02-RT",
+      "L02-NS",
+      "L02-AX",
+      "L02-BL",
+      "L02-CX"
     ]
   },
+  "verdict_changes": [
+    {
+      "id": "F09-LI",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F25-LI",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F25-IL",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "C03-RI",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "G05-LP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "G05-AX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "G05-BA",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "G05-LI",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "D01-PN",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "D01-ND",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "D01-AX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "K01-LP",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "K01-I2",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "K01-MQ",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-IP",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-BP",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-CG",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-LT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-RT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-NS",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-AX",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "L02-CX",
+      "before": "?",
+      "after": "Y"
+    }
+  ],
   "marks_changed": false,
   "assets_changed": false,
-  "authority": "REPORT 6c7bcdfdd7dd0309; approved JSON-only revision 4.10",
-  "catalog_receipt": "comparison-410/catalog.json: two sealed objects and detached signatures independently verified; receipt 7cbf4d4f020ae6f8761e550f50d037a1e9712d6cbb15a8ebc34bd607ef39c19c",
-  "editorial_receipt_sha256": "7cbf4d4f020ae6f8761e550f50d037a1e9712d6cbb15a8ebc34bd607ef39c19c"
+  "scope": "Website comparison only; JSON-only routine update, existing schema and ID grid; no research files or renderer delivery.",
+  "authority": "REPORT 5f2d802e46ad97fc; approved JSON-only revision 4.39",
+  "catalog_receipt": "comparison-439/catalog.json: two sealed objects and detached signatures independently verified; receipt 65a48925f62f471cbcf05e18f04c51ba1650cd4529af406dca07b2d0c96fd70a",
+  "editorial_receipt_sha256": "65a48925f62f471cbcf05e18f04c51ba1650cd4529af406dca07b2d0c96fd70a"
 }
