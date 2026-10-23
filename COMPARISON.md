@@ -12,24 +12,29 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 4.72, English schema-v1, 2026-10-22; authority REPORT ffdacb5b3ceaac0c.
-- Editorial delivery commit (local source attribution): `6489774b767fb86f51f12f5ad73ed5f9d0c55fa6`.
-- Approved JSON SHA256: `06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa` (1902754 bytes).
-- Sealed editorial receipt SHA256: `601cbe0be7cc0e43a0a3ffff60811fabab4a65fef7fa7d4db9a6bd3ab13ea958` (11508 bytes).
-- Exact baseline 4.39 SHA256: `2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6`.
+- Revision 5.73, English schema-v1, 2026-10-23; authority REPORT 68adefcaadf6682d.
+- Editorial delivery commit (local source attribution): `8aeddf1aac1143a5f4f49be497c17e7b0f39cdd9`.
+- Approved JSON SHA256: `4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7` (1963227 bytes).
+- Sealed editorial receipt SHA256: `22ff62adb5d0e02c2a703b9cb6544194e2c23f759150f8330fd6a3c59fef168a` (16994 bytes).
+- Exact baseline 4.72 SHA256: `06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
-`comparison/data.json` is the sole verdict source and is retained byte-identically.
-The snapshot has 63 criteria, 26 stacks, 1638 cells: 865 Yes, 574 No and 199 Pending.
+`comparison/data.json` is the sole active verdict source and is retained byte-identically.
+The snapshot has 62 criteria, 26 stacks, 1612 cells: 816 Yes, 681 No and 115 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This explicitly authorized expansion adds only F26–F35 and their 260 cells.
-There are 11 changed/added criterion records (including F15), two changed profiles
-(PN/PI) and 296 changed/added cell records. Fifteen previously public Pending
-cells resolve (12 Yes, three No); the new grid is not counted as 260 resolutions.
-All previous IDs and URLs remain, with no removal or renumbering; K02 is absent.
-Exhaustive additions, changed IDs and existing-cell transitions are retained in
+This snapshot retires exactly C08 and its 26 cells from the active grid.
+Six criterion records and 225 surviving cell records change, with 144 verdict
+transitions (not all Pending resolutions). No columns, marks or assets change.
+All previous URLs remain; C08 is never recycled and K02 is absent.
+The importer freezes the exact prior criterion and cell records in
+`comparison/archive/C08-4.72.json`, attributed to the verified baseline hash.
+This historical data is not an active verdict source. The renderer rebuilds
+all 26 original C08 URLs with a prominent archived previous-definition notice
+and links to `/comparison/archive/C08.html`, not to a missing active row or a
+replacement definition. Archive records remain immutable on routine imports.
+Exhaustive retirement, changed IDs and existing-cell transitions are retained in
 `scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
 Preserve CPU versus network exhaustion and negotiated receive-window scope.
@@ -50,7 +55,18 @@ DTN/CGR/LTP incapacity; G05-BP remains Pending. Documentary plausibility, bounde
 historical interoperability, selected profiles and measured results retain their
 distinct qualifications. No runtime, security, postquantum, interoperability or
 global-capacity certification is implied. The exact snapshot-bound
-`--expansion-r472` option is required; ordinary import still rejects grid changes.
+`--retirement-r573` option is required; ordinary import still rejects grid changes.
+E05-BA Yes is dated Freifunk Stuttgart evidence, not certification of Linux 6.12
+or all optional settings. E05-NS remains Pending because the located extension
+is excluded. G02 PRP uses prepared paths; F32 No concerns the selected planning
+composition; C06 remains Pending. Publication does not accept HS2 or ROUTE-001.
+
+`comparison/groups.json` contains the four label/first-criterion pairs from the
+signed receipt. Website-owned full-width rowgroup bands use a nested sticky
+label, bounded by the scroll container width, without JavaScript or copied
+verdicts. Print disables clipping and sticky positioning; wide-table PDF checks
+do not certify readable A4 output. Actual Chromium viewport widths of 390 and
+1440 pixels are tested at horizontal start/middle/end, not physical devices.
 
 ## Rebuild and validate
 
@@ -125,6 +141,11 @@ new stable IDs. Never recycle or renumber identifiers.
    their 260 cells, no removed IDs, new columns or changed marks/assets. It is
    mutually exclusive with historical exceptions. Wrong baseline/output hashes,
    extra additions, removals and the ordinary path remain rejected.
+   `--retirement-r573` admits only exact 4.72/5.73 digests and removal of C08
+   with its 26 cells. It creates historical records from the verified baseline,
+   never from a private editorial export, and regenerates the old URLs with
+   archival notices. Other deletion, renumbering, addition, wrong snapshots and
+   mixed exceptions remain rejected. Routine imports cannot recycle C08.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in

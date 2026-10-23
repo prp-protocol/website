@@ -1,138 +1,198 @@
 {
-  "revision": "4.72",
-  "date": "2026-10-22",
+  "revision": "5.73",
+  "date": "2026-10-23",
   "schema_version": 1,
-  "bytes": 1902754,
-  "sha256": "06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa",
+  "bytes": 1963227,
+  "sha256": "4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7",
   "status_counts": {
-    "Y": 865,
-    "N": 574,
-    "?": 199
+    "Y": 816,
+    "N": 681,
+    "?": 115
   },
-  "baseline_revision": "4.39",
-  "baseline_sha256": "2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6",
-  "source_commit": "6489774b767fb86f51f12f5ad73ed5f9d0c55fa6",
-  "authorization": "Owner: Prossiga e, ap\u00f3s, publique. Complete accumulated snapshot after one more round; previously approved additional criteria included. Explicit snapshot-bound expansion 53x26 to 63x26, not routine unrestricted expansion.",
+  "baseline_revision": "4.72",
+  "baseline_sha256": "06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa",
+  "source_commit": "8aeddf1aac1143a5f4f49be497c17e7b0f39cdd9",
+  "authorization": "Owner requested E05 review, horizontally stationary section labels and publication after this round. Complete accumulated approved editorial snapshot; snapshot-bound retirement of C08 with historical URLs preserved, not arbitrary removal authority.",
   "changed_ids": {
     "criteria": [
-      "F15",
-      "F26",
-      "F27",
-      "F28",
-      "F29",
-      "F30",
-      "F31",
-      "F32",
-      "F33",
+      "F24",
       "F34",
-      "F35"
+      "C01",
+      "C06",
+      "G02",
+      "G03"
     ],
-    "columns": [
-      "PN",
-      "PI"
-    ],
+    "columns": [],
     "cells": [
-      "F15-PN",
-      "F15-PI",
-      "F15-IP",
       "F15-BP",
       "F15-CG",
       "F15-LT",
-      "F15-LP",
       "F15-TO",
       "F15-I2",
       "F15-YG",
       "F15-CJ",
-      "F15-MQ",
       "F15-SC",
-      "F15-RT",
       "F15-NS",
       "F15-MT",
       "F15-GN",
       "F15-ND",
-      "F15-AX",
-      "F15-BA",
       "F15-BL",
       "F15-RI",
-      "F15-HP",
       "F15-CX",
       "F15-LI",
       "F15-IL",
-      "G05-ND",
-      "G05-BL",
-      "E02-AX",
-      "E02-HP",
-      "E02-CX",
-      "E02-LI",
-      "E03-HP",
-      "E04-HP",
-      "L02-MQ",
-      "L02-BL",
-      "F26-PN",
-      "F26-PI",
-      "F26-IP",
-      "F26-BP",
-      "F26-CG",
-      "F26-LT",
-      "F26-LP",
-      "F26-TO",
-      "F26-I2",
-      "F26-YG",
-      "F26-CJ",
-      "F26-MQ",
-      "F26-SC",
-      "F26-RT",
-      "F26-NS",
-      "F26-MT",
-      "F26-GN",
-      "F26-ND",
-      "F26-AX",
-      "F26-BA",
-      "F26-BL",
-      "F26-RI",
-      "F26-HP",
-      "F26-CX",
-      "F26-LI",
-      "F26-IL",
-      "F27-PN",
-      "F27-PI",
-      "F27-IP",
-      "F27-BP",
-      "F27-CG",
-      "F27-LT",
-      "F27-LP",
+      "F24-PN",
+      "F24-PI",
+      "F24-IP",
+      "F24-BP",
+      "F24-CG",
+      "F24-LT",
+      "F24-LP",
+      "F24-TO",
+      "F24-I2",
+      "F24-YG",
+      "F24-CJ",
+      "F24-MQ",
+      "F24-SC",
+      "F24-RT",
+      "F24-NS",
+      "F24-MT",
+      "F24-GN",
+      "F24-ND",
+      "F24-AX",
+      "F24-BA",
+      "F24-BL",
+      "F24-RI",
+      "F24-HP",
+      "F24-CX",
+      "F24-LI",
+      "F24-IL",
+      "F25-PN",
+      "F25-PI",
+      "C01-PN",
+      "C01-PI",
+      "C01-IP",
+      "C01-BP",
+      "C01-CG",
+      "C01-LT",
+      "C01-LP",
+      "C01-TO",
+      "C01-I2",
+      "C01-YG",
+      "C01-CJ",
+      "C01-MQ",
+      "C01-SC",
+      "C01-RT",
+      "C01-NS",
+      "C01-MT",
+      "C01-GN",
+      "C01-ND",
+      "C01-AX",
+      "C01-BA",
+      "C01-BL",
+      "C01-RI",
+      "C01-HP",
+      "C01-CX",
+      "C01-LI",
+      "C01-IL",
+      "C06-PN",
+      "C06-PI",
+      "C06-IP",
+      "C06-BP",
+      "C06-CG",
+      "C06-LT",
+      "C06-LP",
+      "C06-TO",
+      "C06-I2",
+      "C06-YG",
+      "C06-CJ",
+      "C06-MQ",
+      "C06-SC",
+      "C06-RT",
+      "C06-NS",
+      "C06-MT",
+      "C06-GN",
+      "C06-ND",
+      "C06-AX",
+      "C06-BA",
+      "C06-BL",
+      "C06-RI",
+      "C06-HP",
+      "C06-CX",
+      "C06-LI",
+      "C06-IL",
+      "G02-PN",
+      "G02-PI",
+      "G02-IP",
+      "G02-BP",
+      "G02-CG",
+      "G02-LT",
+      "G02-LP",
+      "G02-TO",
+      "G02-I2",
+      "G02-YG",
+      "G02-CJ",
+      "G02-MQ",
+      "G02-SC",
+      "G02-RT",
+      "G02-NS",
+      "G02-MT",
+      "G02-GN",
+      "G02-ND",
+      "G02-AX",
+      "G02-BA",
+      "G02-BL",
+      "G02-RI",
+      "G02-HP",
+      "G02-CX",
+      "G02-LI",
+      "G02-IL",
+      "G03-PN",
+      "G03-PI",
+      "G03-IP",
+      "G03-BP",
+      "G03-CG",
+      "G03-LT",
+      "G03-LP",
+      "G03-TO",
+      "G03-I2",
+      "G03-YG",
+      "G03-CJ",
+      "G03-MQ",
+      "G03-SC",
+      "G03-RT",
+      "G03-NS",
+      "G03-MT",
+      "G03-GN",
+      "G03-ND",
+      "G03-AX",
+      "G03-BA",
+      "G03-BL",
+      "G03-RI",
+      "G03-HP",
+      "G03-CX",
+      "G03-LI",
+      "G03-IL",
+      "E05-NS",
+      "E05-BA",
       "F27-TO",
       "F27-I2",
       "F27-YG",
       "F27-CJ",
-      "F27-MQ",
       "F27-SC",
       "F27-RT",
-      "F27-NS",
       "F27-MT",
       "F27-GN",
-      "F27-ND",
       "F27-AX",
       "F27-BA",
-      "F27-BL",
       "F27-RI",
-      "F27-HP",
-      "F27-CX",
-      "F27-LI",
-      "F27-IL",
-      "F28-PN",
-      "F28-PI",
-      "F28-IP",
       "F28-BP",
       "F28-CG",
       "F28-LT",
       "F28-LP",
-      "F28-TO",
-      "F28-I2",
       "F28-YG",
       "F28-CJ",
       "F28-MQ",
-      "F28-SC",
       "F28-RT",
       "F28-NS",
       "F28-MT",
@@ -146,553 +206,827 @@
       "F28-CX",
       "F28-LI",
       "F28-IL",
-      "F29-PN",
-      "F29-PI",
-      "F29-IP",
       "F29-BP",
       "F29-CG",
       "F29-LT",
-      "F29-LP",
-      "F29-TO",
-      "F29-I2",
-      "F29-YG",
-      "F29-CJ",
-      "F29-MQ",
-      "F29-SC",
       "F29-RT",
       "F29-NS",
       "F29-MT",
-      "F29-GN",
-      "F29-ND",
-      "F29-AX",
-      "F29-BA",
-      "F29-BL",
-      "F29-RI",
-      "F29-HP",
-      "F29-CX",
-      "F29-LI",
-      "F29-IL",
-      "F30-PN",
-      "F30-PI",
-      "F30-IP",
-      "F30-BP",
-      "F30-CG",
-      "F30-LT",
-      "F30-LP",
-      "F30-TO",
-      "F30-I2",
-      "F30-YG",
-      "F30-CJ",
-      "F30-MQ",
-      "F30-SC",
       "F30-RT",
-      "F30-NS",
       "F30-MT",
-      "F30-GN",
-      "F30-ND",
-      "F30-AX",
-      "F30-BA",
-      "F30-BL",
-      "F30-RI",
-      "F30-HP",
-      "F30-CX",
-      "F30-LI",
-      "F30-IL",
-      "F31-PN",
-      "F31-PI",
-      "F31-IP",
       "F31-BP",
       "F31-CG",
       "F31-LT",
-      "F31-LP",
-      "F31-TO",
-      "F31-I2",
-      "F31-YG",
-      "F31-CJ",
-      "F31-MQ",
-      "F31-SC",
       "F31-RT",
-      "F31-NS",
       "F31-MT",
-      "F31-GN",
-      "F31-ND",
-      "F31-AX",
-      "F31-BA",
-      "F31-BL",
-      "F31-RI",
-      "F31-HP",
-      "F31-CX",
-      "F31-LI",
-      "F31-IL",
       "F32-PN",
       "F32-PI",
-      "F32-IP",
       "F32-BP",
-      "F32-CG",
-      "F32-LT",
-      "F32-LP",
-      "F32-TO",
-      "F32-I2",
-      "F32-YG",
-      "F32-CJ",
-      "F32-MQ",
-      "F32-SC",
-      "F32-RT",
-      "F32-NS",
-      "F32-MT",
-      "F32-GN",
-      "F32-ND",
-      "F32-AX",
-      "F32-BA",
-      "F32-BL",
-      "F32-RI",
-      "F32-HP",
-      "F32-CX",
-      "F32-LI",
-      "F32-IL",
-      "F33-PN",
-      "F33-PI",
-      "F33-IP",
       "F33-BP",
       "F33-CG",
-      "F33-LT",
       "F33-LP",
       "F33-TO",
       "F33-I2",
-      "F33-YG",
-      "F33-CJ",
       "F33-MQ",
-      "F33-SC",
       "F33-RT",
       "F33-NS",
       "F33-MT",
       "F33-GN",
-      "F33-ND",
       "F33-AX",
       "F33-BA",
-      "F33-BL",
-      "F33-RI",
-      "F33-HP",
-      "F33-CX",
       "F33-LI",
       "F33-IL",
-      "F34-PN",
-      "F34-PI",
-      "F34-IP",
-      "F34-BP",
-      "F34-CG",
-      "F34-LT",
-      "F34-LP",
-      "F34-TO",
-      "F34-I2",
-      "F34-YG",
-      "F34-CJ",
-      "F34-MQ",
-      "F34-SC",
-      "F34-RT",
-      "F34-NS",
-      "F34-MT",
-      "F34-GN",
-      "F34-ND",
-      "F34-AX",
-      "F34-BA",
-      "F34-BL",
-      "F34-RI",
-      "F34-HP",
-      "F34-CX",
-      "F34-LI",
-      "F34-IL",
       "F35-PN",
-      "F35-PI",
-      "F35-IP",
-      "F35-BP",
       "F35-CG",
       "F35-LT",
-      "F35-LP",
       "F35-TO",
-      "F35-I2",
       "F35-YG",
       "F35-CJ",
-      "F35-MQ",
       "F35-SC",
       "F35-RT",
-      "F35-NS",
       "F35-MT",
-      "F35-GN",
       "F35-ND",
       "F35-AX",
-      "F35-BA",
-      "F35-BL",
       "F35-RI",
-      "F35-HP",
-      "F35-CX",
-      "F35-LI",
       "F35-IL"
     ]
   },
   "added_ids": {
-    "criteria": [
-      "F26",
-      "F27",
-      "F28",
-      "F29",
-      "F30",
-      "F31",
-      "F32",
-      "F33",
-      "F34",
-      "F35"
-    ],
-    "columns": [],
-    "cells": [
-      "F26-AX",
-      "F26-BA",
-      "F26-BL",
-      "F26-BP",
-      "F26-CG",
-      "F26-CJ",
-      "F26-CX",
-      "F26-GN",
-      "F26-HP",
-      "F26-I2",
-      "F26-IL",
-      "F26-IP",
-      "F26-LI",
-      "F26-LP",
-      "F26-LT",
-      "F26-MQ",
-      "F26-MT",
-      "F26-ND",
-      "F26-NS",
-      "F26-PI",
-      "F26-PN",
-      "F26-RI",
-      "F26-RT",
-      "F26-SC",
-      "F26-TO",
-      "F26-YG",
-      "F27-AX",
-      "F27-BA",
-      "F27-BL",
-      "F27-BP",
-      "F27-CG",
-      "F27-CJ",
-      "F27-CX",
-      "F27-GN",
-      "F27-HP",
-      "F27-I2",
-      "F27-IL",
-      "F27-IP",
-      "F27-LI",
-      "F27-LP",
-      "F27-LT",
-      "F27-MQ",
-      "F27-MT",
-      "F27-ND",
-      "F27-NS",
-      "F27-PI",
-      "F27-PN",
-      "F27-RI",
-      "F27-RT",
-      "F27-SC",
-      "F27-TO",
-      "F27-YG",
-      "F28-AX",
-      "F28-BA",
-      "F28-BL",
-      "F28-BP",
-      "F28-CG",
-      "F28-CJ",
-      "F28-CX",
-      "F28-GN",
-      "F28-HP",
-      "F28-I2",
-      "F28-IL",
-      "F28-IP",
-      "F28-LI",
-      "F28-LP",
-      "F28-LT",
-      "F28-MQ",
-      "F28-MT",
-      "F28-ND",
-      "F28-NS",
-      "F28-PI",
-      "F28-PN",
-      "F28-RI",
-      "F28-RT",
-      "F28-SC",
-      "F28-TO",
-      "F28-YG",
-      "F29-AX",
-      "F29-BA",
-      "F29-BL",
-      "F29-BP",
-      "F29-CG",
-      "F29-CJ",
-      "F29-CX",
-      "F29-GN",
-      "F29-HP",
-      "F29-I2",
-      "F29-IL",
-      "F29-IP",
-      "F29-LI",
-      "F29-LP",
-      "F29-LT",
-      "F29-MQ",
-      "F29-MT",
-      "F29-ND",
-      "F29-NS",
-      "F29-PI",
-      "F29-PN",
-      "F29-RI",
-      "F29-RT",
-      "F29-SC",
-      "F29-TO",
-      "F29-YG",
-      "F30-AX",
-      "F30-BA",
-      "F30-BL",
-      "F30-BP",
-      "F30-CG",
-      "F30-CJ",
-      "F30-CX",
-      "F30-GN",
-      "F30-HP",
-      "F30-I2",
-      "F30-IL",
-      "F30-IP",
-      "F30-LI",
-      "F30-LP",
-      "F30-LT",
-      "F30-MQ",
-      "F30-MT",
-      "F30-ND",
-      "F30-NS",
-      "F30-PI",
-      "F30-PN",
-      "F30-RI",
-      "F30-RT",
-      "F30-SC",
-      "F30-TO",
-      "F30-YG",
-      "F31-AX",
-      "F31-BA",
-      "F31-BL",
-      "F31-BP",
-      "F31-CG",
-      "F31-CJ",
-      "F31-CX",
-      "F31-GN",
-      "F31-HP",
-      "F31-I2",
-      "F31-IL",
-      "F31-IP",
-      "F31-LI",
-      "F31-LP",
-      "F31-LT",
-      "F31-MQ",
-      "F31-MT",
-      "F31-ND",
-      "F31-NS",
-      "F31-PI",
-      "F31-PN",
-      "F31-RI",
-      "F31-RT",
-      "F31-SC",
-      "F31-TO",
-      "F31-YG",
-      "F32-AX",
-      "F32-BA",
-      "F32-BL",
-      "F32-BP",
-      "F32-CG",
-      "F32-CJ",
-      "F32-CX",
-      "F32-GN",
-      "F32-HP",
-      "F32-I2",
-      "F32-IL",
-      "F32-IP",
-      "F32-LI",
-      "F32-LP",
-      "F32-LT",
-      "F32-MQ",
-      "F32-MT",
-      "F32-ND",
-      "F32-NS",
-      "F32-PI",
-      "F32-PN",
-      "F32-RI",
-      "F32-RT",
-      "F32-SC",
-      "F32-TO",
-      "F32-YG",
-      "F33-AX",
-      "F33-BA",
-      "F33-BL",
-      "F33-BP",
-      "F33-CG",
-      "F33-CJ",
-      "F33-CX",
-      "F33-GN",
-      "F33-HP",
-      "F33-I2",
-      "F33-IL",
-      "F33-IP",
-      "F33-LI",
-      "F33-LP",
-      "F33-LT",
-      "F33-MQ",
-      "F33-MT",
-      "F33-ND",
-      "F33-NS",
-      "F33-PI",
-      "F33-PN",
-      "F33-RI",
-      "F33-RT",
-      "F33-SC",
-      "F33-TO",
-      "F33-YG",
-      "F34-AX",
-      "F34-BA",
-      "F34-BL",
-      "F34-BP",
-      "F34-CG",
-      "F34-CJ",
-      "F34-CX",
-      "F34-GN",
-      "F34-HP",
-      "F34-I2",
-      "F34-IL",
-      "F34-IP",
-      "F34-LI",
-      "F34-LP",
-      "F34-LT",
-      "F34-MQ",
-      "F34-MT",
-      "F34-ND",
-      "F34-NS",
-      "F34-PI",
-      "F34-PN",
-      "F34-RI",
-      "F34-RT",
-      "F34-SC",
-      "F34-TO",
-      "F34-YG",
-      "F35-AX",
-      "F35-BA",
-      "F35-BL",
-      "F35-BP",
-      "F35-CG",
-      "F35-CJ",
-      "F35-CX",
-      "F35-GN",
-      "F35-HP",
-      "F35-I2",
-      "F35-IL",
-      "F35-IP",
-      "F35-LI",
-      "F35-LP",
-      "F35-LT",
-      "F35-MQ",
-      "F35-MT",
-      "F35-ND",
-      "F35-NS",
-      "F35-PI",
-      "F35-PN",
-      "F35-RI",
-      "F35-RT",
-      "F35-SC",
-      "F35-TO",
-      "F35-YG"
-    ]
-  },
-  "removed_ids": {
     "criteria": [],
     "columns": [],
     "cells": []
   },
+  "removed_ids": {
+    "criteria": [
+      "C08"
+    ],
+    "columns": [],
+    "cells": [
+      "C08-AX",
+      "C08-BA",
+      "C08-BL",
+      "C08-BP",
+      "C08-CG",
+      "C08-CJ",
+      "C08-CX",
+      "C08-GN",
+      "C08-HP",
+      "C08-I2",
+      "C08-IL",
+      "C08-IP",
+      "C08-LI",
+      "C08-LP",
+      "C08-LT",
+      "C08-MQ",
+      "C08-MT",
+      "C08-ND",
+      "C08-NS",
+      "C08-PI",
+      "C08-PN",
+      "C08-RI",
+      "C08-RT",
+      "C08-SC",
+      "C08-TO",
+      "C08-YG"
+    ]
+  },
   "verdict_changes": [
     {
-      "id": "F15-PN",
+      "id": "F15-BP",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "F15-PI",
+      "id": "F15-CG",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "F15-IP",
+      "id": "F15-LT",
       "before": "?",
       "after": "N"
     },
     {
-      "id": "F15-LP",
+      "id": "F15-TO",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "F15-MQ",
+      "id": "F15-I2",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "F15-RT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-AX",
+      "id": "F15-YG",
       "before": "?",
       "after": "N"
     },
     {
-      "id": "F15-BA",
+      "id": "F15-CJ",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F15-SC",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F15-NS",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F15-MT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F15-GN",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F15-ND",
       "before": "?",
       "after": "N"
     },
     {
-      "id": "F15-HP",
+      "id": "F15-BL",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F15-RI",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "E02-AX",
+      "id": "F15-CX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F15-LI",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "E02-HP",
+      "id": "F15-IL",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "E02-CX",
+      "id": "F24-IP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-BP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-LP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-TO",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-I2",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-YG",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-CJ",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-MQ",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-SC",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-RT",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-NS",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-MT",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-GN",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-ND",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-AX",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-BA",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-BL",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-RI",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-HP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-CX",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-LI",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "F24-IL",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C01-MQ",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-PN",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "C06-PI",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "C06-IP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-BP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-CG",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-LT",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-LP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-YG",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-CJ",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-MQ",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-SC",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-RT",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-NS",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "C06-MT",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-GN",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-ND",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "C06-AX",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-BA",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-BL",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-RI",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-HP",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-CX",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "C06-LI",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "C06-IL",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "G02-YG",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "G02-CJ",
+      "before": "Y",
+      "after": "?"
+    },
+    {
+      "id": "G02-NS",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "G02-MT",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "G02-AX",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "G02-BA",
+      "before": "Y",
+      "after": "N"
+    },
+    {
+      "id": "E05-BA",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "E02-LI",
+      "id": "F27-TO",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-I2",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-YG",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-CJ",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-SC",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-RT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-MT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-GN",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-AX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-BA",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F27-RI",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-BP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-CG",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-LT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-LP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-YG",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-CJ",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-MQ",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-RT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-NS",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "L02-MQ",
+      "id": "F28-MT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-GN",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-ND",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "L02-BL",
+      "id": "F28-AX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-BA",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-BL",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-RI",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-HP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-CX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-LI",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F28-IL",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F29-BP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F29-CG",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F29-LT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F29-RT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F29-NS",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F29-MT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F30-RT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F30-MT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F31-BP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F31-CG",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F31-LT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F31-RT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F31-MT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F32-PN",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F32-PI",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F32-BP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-BP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-CG",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-LP",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-TO",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-I2",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-MQ",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-RT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-NS",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-MT",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-GN",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-AX",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-BA",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-LI",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F33-IL",
+      "before": "?",
+      "after": "N"
+    },
+    {
+      "id": "F35-CG",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-LT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-TO",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-YG",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-CJ",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-SC",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-RT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-MT",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-ND",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-AX",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-RI",
+      "before": "?",
+      "after": "Y"
+    },
+    {
+      "id": "F35-IL",
       "before": "?",
       "after": "Y"
     }
   ],
   "marks_changed": false,
   "assets_changed": false,
-  "scope": "Website-only JSON update; explicit ten-criterion expansion. Website retains renderer/assets. No private source corpus, other-channel publication or technical certification.",
-  "authority": "REPORT ffdacb5b3ceaac0c; exact approved 4.39 to 4.72 F26-F35 expansion",
-  "catalog_receipt": "comparison-472/catalog.json: two sealed objects and detached signatures independently verified; receipt 601cbe0be7cc0e43a0a3ffff60811fabab4a65fef7fa7d4db9a6bd3ab13ea958",
-  "editorial_receipt_sha256": "601cbe0be7cc0e43a0a3ffff60811fabab4a65fef7fa7d4db9a6bd3ab13ea958"
+  "presentation": {
+    "section_groups": {
+      "E01": "Independent evidence and adoption",
+      "D01": "Deployment requirements",
+      "K01": "Key establishment and recovery",
+      "L01": "Specification licensing and patent commitments"
+    },
+    "request": "Keep each section label stationary at the left edge during horizontal scrolling. Preserve its full-width background band, vertical scrolling and sticky protocol headers. Website renderer owns adaptation; no editorial HTML/CSS imported.",
+    "editorial_validation": "Chromium actual 1440px and 500px viewports; all four labels fixed through scrollLeft 0,900,maximum. Website should check 390/1440px and keyboard navigation."
+  },
+  "retirement": "C08 and 26 cells leave the active grid; retain legacy cell URLs as explicitly archived previous-definition pages, excluded from active counts. Preserve existing ID meanings; never recycle C08.",
+  "scope": "Website-only JSON snapshot plus narrowly scoped presentation adaptation. No private corpus or editorial HTML; no new protocol certification.",
+  "authority": "REPORT 68adefcaadf6682d; exact approved 4.72 to 5.73 C08 retirement and group labels",
+  "catalog_receipt": "comparison-573/catalog.json: two sealed objects and detached signatures independently verified; receipt 22ff62adb5d0e02c2a703b9cb6544194e2c23f759150f8330fd6a3c59fef168a",
+  "editorial_receipt_sha256": "22ff62adb5d0e02c2a703b9cb6544194e2c23f759150f8330fd6a3c59fef168a"
 }

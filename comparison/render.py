@@ -26,6 +26,10 @@ CSS=CSS.replace('.dark{', '.matrix .brand.dark{')
 CSS+='body{padding:0}.comparison-layout{padding:24px}body .site-header{position:relative}.wrap:focus-visible{outline:3px solid #165e70;outline-offset:3px}@media(max-width:600px){body{padding:0}.comparison-layout{padding:12px}}'
 CSS+='''.matrix .brand{height:44px;margin-bottom:4px}.matrix .brand img{max-height:38px;max-width:100%}.stack-heading{display:flex;align-items:center;gap:4px}.project-title{flex:1;min-width:0;overflow-wrap:anywhere}.stack-info{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;min-height:44px;text-decoration:none;font-size:22px}.stack-info span{display:grid;place-items:center;width:18px;height:18px;border:1.5px solid currentColor;border-radius:50%;font:bold 14px/1 system-ui}.stack-info:hover{background:#c9dad5;border-radius:6px}.matrix td a{display:flex;align-items:center;justify-content:center;min-height:44px}@media(max-width:600px){.matrix th,.matrix td{padding:6px;min-width:110px;width:110px}.matrix th:first-child{min-width:140px;width:140px;font-size:14px;line-height:1.35}.matrix thead th{font-size:14px;line-height:1.25}.matrix .brand{height:36px;min-height:44px;margin-bottom:0}.matrix .brand img{max-width:76px;max-height:30px}.matrix details{padding:4px;margin:6px 0}.matrix summary{min-height:32px;display:list-item;align-content:center}}'''
 
+# The band spans the table; only its nested label follows horizontal scrolling.
+# Container-relative sizing keeps even the longest label visible at 390px.
+CSS+='''.wrap{container-type:inline-size}.matrix .group-band th{position:static;min-width:0;width:auto;padding:0;text-align:left;background:#cddcd7;z-index:auto}.group-label{display:block;position:sticky;left:0;box-sizing:border-box;width:max-content;max-width:calc(100cqw - 32px);padding:10px;overflow-wrap:anywhere}.archived{padding:16px;border:2px solid #856123;background:#fff0c9}@media print{.wrap{overflow:visible;max-height:none;container-type:normal}.matrix th:first-child,.matrix thead th,.group-label{position:static}.group-label{max-width:700px}.matrix thead{display:table-header-group}.matrix tr{break-inside:avoid}.site-header{display:none}}'''
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,required=True);args=ap.parse_args()
     out=args.out;out.mkdir(parents=True,exist_ok=True)
@@ -33,6 +37,11 @@ def main():
     ids={c['id'] for c in d['cells']};assert len(ids)==len(d['columns'])*len(d['criteria'])
     assert all(c['status'] in LABEL for c in d['cells'])
     byid={c['id']:c for c in d['cells']};pending=sum(c['status']=='?' for c in d['cells'])
+    groups=json.loads((out/'groups.json').read_text())
+    assert set(groups)<={r['id'] for r in d['criteria']}, 'Group start missing'
+    archive_path=out/'archive/C08-4.72.json'
+    archive=json.loads(archive_path.read_text()) if archive_path.exists() else None
+    if archive: assert 'C08' not in {r['id'] for r in d['criteria']}, 'Retired ID cannot be reused'
     def write(name,title,body):
         target=out/name;target.parent.mkdir(parents=True,exist_ok=True)
         depth=len(Path(name).parts)-1
@@ -41,12 +50,15 @@ def main():
         if name=='index.html':body='<main>'+body+'</main>'
         target.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+CSS+'</style><link rel="stylesheet" href="'+local+'navigation.css"></head><body>'+navigation+'<div class="comparison-layout">'+body+'</div></body></html>')
     intro='<h1>Protocol and stack comparison</h1><p>PRP editorial comparison · Revision '+esc(d['revision'])+' · Updated '+esc(d['date'])+'</p><p>'+str(len(d['criteria']))+' criteria × '+str(len(d['columns']))+' stacks; '+str(pending)+' Pending cells.</p><p><a href="https://prp-protocol.org/">PRP website</a> · <a href="methodology.html">Methodology and limits</a> · <a href="data.json">Download structured data</a> · <a href="logos.html">Logo credits</a></p><p class="legend"><span class="Y">Yes</span> <span class="N">No</span> <span class="U">Pending</span></p><p>Click a cell for evidence and qualifications. Expand a criterion for its definition. Results describe the selected stack and documented capabilities, not implementation certification. Pending means insufficient evidence, not unsupported.</p>'
+    if archive: intro+='<p><a href="archive/C08.html">C08 — archived previous definition (revision 4.72)</a></p>'
     body=intro+'<div class="wrap" tabindex="0" role="region" aria-label="Scrollable protocol comparison"><table class="matrix"><caption>Selected protocol stacks and capabilities</caption><thead><tr><th scope="col">Criterion</th>'
     for c in d['columns']:
         mark=('<img src="logos/'+esc(c['logo'])+'" alt="'+esc(c['title'])+' mark">') if c['logo'] else esc(c['title'])
         body+='<th scope="col" id="col-'+c['id']+'"><a class="brand'+(' dark' if c['id']=='TO' else '')+'" href="logos.html#'+c['id']+'">'+mark+'</a><div class="stack-heading"><a class="project-title" href="'+esc(c['website'])+'">'+esc(c['title'])+'</a><a class="stack-info" id="profile-'+c['id']+'" href="stacks/'+c['id']+'.html" aria-label="Selected stack: '+esc(c['title'])+'" title="Read selected stack: '+esc(c['title'])+'"><span aria-hidden="true">i</span></a></div></th>'
     body+='</tr></thead><tbody>'
     for r in d['criteria']:
+        if r['id'] in groups:
+            body+='</tbody><tbody><tr class="group-band"><th scope="rowgroup" colspan="'+str(len(d['columns'])+1)+'"><span class="group-label">'+esc(groups[r['id']])+'</span></th></tr>'
         body+='<tr><th scope="row" id="row-'+r['id']+'">'+r['id']+' · '+esc(r['title'])+'<details><summary>Definition</summary>'+esc(r['definition'])+'</details></th>'
         for col in d['columns']:
             c=byid[r['id']+'-'+col['id']];status=c['status'];body+='<td class="'+('U' if status=='?' else status)+'"><a href="cells/'+c['id']+'.html" aria-label="'+esc(c['id']+': '+LABEL[status])+'">'+LABEL[status]+'</a></td>'
@@ -55,8 +67,17 @@ def main():
     for c in d['columns']:
         body='<main class="content"><p><a href="../index.html#col-'+c['id']+'">Back to column</a></p><h1>'+esc(c['title'])+' — selected stack</h1><p>'+esc(c['profile'])+'</p><p><a href="'+esc(c['website'])+'">Official project website</a> · <a href="../logos.html#'+c['id']+'">Logo credits</a> · <a href="../methodology.html">Methodology and limits</a></p></main>'
         write('stacks/'+c['id']+'.html',c['title']+' — selected stack',body)
-    for c in d['cells']:
-        body='<main class="content"><p><a href="../index.html#row-'+c['feature']+'">Back to matrix</a></p><h1>'+c['id']+': '+LABEL[c['status']]+'</h1>'
+    if archive:
+        r=archive['criterion']
+        body='<main class="content"><p><a href="../index.html">Current matrix</a></p><h1>C08 — archived previous definition</h1><p class="archived">Historical assessment from revision 4.72, retired in 5.73. These 26 cells are excluded from the active grid and counts. C08 is not reused or redirected to a new definition.</p>'
+        body+='<h2>'+esc(r['title'])+'</h2><p>'+esc(r['definition'])+'</p><h2>Assessment method</h2><p>'+esc(r['method'])+'</p><h2>Research action</h2><p>'+esc(r['research_action'])+'</p><p>Original approved data SHA-256: '+esc(archive['source_sha256'])+'</p><p><a href="C08-4.72.json">Historical criterion and cell records</a></p><ul>'
+        body+=''.join('<li><a href="../cells/'+c['id']+'.html">'+c['id']+'</a></li>' for c in archive['cells'])+'</ul></main>'
+        write('archive/C08.html','C08 — archived previous definition',body)
+    for c in d['cells']+(archive['cells'] if archive else []):
+        historical=c['feature']=='C08' and archive is not None
+        back='../archive/C08.html' if historical else '../index.html#row-'+c['feature']
+        body='<main class="content"><p><a href="'+back+'">'+('Archived criterion' if historical else 'Back to matrix')+'</a></p><h1>'+c['id']+': '+LABEL[c['status']]+'</h1>'
+        if historical: body+='<p class="archived">Archived previous-definition assessment — revision 4.72. Retired in 5.73; excluded from the active matrix and counts. This historical verdict is not a current assessment.</p>'
         for title,key in [('Rationale','reason'),('Assessment method','method'),('Source context','source_label'),('Outstanding qualification','qualification')]:
             if c[key]:body+='<h2>'+title+'</h2><p>'+esc(c[key])+'</p>'
         body+='<h2>Public sources</h2><ul>'+''.join('<li><a href="'+esc(u)+'">'+esc(u)+'</a></li>' for u in c['sources'])+'</ul>'

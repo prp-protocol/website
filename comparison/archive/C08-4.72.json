@@ -1,0 +1,429 @@
+{
+  "revision": "4.72",
+  "date": "2026-10-22",
+  "source_sha256": "06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa",
+  "retired_in": "5.73",
+  "criterion": {
+    "id": "C08",
+    "title": "Needs no persistent history of final identities",
+    "definition": "A transit operator or relay supplies stored state after communication. Capability requires operation without persistent author/destination history.",
+    "method": "Specification and inspection",
+    "research_action": "Inspect memory, disk, backups, telemetry and default logs; separate required, optional and derivable data. This is not a legal retention ruling."
+  },
+  "cells": [
+    {
+      "id": "C08-PN",
+      "feature": "C08",
+      "stack": "PN",
+      "status": "Y",
+      "reason": "Bounded architectural capability for interior transit A in S -> X -> A -> B -> D: both adjacent members are intermediaries, use their own identities, and A neither hosts endpoint publication/rendezvous nor terminates the deeper protected exchange. Member Route Intent sections 2/4/5 identify adjacent source and target; wire-v4 keeps deeper content opaque. Required forwarding/relationship state need not therefore contain a history of final S/D identities. Select no optional final-identity traffic logging or role co-location. This is not a claim that all runtime databases are empty or that first/last hops have the same privacy.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [],
+      "editorial_references": [
+        "index.html#round047"
+      ],
+      "qualification": "Bind the interior-transit composition to executable ROUTE-001 and capture control/data plus memory, SQLite/WAL, diagnostics, telemetry and backups after communication. Runtime store_result persists the requested target even when unresolved; distinguish valid adjacent-member requests from arbitrary identifiers supplied by peers. Verify deeper identities are not learned by another role, record adjacent-identity retention, and audit cleanup separately. No implementation-wide retention audit, secure erasure, legal compliance or traffic-correlation immunity is established."
+    },
+    {
+      "id": "C08-PI",
+      "feature": "C08",
+      "stack": "PI",
+      "status": "Y",
+      "reason": "Bounded architectural capability for interior transit A in S -> X -> A -> B -> D: both adjacent members are intermediaries, use their own identities, and A neither hosts endpoint publication/rendezvous nor terminates the deeper protected exchange. Member Route Intent sections 2/4/5 identify adjacent source and target; wire-v4 keeps deeper content opaque. Required forwarding/relationship state need not therefore contain a history of final S/D identities. Select no optional final-identity traffic logging or role co-location. This is not a claim that all runtime databases are empty or that first/last hops have the same privacy.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [],
+      "editorial_references": [
+        "index.html#round047"
+      ],
+      "qualification": "Bind the interior-transit composition to executable ROUTE-001 and capture control/data plus memory, SQLite/WAL, diagnostics, telemetry and backups after communication. Runtime store_result persists the requested target even when unresolved; distinguish valid adjacent-member requests from arbitrary identifiers supplied by peers. Verify deeper identities are not learned by another role, record adjacent-identity retention, and audit cleanup separately. No implementation-wide retention audit, secure erasure, legal compliance or traffic-correlation immunity is established."
+    },
+    {
+      "id": "C08-IP",
+      "feature": "C08",
+      "stack": "IP",
+      "status": "Y",
+      "reason": "Ordinary forwarding needs current reachability state, not a persistent archive of endpoint communications. The explicit transit profile disables optional traffic-history/flow export; no secure-erasure claim follows.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit IP composition",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc1812.html"
+      ],
+      "editorial_references": [],
+      "qualification": ""
+    },
+    {
+      "id": "C08-BP",
+      "feature": "C08",
+      "stack": "BP",
+      "status": "Y",
+      "reason": "RFC 9171 section 5.11 permits discarding a bundle once retention constraints end, including allocated persistent storage. Select discard on completion with no retained status-report archive or traffic log. Storage while delivery is pending is not a required post-completion identity history.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://datatracker.ietf.org/doc/html/rfc9171#section-5.11"
+      ],
+      "editorial_references": [],
+      "qualification": "Complete or expire all bundle obligations, discard copies and inspect report queues, duplicate caches, database journals and backups. This is capability, not forensic-erasure assurance; pending bundles legitimately retain source/destination metadata."
+    },
+    {
+      "id": "C08-CG",
+      "feature": "C08",
+      "stack": "CG",
+      "status": "Y",
+      "reason": "Documented no-history capability: after all bundle retention constraints end, RFC 9171 section 5.11 permits releasing persistent bundle storage. Select discard-on-completion, disabled status reporting and no traffic archive. Pinned ION bpDestroyBundle removes timeline/hash entries and source, destination, report-to and preceding-hop EID storage once pending-reference constraints clear. TCPCLv4 handles bundles as opaque transfer data; its transfer/session machinery does not mandate an archive of completed final-author/destination pairs. Provisioned SABR routes/contact plans remain configuration; they are not evidence of which final peers communicated. This is not a claim that default deployments or storage media contain no recoverable traces.",
+      "method": "Specification-level capability with bounded BP cleanup source witness; no storage-forensics test",
+      "source_label": "BPv7 discard semantics, selected convergence-layer lifecycle and pinned ION cleanup path",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9171.html#section-5.11",
+        "https://www.rfc-editor.org/rfc/rfc9174.html#section-5.2",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbpP.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/bprc.pod"
+      ],
+      "editorial_references": [
+        "round193-sources.json",
+        "round196-sources.json"
+      ],
+      "qualification": "Verify the exact selected implementation after all copies, retransmissions, retention constraints and duplicate-suppression obligations have completed or expired. Inspect status-report queues, custody/duplicate caches, logs, journals, telemetry and backups; a successful first delivery is not sufficient. No forensic-erasure, default no-logging or legal-retention conclusion is made. SAGA encounter history is not silently selected; any added discovery/history mechanism must be assessed separately. Complete TCPCLv4/TLS or LTP/Encapsulation/AOS integration remains unqualified."
+    },
+    {
+      "id": "C08-LT",
+      "feature": "C08",
+      "stack": "LT",
+      "status": "Y",
+      "reason": "Documented no-history capability: after all bundle retention constraints end, RFC 9171 section 5.11 permits releasing persistent bundle storage. Select discard-on-completion, disabled status reporting and no traffic archive. Pinned ION bpDestroyBundle removes timeline/hash entries and source, destination, report-to and preceding-hop EID storage once pending-reference constraints clear. LTP RFC 5326 section 6.20 deletes the closed session record and remaining timers. Engine/channel identifiers in LTP/AOS are adjacent-link configuration, not a mandatory completed BP author/destination traffic archive. Provisioned SABR routes/contact plans remain configuration; they are not evidence of which final peers communicated. This is not a claim that default deployments or storage media contain no recoverable traces.",
+      "method": "Specification-level capability with bounded BP cleanup source witness; no storage-forensics test",
+      "source_label": "BPv7 discard semantics, selected convergence-layer lifecycle and pinned ION cleanup path",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9171.html#section-5.11",
+        "https://www.rfc-editor.org/rfc/rfc5326.html#section-6.20",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/library/libbpP.c",
+        "https://github.com/nasa-jpl/ION-DTN/blob/154a4cc7354b26661169f8d8b75a4002cd509a9f/bpv7/doc/pod5/bprc.pod"
+      ],
+      "editorial_references": [
+        "round193-sources.json",
+        "round196-sources.json"
+      ],
+      "qualification": "Verify the exact selected implementation after all copies, retransmissions, retention constraints and duplicate-suppression obligations have completed or expired. Inspect status-report queues, custody/duplicate caches, logs, journals, telemetry and backups; a successful first delivery is not sufficient. No forensic-erasure, default no-logging or legal-retention conclusion is made. SAGA encounter history is not silently selected; any added discovery/history mechanism must be assessed separately. Complete TCPCLv4/TLS or LTP/Encapsulation/AOS integration remains unqualified."
+    },
+    {
+      "id": "C08-LP",
+      "feature": "C08",
+      "stack": "LP",
+      "status": "Y",
+      "reason": "The selected direct, routed IPv4 underlay can forward without persisting a history of final endpoint identities. Configure no transit flow logs or NAT; endpoint peer stores are outside the transit observer. This is a capability, not a guarantee against voluntary logging.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://datatracker.ietf.org/doc/html/rfc1812#section-5.2.1"
+      ],
+      "editorial_references": [],
+      "qualification": "Shared C08-LP/MQ: audit the selected transit router configuration, flow telemetry, logging and storage. Protocol capability does not prove a deployed operator erased or never recorded traffic."
+    },
+    {
+      "id": "C08-TO",
+      "feature": "C08",
+      "stack": "TO",
+      "status": "Y",
+      "reason": "Tor relays free circuit resources on DESTROY; forwarding does not require retaining a final-participant history afterward. Select transit relays without traffic logging. Consensus data and current relay descriptors describe infrastructure, not a mandatory archive of completed communications; onion-service authorization records are endpoint state.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://spec.torproject.org/tor-spec/tearing-down-circuits.html"
+      ],
+      "editorial_references": [],
+      "qualification": "Trace circuit teardown and inspect relay logs, controller events, statistics, crash dumps and storage. Optional operator surveillance is not prevented by this capability. No deployed relay or forensic audit performed."
+    },
+    {
+      "id": "C08-I2",
+      "feature": "C08",
+      "stack": "I2",
+      "status": "Y",
+      "reason": "A transit-only tunnel participant removes HopConfig and forwarding entries when the tunnel expires. It need not archive final client destinations after completion. Select no identity-bearing traffic/debug history; router peer profiles and live reachability are infrastructure state, not a required final-client communication archive.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://github.com/i2p/i2p.i2p/blob/37039e6594f1372368f0c1cf8258cdaf805a7fb4/router/java/src/net/i2p/router/tunnel/TunnelDispatcher.java#L515"
+      ],
+      "editorial_references": [],
+      "qualification": "Inspect expiry, optional logs/message history, netDb roles, peer statistics, dumps and backups in the transit-only configuration. No deployed logging or forensic-erasure audit; do not extend this finding to application endpoints storing client records."
+    },
+    {
+      "id": "C08-YG",
+      "feature": "C08",
+      "stack": "YG",
+      "status": "Y",
+      "reason": "The forwarding design needs current peer/routing state, not an archive of which final participants previously communicated. Select transit with no traffic-history logging or flow-export persistence. Current routes may still expose reachable identities; this does not mean routing knowledge is absent or that a deployed operator records nothing.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://yggdrasil-network.github.io/implementation.html"
+      ],
+      "editorial_references": [],
+      "qualification": "Pin the routing dependency and inspect live tables, cleanup, diagnostics and persistent stores after sessions end. Distinguish current reachability entries from records tied to past communications. No runtime or secure-erasure result."
+    },
+    {
+      "id": "C08-CJ",
+      "feature": "C08",
+      "stack": "CJ",
+      "status": "Y",
+      "reason": "SessionManager can remove expired sessions and free their allocations; its forwarding path does not require a persistent completed-session archive. Select transit without identity-bearing logs or flow exports. Current NodeStore reachability and configured peers are not claimed to disappear when a communication ends.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/net/SessionManager.c#L630"
+      ],
+      "editorial_references": [],
+      "qualification": "Inspect SessionManager expiry, NodeStore state, debug logging, admin tooling and disk exports in the complete chosen routing composition. No implementation-wide storage audit or forensic-erasure proof is claimed."
+    },
+    {
+      "id": "C08-MQ",
+      "feature": "C08",
+      "stack": "MQ",
+      "status": "Y",
+      "reason": "Ordinary direct IPv4/IPv6 forwarding requires no persistent final-participant history at transit routers. The selected underlay excludes NAT and transit flow logging. Endpoint connection records and an operator choosing surveillance are outside this capability claim.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://datatracker.ietf.org/doc/html/rfc1812#section-5.2.1",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
+      ],
+      "editorial_references": [],
+      "qualification": ""
+    },
+    {
+      "id": "C08-SC",
+      "feature": "C08",
+      "stack": "SC",
+      "status": "Y",
+      "reason": "SCION transit validates packet-carried hop fields and forwards using interface state; it does not need a history of final hosts after forwarding. Select routers without flow logs or packet archives. AS paths and trust material remain operational state, and visible host addresses can still be recorded voluntarily.",
+      "method": "Documentary analysis",
+      "source_label": "Primary specification / explicit profile inference",
+      "sources": [
+        "https://docs.scion.org/en/latest/protocols/scion-header.html"
+      ],
+      "editorial_references": [],
+      "qualification": "Audit border-router and underlay logging, telemetry, captures and crash storage. Separate control-plane AS topology from histories of final hosts. No deployed infrastructure or secure-erasure audit performed."
+    },
+    {
+      "id": "C08-RT",
+      "feature": "C08",
+      "stack": "RT",
+      "status": "Y",
+      "reason": "The prior No correctly identified activity-bearing destination-table writes, but also rejected volatile storage because RAM records remain after communication. That was inconsistent with the bounded volatile-storage interpretation used for C08 elsewhere. Reticulum accepts an explicit config directory and derives storage, cache, resources, identities and blackhole paths beneath it. Transport startup loads destination_table only when present; its absence is not a startup requirement failure. With the whole runtime directory on verified noswap tmpfs, static local provisioning restored separately and no durable logs or memory exports, normal persistence calls write volatile files. This supports Yes for the explicit deployment, while stock disk-backed operation still records activity. Live RAM records and post-restart relearning remain; no deletion-at-session-end or anonymity guarantee is implied.",
+      "method": "Pinned source and official configuration documentation; no execution",
+      "source_label": "Reticulum 1.5.5 configuration root, optional path loading and persistence",
+      "sources": [
+        "https://github.com/markqvist/Reticulum/blob/7f2b3b9b524c9386316379af1313b43a5e4f7a5d/RNS/Reticulum.py",
+        "https://github.com/markqvist/Reticulum/blob/7f2b3b9b524c9386316379af1313b43a5e4f7a5d/RNS/Transport.py",
+        "https://github.com/markqvist/Reticulum/blob/7f2b3b9b524c9386316379af1313b43a5e4f7a5d/RNS/Utilities/rnsd.py",
+        "https://reticulum.network/manual/using.html",
+        "https://docs.kernel.org/filesystems/tmpfs.html"
+      ],
+      "editorial_references": [
+        "round132-sources.json"
+      ],
+      "qualification": "Verify every selected serial-interface/cache/log destination stays within the volatile root or a nonpersistent sink; forbid external path overrides and persistent process dumps/swap. Start from static provisioning without destination_table, allow announces/path discovery, exercise forwarding and persistence, then cold-restart and verify relearning without importing activity histories. No such protocol or mount experiment ran in this review."
+    },
+    {
+      "id": "C08-NS",
+      "feature": "C08",
+      "stack": "NS",
+      "status": "Y",
+      "reason": "The earlier No inferred required durable history from the presence of author keys in regular events. The pinned relay explicitly supports SQLite in_memory=true. build_pool uses file::memory:?cache=shared, startup sets temp_store=2, and the selected bundled SQLite enables URI filenames. This preserves ordinary event insertion and queries while keeping the database and temporary query state in memory. Select no durable logging, proxy history or host memory persistence on both participating relays. Author keys remain visible in live events, and copies held by clients or other relays are outside this operator-local capability. C08 is Yes for this explicit deployment; it is not a default-retention, anonymity or universal-erasure claim.",
+      "method": "Pinned implementation and SQLite documentation review; no relay execution",
+      "source_label": "nostr-rs-relay SQLite memory option, startup pragmas, logging and bundled SQLite",
+      "sources": [
+        "https://github.com/scsibug/nostr-rs-relay/blob/b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4/config.toml",
+        "https://github.com/scsibug/nostr-rs-relay/blob/b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4/src/repo/sqlite.rs",
+        "https://github.com/scsibug/nostr-rs-relay/blob/b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4/src/repo/sqlite_migration.rs",
+        "https://github.com/scsibug/nostr-rs-relay/blob/b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4/src/main.rs",
+        "https://sqlite.org/inmemorydb.html"
+      ],
+      "editorial_references": [
+        "round133-sources.json"
+      ],
+      "qualification": "Exercise signed regular-event publish, subscription and retrieval through the selected WSS proxy and both memory relays; inspect open files and writes, confirm no disk database or temporary spill, then restart and confirm old events are absent until republished. Verify disabled durable log/proxy/export paths and swap/dumps/snapshots. Check actual packaged SQLite URI and temp-store behavior. No protocol test was run."
+    },
+    {
+      "id": "C08-MT",
+      "feature": "C08",
+      "stack": "MT",
+      "status": "Y",
+      "reason": "The native daemon supports selecting its virtual-filesystem directory. In ARCH_PORTDUINO, FSCom maps to the host-backed PortduinoFS; NodeDB writes can therefore succeed on a writable volatile filesystem instead of durable flash. Select the complete VFS on private noswap tmpfs, disable persistent logging/exports and host memory persistence, and seed only clean static provisioning after cold start. Learned identities, timestamps and other caches may exist in RAM while the node runs, but no persistent traffic history is required in this bounded deployment. This resolves the earlier missing-filesystem objection: writes are supported and successful, not suppressed by a power or storage failure. It is an explicit host deployment capability, not the ordinary embedded default or absence of live state.",
+      "method": "Native filesystem/source and official deployment documentation; no radio or filesystem experiment",
+      "source_label": "Meshtastic native VFS configuration, FSCommon/NodeDB and Linux tmpfs",
+      "sources": [
+        "https://meshtastic.org/docs/meshtasticd/usage/",
+        "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/FSCommon.h",
+        "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/FSCommon.cpp",
+        "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/NodeDB.cpp",
+        "https://docs.kernel.org/filesystems/tmpfs.html"
+      ],
+      "editorial_references": [
+        "round131-sources.json",
+        "round124.html"
+      ],
+      "qualification": "Verify the effective VFS root and all hot/warm/history/backup files remain inside the volatile mount; TraceFile and JSONFile empty, stdout/stderr not persisted, no client database, MQTT or remote exporter. Confirm swap/hibernation/core dumps and snapshots do not persist process or tmpfs pages. Fail startup if volatile storage is unavailable. Trace writes under decoded and opaque LoRa traffic, cold-start from static provisioning, and verify forwarding resumes without restoring learned histories. No such experiment was executed here."
+    },
+    {
+      "id": "C08-GN",
+      "feature": "C08",
+      "stack": "GN",
+      "status": "Y",
+      "reason": "Select legacy UDP TRANSPORT/CORE/CADET/R5N with proportional ATS, heap dhtcache, DISABLE_BF_RC=YES, peerinfo NO_IO=YES and logging NONE without forced overrides or optional traffic archives. NO_IO leaves the peer filename directory unset, so get_host_filename returns NULL and the HELLO write path is skipped. The heap cache and in-memory Bloom mode avoid the identified DHT disk artifacts. The inspected service/plugin statistics updates request nonpersistent entries; shutdown serializes only entries marked persistent. Start with fresh statistics state and no unrelated services contributing persistent records. The inspected legacy routing services retain operational state in memory rather than requiring a final-peer activity archive. This is a documentary capability witness with loss of learned state across restart, not the default configuration or a claim of zero transient state. Reload locally supplied contacts to resume service; the local node key/configuration are not final-participant communication history. TNG peerstore requirements are not imported into this legacy profile.",
+      "method": "Pinned source and explicit configuration composition; no daemon execution or filesystem tracing",
+      "source_label": "GNUnet 0.20.0 peerinfo, datacache, legacy transport, CORE, CADET, DHT, ATS, statistics and logging sources",
+      "sources": [
+        "https://ftpmirror.gnu.org/gnunet/gnunet-0.20.0.tar.gz"
+      ],
+      "editorial_references": [
+        "round125-sources.json",
+        "round099.html",
+        "round124.html"
+      ],
+      "qualification": "Launch only the pinned selected services with the stated effective settings and no forced logging override. Supply bootstrap contacts locally, relay CADET traffic, inspect writes during operation, clean shutdown and crash, then restart and restore contacts to demonstrate service without retained final-peer history. Include plugin loading, supervisor logs, dumps/swap and unselected services in the deployment audit; do not infer their configuration from daemon options. Confirm statistics records contain no persistent peer history. No runtime, crash or restart experiment performed."
+    },
+    {
+      "id": "C08-ND",
+      "feature": "C08",
+      "stack": "ND",
+      "status": "Y",
+      "reason": "NFD can forward with CS admission disabled and prior cached Data erased. PIT entries expire; optional verbose traffic logging can be disabled. No persistent producer/request history is required for forwarding. This witness disables the optional cache used for F11; it does not hide names or face metadata from live observers.",
+      "method": "Primary specifications and pinned-code analysis; no execution",
+      "source_label": "NFD 24.07 Content Store controls",
+      "sources": [
+        "https://docs.named-data.net/NFD/24.07/manpages/nfdc-cs.html",
+        "https://raw.githubusercontent.com/named-data/NFD/NFD-24.07/daemon/fw/forwarder.cpp"
+      ],
+      "editorial_references": [],
+      "qualification": "Disable CS admission, erase existing contents and disable verbose traffic logs; inspect PIT/dead-nonce expiry, process memory, journals and backups. Route/key configuration and live observer knowledge remain."
+    },
+    {
+      "id": "C08-AX",
+      "feature": "C08",
+      "stack": "AX",
+      "status": "Y",
+      "reason": "Classic NET/ROM requires current neighbor/destination lists, queues and endpoint circuit state, not a durable log of previously communicating final callsigns. These operational structures can reside in memory. Optional logging and retained configuration remain separate; no erasure, legal-retention or radio-anonymity conclusion follows.",
+      "method": "Primary protocol and pinned source analysis; no execution",
+      "source_label": "NET/ROM circuit fields and dynamic routing tables, pp. 1–8",
+      "sources": [
+        "https://wiki.oarc.uk/_media/packet:thenetromprotocol.pdf"
+      ],
+      "editorial_references": [],
+      "qualification": "Pin a classic-compatible runtime, disable optional persistent logging and inspect disk, serial captures, telemetry and restart behavior during circuit creation/teardown. No implementation or legal audit has been performed."
+    },
+    {
+      "id": "C08-BA",
+      "feature": "C08",
+      "stack": "BA",
+      "status": "Y",
+      "reason": "The selected native forwarding service can operate without a persistent final-peer traffic history. Current originator/client tables are reachability state, not a required communication archive. Linux documentation makes detailed route/translation tracing optional; disable such tracing and external capture. This does not hide live MAC addresses.",
+      "method": "Primary-document analysis and selected-profile inference; no execution",
+      "source_label": "Linux 6.12 batman-adv documentation",
+      "sources": [
+        "https://www.kernel.org/doc/html/v6.12/networking/batman-adv.html"
+      ],
+      "editorial_references": [],
+      "qualification": "Inspect Linux 6.12 with optional batman-adv tracing and external packet capture disabled. Inventory memory, logs, telemetry and backups after traffic and after route/client expiry. Distinguish live reachability tables from communication history. No execution performed."
+    },
+    {
+      "id": "C08-BL",
+      "feature": "C08",
+      "stack": "BL",
+      "status": "Y",
+      "reason": "RFC 8966 requires neighbor, source and route state, not a persistent archive of final communicating pairs. The selected IPv6/Babel service can operate without flow export or packet-history logging. Current route entries can still reveal topology; no forensic invisibility is claimed.",
+      "method": "Primary-document analysis and selected-profile inference; no execution",
+      "source_label": "Babel routing protocol, RFC 8966",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8966.html"
+      ],
+      "editorial_references": [],
+      "qualification": "Pin the Babel daemon and IPv6 host configuration; disable optional flow/packet-history export. Inspect memory, journals and backups after traffic and route expiry, including daemon-specific default logging. Architectural capability does not certify a particular deployment."
+    },
+    {
+      "id": "C08-RI",
+      "feature": "C08",
+      "stack": "RI",
+      "status": "Y",
+      "reason": "RPL transit needs current neighbor, parent and destination topology state, while DTLS associations terminate at final peers. The selected specifications do not require a persistent archive of which final peers communicated.",
+      "method": "Documentary bounded-witness and state inventory; no runtime execution",
+      "source_label": "Primary forwarding, mobility and state specifications; selected-profile witnesses",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc6550.html#section-9.2"
+      ],
+      "editorial_references": [
+        "round265-sources.json"
+      ],
+      "qualification": "Use routing without optional packet-history logging or flow export. Current DAO routes can outlive a data exchange but are reachability state, not a mandatory communication-history archive. No forensic-erasure or default-log qualification is claimed."
+    },
+    {
+      "id": "C08-HP",
+      "feature": "C08",
+      "stack": "HP",
+      "status": "Y",
+      "reason": "Ordinary IPv4/IPv6 transit forwards the selected HIP/ESP traffic using current reachability information. The protocol does not require a transit archive of final Host Identities or completed host communications.",
+      "method": "Documentary bounded-witness and state inventory; no runtime execution",
+      "source_label": "Primary forwarding, mobility and state specifications; selected-profile witnesses",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc7402.html#section-3.2",
+        "https://www.rfc-editor.org/rfc/rfc4291.html",
+        "https://www.rfc-editor.org/rfc/rfc4760.html"
+      ],
+      "editorial_references": [
+        "round265-sources.json"
+      ],
+      "qualification": "Use transit without optional packet capture, traffic-history logging or flow export. Endpoint HIP/ESP associations are not transit archives; live observation and deliberate recording remain possible. No implementation log audit or secure-erasure guarantee."
+    },
+    {
+      "id": "C08-CX",
+      "feature": "C08",
+      "stack": "CX",
+      "status": "Y",
+      "reason": "CCNx forwarding can operate without its optional Content Store; matching pending Interests are removed on satisfaction and expire otherwise. The specification requires no persistent archive of completed requester/producer exchanges.",
+      "method": "Documentary bounded-witness and state inventory; no runtime execution",
+      "source_label": "Primary forwarding, mobility and state specifications; selected-profile witnesses",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8569.html#section-2.4.3"
+      ],
+      "editorial_references": [
+        "round265-sources.json"
+      ],
+      "qualification": "Disable optional content caching and traffic-history logging for this witness. It does not simultaneously provide the cache retention credited in F11/F18. Names, local previous-hop state and traffic remain observable while forwarding; implementation logs/backups need a separate audit."
+    },
+    {
+      "id": "C08-LI",
+      "feature": "C08",
+      "stack": "LI",
+      "status": "Y",
+      "reason": "Required Map-Caches and current EID registrations describe present reachability, not a persistent record of completed source/destination communications. The specification permits transit operation without retained packet/flow history. Current mappings and configuration remain visible to their operator.",
+      "method": "Specification review; unchanged selected profile",
+      "source_label": "rfc9300.html#section-6; rfc9300.html#section-13; rfc9301.html",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9300.html#section-6",
+        "https://www.rfc-editor.org/rfc/rfc9300.html#section-13",
+        "https://www.rfc-editor.org/rfc/rfc9301.html"
+      ],
+      "editorial_references": [],
+      "qualification": "Disable optional packet/flow and historical mapping logs; permit cache expiration. This is a capability to avoid historical records, not an assertion that a specific operator keeps none."
+    },
+    {
+      "id": "C08-IL",
+      "feature": "C08",
+      "stack": "IL",
+      "status": "Y",
+      "reason": "Transit routers route by Locator without requiring a retained history of communicating endpoint NIDs. The ILCC is endpoint communication state; current routes, neighbour state and authoritative DNS data are not a mandatory transit history of completed final-peer communications.",
+      "method": "Specification review; unchanged selected profile",
+      "source_label": "rfc6740.html#section-4.3; rfc6740.html#section-4.4; rfc6741.html#section-5",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc6740.html#section-4.3",
+        "https://www.rfc-editor.org/rfc/rfc6740.html#section-4.4",
+        "https://www.rfc-editor.org/rfc/rfc6741.html#section-5"
+      ],
+      "editorial_references": [],
+      "qualification": "Transit-only scope with optional traffic-history/export logging disabled. Does not conceal current packet fields or require endpoint/DNS operators to forget current state."
+    }
+  ]
+}

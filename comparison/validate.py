@@ -92,26 +92,36 @@ def validate(raw, root):
     return d
 
 
-def changes(old, new, allowed_added=None):
+def changes(old, new, allowed_added=None, allowed_removed=None):
     result = {}
     for kind in ('criteria', 'columns', 'cells'):
         before = {x['id']: x for x in old[kind]}
         after = {x['id']: x for x in new[kind]}
         allowed = set((allowed_added or {}).get(kind, []))
-        require(set(after)-set(before) == allowed and not set(before)-set(after),
+        require(set(after)-set(before) == allowed and set(before)-set(after) == set((allowed_removed or {}).get(kind, [])),
                 'ID-set change requires separate coordination: ' + kind)
         result[kind] = sorted(k for k in after if k not in before or before[k] != after[k])
     return result
 
 
-def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False):
+def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
     require(new['revision'] == receipt['revision'] and new['date'] == receipt['date'], 'Revision/date mismatch')
     require(dict(Counter(c['status'] for c in new['cells'])) == receipt['status_counts'], 'Status counts mismatch')
-    added = None
-    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472))<=1, 'Select one coordinated exception')
+    added = removed = None
+    if (root/'archive/C08-4.72.json').exists():
+        require('C08' not in {r['id'] for r in new['criteria']}, 'Retired C08 cannot be recycled')
+    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573))<=1, 'Select one coordinated exception')
+    if retirement_r573:
+        require(receipt['sha256']=='4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7', 'Retirement only authorized for exact 5.73 snapshot')
+        baseline=hashlib.sha256((root/'data.json').read_bytes()).hexdigest()
+        require(baseline==receipt['baseline_sha256']=='06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa', 'Retirement baseline must be exact 4.72')
+        removed=dict(criteria=['C08'],columns=[],cells=sorted('C08-'+c['id'] for c in old['columns']))
+        require(receipt['removed_ids']==removed, 'Only C08 retirement authorized')
+        require(receipt['added_ids']==dict(criteria=[],columns=[],cells=[]), 'Retirement cannot add or renumber IDs')
+        require(new['marks']==old['marks'] and new['columns']==old['columns'], 'Column/asset/credit changes not authorized')
     if expansion_r472:
         require(receipt['sha256']=='06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa', 'Expansion only authorized for exact 4.72 snapshot')
         require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()=='2143b8c78f3ebe5cd7266017c98347a883744a6aab6382124b88d885dae999e6', 'Expansion baseline must be exact 4.39')
@@ -157,6 +167,6 @@ def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=
         require({k:sorted(v) for k,v in receipt['added_ids'].items()} == added, 'Expansion additions mismatch')
         require(receipt['removed_ids']==dict(criteria=[],columns=[],cells=[]), 'Retirement not authorized')
         require(new['marks']==old['marks'] and [(c['id'],c['logo']) for c in new['columns']]==[(c['id'],c['logo']) for c in old['columns']], 'Asset/credit changes not authorized')
-    delta = changes(old, new, added)
+    delta = changes(old, new, added, removed)
     require(delta == {k: sorted(v) for k, v in receipt['changed_ids'].items()}, 'Changed-ID receipt mismatch')
     return new, delta

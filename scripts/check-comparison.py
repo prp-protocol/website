@@ -27,8 +27,22 @@ receipt=json.loads((ROOT/'scripts/comparison-approved.json').read_text())
 assert d['revision']==receipt['revision'] and d['date']==receipt['date']
 assert len(raw)==receipt['bytes'] and hashlib.sha256(raw).hexdigest()==receipt['sha256']
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
-assert len(d['criteria'])==63 and len(d['columns'])==26
-assert len(d['cells'])==1638 and {c['id'] for c in d['cells']}==expected
+assert len(d['criteria'])==62 and len(d['columns'])==26
+assert len(d['cells'])==1612 and {c['id'] for c in d['cells']}==expected
+assert 'C08' not in {r['id'] for r in d['criteria']}
+archive=json.loads((OUT/'archive/C08-4.72.json').read_text())
+assert len(archive['cells'])==26 and archive['criterion']['id']=='C08'
+assert archive['source_sha256']=='06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa'
+for c in archive['cells']:
+    text=(OUT/'cells'/(c['id']+'.html')).read_text()
+    assert 'Archived previous-definition assessment' in text and escape(c['reason']) in text
+    assert '../archive/C08.html' in text and '#row-C08' not in text
+groups=json.loads((OUT/'groups.json').read_text())
+index=(OUT/'index.html').read_text()
+assert index.count('class="group-band"')==4
+for first,label in groups.items():
+    assert index.count('<span class="group-label">'+escape(label)+'</span>')==1
+    assert index.index(escape(label)+'</span>')<index.index('id="row-'+first+'"')
 assert {'F'+str(n) for n in range(26,36)} <= {r['id'] for r in d['criteria']}
 assert 'K02' not in {r['id'] for r in d['criteria']}
 assert all(c['status'] in ['Y','N','?'] for c in d['cells'])

@@ -91,6 +91,23 @@ else: raise AssertionError('Ordinary import accepted complete unauthorized expan
 try: api['check_receipt'](expanded,OUT,exp_receipt,original,expansion_r472=True)
 except ValueError: pass
 else: raise AssertionError('4.72 exception accepted another snapshot')
+# Valid complete grids with arbitrary deletion or renumbering are not authorized,
+# even when the caller selects the historical retirement exception.
+for mode in ('deletion','renumbering'):
+    bad=copy.deepcopy(original);ident=bad['criteria'][0]['id']
+    if mode=='deletion':
+        bad['criteria']=[r for r in bad['criteria'] if r['id']!=ident]
+        bad['cells']=[c for c in bad['cells'] if c['feature']!=ident]
+    else:
+        bad['criteria'][0]['id']='F99'
+        for cell in bad['cells']:
+            if cell['feature']==ident:cell['feature']='F99';cell['id']='F99-'+cell['stack']
+    altered=json.dumps(bad).encode();api['validate'](altered,OUT)
+    bad_receipt=dict(receipt,bytes=len(altered),sha256=hashlib.sha256(altered).hexdigest(),status_counts=dict(Counter(c['status'] for c in bad['cells'])))
+    for flags in ({},{'retirement_r573':True}):
+        try:api['check_receipt'](altered,OUT,bad_receipt,original,**flags)
+        except ValueError:pass
+        else:raise AssertionError('Accepted arbitrary '+mode)
 with tempfile.TemporaryDirectory(prefix='comparison-bad-signature-') as tmp:
     tmp=Path(tmp)
     (tmp/'data.json').write_bytes(payload)
@@ -104,6 +121,6 @@ after = {str(p.relative_to(OUT)): hashlib.sha256(p.read_bytes()).hexdigest()
          for p in OUT.rglob('*') if p.is_file()}
 assert before == after, 'Fixture modified production content or website assets'
 print(json.dumps(dict(result='PASS',fixture='temporary F13 rename and escaping',
-    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=16,
+    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=20,
     exact_json=True,website_ownership_preserved=True,production_unchanged=True,
     signature_note='Fixture tests staging only; no sealed input or signature verification claimed.')))
