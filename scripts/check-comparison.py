@@ -27,23 +27,24 @@ receipt=json.loads((ROOT/'scripts/comparison-approved.json').read_text())
 assert d['revision']==receipt['revision'] and d['date']==receipt['date']
 assert len(raw)==receipt['bytes'] and hashlib.sha256(raw).hexdigest()==receipt['sha256']
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
-assert len(d['criteria'])==62 and len(d['columns'])==26
-assert len(d['cells'])==1612 and {c['id'] for c in d['cells']}==expected
-assert 'C08' not in {r['id'] for r in d['criteria']}
-archive=json.loads((OUT/'archive/C08-4.72.json').read_text())
-assert len(archive['cells'])==26 and archive['criterion']['id']=='C08'
-assert archive['source_sha256']=='06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa'
-for c in archive['cells']:
-    text=(OUT/'cells'/(c['id']+'.html')).read_text()
-    assert 'Archived previous-definition assessment' in text and escape(c['reason']) in text
-    assert '../archive/C08.html' in text and '#row-C08' not in text
+assert len(d['criteria'])==60 and len(d['columns'])==26
+assert len(d['cells'])==1560 and {c['id'] for c in d['cells']}==expected
+assert not {'C08','F25','F35'} & {r['id'] for r in d['criteria']}
+for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
+    archive=json.loads((OUT/('archive/'+ident+'-'+rev+'.json')).read_text())
+    assert len(archive['cells'])==26 and archive['criterion']['id']==ident and archive['revision']==rev
+    for c in archive['cells']:
+        text=(OUT/'cells'/(c['id']+'.html')).read_text()
+        assert 'Archived previous-definition assessment' in text and escape(c['reason']) in text
+        assert '../archive/'+ident+'.html' in text and '#row-'+ident not in text
+        if ident=='F25': assert '../wake-traffic.html#'+c['id'] in text
 groups=json.loads((OUT/'groups.json').read_text())
 index=(OUT/'index.html').read_text()
 assert index.count('class="group-band"')==4
 for first,label in groups.items():
     assert index.count('<span class="group-label">'+escape(label)+'</span>')==1
     assert index.index(escape(label)+'</span>')<index.index('id="row-'+first+'"')
-assert {'F'+str(n) for n in range(26,36)} <= {r['id'] for r in d['criteria']}
+assert {'F'+str(n) for n in range(26,35)} <= {r['id'] for r in d['criteria']}
 assert 'K02' not in {r['id'] for r in d['criteria']}
 assert all(c['status'] in ['Y','N','?'] for c in d['cells'])
 assert dict(Counter(c['status'] for c in d['cells']))==receipt['status_counts']
@@ -52,6 +53,15 @@ for criterion in criteria.values():
     assert escape(criterion['title']) in (OUT/'index.html').read_text()
     assert escape(criterion['definition']) in (OUT/'index.html').read_text()
 pages={p:Page(p.read_text()) for p in OUT.rglob('*.html') if p.name!='navigation.html'}
+pages.update({p:Page(p.read_text()) for p in (ROOT/'protocol-atlas').glob('*.html')})
+assert hashlib.sha256((OUT/'wake-traffic.json').read_bytes()).hexdigest()=='1860d68f3680c20b6df256eb5c90457edfe3512838ae4295ba68330d0a151f23'
+wake=json.loads((OUT/'wake-traffic.json').read_text());wake_html=(OUT/'wake-traffic.html').read_text()
+for r in wake['records']:
+    assert r['id'] in pages[OUT/'wake-traffic.html'].ids
+    assert escape(r['inventory']) in wake_html and escape(r['conditions']) in wake_html
+    assert r['historical_cell'] in pages[OUT/'wake-traffic.html'].links
+assert 'wake-traffic.html' in pages[OUT/'index.html'].links
+subprocess.run(['python3',str(ROOT/'scripts/render-atlas.py'),'--check'],check=True)
 assert pages[OUT/'index.html'].details==len(d['criteria']) and pages[OUT/'index.html'].open_details==0
 for p,page in pages.items():
     assert not page.scripts,p

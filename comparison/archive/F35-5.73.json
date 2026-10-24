@@ -1,0 +1,481 @@
+{
+  "revision": "5.73",
+  "date": "2026-10-23",
+  "source_sha256": "4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7",
+  "retired_in": "5.82",
+  "criterion": {
+    "id": "F35",
+    "title": "Network-function deployment without endpoint modification",
+    "definition": "The selected composition can introduce a stated routing, path-management, mobility or connectivity function through intermediate network equipment while existing communicating endpoints retain their protocol implementations and applications. Identify the added function, upgraded equipment and unchanged endpoint boundary. Ordinary attachment or address provisioning may be allowed and must be disclosed. A new endpoint agent, protocol stack or application library does not qualify for that deployment. Merely operating the existing network unchanged does not establish an added function.",
+    "method": "Primary architectural or protocol evidence for the selected composition; distinguish capability from execution",
+    "research_action": "Describe a concrete before/after deployment, the new network benefit, required intermediate upgrades and any endpoint configuration changes. Verify that both communicating endpoint implementations remain unchanged. Distinguish D01 privileges, D02 kernel modules and F23 endpoint-controlled mobility."
+  },
+  "cells": [
+    {
+      "id": "F35-PN",
+      "feature": "F35",
+      "stack": "PN",
+      "status": "?",
+      "reason": "The current architecture permits transit and optional aggregation without transferring endpoint identity or application authority. This supports an infrastructure-only candidate but does not specify its complete deployment procedure. Current wire-v4 section 1.1 retires the prior HS2 establishment path and requires refusal where successor dependencies are unavailable. Member Route Intent separately withholds general ACCEPTED emission pending ROUTE-001. Reusing the retired handshake or assuming route activation would not establish the proposed before/after witness.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Current PRP specification worktree, retained by hash; not a published snapshot",
+      "sources": [],
+      "editorial_references": [
+        "round525.html",
+        "round525-sources.json",
+        "round525.html",
+        "round525-sources.json"
+      ],
+      "qualification": "Close a bounded native-PRP witness: identify the added intermediate routing/connectivity function, unchanged endpoint implementation/profile, admission and activation procedure, and before/after usable trajectory. For a witness needing new sessions, bind the successor establishment and session-installation contract; for Member Route Intent, resolve reciprocal generation, deferred results and alias lifetime under ROUTE-001. Alternatively identify an independently complete procedure over already valid sessions that avoids those dependencies. No full runtime benchmark is required for this architectural criterion. Existing valid state and non-HS2 RRL/AOP functions are not globally retired. This review changes only F35-PN evidence; it neither rejects PRP's architectural capability nor reclassifies other cells."
+    },
+    {
+      "id": "F35-PI",
+      "feature": "F35",
+      "stack": "PI",
+      "status": "Y",
+      "reason": "A bounded deployment introduces BGP interdomain reachability and route-policy selection at routers in place of provisioned static reachability, while attached endpoint protocol implementations and applications remain unchanged. BGP is already part of the selected global IP composition. The PRP-over-IP profile can use that same infrastructure upgrade without changing its existing PRP endpoint software.",
+      "method": "Primary specification analysis; architectural capability, no runtime test",
+      "source_label": "Pinned primary specification; selected-composition architectural assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html",
+        "https://www.rfc-editor.org/rfc/rfc1812.html"
+      ],
+      "editorial_references": [
+        "round464.html",
+        "round464-sources.json"
+      ],
+      "qualification": "Infrastructure-only routing witness from RFC 4271 and RFC 1812. Routers, peering and route policy require administration; endpoint addressing/default gateways may require ordinary provisioning. For PI this is an underlay benefit, not installation of native PRP on legacy IP endpoints. No promise that every network upgrade is transparent."
+    },
+    {
+      "id": "F35-IP",
+      "feature": "F35",
+      "stack": "IP",
+      "status": "Y",
+      "reason": "A bounded deployment introduces BGP interdomain reachability and route-policy selection at routers in place of provisioned static reachability, while attached endpoint protocol implementations and applications remain unchanged. BGP is already part of the selected global IP composition. The PRP-over-IP profile can use that same infrastructure upgrade without changing its existing PRP endpoint software.",
+      "method": "Primary specification analysis; architectural capability, no runtime test",
+      "source_label": "Pinned primary specification; selected-composition architectural assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html",
+        "https://www.rfc-editor.org/rfc/rfc1812.html"
+      ],
+      "editorial_references": [
+        "round464.html",
+        "round464-sources.json"
+      ],
+      "qualification": "Infrastructure-only routing witness from RFC 4271 and RFC 1812. Routers, peering and route policy require administration; endpoint addressing/default gateways may require ordinary provisioning. For PI this is an underlay benefit, not installation of native PRP on legacy IP endpoints. No promise that every network upgrade is transparent."
+    },
+    {
+      "id": "F35-BP",
+      "feature": "F35",
+      "stack": "BP",
+      "status": "Y",
+      "reason": "The selected global composition uses a conventional BGP-routed IP underlay. Deploying dynamic interdomain reachability and route policy at routers in place of static routes can leave existing overlay endpoints and applications unchanged.",
+      "method": "Primary documentary and source assessment; no new runtime test",
+      "source_label": "Primary specification or selected-version source; bounded composition assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html"
+      ],
+      "editorial_references": [
+        "round470.html",
+        "round470-sources.json"
+      ],
+      "qualification": "Same bounded infrastructure witness used for IP and PRP-over-IP. The positive belongs to the declared IP/BGP layer, not initial installation of I2P, CADET or BP on legacy hosts. Router upgrades, peering/policy and ordinary attachment provisioning remain required."
+    },
+    {
+      "id": "F35-CG",
+      "feature": "F35",
+      "stack": "CG",
+      "status": "Y",
+      "reason": "A bounded deployment keeps source and destination BP agents and applications unchanged, with the source forwarding to its existing ingress gateway. Intermediate BP nodes replace fixed forwarding choices with the selected SABR/CGR planner, using supplied contact times and capacities to choose feasible onward routes. This adds schedule-aware path management inside the network. RFC 9171 section 5.4 leaves next-node selection to local forwarding procedures and explicitly identifies SABR as one possible mechanism; no new endpoint request or application protocol is required for this transit routing decision.",
+      "method": "Primary specification architecture and explicit deployment inference; no runtime test",
+      "source_label": "RFC 9171 section 5.4 and CCSDS 734.3-B-1 sections 2.2-2.4 and 3",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9171.html#section-5.4",
+        "https://ccsds.org/Pubs/734x3b1.pdf"
+      ],
+      "editorial_references": [
+        "round483.html",
+        "round483-sources.json"
+      ],
+      "qualification": "Architectural Yes for existing compatible BP endpoints, not installation on legacy non-BP hosts. Keep endpoint EIDs, applications, first/last-hop convergence layers, end-to-end security policy and adequate bundle lifetimes unchanged. Transit nodes need the planner, consistent contact/range plans, clocks and operational forwarding resources. Use ordinary singleton traffic; no custody or critical-bundle feature is needed for this witness. The selected BPv7/SABR metadata binding and full executable integration remain unqualified. This does not claim that every bundle benefits, that endpoint lifetimes can be ignored, or that delivery is guaranteed. No deployment or interoperability experiment was run. CG preserves the selected TCPCLv4/TLS boundary at its endpoints."
+    },
+    {
+      "id": "F35-LT",
+      "feature": "F35",
+      "stack": "LT",
+      "status": "Y",
+      "reason": "A bounded deployment keeps source and destination BP agents and applications unchanged, with the source forwarding to its existing ingress gateway. Intermediate BP nodes replace fixed forwarding choices with the selected SABR/CGR planner, using supplied contact times and capacities to choose feasible onward routes. This adds schedule-aware path management inside the network. RFC 9171 section 5.4 leaves next-node selection to local forwarding procedures and explicitly identifies SABR as one possible mechanism; no new endpoint request or application protocol is required for this transit routing decision.",
+      "method": "Primary specification architecture and explicit deployment inference; no runtime test",
+      "source_label": "RFC 9171 section 5.4 and CCSDS 734.3-B-1 sections 2.2-2.4 and 3",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9171.html#section-5.4",
+        "https://ccsds.org/Pubs/734x3b1.pdf"
+      ],
+      "editorial_references": [
+        "round483.html",
+        "round483-sources.json"
+      ],
+      "qualification": "Architectural Yes for existing compatible BP endpoints, not installation on legacy non-BP hosts. Keep endpoint EIDs, applications, first/last-hop convergence layers, end-to-end security policy and adequate bundle lifetimes unchanged. Transit nodes need the planner, consistent contact/range plans, clocks and operational forwarding resources. Use ordinary singleton traffic; no custody or critical-bundle feature is needed for this witness. The selected BPv7/SABR metadata binding and full executable integration remain unqualified. This does not claim that every bundle benefits, that endpoint lifetimes can be ignored, or that delivery is guaranteed. No deployment or interoperability experiment was run. LT preserves the selected LTP/Encapsulation/AOS boundary at its endpoints; the new function belongs to its SABR routing layer, not to LTP alone."
+    },
+    {
+      "id": "F35-LP",
+      "feature": "F35",
+      "stack": "LP",
+      "status": "Y",
+      "reason": "The declared global composition already includes a conventional BGP/IP underlay. Introducing BGP reachability and route-policy selection at routers in place of static reachability changes the network function without modifying the existing Direct-peer libp2p over QUIC endpoints or their applications.",
+      "method": "Selected-composition primary documentary assessment; no runtime experiment",
+      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html",
+        "https://www.rfc-editor.org/rfc/rfc1812.html"
+      ],
+      "editorial_references": [
+        "round469.html",
+        "round469-sources.json"
+      ],
+      "qualification": "This is the same bounded infrastructure witness credited to IP and PRP-over-IP. It is an underlay benefit, not a claim that the overlay can initially be installed without endpoint software. Router peering, policy and ordinary endpoint address/gateway provisioning remain administrative requirements."
+    },
+    {
+      "id": "F35-TO",
+      "feature": "F35",
+      "stack": "TO",
+      "status": "Y",
+      "reason": "Tor selects new circuit paths using directory information. Deploying additional eligible middle relays and admitting them to the public directory therefore adds forwarding-path choices for existing onion-service clients and services without replacing their Tor implementations or applications.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Official Tor and SCION documentation and pinned Meshtastic firmware",
+      "sources": [
+        "https://spec.torproject.org/path-spec/path-selection-constraints.html"
+      ],
+      "editorial_references": [
+        "round524.html",
+        "round524-sources.json"
+      ],
+      "qualification": "Before/after witness: the public relay pool gains an eligible compatible middle relay. Directory admission, flags, bandwidth weights, reachability and path-family/subnet constraints govern use; merely starting a relay is insufficient. Existing endpoints consume updated directory state and build new circuits with unchanged software. Service authorization remains enabled. No automatic migration of established circuits, new bridge configuration, exit-service requirement, Conflux deployment or guaranteed performance improvement is claimed. This assumes already deployed Tor endpoints, not transparent installation on legacy applications."
+    },
+    {
+      "id": "F35-I2",
+      "feature": "F35",
+      "stack": "I2",
+      "status": "Y",
+      "reason": "The selected global composition uses a conventional BGP-routed IP underlay. Deploying dynamic interdomain reachability and route policy at routers in place of static routes can leave existing overlay endpoints and applications unchanged.",
+      "method": "Primary documentary and source assessment; no new runtime test",
+      "source_label": "Primary specification or selected-version source; bounded composition assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html"
+      ],
+      "editorial_references": [
+        "round470.html",
+        "round470-sources.json"
+      ],
+      "qualification": "Same bounded infrastructure witness used for IP and PRP-over-IP. The positive belongs to the declared IP/BGP layer, not initial installation of I2P, CADET or BP on legacy hosts. Router upgrades, peering/policy and ordinary attachment provisioning remain required."
+    },
+    {
+      "id": "F35-YG",
+      "feature": "F35",
+      "stack": "YG",
+      "status": "Y",
+      "reason": "A configured peering between intermediate Yggdrasil nodes can join previously disconnected mesh regions while existing endpoints retain their node keys, native IPv6 addresses and application software. The pinned Ironwood peer-addition path registers the new port and peer and exchanges routing announcements and Bloom information, allowing existing routing logic to use the added connectivity.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Pinned Yggdrasil/Ironwood and cjdns peering/forwarding sources",
+      "sources": [
+        "https://yggdrasil-network.github.io/configuration.html",
+        "https://raw.githubusercontent.com/Arceliar/ironwood/d50055b11f5ec5b56ee4e56ba9a75261461821dc/network/router.go",
+        "https://raw.githubusercontent.com/Arceliar/ironwood/d50055b11f5ec5b56ee4e56ba9a75261461821dc/network/peers.go"
+      ],
+      "editorial_references": [
+        "round523.html",
+        "round523-sources.json"
+      ],
+      "qualification": "Before/after witness: join two provisioned regions by adding an adjacent private-IPv4 TCP/TLS peering between transit nodes; endpoint attachments and software remain unchanged. Configure numeric contacts, pinned keys, listening permissions and reachable underlay links. The benefit is new inter-region connectivity after routing discovery, not a guaranteed preferred shortcut or uninterrupted sessions. No public peer, Internet transit, routed-subnet gateway, extra transport or global-capacity result is introduced. Existing endpoints already run Yggdrasil; this does not install the overlay transparently on legacy hosts. No runtime experiment."
+    },
+    {
+      "id": "F35-CJ",
+      "feature": "F35",
+      "stack": "CJ",
+      "status": "Y",
+      "reason": "The selected cjdns deployment permits administrators to add a UDP/CryptoAuth peering between intermediate nodes. The pinned InterfaceController attaches peers to SwitchCore and reports compatible peer paths to the pathfinder. Ordinary application traffic uses paths supplied through the existing SessionManager, so additional inter-region connectivity does not require new endpoint applications or custom route-label code.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Pinned Yggdrasil/Ironwood and cjdns peering/forwarding sources",
+      "sources": [
+        "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/doc/peering.md",
+        "https://raw.githubusercontent.com/cjdelisle/cjdns/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/net/InterfaceController.c",
+        "https://raw.githubusercontent.com/cjdelisle/cjdns/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/net/SessionManager.c"
+      ],
+      "editorial_references": [
+        "round523.html",
+        "round523-sources.json"
+      ],
+      "qualification": "Before/after witness: join two compatible cjdns regions through a new transit-node peering. Provision numeric IPv4 contacts, keys and private peering credentials; retain the configured route-server/pathfinder infrastructure and ensure it learns and distributes the new reachable paths. Endpoint identities and local attachments remain unchanged. This is a conditional routing-deployment capability, not proof that every peering becomes preferred or that discovery and active sessions recover without interruption. No DNS seed, public beacon, IP tunnel endpoint or replacement routing service is added. Exact deployment execution and convergence timing remain unqualified."
+    },
+    {
+      "id": "F35-MQ",
+      "feature": "F35",
+      "stack": "MQ",
+      "status": "Y",
+      "reason": "The declared global composition already includes a conventional BGP/IP underlay. Introducing BGP reachability and route-policy selection at routers in place of static reachability changes the network function without modifying the existing Multipath QUIC endpoints or their applications.",
+      "method": "Selected-composition primary documentary assessment; no runtime experiment",
+      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html",
+        "https://www.rfc-editor.org/rfc/rfc1812.html"
+      ],
+      "editorial_references": [
+        "round469.html",
+        "round469-sources.json"
+      ],
+      "qualification": "This is the same bounded infrastructure witness credited to IP and PRP-over-IP. It is an underlay benefit, not a claim that the overlay can initially be installed without endpoint software. Router peering, policy and ordinary endpoint address/gateway provisioning remain administrative requirements."
+    },
+    {
+      "id": "F35-SC",
+      "feature": "F35",
+      "stack": "SC",
+      "status": "Y",
+      "reason": "SCION separates infrastructure path discovery and registration from endpoint path lookup and combination. Adding a permitted inter-AS link and registering the resulting segments can make a new forwarding path available to existing SCION endpoints without changing their implementations or UDP applications.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Official Tor and SCION documentation and pinned Meshtastic firmware",
+      "sources": [
+        "https://docs.scion.org/en/latest/overview.html#routing",
+        "https://docs.scion.org/en/latest/overview.html#link-types"
+      ],
+      "editorial_references": [
+        "round524.html",
+        "round524-sources.json"
+      ],
+      "qualification": "Before/after witness: a configured additional parent-child link within the existing ISD provides another admissible path. Upgrade or configure border interfaces, control-plane topology, beaconing and segment registration; preserve endpoint ISD-AS/local addresses, daemon API and trust configuration. Existing endpoint code must already perform normal path lookup and refresh. Selection depends on policy and segment availability. This does not make legacy IP-only endpoints SCION-capable, guarantee use of every link or move active traffic seamlessly. No new data-plane extension, payload encryption or runtime validation."
+    },
+    {
+      "id": "F35-RT",
+      "feature": "F35",
+      "stack": "RT",
+      "status": "Y",
+      "reason": "Reticulum 1.5.5 exposes enable_transport on an intermediate instance. Enabling it adds forwarding for other peers, path-request handling and announce propagation. A node attached to two serial segments can thereby connect destinations previously confined to their respective segments, while the existing endpoint stacks and Link applications remain unchanged.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Reticulum 1.5.5 and NFD 24.07 documentation and pinned code",
+      "sources": [
+        "https://reticulum.network/manual/networks.html",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Reticulum.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Transport.py"
+      ],
+      "editorial_references": [
+        "round521.html",
+        "round521-sources.json"
+      ],
+      "qualification": "Before/after witness: a two-interface intermediate node changes from non-transport to transport-enabled operation. Both serial interfaces, compatible IFAC credentials, announce propagation and resource limits must be configured; endpoint Link.identify policies remain in force. Endpoints still perform normal discovery and link establishment with their existing software. This is routed Reticulum connectivity, not a transparent layer-2 bridge, endpoint software installation, automatic hardware provisioning or a global-scale result. Retain the selected no-IP and private-tmpfs operation. No runtime execution."
+    },
+    {
+      "id": "F35-NS",
+      "feature": "F35",
+      "stack": "NS",
+      "status": "Y",
+      "reason": "The declared global profile includes conventional BGP-routed IPv4. Replacing static interdomain routes with BGP reachability exchange and router policy introduces dynamic routing while the existing overlay endpoints retain their implementations and applications.",
+      "method": "Primary documentary assessment; no new runtime test",
+      "source_label": "Primary protocol documentation and declared composition; bounded documentary assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html"
+      ],
+      "editorial_references": [
+        "round471.html",
+        "round471-sources.json"
+      ],
+      "qualification": "The witness belongs to the selected IP underlay. It does not claim that installing Nostr or CCNx on previously incompatible hosts is transparent. Routers, peering and routing policy must be configured; ordinary host attachment provisioning is allowed. Same infrastructure witness as IP and other declared IP/BGP compositions."
+    },
+    {
+      "id": "F35-MT",
+      "feature": "F35",
+      "stack": "MT",
+      "status": "Y",
+      "reason": "The selected Meshtastic firmware can relay packets at an intermediate CLIENT node. Adding a compatible LoRa relay between existing endpoints extends the reachable radio path while their firmware, identities and serial-client applications remain unchanged. Initial direct-message discovery can use managed flooding before learning a next hop.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Official Tor and SCION documentation and pinned Meshtastic firmware",
+      "sources": [
+        "https://meshtastic.org/docs/overview/mesh-algo/",
+        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/FloodingRouter.cpp",
+        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/NextHopRouter.cpp"
+      ],
+      "editorial_references": [
+        "round524.html",
+        "round524-sources.json"
+      ],
+      "qualification": "Before/after witness: deploy one intermediate CLIENT/ALL node where each radio leg is viable, with matching radio parameters and sufficient preconfigured hop budget. Preserve private-channel provisioning, STRICT policy and independently verified endpoint keys; provision needed trust records on the added node. Firmware suppression, next-hop state, airtime and bidirectional ACK reachability still affect delivery. No MQTT/IP bridge, store-and-forward service, unlimited range, lossless delivery or endpoint firmware upgrade is included. Real LoRa hardware remains required. This uses the existing CLIENT/ALL witness, not a change to the separate F16 KNOWN_ONLY policy."
+    },
+    {
+      "id": "F35-GN",
+      "feature": "F35",
+      "stack": "GN",
+      "status": "Y",
+      "reason": "The selected global composition uses a conventional BGP-routed IP underlay. Deploying dynamic interdomain reachability and route policy at routers in place of static routes can leave existing overlay endpoints and applications unchanged.",
+      "method": "Primary documentary and source assessment; no new runtime test",
+      "source_label": "Primary specification or selected-version source; bounded composition assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html"
+      ],
+      "editorial_references": [
+        "round470.html",
+        "round470-sources.json"
+      ],
+      "qualification": "Same bounded infrastructure witness used for IP and PRP-over-IP. The positive belongs to the declared IP/BGP layer, not initial installation of I2P, CADET or BP on legacy hosts. Router upgrades, peering/policy and ordinary attachment provisioning remain required."
+    },
+    {
+      "id": "F35-ND",
+      "feature": "F35",
+      "stack": "ND",
+      "status": "Y",
+      "reason": "NFD 24.07 allows an administrator to change the forwarding strategy for a name prefix at an intermediate forwarder. A bounded deployment replaces BestRoute's initial single-next-hop forwarding with native Multicast forwarding to eligible next hops. This adds multi-branch Interest forwarding while existing consumers and producers retain their packet format, implementations and applications.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "Reticulum 1.5.5 and NFD 24.07 documentation and pinned code",
+      "sources": [
+        "https://docs.named-data.net/NFD/24.07/manpages/nfdc-strategy.html",
+        "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/fw/multicast-strategy.cpp",
+        "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/fw/best-route-strategy.cpp"
+      ],
+      "editorial_references": [
+        "round521.html",
+        "round521-sources.json"
+      ],
+      "qualification": "Provision two usable direct-Ethernet next hops for the prefix and select the installed Multicast strategy at the intermediate NFD. An unsatisfied fresh Interest demonstrates the change; cache hits, scope restrictions and retransmission suppression can prevent particular transmissions. Administration is required at the forwarder, not an endpoint software upgrade. Existing Data validation and pending-Interest handling remain unchanged. This native configuration is separate from the G01 tree witness and the F09 segmented-retrieval witness; their verdicts and limitations are unchanged. No guaranteed duplicate delivery, throughput gain, arbitrary application multicast service or runtime result."
+    },
+    {
+      "id": "F35-AX",
+      "feature": "F35",
+      "stack": "AX",
+      "status": "Y",
+      "reason": "The selected Linux NET/ROM stack separates endpoint transport circuits from routing management. Enabling netromd announcements on intermediate nodes replaces manually maintained reachability with advertised routes and aging: received NODES information is converted into kernel routes by netromr. Existing NET/ROM endpoint software and applications can use the resulting paths without replacement.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "RPL RFCs and pinned Linux NET/ROM routing daemon",
+      "sources": [
+        "https://manpages.debian.org/testing/ax25-tools/netromd.8.en.html",
+        "https://deb.debian.org/debian/pool/main/a/ax25-tools/ax25-tools_0.0.10-rc5+git20230513+d3e6d4f.orig.tar.gz"
+      ],
+      "editorial_references": [
+        "round426-sources.json",
+        "round522.html",
+        "round522-sources.json"
+      ],
+      "qualification": "Before/after witness: provisioned static transit routes gain periodic routing exchange on configured AX.25 ports. Both endpoints already run the selected NET/ROM stack and announcement reception; transit administrators enable broadcasts, forwarding and appropriate quality/aging policy. Callsigns, ports, UID mappings and direct KISS serial links remain provisioned. This does not convert raw AX.25-only applications into NET/ROM endpoints, remove administrative privileges or establish seamless circuit survival after failures. Public-radio licensing and new runtime execution are outside this private-serial witness."
+    },
+    {
+      "id": "F35-BA",
+      "feature": "F35",
+      "stack": "BA",
+      "status": "Y",
+      "reason": "A deployment replaces a connecting Ethernet segment with batman-adv mesh bridges while attached client machines retain their existing Ethernet protocol stacks and applications.",
+      "method": "Primary documentary capability assessment; no new runtime experiment",
+      "source_label": "Primary protocol specification or pinned implementation; selected-composition assessment",
+      "sources": [
+        "https://github.com/torvalds/linux/blob/v6.12/Documentation/networking/batman-adv.rst"
+      ],
+      "editorial_references": [
+        "round468.html",
+        "round468-sources.json"
+      ],
+      "qualification": "The unchanged endpoints are attached non-mesh clients. Mesh forwarding equipment must install/configure batman-adv; this does not claim that the mesh nodes themselves need no changes."
+    },
+    {
+      "id": "F35-BL",
+      "feature": "F35",
+      "stack": "BL",
+      "status": "Y",
+      "reason": "Babel can replace provisioned static reachability with router-to-router prefix advertisement and route maintenance while attached IPv6 hosts retain their stacks and applications.",
+      "method": "Selected-composition primary documentary assessment; no runtime experiment",
+      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8966.html"
+      ],
+      "editorial_references": [
+        "round469.html",
+        "round469-sources.json"
+      ],
+      "qualification": "The witness keeps the selected addressing hierarchy and policy filters. Routers install and configure Babel; attached hosts keep their existing attachment/default gateway configuration. No new endpoint mobility protocol or arbitrary automatic prefix aggregation is inferred."
+    },
+    {
+      "id": "F35-RI",
+      "feature": "F35",
+      "stack": "RI",
+      "status": "Y",
+      "reason": "RPL distinguishes leaf-only endpoints from forwarding routers. Adding intermediate routers to the existing non-storing OF0 domain extends reachability beyond direct root attachment while leaf implementations and UDP/DTLS applications remain unchanged. Existing DIO/DAO behavior establishes reachability, and the root supplies downward source routes through the added routers.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "RPL RFCs and pinned Linux NET/ROM routing daemon",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc6550.html#section-16.2",
+        "https://www.rfc-editor.org/rfc/rfc6550.html#section-16.3",
+        "https://www.rfc-editor.org/rfc/rfc6554.html#section-2"
+      ],
+      "editorial_references": [
+        "round522.html",
+        "round522-sources.json"
+      ],
+      "qualification": "Before/after witness: a directly attached leaf/root topology gains a routed branch through newly deployed RPL routers. The leaf already supports the selected non-storing endpoint behavior and RFC 6554 handling; no leaf is required to become a router. Configure compatible OF0/MOP, the same ULA domain, neighbor registration, IEEE 802.15.4 links and link-security keys. Intermediate routers process routing headers but do not terminate final-pair DTLS. Added routers and root routing state require administration and resources. No conversion of non-RPL legacy endpoints, sleep negotiation, seamless mobility or complete executable integration is claimed."
+    },
+    {
+      "id": "F35-HP",
+      "feature": "F35",
+      "stack": "HP",
+      "status": "Y",
+      "reason": "The declared global composition already includes a conventional BGP/IP underlay. Introducing BGP reachability and route-policy selection at routers in place of static reachability changes the network function without modifying the existing HIPv2/ESP with application UDP endpoints or their applications.",
+      "method": "Selected-composition primary documentary assessment; no runtime experiment",
+      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html",
+        "https://www.rfc-editor.org/rfc/rfc1812.html"
+      ],
+      "editorial_references": [
+        "round469.html",
+        "round469-sources.json"
+      ],
+      "qualification": "This is the same bounded infrastructure witness credited to IP and PRP-over-IP. It is an underlay benefit, not a claim that the overlay can initially be installed without endpoint software. Router peering, policy and ordinary endpoint address/gateway provisioning remain administrative requirements."
+    },
+    {
+      "id": "F35-CX",
+      "feature": "F35",
+      "stack": "CX",
+      "status": "Y",
+      "reason": "The declared global profile includes conventional BGP-routed IPv4. Replacing static interdomain routes with BGP reachability exchange and router policy introduces dynamic routing while the existing overlay endpoints retain their implementations and applications.",
+      "method": "Primary documentary assessment; no new runtime test",
+      "source_label": "Primary protocol documentation and declared composition; bounded documentary assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc4271.html"
+      ],
+      "editorial_references": [
+        "round471.html",
+        "round471-sources.json"
+      ],
+      "qualification": "The witness belongs to the selected IP underlay. It does not claim that installing Nostr or CCNx on previously incompatible hosts is transparent. Routers, peering and routing policy must be configured; ordinary host attachment provisioning is allowed. Same infrastructure witness as IP and other declared IP/BGP compositions."
+    },
+    {
+      "id": "F35-LI",
+      "feature": "F35",
+      "stack": "LI",
+      "status": "Y",
+      "reason": "LISP adds EID-to-RLOC mapping and encapsulation at tunnel routers, enabling infrastructure traffic engineering and multihoming without changing the endpoint host protocol stacks.",
+      "method": "Primary documentary capability assessment; no new runtime experiment",
+      "source_label": "Primary protocol specification or pinned implementation; selected-composition assessment",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9300.html"
+      ],
+      "editorial_references": [
+        "round468.html",
+        "round468-sources.json"
+      ],
+      "qualification": "xTRs and mapping infrastructure must be deployed and configured. EID/RLOC provisioning and deployment reachability remain required; no endpoint mobility extension or LISP-SEC is added."
+    },
+    {
+      "id": "F35-IL",
+      "feature": "F35",
+      "stack": "IL",
+      "status": "Y",
+      "reason": "RFC 6740 sections 5.1, 5.3 and 5.4 describe adding upstream connectivity at a site border router and advertising the resulting locators to existing ILNP hosts. A single-homed site can thereby gain provider diversity while both communicating endpoints retain their ILNP implementations and applications. Hosts use their existing locator-cache and update mechanisms.",
+      "method": "Primary specification review; no runtime experiment",
+      "source_label": "RFC 6740 site multihoming architecture",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc6740.html#section-5.3",
+        "https://www.rfc-editor.org/rfc/rfc6740.html#section-5.1",
+        "https://www.rfc-editor.org/rfc/rfc6740.html#section-5.4"
+      ],
+      "editorial_references": [
+        "round520.html",
+        "round520-sources.json"
+      ],
+      "qualification": "Before/after witness: one provider becomes two through the same border router; configure the added link, routing policy and correct Router Advertisements. The hosts must already support the selected ILNPv6/TCP and Locator Update mechanisms, including multiple locators. No new endpoint agent, application library or multipath TCP is introduced. This is not transparent conversion of legacy IP hosts. Locator state and policy can change without software replacement; participation by existing endpoint logic is explicit. Provider provisioning, peer reachability and operational configuration remain necessary. No lossless failover, dual-router coordination implementation or executable integration is qualified."
+    }
+  ]
+}

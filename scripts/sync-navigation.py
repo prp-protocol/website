@@ -7,7 +7,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 ITEMS = [('About', 'index.html#model'), ('Videos', 'videos.html'),
          ('Architecture', 'architecture.html'), ('Technical series', 'technical-series.html'),
-         ('Comparison', 'comparison/'),
+         ('Comparison', 'comparison/'), ('Protocol Atlas', 'protocol-atlas/'),
          ('Roadmap', 'index.html#roadmap'), ('Sponsors', 'index.html#sponsors'),
          ('Journal', 'https://journal.prp-protocol.org/')]
 START, END = '<!-- Shared navigation -->', '<!-- End shared navigation -->'

@@ -104,16 +104,24 @@ def changes(old, new, allowed_added=None, allowed_removed=None):
     return result
 
 
-def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False):
+def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
     require(new['revision'] == receipt['revision'] and new['date'] == receipt['date'], 'Revision/date mismatch')
     require(dict(Counter(c['status'] for c in new['cells'])) == receipt['status_counts'], 'Status counts mismatch')
     added = removed = None
-    if (root/'archive/C08-4.72.json').exists():
-        require('C08' not in {r['id'] for r in new['criteria']}, 'Retired C08 cannot be recycled')
-    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573))<=1, 'Select one coordinated exception')
+    for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
+        if (root/('archive/'+ident+'-'+rev+'.json')).exists():
+            require(ident not in {r['id'] for r in new['criteria']}, 'Retired '+ident+' cannot be recycled')
+    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582))<=1, 'Select one coordinated exception')
+    if retirement_r582:
+        require(receipt['sha256']=='6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9', 'Retirement only authorized for exact 5.82 snapshot')
+        require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()==receipt['baseline_sha256']=='4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7', 'Retirement baseline must be exact 5.73')
+        removed=dict(criteria=['F25','F35'],columns=[],cells=sorted(r+'-'+c['id'] for r in ['F25','F35'] for c in old['columns']))
+        require({k:sorted(v) for k,v in receipt['removed_ids'].items()}==removed, 'Only F25/F35 retirement authorized')
+        require(receipt['added_ids']==dict(criteria=[],columns=[],cells=[]), 'Retirement cannot add or renumber IDs')
+        require(new['marks']==old['marks'] and [(c['id'],c['logo']) for c in new['columns']]==[(c['id'],c['logo']) for c in old['columns']], 'Asset/credit changes not authorized')
     if retirement_r573:
         require(receipt['sha256']=='4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7', 'Retirement only authorized for exact 5.73 snapshot')
         baseline=hashlib.sha256((root/'data.json').read_bytes()).hexdigest()

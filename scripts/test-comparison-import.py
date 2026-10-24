@@ -104,10 +104,19 @@ for mode in ('deletion','renumbering'):
             if cell['feature']==ident:cell['feature']='F99';cell['id']='F99-'+cell['stack']
     altered=json.dumps(bad).encode();api['validate'](altered,OUT)
     bad_receipt=dict(receipt,bytes=len(altered),sha256=hashlib.sha256(altered).hexdigest(),status_counts=dict(Counter(c['status'] for c in bad['cells'])))
-    for flags in ({},{'retirement_r573':True}):
+    for flags in ({},{'retirement_r573':True},{'retirement_r582':True}):
         try:api['check_receipt'](altered,OUT,bad_receipt,original,**flags)
         except ValueError:pass
         else:raise AssertionError('Accepted arbitrary '+mode)
+for retired in ('C08','F25','F35'):
+    bad=copy.deepcopy(original);ident=bad['criteria'][0]['id'];bad['criteria'][0]['id']=retired
+    for c in bad['cells']:
+        if c['feature']==ident:c['feature']=retired;c['id']=retired+'-'+c['stack']
+    altered=json.dumps(bad).encode();api['validate'](altered,OUT)
+    bad_receipt=dict(receipt,bytes=len(altered),sha256=hashlib.sha256(altered).hexdigest(),status_counts=dict(Counter(c['status'] for c in bad['cells'])))
+    try:api['check_receipt'](altered,OUT,bad_receipt,original)
+    except ValueError as e:assert 'cannot be recycled' in str(e)
+    else:raise AssertionError('Retired ID recycled')
 with tempfile.TemporaryDirectory(prefix='comparison-bad-signature-') as tmp:
     tmp=Path(tmp)
     (tmp/'data.json').write_bytes(payload)
@@ -121,6 +130,6 @@ after = {str(p.relative_to(OUT)): hashlib.sha256(p.read_bytes()).hexdigest()
          for p in OUT.rglob('*') if p.is_file()}
 assert before == after, 'Fixture modified production content or website assets'
 print(json.dumps(dict(result='PASS',fixture='temporary F13 rename and escaping',
-    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=20,
+    stable_cells=len(original['cells']),stable_profiles=len(original['columns']),negative_cases=25,
     exact_json=True,website_ownership_preserved=True,production_unchanged=True,
     signature_note='Fixture tests staging only; no sealed input or signature verification claimed.')))

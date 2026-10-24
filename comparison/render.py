@@ -30,6 +30,8 @@ CSS+='''.matrix .brand{height:44px;margin-bottom:4px}.matrix .brand img{max-heig
 # Container-relative sizing keeps even the longest label visible at 390px.
 CSS+='''.wrap{container-type:inline-size}.matrix .group-band th{position:static;min-width:0;width:auto;padding:0;text-align:left;background:#cddcd7;z-index:auto}.group-label{display:block;position:sticky;left:0;box-sizing:border-box;width:max-content;max-width:calc(100cqw - 32px);padding:10px;overflow-wrap:anywhere}.archived{padding:16px;border:2px solid #856123;background:#fff0c9}@media print{.wrap{overflow:visible;max-height:none;container-type:normal}.matrix th:first-child,.matrix thead th,.group-label{position:static}.group-label{max-width:700px}.matrix thead{display:table-header-group}.matrix tr{break-inside:avoid}.site-header{display:none}}'''
 
+CSS+='''.wake-scroll{overflow:auto}.wake-scroll:focus-visible{outline:3px solid #165e70}.wake-table{border-collapse:collapse;width:100%;min-width:640px}.wake-table th,.wake-table td{border:1px solid #bac8c1;padding:12px;text-align:left;vertical-align:top}.wake-table thead{background:#dce5e1}.content article{scroll-margin-top:20px}@media print{.wake-scroll{overflow:visible}}'''
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,required=True);args=ap.parse_args()
     out=args.out;out.mkdir(parents=True,exist_ok=True)
@@ -39,9 +41,12 @@ def main():
     byid={c['id']:c for c in d['cells']};pending=sum(c['status']=='?' for c in d['cells'])
     groups=json.loads((out/'groups.json').read_text())
     assert set(groups)<={r['id'] for r in d['criteria']}, 'Group start missing'
-    archive_path=out/'archive/C08-4.72.json'
-    archive=json.loads(archive_path.read_text()) if archive_path.exists() else None
-    if archive: assert 'C08' not in {r['id'] for r in d['criteria']}, 'Retired ID cannot be reused'
+    archives={}
+    for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
+        path=out/('archive/'+ident+'-'+rev+'.json')
+        if path.exists():
+            archives[ident]=json.loads(path.read_text())
+            assert ident not in {r['id'] for r in d['criteria']}, 'Retired ID cannot be reused'
     def write(name,title,body):
         target=out/name;target.parent.mkdir(parents=True,exist_ok=True)
         depth=len(Path(name).parts)-1
@@ -50,7 +55,8 @@ def main():
         if name=='index.html':body='<main>'+body+'</main>'
         target.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+CSS+'</style><link rel="stylesheet" href="'+local+'navigation.css"></head><body>'+navigation+'<div class="comparison-layout">'+body+'</div></body></html>')
     intro='<h1>Protocol and stack comparison</h1><p>PRP editorial comparison · Revision '+esc(d['revision'])+' · Updated '+esc(d['date'])+'</p><p>'+str(len(d['criteria']))+' criteria × '+str(len(d['columns']))+' stacks; '+str(pending)+' Pending cells.</p><p><a href="https://prp-protocol.org/">PRP website</a> · <a href="methodology.html">Methodology and limits</a> · <a href="data.json">Download structured data</a> · <a href="logos.html">Logo credits</a></p><p class="legend"><span class="Y">Yes</span> <span class="N">No</span> <span class="U">Pending</span></p><p>Click a cell for evidence and qualifications. Expand a criterion for its definition. Results describe the selected stack and documented capabilities, not implementation certification. Pending means insufficient evidence, not unsupported.</p>'
-    if archive: intro+='<p><a href="archive/C08.html">C08 — archived previous definition (revision 4.72)</a></p>'
+    for ident,archive in archives.items(): intro+='<p><a href="archive/'+ident+'.html">'+ident+' — archived previous definition (revision '+esc(archive['revision'])+')</a></p>'
+    if (out/'wake-traffic.json').exists(): intro+='<p><a href="wake-traffic.html">Communication recovery traffic — historical inventories</a></p>'
     body=intro+'<div class="wrap" tabindex="0" role="region" aria-label="Scrollable protocol comparison"><table class="matrix"><caption>Selected protocol stacks and capabilities</caption><thead><tr><th scope="col">Criterion</th>'
     for c in d['columns']:
         mark=('<img src="logos/'+esc(c['logo'])+'" alt="'+esc(c['title'])+' mark">') if c['logo'] else esc(c['title'])
@@ -67,17 +73,21 @@ def main():
     for c in d['columns']:
         body='<main class="content"><p><a href="../index.html#col-'+c['id']+'">Back to column</a></p><h1>'+esc(c['title'])+' — selected stack</h1><p>'+esc(c['profile'])+'</p><p><a href="'+esc(c['website'])+'">Official project website</a> · <a href="../logos.html#'+c['id']+'">Logo credits</a> · <a href="../methodology.html">Methodology and limits</a></p></main>'
         write('stacks/'+c['id']+'.html',c['title']+' — selected stack',body)
-    if archive:
+    for ident,archive in archives.items():
         r=archive['criterion']
-        body='<main class="content"><p><a href="../index.html">Current matrix</a></p><h1>C08 — archived previous definition</h1><p class="archived">Historical assessment from revision 4.72, retired in 5.73. These 26 cells are excluded from the active grid and counts. C08 is not reused or redirected to a new definition.</p>'
-        body+='<h2>'+esc(r['title'])+'</h2><p>'+esc(r['definition'])+'</p><h2>Assessment method</h2><p>'+esc(r['method'])+'</p><h2>Research action</h2><p>'+esc(r['research_action'])+'</p><p>Original approved data SHA-256: '+esc(archive['source_sha256'])+'</p><p><a href="C08-4.72.json">Historical criterion and cell records</a></p><ul>'
+        body='<main class="content"><p><a href="../index.html">Current matrix</a></p><h1>'+ident+' — archived previous definition</h1><p class="archived">Historical assessment from revision '+esc(archive['revision'])+', retired in '+esc(archive['retired_in'])+'. These 26 cells are excluded from the active grid and counts. '+ident+' is not reused or redirected to a new definition.</p>'
+        if ident=='F25': body+='<p><a href="../wake-traffic.html">Historical wake-traffic inventories (cutoff retired)</a></p>'
+        body+='<h2>'+esc(r['title'])+'</h2><p>'+esc(r['definition'])+'</p><h2>Assessment method</h2><p>'+esc(r['method'])+'</p><h2>Research action</h2><p>'+esc(r['research_action'])+'</p><p>Original approved data SHA-256: '+esc(archive['source_sha256'])+'</p><p><a href="'+ident+'-'+esc(archive['revision'])+'.json">Historical criterion and cell records</a></p><ul>'
         body+=''.join('<li><a href="../cells/'+c['id']+'.html">'+c['id']+'</a></li>' for c in archive['cells'])+'</ul></main>'
-        write('archive/C08.html','C08 — archived previous definition',body)
-    for c in d['cells']+(archive['cells'] if archive else []):
-        historical=c['feature']=='C08' and archive is not None
-        back='../archive/C08.html' if historical else '../index.html#row-'+c['feature']
+        write('archive/'+ident+'.html',ident+' — archived previous definition',body)
+    for c in d['cells']+[c for archive in archives.values() for c in archive['cells']]:
+        historical=c['feature'] in archives
+        back='../archive/'+c['feature']+'.html' if historical else '../index.html#row-'+c['feature']
         body='<main class="content"><p><a href="'+back+'">'+('Archived criterion' if historical else 'Back to matrix')+'</a></p><h1>'+c['id']+': '+LABEL[c['status']]+'</h1>'
-        if historical: body+='<p class="archived">Archived previous-definition assessment — revision 4.72. Retired in 5.73; excluded from the active matrix and counts. This historical verdict is not a current assessment.</p>'
+        if historical:
+            archive=archives[c['feature']]
+            body+='<p class="archived">Archived previous-definition assessment — revision '+esc(archive['revision'])+'. Retired in '+esc(archive['retired_in'])+'; excluded from the active matrix and counts. This historical verdict is not a current assessment.</p>'
+            if c['feature']=='F25': body+='<p><a href="../wake-traffic.html#'+c['id']+'">Historical wake-traffic inventory (cutoff retired)</a></p>'
         for title,key in [('Rationale','reason'),('Assessment method','method'),('Source context','source_label'),('Outstanding qualification','qualification')]:
             if c[key]:body+='<h2>'+title+'</h2><p>'+esc(c[key])+'</p>'
         body+='<h2>Public sources</h2><ul>'+''.join('<li><a href="'+esc(u)+'">'+esc(u)+'</a></li>' for u in c['sources'])+'</ul>'
@@ -94,6 +104,9 @@ def main():
                     if p.get(key) and public_url(p[key]):body+='<p><a href="'+esc(p[key])+'">'+key+'</a></p>'
         body+='</article>'
     write('logos.html','Marks and credits',body+'</main>')
+    if (out/'wake-traffic.json').exists():
+        body=runpy.run_path(str(Path(__file__).with_name('wake.py')))['render'](out)
+        write('wake-traffic.html','Communication recovery traffic — historical inventories',body)
     files={str(f.relative_to(out)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(out.rglob('*')) if f.is_file() and f.name!='manifest.json'}
     (out/'manifest.json').write_text(json.dumps(dict(schema_version=1,revision=d['revision'],files=files),indent=2)+'\n')
     print(json.dumps(dict(revision=d['revision'],cells=len(ids),pending=pending,files=len(files))))

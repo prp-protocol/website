@@ -1,254 +1,32 @@
 {
-  "revision": "5.73",
+  "revision": "5.82",
   "date": "2026-10-23",
   "schema_version": 1,
-  "bytes": 1963227,
-  "sha256": "4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7",
+  "bytes": 1869931,
+  "sha256": "6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9",
   "status_counts": {
-    "Y": 816,
-    "N": 681,
-    "?": 115
+    "Y": 778,
+    "N": 680,
+    "?": 102
   },
-  "baseline_revision": "4.72",
-  "baseline_sha256": "06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa",
-  "source_commit": "8aeddf1aac1143a5f4f49be497c17e7b0f39cdd9",
-  "authorization": "Owner requested E05 review, horizontally stationary section labels and publication after this round. Complete accumulated approved editorial snapshot; snapshot-bound retirement of C08 with historical URLs preserved, not arbitrary removal authority.",
+  "baseline_revision": "5.73",
+  "baseline_sha256": "4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7",
+  "source_commit": "dc28b3bd0cffc5649aaa97899a632dcb870bea40",
+  "authorization": "Owner authorizes poster website publication and accompanying comparison update. Exact retirement of F25/F35, preserved archived URLs, auxiliary inventories; website-owned renderer retained.",
   "changed_ids": {
-    "criteria": [
-      "F24",
-      "F34",
-      "C01",
-      "C06",
-      "G02",
-      "G03"
+    "criteria": [],
+    "columns": [
+      "PN",
+      "PI"
     ],
-    "columns": [],
     "cells": [
-      "F15-BP",
-      "F15-CG",
-      "F15-LT",
-      "F15-TO",
-      "F15-I2",
-      "F15-YG",
-      "F15-CJ",
-      "F15-SC",
-      "F15-NS",
-      "F15-MT",
-      "F15-GN",
-      "F15-ND",
-      "F15-BL",
-      "F15-RI",
-      "F15-CX",
-      "F15-LI",
-      "F15-IL",
-      "F24-PN",
-      "F24-PI",
-      "F24-IP",
-      "F24-BP",
-      "F24-CG",
-      "F24-LT",
-      "F24-LP",
-      "F24-TO",
-      "F24-I2",
-      "F24-YG",
-      "F24-CJ",
-      "F24-MQ",
-      "F24-SC",
-      "F24-RT",
-      "F24-NS",
-      "F24-MT",
-      "F24-GN",
-      "F24-ND",
-      "F24-AX",
-      "F24-BA",
-      "F24-BL",
-      "F24-RI",
-      "F24-HP",
-      "F24-CX",
-      "F24-LI",
-      "F24-IL",
-      "F25-PN",
-      "F25-PI",
-      "C01-PN",
-      "C01-PI",
-      "C01-IP",
-      "C01-BP",
-      "C01-CG",
-      "C01-LT",
-      "C01-LP",
-      "C01-TO",
-      "C01-I2",
-      "C01-YG",
-      "C01-CJ",
-      "C01-MQ",
-      "C01-SC",
-      "C01-RT",
-      "C01-NS",
-      "C01-MT",
-      "C01-GN",
-      "C01-ND",
-      "C01-AX",
-      "C01-BA",
-      "C01-BL",
-      "C01-RI",
-      "C01-HP",
-      "C01-CX",
-      "C01-LI",
-      "C01-IL",
       "C06-PN",
       "C06-PI",
-      "C06-IP",
-      "C06-BP",
-      "C06-CG",
-      "C06-LT",
-      "C06-LP",
-      "C06-TO",
-      "C06-I2",
-      "C06-YG",
-      "C06-CJ",
-      "C06-MQ",
-      "C06-SC",
-      "C06-RT",
       "C06-NS",
-      "C06-MT",
-      "C06-GN",
-      "C06-ND",
-      "C06-AX",
-      "C06-BA",
-      "C06-BL",
-      "C06-RI",
-      "C06-HP",
-      "C06-CX",
-      "C06-LI",
-      "C06-IL",
-      "G02-PN",
-      "G02-PI",
-      "G02-IP",
-      "G02-BP",
-      "G02-CG",
-      "G02-LT",
-      "G02-LP",
-      "G02-TO",
-      "G02-I2",
-      "G02-YG",
-      "G02-CJ",
-      "G02-MQ",
-      "G02-SC",
-      "G02-RT",
-      "G02-NS",
-      "G02-MT",
-      "G02-GN",
-      "G02-ND",
-      "G02-AX",
-      "G02-BA",
-      "G02-BL",
-      "G02-RI",
-      "G02-HP",
-      "G02-CX",
-      "G02-LI",
-      "G02-IL",
-      "G03-PN",
-      "G03-PI",
-      "G03-IP",
-      "G03-BP",
-      "G03-CG",
-      "G03-LT",
-      "G03-LP",
-      "G03-TO",
-      "G03-I2",
-      "G03-YG",
-      "G03-CJ",
-      "G03-MQ",
-      "G03-SC",
-      "G03-RT",
-      "G03-NS",
-      "G03-MT",
-      "G03-GN",
-      "G03-ND",
-      "G03-AX",
-      "G03-BA",
-      "G03-BL",
-      "G03-RI",
-      "G03-HP",
-      "G03-CX",
-      "G03-LI",
-      "G03-IL",
+      "E05-I2",
       "E05-NS",
-      "E05-BA",
-      "F27-TO",
-      "F27-I2",
-      "F27-YG",
-      "F27-CJ",
-      "F27-SC",
-      "F27-RT",
-      "F27-MT",
-      "F27-GN",
-      "F27-AX",
-      "F27-BA",
-      "F27-RI",
-      "F28-BP",
-      "F28-CG",
-      "F28-LT",
-      "F28-LP",
-      "F28-YG",
-      "F28-CJ",
-      "F28-MQ",
-      "F28-RT",
-      "F28-NS",
-      "F28-MT",
-      "F28-GN",
-      "F28-ND",
-      "F28-AX",
-      "F28-BA",
-      "F28-BL",
-      "F28-RI",
-      "F28-HP",
-      "F28-CX",
-      "F28-LI",
-      "F28-IL",
-      "F29-BP",
-      "F29-CG",
-      "F29-LT",
-      "F29-RT",
-      "F29-NS",
-      "F29-MT",
-      "F30-RT",
-      "F30-MT",
-      "F31-BP",
-      "F31-CG",
-      "F31-LT",
-      "F31-RT",
-      "F31-MT",
       "F32-PN",
-      "F32-PI",
-      "F32-BP",
-      "F33-BP",
-      "F33-CG",
-      "F33-LP",
-      "F33-TO",
-      "F33-I2",
-      "F33-MQ",
-      "F33-RT",
-      "F33-NS",
-      "F33-MT",
-      "F33-GN",
-      "F33-AX",
-      "F33-BA",
-      "F33-LI",
-      "F33-IL",
-      "F35-PN",
-      "F35-CG",
-      "F35-LT",
-      "F35-TO",
-      "F35-YG",
-      "F35-CJ",
-      "F35-SC",
-      "F35-RT",
-      "F35-MT",
-      "F35-ND",
-      "F35-AX",
-      "F35-RI",
-      "F35-IL"
+      "F32-PI"
     ]
   },
   "added_ids": {
@@ -258,775 +36,126 @@
   },
   "removed_ids": {
     "criteria": [
-      "C08"
+      "F25",
+      "F35"
     ],
     "columns": [],
     "cells": [
-      "C08-AX",
-      "C08-BA",
-      "C08-BL",
-      "C08-BP",
-      "C08-CG",
-      "C08-CJ",
-      "C08-CX",
-      "C08-GN",
-      "C08-HP",
-      "C08-I2",
-      "C08-IL",
-      "C08-IP",
-      "C08-LI",
-      "C08-LP",
-      "C08-LT",
-      "C08-MQ",
-      "C08-MT",
-      "C08-ND",
-      "C08-NS",
-      "C08-PI",
-      "C08-PN",
-      "C08-RI",
-      "C08-RT",
-      "C08-SC",
-      "C08-TO",
-      "C08-YG"
+      "F25-PN",
+      "F25-PI",
+      "F25-IP",
+      "F25-BP",
+      "F25-CG",
+      "F25-LT",
+      "F25-LP",
+      "F25-TO",
+      "F25-I2",
+      "F25-YG",
+      "F25-CJ",
+      "F25-MQ",
+      "F25-SC",
+      "F25-RT",
+      "F25-NS",
+      "F25-MT",
+      "F25-GN",
+      "F25-ND",
+      "F25-AX",
+      "F25-BA",
+      "F25-BL",
+      "F25-RI",
+      "F25-HP",
+      "F25-CX",
+      "F25-LI",
+      "F25-IL",
+      "F35-PN",
+      "F35-PI",
+      "F35-IP",
+      "F35-BP",
+      "F35-CG",
+      "F35-LT",
+      "F35-LP",
+      "F35-TO",
+      "F35-I2",
+      "F35-YG",
+      "F35-CJ",
+      "F35-MQ",
+      "F35-SC",
+      "F35-RT",
+      "F35-NS",
+      "F35-MT",
+      "F35-GN",
+      "F35-ND",
+      "F35-AX",
+      "F35-BA",
+      "F35-BL",
+      "F35-RI",
+      "F35-HP",
+      "F35-CX",
+      "F35-LI",
+      "F35-IL"
     ]
   },
   "verdict_changes": [
     {
-      "id": "F15-BP",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-CG",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-LT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F15-TO",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-I2",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-YG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F15-CJ",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-SC",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-NS",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-MT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-GN",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-ND",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F15-BL",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F15-RI",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-CX",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F15-LI",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F15-IL",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F24-IP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-BP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-LP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-TO",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-I2",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-YG",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-CJ",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-MQ",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-SC",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-RT",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-NS",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-MT",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-GN",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-ND",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-AX",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-BA",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-BL",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-RI",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-HP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-CX",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-LI",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "F24-IL",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C01-MQ",
-      "before": "Y",
-      "after": "N"
-    },
-    {
       "id": "C06-PN",
-      "before": "Y",
-      "after": "?"
+      "before": "?",
+      "after": "Y"
     },
     {
       "id": "C06-PI",
-      "before": "Y",
-      "after": "?"
-    },
-    {
-      "id": "C06-IP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-BP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-CG",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-LT",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-LP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-YG",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-CJ",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-MQ",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-SC",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-RT",
-      "before": "Y",
-      "after": "N"
+      "before": "?",
+      "after": "Y"
     },
     {
       "id": "C06-NS",
-      "before": "Y",
-      "after": "?"
-    },
-    {
-      "id": "C06-MT",
-      "before": "Y",
+      "before": "?",
       "after": "N"
     },
     {
-      "id": "C06-GN",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-ND",
-      "before": "Y",
-      "after": "?"
-    },
-    {
-      "id": "C06-AX",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-BA",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-BL",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-RI",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-HP",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-CX",
-      "before": "Y",
-      "after": "?"
-    },
-    {
-      "id": "C06-LI",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "C06-IL",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "G02-YG",
-      "before": "Y",
-      "after": "?"
-    },
-    {
-      "id": "G02-CJ",
-      "before": "Y",
-      "after": "?"
-    },
-    {
-      "id": "G02-NS",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "G02-MT",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "G02-AX",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "G02-BA",
-      "before": "Y",
-      "after": "N"
-    },
-    {
-      "id": "E05-BA",
+      "id": "E05-I2",
       "before": "?",
       "after": "Y"
     },
     {
-      "id": "F27-TO",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-I2",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-YG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-CJ",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-SC",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-RT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-MT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-GN",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-AX",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-BA",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F27-RI",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-BP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-CG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-LT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-LP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-YG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-CJ",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-MQ",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-RT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-NS",
+      "id": "E05-NS",
       "before": "?",
       "after": "Y"
-    },
-    {
-      "id": "F28-MT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-GN",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-ND",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F28-AX",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-BA",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-BL",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-RI",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-HP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-CX",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-LI",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F28-IL",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F29-BP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F29-CG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F29-LT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F29-RT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F29-NS",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F29-MT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F30-RT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F30-MT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F31-BP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F31-CG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F31-LT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F31-RT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F31-MT",
-      "before": "?",
-      "after": "N"
     },
     {
       "id": "F32-PN",
-      "before": "?",
-      "after": "N"
+      "before": "N",
+      "after": "Y"
     },
     {
       "id": "F32-PI",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F32-BP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-BP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-CG",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-LP",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-TO",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-I2",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-MQ",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-RT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-NS",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-MT",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-GN",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-AX",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-BA",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-LI",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F33-IL",
-      "before": "?",
-      "after": "N"
-    },
-    {
-      "id": "F35-CG",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-LT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-TO",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-YG",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-CJ",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-SC",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-RT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-MT",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-ND",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-AX",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-RI",
-      "before": "?",
-      "after": "Y"
-    },
-    {
-      "id": "F35-IL",
-      "before": "?",
+      "before": "N",
       "after": "Y"
     }
   ],
   "marks_changed": false,
-  "assets_changed": false,
-  "presentation": {
-    "section_groups": {
-      "E01": "Independent evidence and adoption",
-      "D01": "Deployment requirements",
-      "K01": "Key establishment and recovery",
-      "L01": "Specification licensing and patent commitments"
+  "additional_files": {
+    "wake-traffic.json": {
+      "bytes": 66701,
+      "sha256": "1860d68f3680c20b6df256eb5c90457edfe3512838ae4295ba68330d0a151f23"
     },
-    "request": "Keep each section label stationary at the left edge during horizontal scrolling. Preserve its full-width background band, vertical scrolling and sticky protocol headers. Website renderer owns adaptation; no editorial HTML/CSS imported.",
-    "editorial_validation": "Chromium actual 1440px and 500px viewports; all four labels fixed through scrollLeft 0,900,maximum. Website should check 390/1440px and keyboard navigation."
+    "poster-content.json": {
+      "bytes": 1259,
+      "sha256": "3a2f149288e2c0d5c419c4b7447fb86228d5813c37e34029b21bc37c74021420"
+    },
+    "poster.svg": {
+      "bytes": 124445,
+      "sha256": "418391cb9a71500a7ca6d6945735730eafb3645e73efabb1d1171cfa1fb92f48"
+    },
+    "poster.png": {
+      "bytes": 747300,
+      "sha256": "3c22a0a95a1c11632fcf42fb6534be3779ce15ce2ad3c0ba7fbc24a25cde9a35"
+    },
+    "poster.pdf": {
+      "bytes": 320641,
+      "sha256": "6385510dfb6a019887f0c18d37fd85836ce0948c968aef9e55e809aa356a3be9"
+    }
   },
-  "retirement": "C08 and 26 cells leave the active grid; retain legacy cell URLs as explicitly archived previous-definition pages, excluded from active counts. Preserve existing ID meanings; never recycle C08.",
-  "scope": "Website-only JSON snapshot plus narrowly scoped presentation adaptation. No private corpus or editorial HTML; no new protocol certification.",
-  "authority": "REPORT 68adefcaadf6682d; exact approved 4.72 to 5.73 C08 retirement and group labels",
-  "catalog_receipt": "comparison-573/catalog.json: two sealed objects and detached signatures independently verified; receipt 22ff62adb5d0e02c2a703b9cb6544194e2c23f759150f8330fd6a3c59fef168a",
-  "editorial_receipt_sha256": "22ff62adb5d0e02c2a703b9cb6544194e2c23f759150f8330fd6a3c59fef168a"
+  "authority": "REPORT c91218583b467e9a; exact 5.73/5.82 retirement and Atlas v2",
+  "catalog_receipt": "comparison-582/catalog.json; seven signatures independently verified",
+  "editorial_receipt_sha256": "525d59596fca01b59718e4ee746ec41e8a9b9f04fd1fbadc854f3def1782d3d7"
 }

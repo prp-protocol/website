@@ -1,0 +1,816 @@
+{
+  "revision": "5.80",
+  "title": "Communication recovery traffic — auxiliary inventories",
+  "method": "Preserved historical scenario: 24-hour endpoint radio silence; sessions and learned neighbor state expire, provisioned identity/configuration/trust retained. At least 256 useful bytes, no losses, one access hop. Exact witness payload and security differ; read each inventory. Infrastructure traffic outside the endpoint interface is excluded. Totals are not measurements unless explicitly stated and must not be ranked across unlike scopes. The former 65,536-byte pass/fail cutoff is retired.",
+  "records": [
+    {
+      "id": "F25-PN",
+      "stack": "PRP L3",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "The selected column still specifies wire-v4 with protected adjacency and E2E suite 0x0202. The effective wire-v4 document retains ONION and two-flight HS2. The author-approved no-ONION fast-path direction belongs to a separately described successor: the TPA proposal explicitly preserves the existing wire implementation and leaves successor encoding/migration unqualified. These are not interchangeable byte budgets. Rechecking legacy TLV widths for identity suite 0x0002 gives M1=1736 and M2=1778 bytes; two fresh exchanges total 7028 canonical HS2 bytes before framing. For 256 useful bytes split into two 128-byte directions, legacy OPEN/ACCEPT plus four E2E item headers, four RRL record headers and four list counts total 384 inner bytes. The older 640-byte candidate instead contained 512 useful bytes. Neither inner amount is a complete endpoint budget or automatically additive to historical link subtotals. The next source review locates an actual cover scheduler and padding policy: prp_session_cover_work_fn sends an empty two-byte RRL only for active adjacent TX sessions. For suite 0x0202 the unpadded protected unit is 30 bytes (12 nonce + 2 RRL + 16 tag). Its size is raised to the configured padding target, bounded by session capacity. The scheduler uses ceil(8*unit_bytes*10^9/cover_rate_bps) nanoseconds with a 1 ms floor, and schedules from the actual current time rather than replaying missed intervals. At a 256-byte target and 1024 bit/s, one stable TX adjacency sends at most 1+floor(T/2 seconds) automatic cover units over an active interval T. For one such adjacency in each direction and T=60 seconds, the conservative cover-only bound is 18228 native Ethernet byte-times or 19964 over IPv4/UDP/Ethernet. This is a conditional source-derived bound, not measured completion in 60 seconds. Native Ethernet discovery now has a concrete source witness: version 2 SOLICIT and ANNOUNCE payloads are 48 bytes. A received SOLICIT causes a unicast ANNOUNCE when the link is allowed; ANNOUNCE records TX_ADDRESSABLE and RX_OBSERVED with current member generation and lease. One bilateral discovery cycle has two solicitations and two responses, totaling 344 untagged Ethernet byte-times (4*(48+38)). The default scan interval is 10000 ms and advertised lease 30000 ms. On an isolated two-node link, starting with no queued discovery work, no manual solicitations, resets or withdrawals, a 60-second interval has at most 28 such frames under a schedule with spacing at least ten seconds: 2408 byte-times. This accounts for continuing periodic discovery, not just the initial exchange.",
+      "conditions": "Native discovery is source-bound, not an unbounded unknown or a zero-cost assumption. The interval calculation assumes stable allowed attachments, one interface per node, no other discovery participants/traffic and at least 10-second actual scan spacing; a Linux timing realization must preserve that spacing. Local current-member context creation remains necessary after wake; a carrier ANNOUNCE proves no PRP identity and HS2 still authenticates the peer. The 60-second interval is not an execution result or guaranteed delivery time. The complete F25 sequence still needs actual admission, route/relation exchange multiplicity, protected useful-data wrapping and successful delivery time consistent with the positive cover policy from round475. No independent acceptance of integration or the no-ONION successor is inferred. This Ethernet-discovery count is not silently reused for the UDP/IP carrier.",
+      "sources": [
+        "https://github.com/prp-protocol/specifications/blob/main/specifications/prp-wire-v4.md"
+      ],
+      "source_revision": "4.76",
+      "historical_cell": "cells/F25-PN.html",
+      "editorial_references": [
+        {
+          "label": "round474.html",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round474-sources.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round474-budget.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round349-budget.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round351-closure.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round475.html",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round475-sources.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round475-budget.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round476.html",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round476-sources.json",
+          "public_evidence": "cells/F25-PN.html"
+        },
+        {
+          "label": "round476-budget.json",
+          "public_evidence": "cells/F25-PN.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-PI",
+      "stack": "PRP over IP",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "The selected column still specifies wire-v4 with protected adjacency and E2E suite 0x0202. The effective wire-v4 document retains ONION and two-flight HS2. The author-approved no-ONION fast-path direction belongs to a separately described successor: the TPA proposal explicitly preserves the existing wire implementation and leaves successor encoding/migration unqualified. These are not interchangeable byte budgets. Rechecking legacy TLV widths for identity suite 0x0002 gives M1=1736 and M2=1778 bytes; two fresh exchanges total 7028 canonical HS2 bytes before framing. For 256 useful bytes split into two 128-byte directions, legacy OPEN/ACCEPT plus four E2E item headers, four RRL record headers and four list counts total 384 inner bytes. The older 640-byte candidate instead contained 512 useful bytes. Neither inner amount is a complete endpoint budget or automatically additive to historical link subtotals. The next source review locates an actual cover scheduler and padding policy: prp_session_cover_work_fn sends an empty two-byte RRL only for active adjacent TX sessions. For suite 0x0202 the unpadded protected unit is 30 bytes (12 nonce + 2 RRL + 16 tag). Its size is raised to the configured padding target, bounded by session capacity. The scheduler uses ceil(8*unit_bytes*10^9/cover_rate_bps) nanoseconds with a 1 ms floor, and schedules from the actual current time rather than replaying missed intervals. At a 256-byte target and 1024 bit/s, one stable TX adjacency sends at most 1+floor(T/2 seconds) automatic cover units over an active interval T. For one such adjacency in each direction and T=60 seconds, the conservative cover-only bound is 18228 native Ethernet byte-times or 19964 over IPv4/UDP/Ethernet. This is a conditional source-derived bound, not measured completion in 60 seconds.",
+      "conditions": "F25 remains Pending. The cover-rate field is not a total interface shaper: real traffic is additional, and the separate TX_CREDIT path can emit extra cover units. The candidate therefore excludes manual credit requests, cover-policy resets and replacement adjacencies during its measured interval, with exactly one active TX adjacency in each direction and capacity at least 256 bytes. Ethernet is untagged; IPv4 has no options; 38 Ethernet byte-times and 28 IPv4/UDP bytes are counted per 256-byte unit. PHY-specific coding is not included. Target=256 is a padding floor, not a cap on larger real packets. The 60-second duration is an explicit candidate condition still needing a successful complete sequence, not a newly imposed F25 deadline. Actual bootstrap, route/relation controls, protected data wrapping and delivery time remain to be bounded together. Local admission method 0 permits direct HS2 without challenge/proof while retaining 0x0202; it is not a downgrade or a universal entitlement against a peer requiring PoW. The no-ONION successor is not substituted. No source binding here claims integrated implementation acceptance.",
+      "sources": [
+        "https://github.com/prp-protocol/specifications/blob/main/specifications/prp-wire-v4.md"
+      ],
+      "source_revision": "4.75",
+      "historical_cell": "cells/F25-PI.html",
+      "editorial_references": [
+        {
+          "label": "round474.html",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round474-sources.json",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round474-budget.json",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round349-budget.json",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round351-closure.json",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round475.html",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round475-sources.json",
+          "public_evidence": "cells/F25-PI.html"
+        },
+        {
+          "label": "round475-budget.json",
+          "public_evidence": "cells/F25-PI.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-IP",
+      "stack": "IP (IPv4/IPv6)",
+      "total": "796",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "Constructive IPv4/Ethernet witness: retained static numeric addressing and route, expired ARP cache, no options, no session or added transport. A successful ARP request/reply costs 2 x 84 byte-times including minimum-frame padding, preamble and inter-frame gap. Two datagrams each carrying 256 useful bytes cost 2 x (256 + 20 + 38). Total 796, below 65,536. This even allows 256 useful bytes in each direction. Cold neighbor acquisition and recurring wake use the same exchange.",
+      "conditions": "A static IPv4 witness within the existing IPv4-or-IPv6 column; not a bound for all configurations. No DHCP, DNS, TLS or endpoint BGP is selected. It supplies no cryptographic peer authentication. No runtime capture was performed.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc791.html",
+        "https://www.rfc-editor.org/rfc/rfc826.html"
+      ],
+      "source_revision": "3.13",
+      "historical_cell": "cells/F25-IP.html",
+      "editorial_references": [
+        {
+          "label": "round313-budget.json",
+          "public_evidence": "cells/F25-IP.html"
+        },
+        {
+          "label": "round313-prior.json",
+          "public_evidence": "cells/F25-IP.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-BP",
+      "stack": "Secure DTN",
+      "total": "≤41,314",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A compact configured BPv7/BPSec transfer can meet F25 after fresh TCP/TLS1.3/TCPCLv4 setup. The inventory includes both contact headers, mutual certificate authentication and NODE-ID checking, SESS_INIT, two protected bundles carrying 256 useful bytes each, transfer acknowledgments and conservative shutdown/keepalive reserves. Bounded standard BPSec blocks fit a 2,048-byte bundle. At MSS 1,024, 32 data-bearing segments plus ACK, connection control, IPv4/Ethernet overhead and fresh ARP total at most 41,314 byte-times.",
+      "conditions": "Conditional documentary bound: compact numeric EIDs, locally trusted certificate chains <=2,048 bytes each, bounded TLS messages and <=32 data-segment packetization. Retain BPSec keys and authorization but establish a new transport session. No DNS, OCSP, resumption, optional TLS padding, bundle reports, retransmission or arbitrary extensions. All selected security layers remain; this is not a generic bound for every certificate/bundle or implementation. Exact executable BPv7/BPSec/TCPCL and SABR integration remains separately unqualified. No runtime, energy or throughput claim.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9174.html",
+        "https://www.rfc-editor.org/rfc/rfc9171.html",
+        "https://www.rfc-editor.org/rfc/rfc9172.html",
+        "https://www.rfc-editor.org/rfc/rfc9173.html",
+        "https://www.rfc-editor.org/rfc/rfc8446.html"
+      ],
+      "source_revision": "3.20",
+      "historical_cell": "cells/F25-BP.html",
+      "editorial_references": [
+        {
+          "label": "round320-budget.json",
+          "public_evidence": "cells/F25-BP.html"
+        },
+        {
+          "label": "round320-sources.json",
+          "public_evidence": "cells/F25-BP.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-CG",
+      "stack": "DTN / CGR–SABR",
+      "total": "≤41,314",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A compact configured BPv7/BPSec transfer can meet F25 after fresh TCP/TLS1.3/TCPCLv4 setup. The inventory includes both contact headers, mutual certificate authentication and NODE-ID checking, SESS_INIT, two protected bundles carrying 256 useful bytes each, transfer acknowledgments and conservative shutdown/keepalive reserves. Bounded standard BPSec blocks fit a 2,048-byte bundle. At MSS 1,024, 32 data-bearing segments plus ACK, connection control, IPv4/Ethernet overhead and fresh ARP total at most 41,314 byte-times. CGR uses retained local contact/range plans and an available post-wake contact; route calculation does not require a new network plan download in this witness.",
+      "conditions": "Conditional documentary bound: compact numeric EIDs, locally trusted certificate chains <=2,048 bytes each, bounded TLS messages and <=32 data-segment packetization. Retain BPSec keys and authorization but establish a new transport session. No DNS, OCSP, resumption, optional TLS padding, bundle reports, retransmission or arbitrary extensions. All selected security layers remain; this is not a generic bound for every certificate/bundle or implementation. Exact executable BPv7/BPSec/TCPCL and SABR integration remains separately unqualified. No runtime, energy or throughput claim.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9174.html",
+        "https://www.rfc-editor.org/rfc/rfc9171.html",
+        "https://www.rfc-editor.org/rfc/rfc9172.html",
+        "https://www.rfc-editor.org/rfc/rfc9173.html",
+        "https://www.rfc-editor.org/rfc/rfc8446.html"
+      ],
+      "source_revision": "3.20",
+      "historical_cell": "cells/F25-CG.html",
+      "editorial_references": [
+        {
+          "label": "round320-budget.json",
+          "public_evidence": "cells/F25-CG.html"
+        },
+        {
+          "label": "round320-sources.json",
+          "public_evidence": "cells/F25-CG.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-LT",
+      "stack": "DTN / LTP",
+      "total": "51,392",
+      "unit": "AOS/acquisition octets",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A controlled short-contact witness completes the earlier LTP/AOS inventory. Charge 1,024 acquisition octets and 24 complete 1,028-octet AOS-plus-ASM units in each direction: 51,392 bytes total, below 65,536. The 48 units include twelve data/report/ack units and 36 idle units. Four initial idle units establish fresh frame synchronization; data occupy slots 5-8, reports slot 10 and acknowledgments slot 12. At one frame per second, <=0.1 s one-way propagation and <=0.1 s response processing leave causal guards and avoid a 20 s retransmission timer. A complete 256-byte useful payload is carried each way in the compact protected BP bundle; no application fragmentation assumption is needed.",
+      "conditions": "Yes is a bounded documentary plausibility result, not measured performance or a universal spacecraft-link bound. The constructed receiver must acquire within the explicitly charged 1,024-octet prefix and four initial idle frames; CCSDS does not guarantee that acquisition time. Provisioned short, loss-free links, rates/clocks, engine/channel mappings, contact plans and valid BPSec keys are retained after 24 h silence; LTP sessions and frame synchronization are fresh. All idle traffic through the scheduled stop is counted. Pin uncoded historical 131.0-B-3, mandatory FECF inside each 1,024-byte AOS frame, compact managed options and Encapsulation fill. No other traffic, reports, coding, retries or plan/key downloads. Longer acquisition, propagation or processing requires recalculation. Full BPv7/BPSec/LTP/Encapsulation/AOS executable integration and physical receiver validation remain unqualified; this decision does not resolve E03, D03, G05 or security testing.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc5326.html",
+        "https://ccsds.org/Pubs/732x0b4.pdf",
+        "https://ccsds.org/Pubs/131x0b3s.pdf",
+        "https://ccsds.org/Pubs/734x1b1.pdf",
+        "https://ccsds.org/Pubs/133x1b3e1.pdf"
+      ],
+      "source_revision": "3.34",
+      "historical_cell": "cells/F25-LT.html",
+      "editorial_references": [
+        {
+          "label": "round320-budget.json",
+          "public_evidence": "cells/F25-LT.html"
+        },
+        {
+          "label": "round334-budget.json",
+          "public_evidence": "cells/F25-LT.html"
+        },
+        {
+          "label": "round334-sources.json",
+          "public_evidence": "cells/F25-LT.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-LP",
+      "stack": "libp2p",
+      "total": "≤62,444",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "The selected known-peer IPv4/UDP/QUIC libp2p composition admits a bounded fresh-session witness below 64 KiB. Include mutual TLS Peer ID authentication, two native Identify streams, multistream-select negotiation for those streams and one bidirectional data stream, and 256 useful bytes in each direction. Reserve 42 UDP datagrams up to 1,232 bytes, 40 short ACK-only datagrams and fresh ARP; with IPv4/UDP and Ethernet byte-time overhead the total is 62,444 bytes. The four padded Initial ACK reservations are separate from the short-ACK allowance.",
+      "conditions": "Constructive documentary plausibility, not a runtime measurement or universal libp2p limit. Compact certificate <=2,048 bytes and each Identify response <=1,024 bytes, small configured address/protocol metadata, first protocol accepted, sufficient stream/flow credit, bounded packetization and timely loss-free exchange. Optional services such as DHT, NAT discovery, relay and pubsub are not part of this selected known-peer profile. No resumption, extra connection attempts, migration during exchange or unbounded Identify updates. Peer ID authentication and Identify are included, not silently disabled. TLS suite choice here is a size witness, not a K01 resolution.",
+      "sources": [
+        "https://github.com/libp2p/specs/blob/master/quic/README.md",
+        "https://github.com/libp2p/specs/blob/master/tls/tls.md",
+        "https://github.com/libp2p/specs/blob/master/identify/README.md",
+        "https://github.com/libp2p/specs/blob/master/connections/README.md",
+        "https://www.rfc-editor.org/rfc/rfc9000.html"
+      ],
+      "source_revision": "3.21",
+      "historical_cell": "cells/F25-LP.html",
+      "editorial_references": [
+        {
+          "label": "round321-budget.json",
+          "public_evidence": "cells/F25-LP.html"
+        },
+        {
+          "label": "round321-sources.json",
+          "public_evidence": "cells/F25-LP.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-TO",
+      "stack": "Tor onion service",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "Tor client-operation permits use of a consensus that expired less than 24 hours ago when no live consensus is available. Therefore 24 hours of radio silence does not itself imply that this tolerance has elapsed: a consensus with two hours of validity left at shutdown is only 22 hours past expiry on return. Clients can select microdescriptor consensuses and retain cached descriptors. Separately, directory mirrors support consensus diffs from a known consensus; directory compression includes deflate and recommended LZMA for consensuses and diffs. The size of an uncompressed full consensus is consequently not a mandatory endpoint transfer lower bound for this workload. Four public CollecTor microdescriptor consensuses, valid-after 10:00 UTC on 19–22 October 2026, were downloaded and hashed. Local XZ preset-6 compression of full documents produced 677460–690468 bytes. GNU ed-style differences between consecutive daily documents, compressed with the same setting, produced 62348, 77212 and 79548 bytes. Applying each uncompressed difference reconstructed the next document exactly. Only the first diagnostic difference fits within 65536 bytes, leaving 3188 bytes before any other traffic. Deflate level 9 produced 74814, 91308 and 92984 bytes for the same differences. These are measured document transformations, not a Tor endpoint capture or mirror response. Source inspection of Tor tag tor-0.4.8.16 separates cached-consensus usability from refresh scheduling. networkstatus_consensus_is_bootstrapping returns false for a validated reasonably-live consensus. However, update_consensus_networkstatus_downloads sets the next fetch time to now whenever the consensus is outside its strict validity interval, then checks outstanding requests, retry readiness and missing certificates before requesting a fresh consensus. fetch_networkstatus_callback checks normally every 60 seconds, or every second during the specified testing or bootstrap cases. This interval is not a guaranteed grace period after wake. The reasonably-live predicate in this version includes the exact 24-hour expiry boundary. DisableNetwork delays fetches but also closes outbound connections, so it does not provide directory-only suppression while useful traffic continues.",
+      "conditions": "F25-TO remains Pending. Cache usability does not establish zero refresh traffic. The inspected scheduler does not establish that a complete refresh necessarily finishes before useful delivery either. Do not charge an entire response solely from a scheduled request. The remaining witness must specify retained directory material, loop phase and request state, and count endpoint bytes actually required through delivery, including fresh connections, onion-service lookup and rendezvous. Round436 local GNU-diff compression is not the actual Tor response. This is a version-bounded source trace, not execution of Tor or a statement about every implementation. No criterion or profile change is made.",
+      "sources": [
+        "https://spec.torproject.org/dir-spec/client-operation.html",
+        "https://spec.torproject.org/dir-spec/directory-cache-operation.html",
+        "https://spec.torproject.org/dir-spec/standards-compliance.html",
+        "https://collector.torproject.org/recent/relay-descriptors/microdescs/consensus-microdesc/"
+      ],
+      "source_revision": "4.37",
+      "historical_cell": "cells/F25-TO.html",
+      "editorial_references": [
+        {
+          "label": "round437.html",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round313-budget.json",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round313-prior.json",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round435-sources.json",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round436-measurements.json",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round436_probe.py",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round437-sources.json",
+          "public_evidence": "cells/F25-TO.html"
+        },
+        {
+          "label": "round437-cases.json",
+          "public_evidence": "cells/F25-TO.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-I2",
+      "stack": "I2P",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "The owner conditionally approved the 64 KiB budget if it unlocks evidence-backed decisions. IP and NDN witnesses now do so. Bound netDb refresh, tunnel construction and the selected destination exchange.",
+      "conditions": "Bound netDb refresh, tunnel construction and the selected destination exchange. Budget approval is no longer pending. No overhead measurement or implementation qualification is inferred.",
+      "sources": [],
+      "source_revision": "3.13",
+      "historical_cell": "cells/F25-I2.html",
+      "editorial_references": [
+        {
+          "label": "round313.html",
+          "public_evidence": "cells/F25-I2.html"
+        },
+        {
+          "label": "round313-budget.json",
+          "public_evidence": "cells/F25-I2.html"
+        },
+        {
+          "label": "round313-prior.json",
+          "public_evidence": "cells/F25-I2.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-YG",
+      "stack": "Yggdrasil",
+      "total": "13,099 / 12,839 / 12,129",
+      "unit": "Ethernet byte-times, mapped from three socket traces",
+      "evidence_kind": "Socket traces plus modeled link overhead",
+      "inventory": "A bounded configuration witness fits the 65,536-byte F25 budget. Three fresh Yggdrasil v0.5.14 / Ironwood d50055b runs deliver and byte-verify 256 useful bytes in each direction using the ordinary numeric IPv6/UDP API, pinned numeric TLS peering and independent Ed25519 keys. Linux TCP_INFO on the endpoint-facing relay socket reports stream-byte totals 7,385/7,361/7,123 and combined incoming/outgoing segment counts 44/42/38, with no retransmissions, unacknowledged or unsent data at the snapshot. TCP_MAXSEG=1200 yields measured send/receive MSS 1188. Map each trace to provisioned IPv4, untagged Ethernet MTU 1500, no losses, no DHCP/DNS or multicast peer discovery, and fresh ARP. Charge 20 IPv4 + 60 maximum TCP-header + 38 Ethernet byte-times per counted segment, add three complete handshake segments conservatively for listener counter omissions, and two 84-byte-time ARP frames. Totals are 13,099 / 12,839 / 12,129 byte-times, including startup, routing convergence, session establishment and both complete useful payloads. The largest is below 65,536.",
+      "conditions": "Yes is a documentary low-latency single-peer configuration witness, not a physical Ethernet capture or universal upper bound. Actual execution is loopback; TCP bytes and segment counts are measured, while Ethernet/ARP and transfer of the observed loss-free packetization to the specified link are modeled. The opposite TCP relay leg is infrastructure outside the endpoint interface; the relay does not terminate TLS. Fresh cores stand in for retained valid keys/configuration with expired sessions/learned state, not a physical 24-hour sleep. Payload verification and a 300 ms settling window precede the snapshot; teardown after delivery is outside F25. The upstream routing-readiness wait plus three-second settling delay is not a convergence guarantee. A slower link, other peers, loss/retransmission, background traffic, dynamic addressing, VLAN/Wi-Fi, or different packetization needs a new budget. This credits no energy, global capacity, or runtime interoperability certification.",
+      "sources": [
+        "https://github.com/yggdrasil-network/yggdrasil-go/blob/422836eeb21a99790caa286aa63d493bbc4766d7/src/core/core_test.go",
+        "https://github.com/torvalds/linux/commit/2efd055c53c06b7e89c167c98069bab9afce7e59",
+        "https://github.com/torvalds/linux/blob/v5.14/include/net/tcp.h",
+        "https://github.com/torvalds/linux/blob/v5.14/net/ipv4/tcp_output.c",
+        "https://www.rfc-editor.org/rfc/rfc9293",
+        "https://www.rfc-editor.org/rfc/rfc894"
+      ],
+      "source_revision": "3.40",
+      "historical_cell": "cells/F25-YG.html",
+      "editorial_references": [
+        {
+          "label": "round340-runtime.json",
+          "public_evidence": "cells/F25-YG.html"
+        },
+        {
+          "label": "round340-sources.json",
+          "public_evidence": "cells/F25-YG.html"
+        },
+        {
+          "label": "round340-harness.go",
+          "public_evidence": "cells/F25-YG.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-CJ",
+      "stack": "cjdns",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "The retained cjdns f5902ac source contains CryptoNoise based on BoringTun, with a cjdns-specific additional-data encoding. SessionInnerMut.update_additional serializes an optional previous-session index, the configured credential challenge, a protocol-version entity and four-byte alignment. The historical 120-byte CryptoAuth handshake description therefore cannot be applied indiscriminately to this source. A selected-mode inventory is needed before adding peering, route-server discovery and final-peer encryption costs.",
+      "conditions": "Pin the actual selected handshake mode and both endpoint builds. Account for fresh outer peering and final-peer session establishment, credential/version entities, handshake responses/cookies when applicable, switch/session headers, ordinary path lookup and route-server announcement/query traffic crossing the endpoint interface, UDP/IPv4/Ethernet and fresh ARP. Preserve private peering credentials and the selected route-server architecture; neither old DHT-only behavior nor a bare WireGuard handshake is an equivalent whole-stack witness. The record identifies source components, not a total byte bound or a default-mode claim. F25 remains Pending.",
+      "sources": [
+        "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/rust/cjdns_sys/src/crypto/crypto_noise.rs"
+      ],
+      "source_revision": "4.19",
+      "historical_cell": "cells/F25-CJ.html",
+      "editorial_references": [
+        {
+          "label": "round419-sources.json",
+          "public_evidence": "cells/F25-CJ.html"
+        },
+        {
+          "label": "round419.html",
+          "public_evidence": "cells/F25-CJ.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-MQ",
+      "stack": "Multipath QUIC",
+      "total": "≤50,236",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A bounded fresh mutually authenticated QUIC/TLS1.3 exchange plus multipath-21 setup fits the F25 budget with two validated paths. Reserve 16 crypto/handshake datagrams, eight CID/path-control datagrams, four proactively duplicated STREAM datagrams, two closes and four extra padded Initial ACK datagrams, each with UDP payload up to 1,232 bytes. Add 28 small ACK/PATH_ACK-only datagrams and eight ARP frames across both access interfaces. Including IPv4/UDP and Ethernet overhead, the total is at most 50,236 byte-times. Mandatory 1,200-byte Initial/path-probe padding is included. This retained positive witness uses IPv4 only; the exact total is not an IPv6 overhead calculation.",
+      "conditions": "Compact local certificate chains <=2,048 bytes, bounded Hello/transport parameters, two paths, CID <=20 bytes, single-range ACKs and no loss, Retry, version negotiation, ticket/resumption, 0-RTT or key update. Additional Initial-ACK padding is explicitly budgeted; the small-ACK bound does not apply to Initial packets requiring padding. Configure timely acknowledgments and no unrelated PING/rotation/traffic before delivery. Optional proactive copies are counted on both paths. This is one allowed TLS-suite/packetization witness, not a change to K01 or a general certificate/profile bound. No runtime, congestion, energy or interoperability qualification.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9000.html",
+        "https://www.rfc-editor.org/rfc/rfc9001.html",
+        "https://www.rfc-editor.org/rfc/rfc8446.html",
+        "https://www.ietf.org/archive/id/draft-ietf-quic-multipath-21.txt"
+      ],
+      "source_revision": "3.93",
+      "historical_cell": "cells/F25-MQ.html",
+      "editorial_references": [
+        {
+          "label": "round320-budget.json",
+          "public_evidence": "cells/F25-MQ.html"
+        },
+        {
+          "label": "round320-sources.json",
+          "public_evidence": "cells/F25-MQ.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-SC",
+      "stack": "SCION",
+      "total": "900",
+      "unit": "Ethernet byte-times, same-AS witness",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A same-AS SCION/UDP endpoint exchange fits the 64 KiB budget with fresh underlay neighbor discovery. The official Empty path has zero wire bytes and is valid inside an AS. Pinned v0.13.0 snet writer code derives the direct underlay next hop from the numeric destination when the local and remote IAs match. With IPv4 host addresses, the SCION header is 12 common + 24 address + 0 path bytes. Each 256-byte UDP payload therefore costs 366 Ethernet byte-times including both UDP headers, outer IPv4 and link overhead. Two directions plus a fresh ARP request/reply total 900 byte-times. No expiring inter-AS segment or transport session is reused.",
+      "conditions": "Conditional intra-AS witness, not a bound for Internet-wide SCION, remote path retrieval or control-plane startup. Use two endpoints in one provisioned IPv4/Ethernet subnet, numeric addresses, retained local topology/IA/ports and valid trust, with local daemon/dispatcher access. Expire neighbor state; count both ARP frames. No loss, unrelated broadcasts, optional extensions, DHCP/DNS, VLAN, fragmentation or extra security layer. This column supplies no end-to-end TLS or cryptographic peer authentication; none is inferred from the small budget. Any cross-AS, remote-daemon, certificate-refresh or additional link-security configuration needs a separate inventory. The established F25 definition accepts one bounded configuration and does not require crossing AS boundaries. No packet capture, implementation certification or energy claim.",
+      "sources": [
+        "https://docs.scion.org/en/v0.13.0/protocols/scion-header.html#path-type-emptypath",
+        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/snet/writer.go",
+        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/snet/path/empty.go",
+        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/slayers/path/empty/empty.go",
+        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/slayers/scion.go",
+        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/slayers/udp.go",
+        "https://www.rfc-editor.org/rfc/rfc826.html"
+      ],
+      "source_revision": "3.37",
+      "historical_cell": "cells/F25-SC.html",
+      "editorial_references": [
+        {
+          "label": "round337-budget.json",
+          "public_evidence": "cells/F25-SC.html"
+        },
+        {
+          "label": "round337-sources.json",
+          "public_evidence": "cells/F25-SC.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-RT",
+      "stack": "Reticulum",
+      "total": "≤10,344",
+      "unit": "8N1 byte-equivalents (8,272 serial octets)",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "Reticulum 1.5.5 supports a configured serial witness with retained identity/IFAC credentials and an expired Link/path cache. The adjacent available peer hosts the known destination. Eight endpoint packets cover path request, path-response announce, Link request, Link proof, RTT confirmation, Link.identify, a 256-byte encrypted data packet and explicit delivery proof. Each is bounded by the 500-byte selected Link MTU, plus a configured 16-byte IFAC. Worst-case HDLC escaping and two flags cost at most 1,034 serial octets per packet: 8,272 total. Charging 8N1 start/stop bits and rounding upward per packet gives 10,344 byte-equivalents, below 65,536.",
+      "conditions": "Bounded documentary witness, not a measurement or a bound for a busy mesh. Use one serial interface at 115200 8N1, Link MTU 500 (disable link MTU discovery), IFAC 128 bits, empty announce application data, no unrelated announced destinations, no probe service or periodic application announcements. The path-response context does not require ordinary announce rebroadcast. Retain provisioned keys and authorization; perform a fresh Link and identify before data acceptance. Deliver promptly before retry/keepalive timers; no claims about CPU time or energy. No Resource/LXMF transfer is added. This does not settle global announce volume, F15 or G05.",
+      "sources": [
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Transport.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Destination.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Link.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Packet.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Reticulum.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Interfaces/SerialInterface.py",
+        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Cryptography/Token.py"
+      ],
+      "source_revision": "3.15",
+      "historical_cell": "cells/F25-RT.html",
+      "editorial_references": [
+        {
+          "label": "round315-budget.json",
+          "public_evidence": "cells/F25-RT.html"
+        },
+        {
+          "label": "round315-sources.json",
+          "public_evidence": "cells/F25-RT.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-NS",
+      "stack": "Basic Nostr",
+      "total": "≤63,020",
+      "unit": "Ethernet byte-times, two relays",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A bounded two-relay NIP-01/WSS configuration meets the endpoint budget while preserving proactive copies on both selected relay paths. Count two fresh DNS A lookups, two complete TCP/TLS1.3/HTTP Upgrade connections, subscription and signed-event exchange on both, acknowledgments and conservative closure/control reserves. The inventory reserves 23 data-bearing TCP segments per relay at MSS 1,024, an ACK per segment, setup/shutdown, IPv4/Ethernet framing, DNS and fresh ARP: 63,020 bytes total. Each event carries 256 useful bytes encoded as base64, with event identifiers, author key, signature and WebSocket framing included.",
+      "conditions": "Constructive documentary witness, not measured traffic or a bound for arbitrary public relays. Compact validated certificate chain <=2,048 bytes, bounded Hello/HTTP headers, known author and two preselected public relay hostnames; one bounded DNS reply each through the configured recursive resolver. Empty matching stored history and no unrelated matching events; small NIP-01 messages and timely acknowledgments. No tickets, resumption, online certificate fetches, redirects, retries, extra NIPs or optional TLS padding. Two relay paths and duplicate events are counted; infrastructure traffic not crossing the endpoint is excluded by F25. Event length placeholders do not test signatures. Nostr content remains publicly readable under this selected profile.",
+      "sources": [
+        "https://github.com/nostr-protocol/nips/blob/master/01.md",
+        "https://www.rfc-editor.org/rfc/rfc6455.html",
+        "https://www.rfc-editor.org/rfc/rfc1035.html",
+        "https://www.rfc-editor.org/rfc/rfc8446.html"
+      ],
+      "source_revision": "3.24",
+      "historical_cell": "cells/F25-NS.html",
+      "editorial_references": [
+        {
+          "label": "round324-budget.json",
+          "public_evidence": "cells/F25-NS.html"
+        },
+        {
+          "label": "round324-sources.json",
+          "public_evidence": "cells/F25-NS.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-MT",
+      "stack": "Meshtastic",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "The selected Router.cpp supplies a concrete small-message candidate. For a direct PKI message with portnum 1, 128 useful payload bytes, explicit zero bitfield and other optional Data fields unset, protobuf encoding occupies 135 bytes: 2 for portnum, 3+128 for payload and 2 for bitfield. Adding the 16-byte Meshtastic header and 12-byte PKI overhead yields 163 bytes, below 255. perhapsEncode signs normal broadcasts rather than ordinary PKI unicasts; checkXeddsaReceivePolicy explicitly accepts the successfully decoded pki_encrypted branch even under STRICT without an additional XEdDSA signature. Two such messages would carry 256 useful bytes with a 326-byte radio-packet subtotal.",
+      "conditions": "Pending workload clarification: the owner has been asked whether 256 useful bytes may be delivered in multiple independent native messages. No answer or criterion change is inferred. The 326-byte subtotal excludes LoRa physical coding/preamble/header/CRC, wake-up broadcasts, node metadata, ACKs and other endpoint-facing traffic. It is not a complete F25 budget, fragmentation/reassembly capability, cryptographic execution or radio measurement. Retain independently verified peer keys and PKI-capable build; trace the complete one-hop wake-up configuration and preserve STRICT. A single 256-byte native message remains too large for the inspected path.",
+      "sources": [
+        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/Router.cpp"
+      ],
+      "source_revision": "4.20",
+      "historical_cell": "cells/F25-MT.html",
+      "editorial_references": [
+        {
+          "label": "round420-sources.json",
+          "public_evidence": "cells/F25-MT.html"
+        },
+        {
+          "label": "round420-packet.json",
+          "public_evidence": "cells/F25-MT.html"
+        },
+        {
+          "label": "round420.html",
+          "public_evidence": "cells/F25-MT.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-GN",
+      "stack": "GNUnet / CADET",
+      "total": null,
+      "unit": null,
+      "evidence_kind": "Incomplete account; no total established",
+      "inventory": "The GNUnet 0.20.0 CADET wire inventory now distinguishes connection creation, authenticated tunnel key exchange, channel opening and useful data. ConnectionCreate includes a connection ID, monotime fields/signature and the whole peer path; the connection source sets/signs monotime in the applicable creation branch. TunnelKeyExchange carries ephemeral and ratchet public keys; TunnelKeyExchangeAuth additionally carries a KDF proof. ChannelOpen and its acknowledgement are separate structures, followed by application data and optional reliable-delivery acknowledgements inside encrypted tunnel messages. The legacy UDP plugin adds its own message header, reserved field and sender identity, and has fragmentation machinery. Additional lower-layer controls are now located in the selected release. Legacy TRANSPORT validation uses a challenge PING and a signed PONG with expiration and a variable address suffix. CORE send_key explicitly sends ephemeral key material plus an encrypted PING, with a PONG response path. Its initial key retry interval is ten seconds and periodic rekey interval twelve hours. CORE EncryptedMessage adds its own header, IV seed, full hash MAC, sequence/reserved fields and timestamp around higher-layer traffic. These cannot be omitted from a CADET-only packet inventory.",
+      "conditions": "Count the executed message sequence, not just one key-exchange header. For a bounded direct-neighbor candidate using the supplied HELLO contact, establish whether/how R5N and peerinfo traffic cross the measured interface; retained configuration does not preserve expired sessions. Add legacy TRANSPORT validation and connection setup, CORE key exchange and framing, CADET connection/KX/channel messages, final useful data, acknowledgements, UDP plugin envelopes/fragmentation, IPv4/Ethernet and neighbor repair. Verify message multiplicity and timer conditions in the chosen no-loss configuration before comparing with 65,536 bytes. Do not substitute newer TNG/AEAD message layouts for the selected 0.20.0 legacy UDP profile. No measured or complete documentary bound yet; F25 remains Pending. Include the discovered TRANSPORT PING/PONG and CORE key/PING/PONG exchanges, CORE message-type advertisement/confirmation, and the variable transport-address suffix. Verify retry timing against actual successful establishment; the 24-hour silence must not reuse a CORE session simply because identity keys are retained. The located timer values and structures are source evidence, not a completion-time or total-byte bound.",
+      "sources": [
+        "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz"
+      ],
+      "source_revision": "4.20",
+      "historical_cell": "cells/F25-GN.html",
+      "editorial_references": [
+        {
+          "label": "round420-sources.json",
+          "public_evidence": "cells/F25-GN.html"
+        },
+        {
+          "label": "round420-packet.json",
+          "public_evidence": "cells/F25-GN.html"
+        },
+        {
+          "label": "round420.html",
+          "public_evidence": "cells/F25-GN.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-ND",
+      "stack": "NDN / NFD",
+      "total": "≤764",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "Constructive direct-Ethernet/static-FIB witness: retain the provisioned producer key and content name, use a fresh Interest and signed Data with 256 content bytes. Bound each complete Name TLV to 64 bytes. Interest including Nonce, lifetime and hop limit is at most 83 bytes. Data with empty MetaInfo, P-256 DER signature at most 72 bytes and a bounded KeyLocator is at most 477 bytes. Allow another 64 bytes of local-link envelope per packet and 38 Ethernet byte-times per packet: at most 764 total, below 65,536. There is no network session to resume or certificate to fetch in this preprovisioned-key witness.",
+      "conditions": "Bounded names and retained trust are explicit witness parameters, not limits of NDN. No NLSR, arbitrary certificate chain, encrypted content or signed Interest is added. Consumer validation remains required. Static face/FIB setup is local; no wire discovery is omitted from this configured face. No runtime measurement.",
+      "sources": [
+        "https://docs.named-data.net/NDN-packet-spec/current/interest.html",
+        "https://docs.named-data.net/NDN-packet-spec/current/data.html",
+        "https://docs.named-data.net/NDN-packet-spec/current/signature.html"
+      ],
+      "source_revision": "3.13",
+      "historical_cell": "cells/F25-ND.html",
+      "editorial_references": [
+        {
+          "label": "round313-budget.json",
+          "public_evidence": "cells/F25-ND.html"
+        },
+        {
+          "label": "round313-prior.json",
+          "public_evidence": "cells/F25-ND.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-AX",
+      "stack": "AX.25 / NET/ROM",
+      "total": "≤41,120",
+      "unit": "8N1 byte-equivalents",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "The already selected private direct-serial role admits a bounded wake-up witness. Linux 6.12 NET/ROM splits each 256-byte useful message into 236+20-byte fragments; its 15-byte network and 5-byte transport headers keep the larger packet within AX.25 paclen 256. Count fresh AX.25 and NET/ROM connection setup, four data frames for one message in each direction, transport and link acknowledgments, two small announcements and conservative shutdown/maintenance reserves: 32 frames total. A generous 512-byte frame cap, KISS command byte, worst-case doubling by escaping, delimiters and 8N1 start/stop bits yield 41,120 byte-equivalents, below 65,536.",
+      "conditions": "Constructive documentary direct-serial configuration, not a runtime measurement or radio-airtime bound. Retained configured callsigns/ports and a locked NET/ROM route (obs_count=0); learned sessions are recreated. One known adjacent peer, no digipeaters, no unrelated traffic or large route announcements, timely loss-free acknowledgments and timers preventing retry/poll bursts. Standard KISS without optional CRC-mode negotiation. No cryptographic authorization is supplied by this plaintext profile; retained labels/configuration do not imply authenticated peer identity. No IP encapsulation or application-layer fragmentation is introduced.",
+      "sources": [
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/nr_out.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/include/net/netrom.h",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/nr_subr.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/nr_route.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/ax25/ax25_out.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/drivers/net/hamradio/mkiss.c",
+        "https://www.ax25.net/kiss.aspx"
+      ],
+      "source_revision": "3.23",
+      "historical_cell": "cells/F25-AX.html",
+      "editorial_references": [
+        {
+          "label": "round323-budget.json",
+          "public_evidence": "cells/F25-AX.html"
+        },
+        {
+          "label": "round323-sources.json",
+          "public_evidence": "cells/F25-AX.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-BA",
+      "stack": "batman-adv",
+      "total": "588",
+      "unit": "Endpoint Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A supported Ethernet client can use the selected batman-adv native L2 service through an available access bridge. It retains its local MAC and known peer MAC; no endpoint IP, ARP or cryptographic session is added. Linux 6.12 soft-interface transmission learns the client source MAC before forwarding, and reception removes mesh encapsulation before delivering the native Ethernet frame. With the remote peer still available in the live mesh, two 256-byte native payload frames consume 2 x (256 + 14 + 4 + 8 + 12) = 588 endpoint byte-times. This meets the 65,536-byte F25 budget without keeping an endpoint session alive.",
+      "conditions": "Configured leaf-client witness, not a sleeping mesh-router bound. One untagged Ethernet access port bridges to bat0; mesh hard interfaces remain separate. The available infrastructure and active remote peer retain working reachability, while the returning client is relearned from its first frame. Use loop-free single-access bridges with bridge-loop-avoidance disabled, no STP/LLDP/IP services or unrelated traffic on the client link. Disablement is a disclosed configuration choice, not the kernel default. BATMAN_IV, native bonding and gateway-off choices remain; mesh OGM/translation-table traffic outside this endpoint interface is excluded by the approved F25 boundary. No claim of zero mesh overhead, peer cryptographic authorization, runtime measurement, energy or global capacity.",
+      "sources": [
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/Documentation/networking/batman-adv.rst",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/soft-interface.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/bridge_loop_avoidance.c"
+      ],
+      "source_revision": "3.18",
+      "historical_cell": "cells/F25-BA.html",
+      "editorial_references": [
+        {
+          "label": "round318-budget.json",
+          "public_evidence": "cells/F25-BA.html"
+        },
+        {
+          "label": "round318-sources.json",
+          "public_evidence": "cells/F25-BA.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-BL",
+      "stack": "IP / Babel",
+      "total": "≤4,252",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "Use the already selected provisioned leaf LAN of the Babel-routed ULA hierarchy, consistent with D01-BL. Babel continues to maintain routes between infrastructure routers; the ordinary leaf endpoint does not become a Babel speaker. Allow 14 bounded IPv6 control frames for address checks, MLD reports/query, router discovery and neighbor-cache repair, each at most 256 byte-times including Ethernet overhead. Two IPv6 datagrams each carrying 256 useful bytes cost 334 byte-times each. Total upper bound: 4,252, below the 65,536-byte F25 budget.",
+      "conditions": "Configured Ethernet leaf with retained ULA, link-local address, numeric peer and router configuration; one prefix, two solicited-node groups, no source-list growth, MLD robustness two, no unrelated traffic. Leaf-facing LAN is not a Babel adjacency interface; Babel routing on inter-router links remains part of the selected stack. Infrastructure is available as required by F25, but its control traffic outside this endpoint interface is not charged. Allow fresh neighbor discovery and address checks; finish before additional periodic maintenance or retries. No DNS, DHCP, TCP, TLS or cryptographic peer authentication is introduced. This is documentary plausibility for the existing leaf role, not a bound for a sleeping Babel transit router, arbitrary topology, energy or runtime performance.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8966.html",
+        "https://www.rfc-editor.org/rfc/rfc4861.html",
+        "https://www.rfc-editor.org/rfc/rfc4862.html",
+        "https://www.rfc-editor.org/rfc/rfc3810.html"
+      ],
+      "source_revision": "3.17",
+      "historical_cell": "cells/F25-BL.html",
+      "editorial_references": [
+        {
+          "label": "cells/D01-BL.html",
+          "public_evidence": "cells/F25-BL.html"
+        },
+        {
+          "label": "round317-budget.json",
+          "public_evidence": "cells/F25-BL.html"
+        },
+        {
+          "label": "round317-sources.json",
+          "public_evidence": "cells/F25-BL.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-RI",
+      "stack": "IPv6 IoT / RPL",
+      "total": "≤43,200",
+      "unit": "On-air bytes with stated PHY/link accounting",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A configured leaf can meet the approved F25 workload with its adjacent access router/root as the previously authorized peer. Count up to 14 neighbor/registration/RPL control datagrams, seven PSK DTLS handshake messages including optional cookie retry, seven ACK datagrams and two protected messages of 256 useful bytes each. With bounded options/identities every IPv6 datagram fits 640 bytes. Reserve ten 6LoWPAN fragments per datagram and 144 on-air bytes per fragment including PHY and link ACK. The conservative total is 43,200 bytes, below 65,536. Fresh DTLS and repaired network state are counted; no live session is reused.",
+      "conditions": "Constructive documentary witness only: one stable adjacent root/peer, one prefix/context/parent, provisioned PAN/channel/ULA and valid external PSK. Beaconless link, no MAC security, no unrelated traffic, bounded PSK identity/cookie/options, timely loss-free completion before retry timers and within the stated maintenance allowance. No certificate, CID, ticket, DNS or DHCP is introduced. No compression gain is needed for this upper bound. This is not a bound for arbitrary source-route depth, busy networks or all implementations, nor an energy/runtime/interoperability measurement. Selected psk_ke and its K01 verdict are unchanged.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9147.html",
+        "https://www.rfc-editor.org/rfc/rfc8446.html",
+        "https://www.rfc-editor.org/rfc/rfc6775.html",
+        "https://www.rfc-editor.org/rfc/rfc6550.html",
+        "https://www.rfc-editor.org/rfc/rfc4944.html",
+        "https://www.ti.com/lit/ds/symlink/cc2420.pdf"
+      ],
+      "source_revision": "3.16",
+      "historical_cell": "cells/F25-RI.html",
+      "editorial_references": [
+        {
+          "label": "round316-budget.json",
+          "public_evidence": "cells/F25-RI.html"
+        },
+        {
+          "label": "round316-sources.json",
+          "public_evidence": "cells/F25-RI.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-HP",
+      "stack": "HIPv2 / ESP",
+      "total": "≤5,288",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "After discarding old HIP/ESP associations, a configured endpoint performs a fresh I1/R1/I2/R2 exchange with the known numeric peer and pinned P-256 identity. Parameter inventories, including puzzles, ECDH, identity, MAC/signature and ESP negotiation, fit four conservative 1,024-byte on-link envelopes. Allow two ESP-protected UDP messages of 256 useful bytes each at 512 byte-times apiece and a fresh ARP request/reply at 168 byte-times. Total at most 5,288, below 65,536; no live-session or ticket reuse is assumed.",
+      "conditions": "Known reachable peer/locator, bounded negotiation lists, no optional echoes or domain identifier; optional encrypted HOST_ID fits the inventory reserve. All required selected suites and ESP fields are counted. No DNS, rendezvous, NAT traversal, mobility UPDATE, loss/retry or certificate exchange is needed in this stationary wake-up witness. Puzzle difficulty permits completion before retransmission timers; CPU/energy and hostile-peer behavior are outside this byte criterion. No runtime or integration qualification.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc7401.html",
+        "https://www.rfc-editor.org/rfc/rfc7402.html",
+        "https://www.rfc-editor.org/rfc/rfc3602.html",
+        "https://www.rfc-editor.org/rfc/rfc4868.html",
+        "https://www.rfc-editor.org/rfc/rfc826.html"
+      ],
+      "source_revision": "3.14",
+      "historical_cell": "cells/F25-HP.html",
+      "editorial_references": [
+        {
+          "label": "round314-budget.json",
+          "public_evidence": "cells/F25-HP.html"
+        },
+        {
+          "label": "round314-sources.json",
+          "public_evidence": "cells/F25-HP.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-CX",
+      "stack": "CCNx 1.0",
+      "total": "≤2,348",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "For the approved F25 workload, configure bounded names and retain the producer trust key and static FIB. One CRC32C Interest and one ECDSA-SHA256 Content Object carrying 256 useful bytes each fit a conservative 1,024-byte CCNx envelope. The inventory includes validation metadata, signature, complete TLV wrappers and fixed header. Adding IPv4/UDP and Ethernet overhead to both packets, plus ARP request/reply after neighbor-cache expiry, gives at most 2,348 endpoint byte-times, below 65,536.",
+      "conditions": "Constructive configuration witness: complete Name TLVs at most 64 bytes, secp256k1 signature at most 72 bytes, bounded public-key/KeyLink metadata and no certificate fetch because the trust key remains provisioned. No DNS, TLS or new security wrapper. Static FIB configuration is retained; learned ARP is rebuilt. This does not qualify a complete executable CCNx ECDSA codec or establish a bound for arbitrary names/certificate chains. No runtime measurement.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8609.html",
+        "https://www.rfc-editor.org/rfc/rfc8569.html",
+        "https://www.rfc-editor.org/rfc/rfc826.html"
+      ],
+      "source_revision": "3.14",
+      "historical_cell": "cells/F25-CX.html",
+      "editorial_references": [
+        {
+          "label": "round314-budget.json",
+          "public_evidence": "cells/F25-CX.html"
+        },
+        {
+          "label": "round314-sources.json",
+          "public_evidence": "cells/F25-CX.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-LI",
+      "stack": "LISP",
+      "total": "980",
+      "unit": "Endpoint Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A configured IPv4/UDP leaf behind the existing LISP xTR meets the endpoint-interface budget. Allow four minimum Ethernet ARP frames (336 byte-times) for cold neighbor repair and two packets each carrying 256 useful bytes (2 x (256 + 8 UDP + 20 IPv4 + 38 Ethernet byte-times) = 644). Total 980, below 65,536. RFC 9300 sections 4 and 4.2 place mapping and encapsulation at the xTR, not at this ordinary leaf. The retained numeric EID, static local route and provisioned infrastructure require no endpoint DNS or transport-session establishment.",
+      "conditions": "Bounded Ethernet leaf witness, not a sleeping xTR. Infrastructure, including current xTR mappings and registration, remains available as F25 permits; only the endpoint loses learned neighbor state. Map-Request/Reply/Register traffic and outer UDP/LISP headers remain on infrastructure-facing interfaces and are not falsely counted as zero network cost. The peer is off-link, so the leaf repairs its gateway neighbor entry; the gateway can learn the leaf mapping from that exchange. Four ARP frames reserve an additional repair pair. No loss, retries, unrelated broadcasts, endpoint DHCP, DNS or authentication wrapper; two 256-byte useful messages, one in each direction, exceed the required useful-byte total. This supplies no cryptographic authorization. No packet capture or implementation qualification.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9300.html#section-4.2",
+        "https://www.rfc-editor.org/rfc/rfc9301.html",
+        "https://www.rfc-editor.org/rfc/rfc791.html",
+        "https://www.rfc-editor.org/rfc/rfc768.html",
+        "https://www.rfc-editor.org/rfc/rfc826.html"
+      ],
+      "source_revision": "4.18",
+      "historical_cell": "cells/F25-LI.html",
+      "editorial_references": [
+        {
+          "label": "round418-sources.json",
+          "public_evidence": "cells/F25-LI.html"
+        },
+        {
+          "label": "round418-budget.json",
+          "public_evidence": "cells/F25-LI.html"
+        }
+      ]
+    },
+    {
+      "id": "F25-IL",
+      "stack": "ILNPv6",
+      "total": "≤18,432",
+      "unit": "Ethernet byte-times",
+      "evidence_kind": "Conditional documentary account",
+      "inventory": "A stationary ILNPv6/TCP endpoint can resume with fresh discovery and a fresh connection within a conservative 18,432-byte endpoint budget. Reserve twenty IPv6 access-control frames at 512 byte-times (10,240), two DNS queries and responses at 1,024 each (4,096), twelve TCP control frames at 256 each (3,072), and two 256-useful-byte TCP data frames at 512 each (1,024). The data envelopes include a 40-byte IPv6 header, a 16-byte ILNP destination-options header carrying a 96-bit nonce, up to 60 bytes of TCP header and 38 Ethernet byte-times: 410, below the allocated 512. Fresh nonces and identifier-only transport checksum binding are retained; this does not substitute an ordinary IPv6 TCP session.",
+      "conditions": "Constructive configuration witness, not a measurement or universal bound. One retained local NID, unchanged valid locator/prefix, link-local address and configured numeric recursive resolver; one peer DNS name of at most 64 wire octets, one NID and one L64 answer, no alias chain, DNSSEC or additional security wrapper. Two separate UDP DNS queries allow both answers without relying on additional-section processing. The ordinary IPv6 resolver/bootstrap role is included in the endpoint budget. The twenty access frames cover two address checks (one DAD probe each), router solicitation/advertisement, two MLD reports for each of two solicited-node groups plus a query, and three NS/NA pairs; remaining slots are reserve. Provisioned lifetimes remain valid and delivery completes before periodic refreshes. Twelve TCP controls cover a fresh three-way handshake, independent acknowledgments and graceful close; do not retain a TCP session, nonce or learned neighbor entry across sleep. The unchanged locator needs no Locator Update or DNS update. No losses, fallback, unrelated traffic or retry; no cryptographic peer authentication is claimed. Existing mobility capability is unchanged but is not exercised by this stationary wake-up witness.",
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc6744.html#section-2",
+        "https://www.rfc-editor.org/rfc/rfc6740.html",
+        "https://www.rfc-editor.org/rfc/rfc6741.html",
+        "https://www.rfc-editor.org/rfc/rfc6742.html",
+        "https://www.rfc-editor.org/rfc/rfc4861.html",
+        "https://www.rfc-editor.org/rfc/rfc4862.html",
+        "https://www.rfc-editor.org/rfc/rfc3810.html",
+        "https://www.rfc-editor.org/rfc/rfc9293.html"
+      ],
+      "source_revision": "4.18",
+      "historical_cell": "cells/F25-IL.html",
+      "editorial_references": [
+        {
+          "label": "round418-sources.json",
+          "public_evidence": "cells/F25-IL.html"
+        },
+        {
+          "label": "round418-budget.json",
+          "public_evidence": "cells/F25-IL.html"
+        }
+      ]
+    }
+  ],
+  "publication_note": "Historical inventories retained at their source revisions, not current implementation budgets or comparable rankings. References to former pass/fail decisions are historical; F25 is retired."
+}

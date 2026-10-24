@@ -1,0 +1,26 @@
+{
+  "title": "PRP Protocol Atlas",
+  "version": 2,
+  "language": "en",
+  "description": "A visual guide to PRP identities, discovery, HS2, topological paths, relationships, multicast, carriers and selected wire layouts. Includes the Relationship Record List (RRL) inside AOP.",
+  "navigation_label": "Protocol Atlas",
+  "suggested_path": "/protocol-atlas/",
+  "alt": "PRP protocol atlas: architecture flow and annotated wire fields, including SCIR, discovery, HS2, TPA, AOP and RRL.",
+  "credits": "PRP editorial. Code-generated vector illustration. Specification snapshot 2026-10-24.",
+  "format_note": "English poster; PDF 420 × 700 mm, PNG 2100 × 3500, scalable SVG.",
+  "technical_note": "Selected layouts distinguish the AOP successor from historical wire-v4. Architectural illustration; no implementation or security certification.",
+  "files": {
+    "poster.svg": {
+      "bytes": 124445,
+      "sha256": "418391cb9a71500a7ca6d6945735730eafb3645e73efabb1d1171cfa1fb92f48"
+    },
+    "poster.png": {
+      "bytes": 747300,
+      "sha256": "3c22a0a95a1c11632fcf42fb6534be3779ce15ce2ad3c0ba7fbc24a25cde9a35"
+    },
+    "poster.pdf": {
+      "bytes": 320641,
+      "sha256": "6385510dfb6a019887f0c18d37fd85836ce0948c968aef9e55e809aa356a3be9"
+    }
+  }
+}

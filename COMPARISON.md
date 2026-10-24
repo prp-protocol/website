@@ -12,30 +12,33 @@ the matrix. Profiles are generated unchanged from the same approved JSON.
 
 ## Current approved source
 
-- Revision 5.73, English schema-v1, 2026-10-23; authority REPORT 68adefcaadf6682d.
-- Editorial delivery commit (local source attribution): `8aeddf1aac1143a5f4f49be497c17e7b0f39cdd9`.
-- Approved JSON SHA256: `4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7` (1963227 bytes).
-- Sealed editorial receipt SHA256: `22ff62adb5d0e02c2a703b9cb6544194e2c23f759150f8330fd6a3c59fef168a` (16994 bytes).
-- Exact baseline 4.72 SHA256: `06894e8efb1bb1157c9ad9a6644465e52a7600834f47b76556d96170bf8493fa`.
+- Revision 5.82, English schema-v1, 2026-10-23; authority REPORT c91218583b467e9a.
+- Editorial delivery commit (local source attribution): `dc28b3bd0cffc5649aaa97899a632dcb870bea40`.
+- Approved JSON SHA256: `6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9` (1869931 bytes).
+- Sealed editorial receipt SHA256: `525d59596fca01b59718e4ee746ec41e8a9b9f04fd1fbadc854f3def1782d3d7` (3163 bytes).
+- Exact baseline 5.73 SHA256: `4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7`.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole active verdict source and is retained byte-identically.
-The snapshot has 62 criteria, 26 stacks, 1612 cells: 816 Yes, 681 No and 115 Pending.
+The snapshot has 60 criteria, 26 stacks, 1560 cells: 778 Yes, 680 No and 102 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This snapshot retires exactly C08 and its 26 cells from the active grid.
-Six criterion records and 225 surviving cell records change, with 144 verdict
-transitions (not all Pending resolutions). No columns, marks or assets change.
-All previous URLs remain; C08 is never recycled and K02 is absent.
-The importer freezes the exact prior criterion and cell records in
-`comparison/archive/C08-4.72.json`, attributed to the verified baseline hash.
-This historical data is not an active verdict source. The renderer rebuilds
-all 26 original C08 URLs with a prominent archived previous-definition notice
-and links to `/comparison/archive/C08.html`, not to a missing active row or a
-replacement definition. Archive records remain immutable on routine imports.
+This snapshot retires exactly F25/F35 and their 52 cells from the active grid.
+Seven surviving cell records and two profiles change; no surviving criteria,
+IDs, marks or logos are added/changed. C06-PN/PI and E05-I2/NS move Pending→Yes,
+C06-NS Pending→No, and F32-PN/PI No→Yes. All qualifications remain unchanged
+from the sealed snapshot, including successor-specific C06 scope and the
+author-declared F32 negotiated capacities/QoS to rendezvous.
+All previous URLs remain; C08/F25/F35 are never recycled and K02 is absent.
+The importer freezes exact prior criterion/cell records in
+`comparison/archive/F25-5.73.json` and `F35-5.73.json`, attributed to the verified
+baseline hash. Existing `C08-4.72.json` is unchanged. These historical records
+are not active verdict sources. The renderer rebuilds all 78 old cell URLs with
+prominent archived previous-definition notices and matching criterion archive
+links, never redirects to a new definition. Routine imports preserve records.
 Exhaustive retirement, changed IDs and existing-cell transitions are retained in
-`scripts/comparison-approved.json`. Mark metadata and all assets are unchanged.
+`scripts/comparison-approved.json`. Matrix mark metadata and logos are unchanged.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
 Preserve CPU versus network exhaustion and negotiated receive-window scope.
 ALIAS/digest-object witnesses are selected constructions, not registry allocation.
@@ -55,11 +58,33 @@ DTN/CGR/LTP incapacity; G05-BP remains Pending. Documentary plausibility, bounde
 historical interoperability, selected profiles and measured results retain their
 distinct qualifications. No runtime, security, postquantum, interoperability or
 global-capacity certification is implied. The exact snapshot-bound
-`--retirement-r573` option is required; ordinary import still rejects grid changes.
+`--retirement-r582` option is required; ordinary import still rejects grid changes.
 E05-BA Yes is dated Freifunk Stuttgart evidence, not certification of Linux 6.12
-or all optional settings. E05-NS remains Pending because the located extension
-is excluded. G02 PRP uses prepared paths; F32 No concerns the selected planning
-composition; C06 remains Pending. Publication does not accept HS2 or ROUTE-001.
+or all optional settings. G02 PRP uses prepared paths. The new documentary
+judgments do not accept HS2, REFERENCE or ROUTE-001 integration/security gates.
+
+## Auxiliary inventories and Protocol Atlas
+
+`comparison/wake-traffic.json` remains exact (66701 bytes, SHA256
+`1860d68f3680c20b6df256eb5c90457edfe3512838ae4295ba68330d0a151f23`).
+Website-owned `comparison/wake.py` renders the static summary and complete
+inventory/conditions/source text. There are 26 historical accounts, 19 conditional
+totals and seven incomplete accounts. No sorting/ranking across unlike scopes;
+the former cutoff is retired, not a current measurement or universal budget.
+Research labels link only to public archived F25 cells, never private files.
+Matrix and archived F25 pages link to this auxiliary page.
+
+`protocol-atlas/` contains only the approved English v2 poster, public metadata
+and website wrapper. Seven signed input objects, exact sizes/hashes, including
+poster SVG/PNG/PDF and metadata, are recorded in the approved receipt and the
+`comparison-582` publication evidence. `scripts/render-atlas.py` verifies poster
+hashes and regenerates the wrapper from exact `poster-content.json`, retaining
+description, alt, credits, technical limits and source snapshot date verbatim.
+SVG safety was checked before import; never silently sanitize signed bytes.
+Responsive preview, full-size SVG/PNG links and exact downloads are available
+under a shared Protocol Atlas navigation entry. No editorial renderer, private
+research, sources.json or scripts are imported. RRL/AOP, successor sequence and
+historical-wire distinctions remain as approved; no security acceptance follows.
 
 `comparison/groups.json` contains the four label/first-criterion pairs from the
 signed receipt. Website-owned full-width rowgroup bands use a nested sticky
@@ -73,6 +98,7 @@ do not certify readable A4 output. Actual Chromium viewport widths of 390 and
 ```sh
 python3 scripts/sync-navigation.py
 python3 comparison/render.py --out comparison
+python3 scripts/render-atlas.py
 python3 scripts/sync-navigation.py --check
 python3 scripts/check-comparison.py
 ```
@@ -146,6 +172,10 @@ new stable IDs. Never recycle or renumber identifiers.
    never from a private editorial export, and regenerates the old URLs with
    archival notices. Other deletion, renumbering, addition, wrong snapshots and
    mixed exceptions remain rejected. Routine imports cannot recycle C08.
+   `--retirement-r582` admits only the exact 5.73/5.82 digests and removal of
+   F25/F35 plus 52 cells. Historical records are generated from the pinned local
+   baseline. Prior C08 records stay intact; routine imports reject recycling of
+   all three retired IDs. No generic deletion or retirement switch is provided.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in

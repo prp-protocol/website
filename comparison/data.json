@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "5.73",
+  "revision": "5.82",
   "date": "2026-10-23",
   "language": "en",
   "scope": "Documented capabilities and explicitly qualified scale evidence; not implementation certification",
@@ -8,14 +8,14 @@
     {
       "id": "PN",
       "title": "PRP L3",
-      "profile": "PRP wire-v4, protected adjacency and E2E 0x0202; local bootstrap, known identities; privacy mechanisms enabled; C08: interior transit between intermediaries, no endpoint rendezvous/deeper-session termination or optional traffic-history logging F29–F31 architectural witnesses (round465): content-representing ALIAS for supplier discovery; digest-bound ALIAS with independently trusted expected reference for object verification; author-confirmed negotiated content custody serving additional consumers, including multicast announcement with custody. Content convention and consumer verification are explicit; no new core wire field, registered content namespace or completed custody-wire implementation is implied. Custody clarification (round467): E2E and multicast channel custody only, subject to negotiated responsibility and channel authorization; no public CDN-style object repository. F31 reuse is confined to authorized multicast consumers/branches. ALIAS possession does not grant access, and E2E retention for one recipient alone does not qualify as cross-requester reuse.",
+      "profile": "PRP wire-v4, protected adjacency and E2E 0x0202; local bootstrap, known identities; privacy mechanisms enabled; C08: interior transit between intermediaries, no endpoint rendezvous/deeper-session termination or optional traffic-history logging F29–F31 architectural witnesses (round465): content-representing ALIAS for supplier discovery; digest-bound ALIAS with independently trusted expected reference for object verification; author-confirmed negotiated content custody serving additional consumers, including multicast announcement with custody. Content convention and consumer verification are explicit; no new core wire field, registered content namespace or completed custody-wire implementation is implied. Custody clarification (round467): E2E and multicast channel custody only, subject to negotiated responsibility and channel authorization; no public CDN-style object repository. F31 reuse is confined to authorized multicast consumers/branches. ALIAS possession does not grant access, and E2E retention for one recipient alone does not qualify as cross-requester reuse. C06 criterion-specific architectural witness: author-approved TPA successor fast paths (TPA candidate section 7; observer/bootstrap proposal section 10), established protected channels, distinct adjacency/final-channel identities and hop-local realization selectors. This replaces retained wire-v4 onion framing only for C06; no implementation or bootstrap admission is claimed. Other criterion profiles are unchanged. F32 architectural witness: author-confirmed local trajectory planning from future availability and usable capacity negotiated by each client with aggregators up to the rendezvous; each side negotiates its own half, including QoS/bandwidth reservation. Documentary architectural credit, not a completed wire/planner or global delivery guarantee.",
       "website": "https://prp-protocol.org/",
       "logo": "prp.svg"
     },
     {
       "id": "PI",
       "title": "PRP over IP",
-      "profile": "IPv4 / UDP / PRP wire-v4, protected adjacency and E2E 0x0202; numeric peers, known identities; privacy mechanisms enabled; independent deployment uses private IPv4; C08: interior transit between intermediaries, no endpoint rendezvous/deeper-session termination or optional traffic-history logging G01 global deployment: conventional globally routed IPv4/UDP over the BGP Internet, matching IP/MQ and round119 BP/LP/I2/GN. Private IPv4 deployments remain separate S03 capabilities; adjacent-only IP meshes are not this global witness. This does not change native PRP L3. F29–F31 architectural witnesses (round465): content-representing ALIAS for supplier discovery; digest-bound ALIAS with independently trusted expected reference for object verification; author-confirmed negotiated content custody serving additional consumers, including multicast announcement with custody. Content convention and consumer verification are explicit; no new core wire field, registered content namespace or completed custody-wire implementation is implied. Custody clarification (round467): E2E and multicast channel custody only, subject to negotiated responsibility and channel authorization; no public CDN-style object repository. F31 reuse is confined to authorized multicast consumers/branches. ALIAS possession does not grant access, and E2E retention for one recipient alone does not qualify as cross-requester reuse.",
+      "profile": "IPv4 / UDP / PRP wire-v4, protected adjacency and E2E 0x0202; numeric peers, known identities; privacy mechanisms enabled; independent deployment uses private IPv4; C08: interior transit between intermediaries, no endpoint rendezvous/deeper-session termination or optional traffic-history logging G01 global deployment: conventional globally routed IPv4/UDP over the BGP Internet, matching IP/MQ and round119 BP/LP/I2/GN. Private IPv4 deployments remain separate S03 capabilities; adjacent-only IP meshes are not this global witness. This does not change native PRP L3. F29–F31 architectural witnesses (round465): content-representing ALIAS for supplier discovery; digest-bound ALIAS with independently trusted expected reference for object verification; author-confirmed negotiated content custody serving additional consumers, including multicast announcement with custody. Content convention and consumer verification are explicit; no new core wire field, registered content namespace or completed custody-wire implementation is implied. Custody clarification (round467): E2E and multicast channel custody only, subject to negotiated responsibility and channel authorization; no public CDN-style object repository. F31 reuse is confined to authorized multicast consumers/branches. ALIAS possession does not grant access, and E2E retention for one recipient alone does not qualify as cross-requester reuse. C06 criterion-specific architectural witness: author-approved TPA successor fast paths (TPA candidate section 7; observer/bootstrap proposal section 10), established protected channels, distinct adjacency/final-channel identities and hop-local realization selectors. This replaces retained wire-v4 onion framing only for C06; no implementation or bootstrap admission is claimed. Other criterion profiles are unchanged. F32 architectural witness: author-confirmed local trajectory planning from future availability and usable capacity negotiated by each client with aggregators up to the rendezvous; each side negotiates its own half, including QoS/bandwidth reservation. Documentary architectural credit, not a completed wire/planner or global delivery guarantee.",
       "website": "https://prp-protocol.org/",
       "logo": "prp.svg"
     },
@@ -351,13 +351,6 @@
       "research_action": "Identify how the receiver learns wake/listen opportunities, who coordinates delivery, which traffic follows the schedule, and retention/expiry behavior. Specify clock or relative timing, tolerance and schedule changes. Do not inherit old F24 reenrollment evidence or F25 byte budgets; no measured energy saving is implied."
     },
     {
-      "id": "F25",
-      "title": "Bounded protocol overhead for sporadic communication",
-      "definition": "After 24 hours with the endpoint radio silent, exchange 256 useful bytes with one previously authorized peer. Retain provisioned identity, configuration and valid trust, but expire sessions and learned neighbor state. The budget is 65,536 bytes total endpoint-interface transmit plus receive, including selected-stack control, discovery, fresh establishment, framing and useful data, through delivery. Assume no losses and one hop to access. Infrastructure is available; its traffic not crossing this endpoint interface is outside this metric. This is a bounded documentary configuration witness, not an energy measurement, global traffic bound or guarantee for every configuration.",
-      "method": "Documentary endpoint byte accounting",
-      "research_action": "Count all endpoint-facing traffic for a complete selected-stack witness; preserve unresolved components explicitly."
-    },
-    {
       "id": "F26",
       "title": "Prevents unauthorized traffic from consuming downstream link capacity",
       "definition": "The selected composition provides a native transit admission or authorization check before transmission on an identified onward link. Traffic lacking the required local forwarding authority is rejected or constrained there, protecting subsequent links from that traffic. Identify the enforcement point, onward links protected, required policy and costs already incurred upstream. Local adjacency or forwarding authority may suffice; intermediaries need not know final endpoint identity. Endpoint-only filtering, encryption, receiver flow control and congestion control alone do not qualify. Yes does not imply protection of the ingress medium already traversed, RF-jamming resistance, guaranteed bandwidth or containment of every authorized attacker. Missing boundary evidence remains Pending; No applies only to the selected composition.",
@@ -419,13 +412,6 @@
       "definition": "Integration with existing networks: the selected composition bridges layer-2 frames across multiple forwarding hops while preserving the link service presented to attached endpoints without requiring changes to those endpoints. Identify the supported frame/link type; the existing evaluated service is Ethernet, including unicast, broadcast/multicast, forwarding or learning and MTU constraints. Using Ethernet as a carrier or routing IPv6 ULA packets does not itself provide this service. A hypothetical bridge adapter or unselected tunnel is insufficient. No unlimited broadcast-domain scale is required.",
       "method": "Primary architectural or protocol evidence for the selected composition; distinguish capability from execution",
       "research_action": "Identify endpoint attachment and the multi-hop Ethernet data path, upper-layer transparency, forwarding/loop controls and frame-size limitations. Distinguish F01 non-IP operation and F35 incremental deployment."
-    },
-    {
-      "id": "F35",
-      "title": "Network-function deployment without endpoint modification",
-      "definition": "The selected composition can introduce a stated routing, path-management, mobility or connectivity function through intermediate network equipment while existing communicating endpoints retain their protocol implementations and applications. Identify the added function, upgraded equipment and unchanged endpoint boundary. Ordinary attachment or address provisioning may be allowed and must be disclosed. A new endpoint agent, protocol stack or application library does not qualify for that deployment. Merely operating the existing network unchanged does not establish an added function.",
-      "method": "Primary architectural or protocol evidence for the selected composition; distinguish capability from execution",
-      "research_action": "Describe a concrete before/after deployment, the new network benefit, required intermediate upgrades and any endpoint configuration changes. Verify that both communicating endpoint implementations remain unchanged. Distinguish D01 privileges, D02 kernel modules and F23 endpoint-controlled mobility."
     },
     {
       "id": "C01",
@@ -9692,551 +9678,6 @@
       "qualification": "Neither DNS rendezvous nor preserving an Identifier schedules packet arrival when the radio is awake. No timed delivery custodian or power-saving access mechanism is selected. This preserves the distinction between retaining communication identity through mobility and coordinated reception during planned sleep."
     },
     {
-      "id": "F25-PN",
-      "feature": "F25",
-      "stack": "PN",
-      "status": "?",
-      "reason": "The selected column still specifies wire-v4 with protected adjacency and E2E suite 0x0202. The effective wire-v4 document retains ONION and two-flight HS2. The author-approved no-ONION fast-path direction belongs to a separately described successor: the TPA proposal explicitly preserves the existing wire implementation and leaves successor encoding/migration unqualified. These are not interchangeable byte budgets. Rechecking legacy TLV widths for identity suite 0x0002 gives M1=1736 and M2=1778 bytes; two fresh exchanges total 7028 canonical HS2 bytes before framing. For 256 useful bytes split into two 128-byte directions, legacy OPEN/ACCEPT plus four E2E item headers, four RRL record headers and four list counts total 384 inner bytes. The older 640-byte candidate instead contained 512 useful bytes. Neither inner amount is a complete endpoint budget or automatically additive to historical link subtotals. The next source review locates an actual cover scheduler and padding policy: prp_session_cover_work_fn sends an empty two-byte RRL only for active adjacent TX sessions. For suite 0x0202 the unpadded protected unit is 30 bytes (12 nonce + 2 RRL + 16 tag). Its size is raised to the configured padding target, bounded by session capacity. The scheduler uses ceil(8*unit_bytes*10^9/cover_rate_bps) nanoseconds with a 1 ms floor, and schedules from the actual current time rather than replaying missed intervals. At a 256-byte target and 1024 bit/s, one stable TX adjacency sends at most 1+floor(T/2 seconds) automatic cover units over an active interval T. For one such adjacency in each direction and T=60 seconds, the conservative cover-only bound is 18228 native Ethernet byte-times or 19964 over IPv4/UDP/Ethernet. This is a conditional source-derived bound, not measured completion in 60 seconds. Native Ethernet discovery now has a concrete source witness: version 2 SOLICIT and ANNOUNCE payloads are 48 bytes. A received SOLICIT causes a unicast ANNOUNCE when the link is allowed; ANNOUNCE records TX_ADDRESSABLE and RX_OBSERVED with current member generation and lease. One bilateral discovery cycle has two solicitations and two responses, totaling 344 untagged Ethernet byte-times (4*(48+38)). The default scan interval is 10000 ms and advertised lease 30000 ms. On an isolated two-node link, starting with no queued discovery work, no manual solicitations, resets or withdrawals, a 60-second interval has at most 28 such frames under a schedule with spacing at least ten seconds: 2408 byte-times. This accounts for continuing periodic discovery, not just the initial exchange.",
-      "method": "Native carrier source trace and conditional discovery-frame bound; no runtime execution",
-      "source_label": "Effective sibling specification files pinned by path and SHA256 in round474-sources.json; successor files include uncommitted proposals, not all attributable to the observed HEAD or public mirror",
-      "sources": [
-        "https://github.com/prp-protocol/specifications/blob/main/specifications/prp-wire-v4.md"
-      ],
-      "editorial_references": [
-        "round474.html",
-        "round474-sources.json",
-        "round474-budget.json",
-        "round349-budget.json",
-        "round351-closure.json",
-        "round475.html",
-        "round475-sources.json",
-        "round475-budget.json",
-        "round476.html",
-        "round476-sources.json",
-        "round476-budget.json"
-      ],
-      "qualification": "Native discovery is source-bound, not an unbounded unknown or a zero-cost assumption. The interval calculation assumes stable allowed attachments, one interface per node, no other discovery participants/traffic and at least 10-second actual scan spacing; a Linux timing realization must preserve that spacing. Local current-member context creation remains necessary after wake; a carrier ANNOUNCE proves no PRP identity and HS2 still authenticates the peer. The 60-second interval is not an execution result or guaranteed delivery time. The complete F25 sequence still needs actual admission, route/relation exchange multiplicity, protected useful-data wrapping and successful delivery time consistent with the positive cover policy from round475. No independent acceptance of integration or the no-ONION successor is inferred. This Ethernet-discovery count is not silently reused for the UDP/IP carrier."
-    },
-    {
-      "id": "F25-PI",
-      "feature": "F25",
-      "stack": "PI",
-      "status": "?",
-      "reason": "The selected column still specifies wire-v4 with protected adjacency and E2E suite 0x0202. The effective wire-v4 document retains ONION and two-flight HS2. The author-approved no-ONION fast-path direction belongs to a separately described successor: the TPA proposal explicitly preserves the existing wire implementation and leaves successor encoding/migration unqualified. These are not interchangeable byte budgets. Rechecking legacy TLV widths for identity suite 0x0002 gives M1=1736 and M2=1778 bytes; two fresh exchanges total 7028 canonical HS2 bytes before framing. For 256 useful bytes split into two 128-byte directions, legacy OPEN/ACCEPT plus four E2E item headers, four RRL record headers and four list counts total 384 inner bytes. The older 640-byte candidate instead contained 512 useful bytes. Neither inner amount is a complete endpoint budget or automatically additive to historical link subtotals. The next source review locates an actual cover scheduler and padding policy: prp_session_cover_work_fn sends an empty two-byte RRL only for active adjacent TX sessions. For suite 0x0202 the unpadded protected unit is 30 bytes (12 nonce + 2 RRL + 16 tag). Its size is raised to the configured padding target, bounded by session capacity. The scheduler uses ceil(8*unit_bytes*10^9/cover_rate_bps) nanoseconds with a 1 ms floor, and schedules from the actual current time rather than replaying missed intervals. At a 256-byte target and 1024 bit/s, one stable TX adjacency sends at most 1+floor(T/2 seconds) automatic cover units over an active interval T. For one such adjacency in each direction and T=60 seconds, the conservative cover-only bound is 18228 native Ethernet byte-times or 19964 over IPv4/UDP/Ethernet. This is a conditional source-derived bound, not measured completion in 60 seconds.",
-      "method": "Source control-flow review and conditional cover-byte bound; no runtime execution",
-      "source_label": "Effective sibling specification files pinned by path and SHA256 in round474-sources.json; successor files include uncommitted proposals, not all attributable to the observed HEAD or public mirror",
-      "sources": [
-        "https://github.com/prp-protocol/specifications/blob/main/specifications/prp-wire-v4.md"
-      ],
-      "editorial_references": [
-        "round474.html",
-        "round474-sources.json",
-        "round474-budget.json",
-        "round349-budget.json",
-        "round351-closure.json",
-        "round475.html",
-        "round475-sources.json",
-        "round475-budget.json"
-      ],
-      "qualification": "F25 remains Pending. The cover-rate field is not a total interface shaper: real traffic is additional, and the separate TX_CREDIT path can emit extra cover units. The candidate therefore excludes manual credit requests, cover-policy resets and replacement adjacencies during its measured interval, with exactly one active TX adjacency in each direction and capacity at least 256 bytes. Ethernet is untagged; IPv4 has no options; 38 Ethernet byte-times and 28 IPv4/UDP bytes are counted per 256-byte unit. PHY-specific coding is not included. Target=256 is a padding floor, not a cap on larger real packets. The 60-second duration is an explicit candidate condition still needing a successful complete sequence, not a newly imposed F25 deadline. Actual bootstrap, route/relation controls, protected data wrapping and delivery time remain to be bounded together. Local admission method 0 permits direct HS2 without challenge/proof while retaining 0x0202; it is not a downgrade or a universal entitlement against a peer requiring PoW. The no-ONION successor is not substituted. No source binding here claims integrated implementation acceptance."
-    },
-    {
-      "id": "F25-IP",
-      "feature": "F25",
-      "stack": "IP",
-      "status": "Y",
-      "reason": "Constructive IPv4/Ethernet witness: retained static numeric addressing and route, expired ARP cache, no options, no session or added transport. A successful ARP request/reply costs 2 x 84 byte-times including minimum-frame padding, preamble and inter-frame gap. Two datagrams each carrying 256 useful bytes cost 2 x (256 + 20 + 38). Total 796, below 65,536. This even allows 256 useful bytes in each direction. Cold neighbor acquisition and recurring wake use the same exchange.",
-      "method": "Constructive plausibility bound; no runtime measurement",
-      "source_label": "Approved endpoint budget and documentary wire-size accounting",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc791.html",
-        "https://www.rfc-editor.org/rfc/rfc826.html"
-      ],
-      "editorial_references": [
-        "round313-budget.json",
-        "round313-prior.json"
-      ],
-      "qualification": "A static IPv4 witness within the existing IPv4-or-IPv6 column; not a bound for all configurations. No DHCP, DNS, TLS or endpoint BGP is selected. It supplies no cryptographic peer authentication. No runtime capture was performed."
-    },
-    {
-      "id": "F25-BP",
-      "feature": "F25",
-      "stack": "BP",
-      "status": "Y",
-      "reason": "A compact configured BPv7/BPSec transfer can meet F25 after fresh TCP/TLS1.3/TCPCLv4 setup. The inventory includes both contact headers, mutual certificate authentication and NODE-ID checking, SESS_INIT, two protected bundles carrying 256 useful bytes each, transfer acknowledgments and conservative shutdown/keepalive reserves. Bounded standard BPSec blocks fit a 2,048-byte bundle. At MSS 1,024, 32 data-bearing segments plus ACK, connection control, IPv4/Ethernet overhead and fresh ARP total at most 41,314 byte-times.",
-      "method": "Constructive documentary byte envelope",
-      "source_label": "Primary BP/BPSec/TCPCL/TLS formats and complete endpoint inventory",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9174.html",
-        "https://www.rfc-editor.org/rfc/rfc9171.html",
-        "https://www.rfc-editor.org/rfc/rfc9172.html",
-        "https://www.rfc-editor.org/rfc/rfc9173.html",
-        "https://www.rfc-editor.org/rfc/rfc8446.html"
-      ],
-      "editorial_references": [
-        "round320-budget.json",
-        "round320-sources.json"
-      ],
-      "qualification": "Conditional documentary bound: compact numeric EIDs, locally trusted certificate chains <=2,048 bytes each, bounded TLS messages and <=32 data-segment packetization. Retain BPSec keys and authorization but establish a new transport session. No DNS, OCSP, resumption, optional TLS padding, bundle reports, retransmission or arbitrary extensions. All selected security layers remain; this is not a generic bound for every certificate/bundle or implementation. Exact executable BPv7/BPSec/TCPCL and SABR integration remains separately unqualified. No runtime, energy or throughput claim."
-    },
-    {
-      "id": "F25-CG",
-      "feature": "F25",
-      "stack": "CG",
-      "status": "Y",
-      "reason": "A compact configured BPv7/BPSec transfer can meet F25 after fresh TCP/TLS1.3/TCPCLv4 setup. The inventory includes both contact headers, mutual certificate authentication and NODE-ID checking, SESS_INIT, two protected bundles carrying 256 useful bytes each, transfer acknowledgments and conservative shutdown/keepalive reserves. Bounded standard BPSec blocks fit a 2,048-byte bundle. At MSS 1,024, 32 data-bearing segments plus ACK, connection control, IPv4/Ethernet overhead and fresh ARP total at most 41,314 byte-times. CGR uses retained local contact/range plans and an available post-wake contact; route calculation does not require a new network plan download in this witness.",
-      "method": "Constructive documentary byte envelope",
-      "source_label": "Primary BP/BPSec/TCPCL/TLS formats and complete endpoint inventory",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9174.html",
-        "https://www.rfc-editor.org/rfc/rfc9171.html",
-        "https://www.rfc-editor.org/rfc/rfc9172.html",
-        "https://www.rfc-editor.org/rfc/rfc9173.html",
-        "https://www.rfc-editor.org/rfc/rfc8446.html"
-      ],
-      "editorial_references": [
-        "round320-budget.json",
-        "round320-sources.json"
-      ],
-      "qualification": "Conditional documentary bound: compact numeric EIDs, locally trusted certificate chains <=2,048 bytes each, bounded TLS messages and <=32 data-segment packetization. Retain BPSec keys and authorization but establish a new transport session. No DNS, OCSP, resumption, optional TLS padding, bundle reports, retransmission or arbitrary extensions. All selected security layers remain; this is not a generic bound for every certificate/bundle or implementation. Exact executable BPv7/BPSec/TCPCL and SABR integration remains separately unqualified. No runtime, energy or throughput claim."
-    },
-    {
-      "id": "F25-LT",
-      "feature": "F25",
-      "stack": "LT",
-      "status": "Y",
-      "reason": "A controlled short-contact witness completes the earlier LTP/AOS inventory. Charge 1,024 acquisition octets and 24 complete 1,028-octet AOS-plus-ASM units in each direction: 51,392 bytes total, below 65,536. The 48 units include twelve data/report/ack units and 36 idle units. Four initial idle units establish fresh frame synchronization; data occupy slots 5-8, reports slot 10 and acknowledgments slot 12. At one frame per second, <=0.1 s one-way propagation and <=0.1 s response processing leave causal guards and avoid a 20 s retransmission timer. A complete 256-byte useful payload is carried each way in the compact protected BP bundle; no application fragmentation assumption is needed.",
-      "method": "Conditional documentary byte bound and executable timing arithmetic; no RF or full-stack execution",
-      "source_label": "Primary LTP/AOS/Encapsulation and synchronization formats; explicit constructed short-contact schedule",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc5326.html",
-        "https://ccsds.org/Pubs/732x0b4.pdf",
-        "https://ccsds.org/Pubs/131x0b3s.pdf",
-        "https://ccsds.org/Pubs/734x1b1.pdf",
-        "https://ccsds.org/Pubs/133x1b3e1.pdf"
-      ],
-      "editorial_references": [
-        "round320-budget.json",
-        "round334-budget.json",
-        "round334-sources.json"
-      ],
-      "qualification": "Yes is a bounded documentary plausibility result, not measured performance or a universal spacecraft-link bound. The constructed receiver must acquire within the explicitly charged 1,024-octet prefix and four initial idle frames; CCSDS does not guarantee that acquisition time. Provisioned short, loss-free links, rates/clocks, engine/channel mappings, contact plans and valid BPSec keys are retained after 24 h silence; LTP sessions and frame synchronization are fresh. All idle traffic through the scheduled stop is counted. Pin uncoded historical 131.0-B-3, mandatory FECF inside each 1,024-byte AOS frame, compact managed options and Encapsulation fill. No other traffic, reports, coding, retries or plan/key downloads. Longer acquisition, propagation or processing requires recalculation. Full BPv7/BPSec/LTP/Encapsulation/AOS executable integration and physical receiver validation remain unqualified; this decision does not resolve E03, D03, G05 or security testing."
-    },
-    {
-      "id": "F25-LP",
-      "feature": "F25",
-      "stack": "LP",
-      "status": "Y",
-      "reason": "The selected known-peer IPv4/UDP/QUIC libp2p composition admits a bounded fresh-session witness below 64 KiB. Include mutual TLS Peer ID authentication, two native Identify streams, multistream-select negotiation for those streams and one bidirectional data stream, and 256 useful bytes in each direction. Reserve 42 UDP datagrams up to 1,232 bytes, 40 short ACK-only datagrams and fresh ARP; with IPv4/UDP and Ethernet byte-time overhead the total is 62,444 bytes. The four padded Initial ACK reservations are separate from the short-ACK allowance.",
-      "method": "Constructive complete endpoint byte inventory",
-      "source_label": "Native libp2p QUIC, TLS, Identify and multistream-select specifications",
-      "sources": [
-        "https://github.com/libp2p/specs/blob/master/quic/README.md",
-        "https://github.com/libp2p/specs/blob/master/tls/tls.md",
-        "https://github.com/libp2p/specs/blob/master/identify/README.md",
-        "https://github.com/libp2p/specs/blob/master/connections/README.md",
-        "https://www.rfc-editor.org/rfc/rfc9000.html"
-      ],
-      "editorial_references": [
-        "round321-budget.json",
-        "round321-sources.json"
-      ],
-      "qualification": "Constructive documentary plausibility, not a runtime measurement or universal libp2p limit. Compact certificate <=2,048 bytes and each Identify response <=1,024 bytes, small configured address/protocol metadata, first protocol accepted, sufficient stream/flow credit, bounded packetization and timely loss-free exchange. Optional services such as DHT, NAT discovery, relay and pubsub are not part of this selected known-peer profile. No resumption, extra connection attempts, migration during exchange or unbounded Identify updates. Peer ID authentication and Identify are included, not silently disabled. TLS suite choice here is a size witness, not a K01 resolution."
-    },
-    {
-      "id": "F25-TO",
-      "feature": "F25",
-      "stack": "TO",
-      "status": "?",
-      "reason": "Tor client-operation permits use of a consensus that expired less than 24 hours ago when no live consensus is available. Therefore 24 hours of radio silence does not itself imply that this tolerance has elapsed: a consensus with two hours of validity left at shutdown is only 22 hours past expiry on return. Clients can select microdescriptor consensuses and retain cached descriptors. Separately, directory mirrors support consensus diffs from a known consensus; directory compression includes deflate and recommended LZMA for consensuses and diffs. The size of an uncompressed full consensus is consequently not a mandatory endpoint transfer lower bound for this workload. Four public CollecTor microdescriptor consensuses, valid-after 10:00 UTC on 19–22 October 2026, were downloaded and hashed. Local XZ preset-6 compression of full documents produced 677460–690468 bytes. GNU ed-style differences between consecutive daily documents, compressed with the same setting, produced 62348, 77212 and 79548 bytes. Applying each uncompressed difference reconstructed the next document exactly. Only the first diagnostic difference fits within 65536 bytes, leaving 3188 bytes before any other traffic. Deflate level 9 produced 74814, 91308 and 92984 bytes for the same differences. These are measured document transformations, not a Tor endpoint capture or mirror response. Source inspection of Tor tag tor-0.4.8.16 separates cached-consensus usability from refresh scheduling. networkstatus_consensus_is_bootstrapping returns false for a validated reasonably-live consensus. However, update_consensus_networkstatus_downloads sets the next fetch time to now whenever the consensus is outside its strict validity interval, then checks outstanding requests, retry readiness and missing certificates before requesting a fresh consensus. fetch_networkstatus_callback checks normally every 60 seconds, or every second during the specified testing or bootstrap cases. This interval is not a guaranteed grace period after wake. The reasonably-live predicate in this version includes the exact 24-hour expiry boundary. DisableNetwork delays fetches but also closes outbound connections, so it does not provide directory-only suppression while useful traffic continues.",
-      "method": "Source control-flow trace of usability, scheduling and disable-network behavior",
-      "source_label": "Tor tor-0.4.8.16 networkstatus.c, mainloop.c and manual; SHA-256 pins",
-      "sources": [
-        "https://spec.torproject.org/dir-spec/client-operation.html",
-        "https://spec.torproject.org/dir-spec/directory-cache-operation.html",
-        "https://spec.torproject.org/dir-spec/standards-compliance.html",
-        "https://collector.torproject.org/recent/relay-descriptors/microdescs/consensus-microdesc/"
-      ],
-      "editorial_references": [
-        "round437.html",
-        "round313-budget.json",
-        "round313-prior.json",
-        "round435-sources.json",
-        "round436-measurements.json",
-        "round436_probe.py",
-        "round437-sources.json",
-        "round437-cases.json"
-      ],
-      "qualification": "F25-TO remains Pending. Cache usability does not establish zero refresh traffic. The inspected scheduler does not establish that a complete refresh necessarily finishes before useful delivery either. Do not charge an entire response solely from a scheduled request. The remaining witness must specify retained directory material, loop phase and request state, and count endpoint bytes actually required through delivery, including fresh connections, onion-service lookup and rendezvous. Round436 local GNU-diff compression is not the actual Tor response. This is a version-bounded source trace, not execution of Tor or a statement about every implementation. No criterion or profile change is made."
-    },
-    {
-      "id": "F25-I2",
-      "feature": "F25",
-      "stack": "I2",
-      "status": "?",
-      "reason": "The owner conditionally approved the 64 KiB budget if it unlocks evidence-backed decisions. IP and NDN witnesses now do so. Bound netDb refresh, tunnel construction and the selected destination exchange.",
-      "method": "Constructive plausibility bound; no runtime measurement",
-      "source_label": "Approved endpoint budget and documentary wire-size accounting",
-      "sources": [],
-      "editorial_references": [
-        "round313.html",
-        "round313-budget.json",
-        "round313-prior.json"
-      ],
-      "qualification": "Bound netDb refresh, tunnel construction and the selected destination exchange. Budget approval is no longer pending. No overhead measurement or implementation qualification is inferred."
-    },
-    {
-      "id": "F25-YG",
-      "feature": "F25",
-      "stack": "YG",
-      "status": "Y",
-      "reason": "A bounded configuration witness fits the 65,536-byte F25 budget. Three fresh Yggdrasil v0.5.14 / Ironwood d50055b runs deliver and byte-verify 256 useful bytes in each direction using the ordinary numeric IPv6/UDP API, pinned numeric TLS peering and independent Ed25519 keys. Linux TCP_INFO on the endpoint-facing relay socket reports stream-byte totals 7,385/7,361/7,123 and combined incoming/outgoing segment counts 44/42/38, with no retransmissions, unacknowledged or unsent data at the snapshot. TCP_MAXSEG=1200 yields measured send/receive MSS 1188. Map each trace to provisioned IPv4, untagged Ethernet MTU 1500, no losses, no DHCP/DNS or multicast peer discovery, and fresh ARP. Charge 20 IPv4 + 60 maximum TCP-header + 38 Ethernet byte-times per counted segment, add three complete handshake segments conservatively for listener counter omissions, and two 84-byte-time ARP frames. Totals are 13,099 / 12,839 / 12,129 byte-times, including startup, routing convergence, session establishment and both complete useful payloads. The largest is below 65,536.",
-      "method": "Measured TCP stream and segment accounting plus a conditional loss-free Ethernet configuration model",
-      "source_label": "Pinned upstream code; three ordinary-path successful local executions; Linux TCP_INFO counters and explicit Ethernet/ARP accounting",
-      "sources": [
-        "https://github.com/yggdrasil-network/yggdrasil-go/blob/422836eeb21a99790caa286aa63d493bbc4766d7/src/core/core_test.go",
-        "https://github.com/torvalds/linux/commit/2efd055c53c06b7e89c167c98069bab9afce7e59",
-        "https://github.com/torvalds/linux/blob/v5.14/include/net/tcp.h",
-        "https://github.com/torvalds/linux/blob/v5.14/net/ipv4/tcp_output.c",
-        "https://www.rfc-editor.org/rfc/rfc9293",
-        "https://www.rfc-editor.org/rfc/rfc894"
-      ],
-      "editorial_references": [
-        "round340-runtime.json",
-        "round340-sources.json",
-        "round340-harness.go"
-      ],
-      "qualification": "Yes is a documentary low-latency single-peer configuration witness, not a physical Ethernet capture or universal upper bound. Actual execution is loopback; TCP bytes and segment counts are measured, while Ethernet/ARP and transfer of the observed loss-free packetization to the specified link are modeled. The opposite TCP relay leg is infrastructure outside the endpoint interface; the relay does not terminate TLS. Fresh cores stand in for retained valid keys/configuration with expired sessions/learned state, not a physical 24-hour sleep. Payload verification and a 300 ms settling window precede the snapshot; teardown after delivery is outside F25. The upstream routing-readiness wait plus three-second settling delay is not a convergence guarantee. A slower link, other peers, loss/retransmission, background traffic, dynamic addressing, VLAN/Wi-Fi, or different packetization needs a new budget. This credits no energy, global capacity, or runtime interoperability certification."
-    },
-    {
-      "id": "F25-CJ",
-      "feature": "F25",
-      "stack": "CJ",
-      "status": "?",
-      "reason": "The retained cjdns f5902ac source contains CryptoNoise based on BoringTun, with a cjdns-specific additional-data encoding. SessionInnerMut.update_additional serializes an optional previous-session index, the configured credential challenge, a protocol-version entity and four-byte alignment. The historical 120-byte CryptoAuth handshake description therefore cannot be applied indiscriminately to this source. A selected-mode inventory is needed before adding peering, route-server discovery and final-peer encryption costs.",
-      "method": "Versioned wire-structure and construction-path inspection; no execution or total budget",
-      "source_label": "Retained pinned cjdns source and GNUnet 0.20.0 release archive; reviewed 2026-10-22",
-      "sources": [
-        "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/rust/cjdns_sys/src/crypto/crypto_noise.rs"
-      ],
-      "editorial_references": [
-        "round419-sources.json",
-        "round419.html"
-      ],
-      "qualification": "Pin the actual selected handshake mode and both endpoint builds. Account for fresh outer peering and final-peer session establishment, credential/version entities, handshake responses/cookies when applicable, switch/session headers, ordinary path lookup and route-server announcement/query traffic crossing the endpoint interface, UDP/IPv4/Ethernet and fresh ARP. Preserve private peering credentials and the selected route-server architecture; neither old DHT-only behavior nor a bare WireGuard handshake is an equivalent whole-stack witness. The record identifies source components, not a total byte bound or a default-mode claim. F25 remains Pending."
-    },
-    {
-      "id": "F25-MQ",
-      "feature": "F25",
-      "stack": "MQ",
-      "status": "Y",
-      "reason": "A bounded fresh mutually authenticated QUIC/TLS1.3 exchange plus multipath-21 setup fits the F25 budget with two validated paths. Reserve 16 crypto/handshake datagrams, eight CID/path-control datagrams, four proactively duplicated STREAM datagrams, two closes and four extra padded Initial ACK datagrams, each with UDP payload up to 1,232 bytes. Add 28 small ACK/PATH_ACK-only datagrams and eight ARP frames across both access interfaces. Including IPv4/UDP and Ethernet overhead, the total is at most 50,236 byte-times. Mandatory 1,200-byte Initial/path-probe padding is included. This retained positive witness uses IPv4 only; the exact total is not an IPv6 overhead calculation.",
-      "method": "Constructive documentary two-path byte envelope",
-      "source_label": "QUIC transport/TLS and selected multipath-21 formats",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9000.html",
-        "https://www.rfc-editor.org/rfc/rfc9001.html",
-        "https://www.rfc-editor.org/rfc/rfc8446.html",
-        "https://www.ietf.org/archive/id/draft-ietf-quic-multipath-21.txt"
-      ],
-      "editorial_references": [
-        "round320-budget.json",
-        "round320-sources.json"
-      ],
-      "qualification": "Compact local certificate chains <=2,048 bytes, bounded Hello/transport parameters, two paths, CID <=20 bytes, single-range ACKs and no loss, Retry, version negotiation, ticket/resumption, 0-RTT or key update. Additional Initial-ACK padding is explicitly budgeted; the small-ACK bound does not apply to Initial packets requiring padding. Configure timely acknowledgments and no unrelated PING/rotation/traffic before delivery. Optional proactive copies are counted on both paths. This is one allowed TLS-suite/packetization witness, not a change to K01 or a general certificate/profile bound. No runtime, congestion, energy or interoperability qualification."
-    },
-    {
-      "id": "F25-SC",
-      "feature": "F25",
-      "stack": "SC",
-      "status": "Y",
-      "reason": "A same-AS SCION/UDP endpoint exchange fits the 64 KiB budget with fresh underlay neighbor discovery. The official Empty path has zero wire bytes and is valid inside an AS. Pinned v0.13.0 snet writer code derives the direct underlay next hop from the numeric destination when the local and remote IAs match. With IPv4 host addresses, the SCION header is 12 common + 24 address + 0 path bytes. Each 256-byte UDP payload therefore costs 366 Ethernet byte-times including both UDP headers, outer IPv4 and link overhead. Two directions plus a fresh ARP request/reply total 900 byte-times. No expiring inter-AS segment or transport session is reused.",
-      "method": "Constructive same-AS documentary byte envelope; no new protocol execution",
-      "source_label": "Versioned official SCION header specification and v0.13.0 packet construction, plus IPv4/ARP/Ethernet accounting",
-      "sources": [
-        "https://docs.scion.org/en/v0.13.0/protocols/scion-header.html#path-type-emptypath",
-        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/snet/writer.go",
-        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/snet/path/empty.go",
-        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/slayers/path/empty/empty.go",
-        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/slayers/scion.go",
-        "https://github.com/scionproto/scion/blob/90de96d6404a5e4fa56ea020187bff8ab5b501bc/pkg/slayers/udp.go",
-        "https://www.rfc-editor.org/rfc/rfc826.html"
-      ],
-      "editorial_references": [
-        "round337-budget.json",
-        "round337-sources.json"
-      ],
-      "qualification": "Conditional intra-AS witness, not a bound for Internet-wide SCION, remote path retrieval or control-plane startup. Use two endpoints in one provisioned IPv4/Ethernet subnet, numeric addresses, retained local topology/IA/ports and valid trust, with local daemon/dispatcher access. Expire neighbor state; count both ARP frames. No loss, unrelated broadcasts, optional extensions, DHCP/DNS, VLAN, fragmentation or extra security layer. This column supplies no end-to-end TLS or cryptographic peer authentication; none is inferred from the small budget. Any cross-AS, remote-daemon, certificate-refresh or additional link-security configuration needs a separate inventory. The established F25 definition accepts one bounded configuration and does not require crossing AS boundaries. No packet capture, implementation certification or energy claim."
-    },
-    {
-      "id": "F25-RT",
-      "feature": "F25",
-      "stack": "RT",
-      "status": "Y",
-      "reason": "Reticulum 1.5.5 supports a configured serial witness with retained identity/IFAC credentials and an expired Link/path cache. The adjacent available peer hosts the known destination. Eight endpoint packets cover path request, path-response announce, Link request, Link proof, RTT confirmation, Link.identify, a 256-byte encrypted data packet and explicit delivery proof. Each is bounded by the 500-byte selected Link MTU, plus a configured 16-byte IFAC. Worst-case HDLC escaping and two flags cost at most 1,034 serial octets per packet: 8,272 total. Charging 8N1 start/stop bits and rounding upward per packet gives 10,344 byte-equivalents, below 65,536.",
-      "method": "Constructive documentary endpoint budget",
-      "source_label": "Pinned Reticulum 1.5.5 source and serial wire accounting",
-      "sources": [
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Transport.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Destination.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Link.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Packet.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Reticulum.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Interfaces/SerialInterface.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Cryptography/Token.py"
-      ],
-      "editorial_references": [
-        "round315-budget.json",
-        "round315-sources.json"
-      ],
-      "qualification": "Bounded documentary witness, not a measurement or a bound for a busy mesh. Use one serial interface at 115200 8N1, Link MTU 500 (disable link MTU discovery), IFAC 128 bits, empty announce application data, no unrelated announced destinations, no probe service or periodic application announcements. The path-response context does not require ordinary announce rebroadcast. Retain provisioned keys and authorization; perform a fresh Link and identify before data acceptance. Deliver promptly before retry/keepalive timers; no claims about CPU time or energy. No Resource/LXMF transfer is added. This does not settle global announce volume, F15 or G05."
-    },
-    {
-      "id": "F25-NS",
-      "feature": "F25",
-      "stack": "NS",
-      "status": "Y",
-      "reason": "A bounded two-relay NIP-01/WSS configuration meets the endpoint budget while preserving proactive copies on both selected relay paths. Count two fresh DNS A lookups, two complete TCP/TLS1.3/HTTP Upgrade connections, subscription and signed-event exchange on both, acknowledgments and conservative closure/control reserves. The inventory reserves 23 data-bearing TCP segments per relay at MSS 1,024, an ACK per segment, setup/shutdown, IPv4/Ethernet framing, DNS and fresh ARP: 63,020 bytes total. Each event carries 256 useful bytes encoded as base64, with event identifiers, author key, signature and WebSocket framing included.",
-      "method": "Constructive full two-relay endpoint byte inventory",
-      "source_label": "NIP-01 event/relay exchange, WebSocket, DNS and TLS formats",
-      "sources": [
-        "https://github.com/nostr-protocol/nips/blob/master/01.md",
-        "https://www.rfc-editor.org/rfc/rfc6455.html",
-        "https://www.rfc-editor.org/rfc/rfc1035.html",
-        "https://www.rfc-editor.org/rfc/rfc8446.html"
-      ],
-      "editorial_references": [
-        "round324-budget.json",
-        "round324-sources.json"
-      ],
-      "qualification": "Constructive documentary witness, not measured traffic or a bound for arbitrary public relays. Compact validated certificate chain <=2,048 bytes, bounded Hello/HTTP headers, known author and two preselected public relay hostnames; one bounded DNS reply each through the configured recursive resolver. Empty matching stored history and no unrelated matching events; small NIP-01 messages and timely acknowledgments. No tickets, resumption, online certificate fetches, redirects, retries, extra NIPs or optional TLS padding. Two relay paths and duplicate events are counted; infrastructure traffic not crossing the endpoint is excluded by F25. Event length placeholders do not test signatures. Nostr content remains publicly readable under this selected profile."
-    },
-    {
-      "id": "F25-MT",
-      "feature": "F25",
-      "stack": "MT",
-      "status": "?",
-      "reason": "The selected Router.cpp supplies a concrete small-message candidate. For a direct PKI message with portnum 1, 128 useful payload bytes, explicit zero bitfield and other optional Data fields unset, protobuf encoding occupies 135 bytes: 2 for portnum, 3+128 for payload and 2 for bitfield. Adding the 16-byte Meshtastic header and 12-byte PKI overhead yields 163 bytes, below 255. perhapsEncode signs normal broadcasts rather than ordinary PKI unicasts; checkXeddsaReceivePolicy explicitly accepts the successfully decoded pki_encrypted branch even under STRICT without an additional XEdDSA signature. Two such messages would carry 256 useful bytes with a 326-byte radio-packet subtotal.",
-      "method": "Source-path inspection and independent protobuf size calculation; no protocol execution",
-      "source_label": "Pinned Meshtastic source and GNUnet 0.20.0 release; reviewed 2026-10-22",
-      "sources": [
-        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/Router.cpp"
-      ],
-      "editorial_references": [
-        "round420-sources.json",
-        "round420-packet.json",
-        "round420.html"
-      ],
-      "qualification": "Pending workload clarification: the owner has been asked whether 256 useful bytes may be delivered in multiple independent native messages. No answer or criterion change is inferred. The 326-byte subtotal excludes LoRa physical coding/preamble/header/CRC, wake-up broadcasts, node metadata, ACKs and other endpoint-facing traffic. It is not a complete F25 budget, fragmentation/reassembly capability, cryptographic execution or radio measurement. Retain independently verified peer keys and PKI-capable build; trace the complete one-hop wake-up configuration and preserve STRICT. A single 256-byte native message remains too large for the inspected path."
-    },
-    {
-      "id": "F25-GN",
-      "feature": "F25",
-      "stack": "GN",
-      "status": "?",
-      "reason": "The GNUnet 0.20.0 CADET wire inventory now distinguishes connection creation, authenticated tunnel key exchange, channel opening and useful data. ConnectionCreate includes a connection ID, monotime fields/signature and the whole peer path; the connection source sets/signs monotime in the applicable creation branch. TunnelKeyExchange carries ephemeral and ratchet public keys; TunnelKeyExchangeAuth additionally carries a KDF proof. ChannelOpen and its acknowledgement are separate structures, followed by application data and optional reliable-delivery acknowledgements inside encrypted tunnel messages. The legacy UDP plugin adds its own message header, reserved field and sender identity, and has fragmentation machinery. Additional lower-layer controls are now located in the selected release. Legacy TRANSPORT validation uses a challenge PING and a signed PONG with expiration and a variable address suffix. CORE send_key explicitly sends ephemeral key material plus an encrypted PING, with a PONG response path. Its initial key retry interval is ten seconds and periodic rekey interval twelve hours. CORE EncryptedMessage adds its own header, IV seed, full hash MAC, sequence/reserved fields and timestamp around higher-layer traffic. These cannot be omitted from a CADET-only packet inventory.",
-      "method": "Source-path inspection and independent protobuf size calculation; no protocol execution",
-      "source_label": "Pinned Meshtastic source and GNUnet 0.20.0 release; reviewed 2026-10-22",
-      "sources": [
-        "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz"
-      ],
-      "editorial_references": [
-        "round420-sources.json",
-        "round420-packet.json",
-        "round420.html"
-      ],
-      "qualification": "Count the executed message sequence, not just one key-exchange header. For a bounded direct-neighbor candidate using the supplied HELLO contact, establish whether/how R5N and peerinfo traffic cross the measured interface; retained configuration does not preserve expired sessions. Add legacy TRANSPORT validation and connection setup, CORE key exchange and framing, CADET connection/KX/channel messages, final useful data, acknowledgements, UDP plugin envelopes/fragmentation, IPv4/Ethernet and neighbor repair. Verify message multiplicity and timer conditions in the chosen no-loss configuration before comparing with 65,536 bytes. Do not substitute newer TNG/AEAD message layouts for the selected 0.20.0 legacy UDP profile. No measured or complete documentary bound yet; F25 remains Pending. Include the discovered TRANSPORT PING/PONG and CORE key/PING/PONG exchanges, CORE message-type advertisement/confirmation, and the variable transport-address suffix. Verify retry timing against actual successful establishment; the 24-hour silence must not reuse a CORE session simply because identity keys are retained. The located timer values and structures are source evidence, not a completion-time or total-byte bound."
-    },
-    {
-      "id": "F25-ND",
-      "feature": "F25",
-      "stack": "ND",
-      "status": "Y",
-      "reason": "Constructive direct-Ethernet/static-FIB witness: retain the provisioned producer key and content name, use a fresh Interest and signed Data with 256 content bytes. Bound each complete Name TLV to 64 bytes. Interest including Nonce, lifetime and hop limit is at most 83 bytes. Data with empty MetaInfo, P-256 DER signature at most 72 bytes and a bounded KeyLocator is at most 477 bytes. Allow another 64 bytes of local-link envelope per packet and 38 Ethernet byte-times per packet: at most 764 total, below 65,536. There is no network session to resume or certificate to fetch in this preprovisioned-key witness.",
-      "method": "Constructive plausibility bound; no runtime measurement",
-      "source_label": "Approved endpoint budget and documentary wire-size accounting",
-      "sources": [
-        "https://docs.named-data.net/NDN-packet-spec/current/interest.html",
-        "https://docs.named-data.net/NDN-packet-spec/current/data.html",
-        "https://docs.named-data.net/NDN-packet-spec/current/signature.html"
-      ],
-      "editorial_references": [
-        "round313-budget.json",
-        "round313-prior.json"
-      ],
-      "qualification": "Bounded names and retained trust are explicit witness parameters, not limits of NDN. No NLSR, arbitrary certificate chain, encrypted content or signed Interest is added. Consumer validation remains required. Static face/FIB setup is local; no wire discovery is omitted from this configured face. No runtime measurement."
-    },
-    {
-      "id": "F25-AX",
-      "feature": "F25",
-      "stack": "AX",
-      "status": "Y",
-      "reason": "The already selected private direct-serial role admits a bounded wake-up witness. Linux 6.12 NET/ROM splits each 256-byte useful message into 236+20-byte fragments; its 15-byte network and 5-byte transport headers keep the larger packet within AX.25 paclen 256. Count fresh AX.25 and NET/ROM connection setup, four data frames for one message in each direction, transport and link acknowledgments, two small announcements and conservative shutdown/maintenance reserves: 32 frames total. A generous 512-byte frame cap, KISS command byte, worst-case doubling by escaping, delimiters and 8N1 start/stop bits yield 41,120 byte-equivalents, below 65,536.",
-      "method": "Constructive native fragmentation and complete endpoint byte inventory",
-      "source_label": "Linux 6.12 NET/ROM, AX.25 and MKISS source; original KISS protocol",
-      "sources": [
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/nr_out.c",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/include/net/netrom.h",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/nr_subr.c",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/netrom/nr_route.c",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/ax25/ax25_out.c",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/drivers/net/hamradio/mkiss.c",
-        "https://www.ax25.net/kiss.aspx"
-      ],
-      "editorial_references": [
-        "round323-budget.json",
-        "round323-sources.json"
-      ],
-      "qualification": "Constructive documentary direct-serial configuration, not a runtime measurement or radio-airtime bound. Retained configured callsigns/ports and a locked NET/ROM route (obs_count=0); learned sessions are recreated. One known adjacent peer, no digipeaters, no unrelated traffic or large route announcements, timely loss-free acknowledgments and timers preventing retry/poll bursts. Standard KISS without optional CRC-mode negotiation. No cryptographic authorization is supplied by this plaintext profile; retained labels/configuration do not imply authenticated peer identity. No IP encapsulation or application-layer fragmentation is introduced."
-    },
-    {
-      "id": "F25-BA",
-      "feature": "F25",
-      "stack": "BA",
-      "status": "Y",
-      "reason": "A supported Ethernet client can use the selected batman-adv native L2 service through an available access bridge. It retains its local MAC and known peer MAC; no endpoint IP, ARP or cryptographic session is added. Linux 6.12 soft-interface transmission learns the client source MAC before forwarding, and reception removes mesh encapsulation before delivering the native Ethernet frame. With the remote peer still available in the live mesh, two 256-byte native payload frames consume 2 x (256 + 14 + 4 + 8 + 12) = 588 endpoint byte-times. This meets the 65,536-byte F25 budget without keeping an endpoint session alive.",
-      "method": "Constructive documentary endpoint byte bound",
-      "source_label": "Pinned Linux 6.12 native Ethernet client and mesh-interface source",
-      "sources": [
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/Documentation/networking/batman-adv.rst",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/soft-interface.c",
-        "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/bridge_loop_avoidance.c"
-      ],
-      "editorial_references": [
-        "round318-budget.json",
-        "round318-sources.json"
-      ],
-      "qualification": "Configured leaf-client witness, not a sleeping mesh-router bound. One untagged Ethernet access port bridges to bat0; mesh hard interfaces remain separate. The available infrastructure and active remote peer retain working reachability, while the returning client is relearned from its first frame. Use loop-free single-access bridges with bridge-loop-avoidance disabled, no STP/LLDP/IP services or unrelated traffic on the client link. Disablement is a disclosed configuration choice, not the kernel default. BATMAN_IV, native bonding and gateway-off choices remain; mesh OGM/translation-table traffic outside this endpoint interface is excluded by the approved F25 boundary. No claim of zero mesh overhead, peer cryptographic authorization, runtime measurement, energy or global capacity."
-    },
-    {
-      "id": "F25-BL",
-      "feature": "F25",
-      "stack": "BL",
-      "status": "Y",
-      "reason": "Use the already selected provisioned leaf LAN of the Babel-routed ULA hierarchy, consistent with D01-BL. Babel continues to maintain routes between infrastructure routers; the ordinary leaf endpoint does not become a Babel speaker. Allow 14 bounded IPv6 control frames for address checks, MLD reports/query, router discovery and neighbor-cache repair, each at most 256 byte-times including Ethernet overhead. Two IPv6 datagrams each carrying 256 useful bytes cost 334 byte-times each. Total upper bound: 4,252, below the 65,536-byte F25 budget.",
-      "method": "Constructive documentary endpoint byte bound",
-      "source_label": "Existing leaf-role decision and primary IPv6/Babel specifications",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc8966.html",
-        "https://www.rfc-editor.org/rfc/rfc4861.html",
-        "https://www.rfc-editor.org/rfc/rfc4862.html",
-        "https://www.rfc-editor.org/rfc/rfc3810.html"
-      ],
-      "editorial_references": [
-        "cells/D01-BL.html",
-        "round317-budget.json",
-        "round317-sources.json"
-      ],
-      "qualification": "Configured Ethernet leaf with retained ULA, link-local address, numeric peer and router configuration; one prefix, two solicited-node groups, no source-list growth, MLD robustness two, no unrelated traffic. Leaf-facing LAN is not a Babel adjacency interface; Babel routing on inter-router links remains part of the selected stack. Infrastructure is available as required by F25, but its control traffic outside this endpoint interface is not charged. Allow fresh neighbor discovery and address checks; finish before additional periodic maintenance or retries. No DNS, DHCP, TCP, TLS or cryptographic peer authentication is introduced. This is documentary plausibility for the existing leaf role, not a bound for a sleeping Babel transit router, arbitrary topology, energy or runtime performance."
-    },
-    {
-      "id": "F25-RI",
-      "feature": "F25",
-      "stack": "RI",
-      "status": "Y",
-      "reason": "A configured leaf can meet the approved F25 workload with its adjacent access router/root as the previously authorized peer. Count up to 14 neighbor/registration/RPL control datagrams, seven PSK DTLS handshake messages including optional cookie retry, seven ACK datagrams and two protected messages of 256 useful bytes each. With bounded options/identities every IPv6 datagram fits 640 bytes. Reserve ten 6LoWPAN fragments per datagram and 144 on-air bytes per fragment including PHY and link ACK. The conservative total is 43,200 bytes, below 65,536. Fresh DTLS and repaired network state are counted; no live session is reused.",
-      "method": "Constructive documentary byte envelope; no runtime measurement",
-      "source_label": "Primary protocol formats, radio framing reference and bounded endpoint inventory",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9147.html",
-        "https://www.rfc-editor.org/rfc/rfc8446.html",
-        "https://www.rfc-editor.org/rfc/rfc6775.html",
-        "https://www.rfc-editor.org/rfc/rfc6550.html",
-        "https://www.rfc-editor.org/rfc/rfc4944.html",
-        "https://www.ti.com/lit/ds/symlink/cc2420.pdf"
-      ],
-      "editorial_references": [
-        "round316-budget.json",
-        "round316-sources.json"
-      ],
-      "qualification": "Constructive documentary witness only: one stable adjacent root/peer, one prefix/context/parent, provisioned PAN/channel/ULA and valid external PSK. Beaconless link, no MAC security, no unrelated traffic, bounded PSK identity/cookie/options, timely loss-free completion before retry timers and within the stated maintenance allowance. No certificate, CID, ticket, DNS or DHCP is introduced. No compression gain is needed for this upper bound. This is not a bound for arbitrary source-route depth, busy networks or all implementations, nor an energy/runtime/interoperability measurement. Selected psk_ke and its K01 verdict are unchanged."
-    },
-    {
-      "id": "F25-HP",
-      "feature": "F25",
-      "stack": "HP",
-      "status": "Y",
-      "reason": "After discarding old HIP/ESP associations, a configured endpoint performs a fresh I1/R1/I2/R2 exchange with the known numeric peer and pinned P-256 identity. Parameter inventories, including puzzles, ECDH, identity, MAC/signature and ESP negotiation, fit four conservative 1,024-byte on-link envelopes. Allow two ESP-protected UDP messages of 256 useful bytes each at 512 byte-times apiece and a fresh ARP request/reply at 168 byte-times. Total at most 5,288, below 65,536; no live-session or ticket reuse is assumed.",
-      "method": "Constructive documentary byte bound",
-      "source_label": "HIPv2/ESP formats and complete endpoint accounting",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc7401.html",
-        "https://www.rfc-editor.org/rfc/rfc7402.html",
-        "https://www.rfc-editor.org/rfc/rfc3602.html",
-        "https://www.rfc-editor.org/rfc/rfc4868.html",
-        "https://www.rfc-editor.org/rfc/rfc826.html"
-      ],
-      "editorial_references": [
-        "round314-budget.json",
-        "round314-sources.json"
-      ],
-      "qualification": "Known reachable peer/locator, bounded negotiation lists, no optional echoes or domain identifier; optional encrypted HOST_ID fits the inventory reserve. All required selected suites and ESP fields are counted. No DNS, rendezvous, NAT traversal, mobility UPDATE, loss/retry or certificate exchange is needed in this stationary wake-up witness. Puzzle difficulty permits completion before retransmission timers; CPU/energy and hostile-peer behavior are outside this byte criterion. No runtime or integration qualification."
-    },
-    {
-      "id": "F25-CX",
-      "feature": "F25",
-      "stack": "CX",
-      "status": "Y",
-      "reason": "For the approved F25 workload, configure bounded names and retain the producer trust key and static FIB. One CRC32C Interest and one ECDSA-SHA256 Content Object carrying 256 useful bytes each fit a conservative 1,024-byte CCNx envelope. The inventory includes validation metadata, signature, complete TLV wrappers and fixed header. Adding IPv4/UDP and Ethernet overhead to both packets, plus ARP request/reply after neighbor-cache expiry, gives at most 2,348 endpoint byte-times, below 65,536.",
-      "method": "Constructive documentary byte bound",
-      "source_label": "CCNx wire format and complete endpoint accounting",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc8609.html",
-        "https://www.rfc-editor.org/rfc/rfc8569.html",
-        "https://www.rfc-editor.org/rfc/rfc826.html"
-      ],
-      "editorial_references": [
-        "round314-budget.json",
-        "round314-sources.json"
-      ],
-      "qualification": "Constructive configuration witness: complete Name TLVs at most 64 bytes, secp256k1 signature at most 72 bytes, bounded public-key/KeyLink metadata and no certificate fetch because the trust key remains provisioned. No DNS, TLS or new security wrapper. Static FIB configuration is retained; learned ARP is rebuilt. This does not qualify a complete executable CCNx ECDSA codec or establish a bound for arbitrary names/certificate chains. No runtime measurement."
-    },
-    {
-      "id": "F25-LI",
-      "feature": "F25",
-      "stack": "LI",
-      "status": "Y",
-      "reason": "A configured IPv4/UDP leaf behind the existing LISP xTR meets the endpoint-interface budget. Allow four minimum Ethernet ARP frames (336 byte-times) for cold neighbor repair and two packets each carrying 256 useful bytes (2 x (256 + 8 UDP + 20 IPv4 + 38 Ethernet byte-times) = 644). Total 980, below 65,536. RFC 9300 sections 4 and 4.2 place mapping and encapsulation at the xTR, not at this ordinary leaf. The retained numeric EID, static local route and provisioned infrastructure require no endpoint DNS or transport-session establishment.",
-      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
-      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9300.html#section-4.2",
-        "https://www.rfc-editor.org/rfc/rfc9301.html",
-        "https://www.rfc-editor.org/rfc/rfc791.html",
-        "https://www.rfc-editor.org/rfc/rfc768.html",
-        "https://www.rfc-editor.org/rfc/rfc826.html"
-      ],
-      "editorial_references": [
-        "round418-sources.json",
-        "round418-budget.json"
-      ],
-      "qualification": "Bounded Ethernet leaf witness, not a sleeping xTR. Infrastructure, including current xTR mappings and registration, remains available as F25 permits; only the endpoint loses learned neighbor state. Map-Request/Reply/Register traffic and outer UDP/LISP headers remain on infrastructure-facing interfaces and are not falsely counted as zero network cost. The peer is off-link, so the leaf repairs its gateway neighbor entry; the gateway can learn the leaf mapping from that exchange. Four ARP frames reserve an additional repair pair. No loss, retries, unrelated broadcasts, endpoint DHCP, DNS or authentication wrapper; two 256-byte useful messages, one in each direction, exceed the required useful-byte total. This supplies no cryptographic authorization. No packet capture or implementation qualification."
-    },
-    {
-      "id": "F25-IL",
-      "feature": "F25",
-      "stack": "IL",
-      "status": "Y",
-      "reason": "A stationary ILNPv6/TCP endpoint can resume with fresh discovery and a fresh connection within a conservative 18,432-byte endpoint budget. Reserve twenty IPv6 access-control frames at 512 byte-times (10,240), two DNS queries and responses at 1,024 each (4,096), twelve TCP control frames at 256 each (3,072), and two 256-useful-byte TCP data frames at 512 each (1,024). The data envelopes include a 40-byte IPv6 header, a 16-byte ILNP destination-options header carrying a 96-bit nonce, up to 60 bytes of TCP header and 38 Ethernet byte-times: 410, below the allocated 512. Fresh nonces and identifier-only transport checksum binding are retained; this does not substitute an ordinary IPv6 TCP session.",
-      "method": "Documentary byte accounting and source-role/lifecycle analysis; no runtime or legal clearance",
-      "source_label": "Primary RFCs and pinned implementation sources; reviewed 2026-10-22",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc6744.html#section-2",
-        "https://www.rfc-editor.org/rfc/rfc6740.html",
-        "https://www.rfc-editor.org/rfc/rfc6741.html",
-        "https://www.rfc-editor.org/rfc/rfc6742.html",
-        "https://www.rfc-editor.org/rfc/rfc4861.html",
-        "https://www.rfc-editor.org/rfc/rfc4862.html",
-        "https://www.rfc-editor.org/rfc/rfc3810.html",
-        "https://www.rfc-editor.org/rfc/rfc9293.html"
-      ],
-      "editorial_references": [
-        "round418-sources.json",
-        "round418-budget.json"
-      ],
-      "qualification": "Constructive configuration witness, not a measurement or universal bound. One retained local NID, unchanged valid locator/prefix, link-local address and configured numeric recursive resolver; one peer DNS name of at most 64 wire octets, one NID and one L64 answer, no alias chain, DNSSEC or additional security wrapper. Two separate UDP DNS queries allow both answers without relying on additional-section processing. The ordinary IPv6 resolver/bootstrap role is included in the endpoint budget. The twenty access frames cover two address checks (one DAD probe each), router solicitation/advertisement, two MLD reports for each of two solicited-node groups plus a query, and three NS/NA pairs; remaining slots are reserve. Provisioned lifetimes remain valid and delivery completes before periodic refreshes. Twelve TCP controls cover a fresh three-way handshake, independent acknowledgments and graceful close; do not retain a TCP session, nonce or learned neighbor entry across sleep. The unchanged locator needs no Locator Update or DNS update. No losses, fallback, unrelated traffic or retry; no cryptographic peer authentication is claimed. Existing mobility capability is unchanged but is not exercised by this stationary wake-up witness."
-    },
-    {
       "id": "C01-PN",
       "feature": "C01",
       "stack": "PN",
@@ -12239,33 +11680,33 @@
       "id": "C06-PN",
       "feature": "C06",
       "stack": "PN",
-      "status": "?",
-      "reason": "The observer inventory establishes that wire-v4 route_alias is local to an adjacent session/generation; AOP encryption hides its RRL from a passive carrier observer. A participating adjacency terminator can decode that RRL. The retained wire section 7.1 requires transit to preserve the E2E annex byte-for-byte, and section 12 exposes the protected unit generation/sequence nonce while encrypting its plaintext. This does not by itself settle whether addresses and visible flow identifiers expose the final-peer pair across the selected observation points. The author-approved successor direction removes ONION, but its proposed forwarding/privacy model must not be silently substituted for the selected wire-v4 composition.",
-      "method": "Selected-composition primary documentary review; no runtime experiment",
-      "source_label": "Pinned current PRP specification and separately identified successor proposal",
+      "status": "Y",
+      "reason": "For C06 explicitly select the author-approved successor fast-path architecture, rather than importing its properties into retained wire-v4 onion framing. TPA candidate section 7 scopes selectors to each hop and realization, without global context-ID semantics or mandatory full-path disclosure. Successor proposal section 10 carries opaque requester-to-current-peer communication over installed scoped state and forbids an intermediate aggregator from terminating that protected session on the requester's behalf. The author confirms that the identity used with the aggregator does not reveal the distinct identity used in the protected fast path. In this established, protected composition, visible local forwarding selectors identify a segment operation rather than the final identity pair; final-channel identities remain within that channel. This supports Yes at the architectural/documentary level used for the matrix's other bounded witnesses.",
+      "method": "Primary documentation and pinned source review; no runtime experiment",
+      "source_label": "TPA hop-local semantics, successor protected forwarding and author identity-scope clarification",
       "sources": [],
       "editorial_references": [
-        "round572.html#C06-PN",
-        "round572.html",
-        "round572-sources.json"
+        "round578.html#C06-PN",
+        "round578.html",
+        "round578-sources.json"
       ],
-      "qualification": "Complete a per-observer established-packet inventory: passive carrier observer versus participating relay with its own adjacency/direct keys; which E2E envelope or identifiers each sees; local alias translation; and which observations associate those values with both final participants. Distinguish a common ciphertext/packet fingerprint from an address/flow identifier under C06 and timing/volume correlation under C07. Preserve the selected PI underlay's segment-address visibility. Do not infer a Yes solely from scoped aliases or encryption, or a No solely from unchanged opaque annex bytes. Bind any successor-based verdict to its actual selected forwarding contract. Bootstrap disclosure and new-session implementation acceptance are separate questions."
+      "qualification": "Criterion-specific architectural witness: established authorized fast paths, hop-local selectors and protected adjacency/final channels with distinct scoped identities; no deliberately exported identity binding or diagnostic route map. An intermediate observes its own neighboring peers and local input/output mapping; the final endpoint knows its own authenticated peer. These are not a global final-peer identifier. The conclusion does not assert traffic unlinkability against timing, volume or combined external identity disclosures; timing/volume belongs to C07. Exact wire encoding, installation, bootstrap and implementation/security admission remain separately unqualified. The selected C06 successor witness is recorded explicitly in both column descriptions; other criteria retain their existing profiles and evidence. It does not retroactively qualify the historical onion annex."
     },
     {
       "id": "C06-PI",
       "feature": "C06",
       "stack": "PI",
-      "status": "?",
-      "reason": "The observer inventory establishes that wire-v4 route_alias is local to an adjacent session/generation; AOP encryption hides its RRL from a passive carrier observer. A participating adjacency terminator can decode that RRL. The retained wire section 7.1 requires transit to preserve the E2E annex byte-for-byte, and section 12 exposes the protected unit generation/sequence nonce while encrypting its plaintext. This does not by itself settle whether addresses and visible flow identifiers expose the final-peer pair across the selected observation points. The author-approved successor direction removes ONION, but its proposed forwarding/privacy model must not be silently substituted for the selected wire-v4 composition.",
-      "method": "Selected-composition primary documentary review; no runtime experiment",
-      "source_label": "Pinned current PRP specification and separately identified successor proposal",
+      "status": "Y",
+      "reason": "For C06 explicitly select the author-approved successor fast-path architecture, rather than importing its properties into retained wire-v4 onion framing. TPA candidate section 7 scopes selectors to each hop and realization, without global context-ID semantics or mandatory full-path disclosure. Successor proposal section 10 carries opaque requester-to-current-peer communication over installed scoped state and forbids an intermediate aggregator from terminating that protected session on the requester's behalf. The author confirms that the identity used with the aggregator does not reveal the distinct identity used in the protected fast path. In this established, protected composition, visible local forwarding selectors identify a segment operation rather than the final identity pair; final-channel identities remain within that channel. This supports Yes at the architectural/documentary level used for the matrix's other bounded witnesses.",
+      "method": "Primary documentation and pinned source review; no runtime experiment",
+      "source_label": "TPA hop-local semantics, successor protected forwarding and author identity-scope clarification",
       "sources": [],
       "editorial_references": [
-        "round572.html#C06-PI",
-        "round572.html",
-        "round572-sources.json"
+        "round578.html#C06-PI",
+        "round578.html",
+        "round578-sources.json"
       ],
-      "qualification": "Complete a per-observer established-packet inventory: passive carrier observer versus participating relay with its own adjacency/direct keys; which E2E envelope or identifiers each sees; local alias translation; and which observations associate those values with both final participants. Distinguish a common ciphertext/packet fingerprint from an address/flow identifier under C06 and timing/volume correlation under C07. Preserve the selected PI underlay's segment-address visibility. Do not infer a Yes solely from scoped aliases or encryption, or a No solely from unchanged opaque annex bytes. Bind any successor-based verdict to its actual selected forwarding contract. Bootstrap disclosure and new-session implementation acceptance are separate questions."
+      "qualification": "Criterion-specific architectural witness: established authorized fast paths, hop-local selectors and protected adjacency/final channels with distinct scoped identities; no deliberately exported identity binding or diagnostic route map. An intermediate observes its own neighboring peers and local input/output mapping; the final endpoint knows its own authenticated peer. These are not a global final-peer identifier. The conclusion does not assert traffic unlinkability against timing, volume or combined external identity disclosures; timing/volume belongs to C07. Exact wire encoding, installation, bootstrap and implementation/security admission remain separately unqualified. The selected C06 successor witness is recorded explicitly in both column descriptions; other criteria retain their existing profiles and evidence. It does not retroactively qualify the historical onion annex. IPv4/UDP addresses remain visible for each carrier segment. The witness uses intermediate PRP forwarding and protected distinct final identities; a direct IP path exposing the actual final locator pair is not this witness."
     },
     {
       "id": "C06-IP",
@@ -12492,16 +11933,18 @@
       "id": "C06-NS",
       "feature": "C06",
       "stack": "NS",
-      "status": "?",
-      "reason": "The criterion was substantively revised by the owner. The previous verdict addresses the archived definition and does not establish the new requirement.",
-      "method": "Reassessment required under owner-approved definition; historical verdict not carried forward",
-      "source_label": "Owner-approved criterion correction; no new protocol verdict",
-      "sources": [],
-      "editorial_references": [
-        "round487.html#C06",
-        "round487-history.json"
+      "status": "N",
+      "reason": "A participating Nostr relay sees the event author pubkey and stable event ID, then associates the delivered event with the reader's WebSocket subscription and connection. NIP-01 uses those fields for filtering and delivery; they are protocol selectors, not merely an opaque payload fingerprint. A publisher and reader using that relay therefore have an observable delivery association. WSS hides these records from passive carrier observers, but not from the relay terminating TLS. The selected basic composition consequently does not conceal the association from all selected transit observers.",
+      "method": "Primary documentation and pinned source review; no runtime experiment",
+      "source_label": "NIP-01 event format, filters and client/relay message definitions",
+      "sources": [
+        "https://raw.githubusercontent.com/nostr-protocol/nips/master/01.md"
       ],
-      "qualification": "Inventory visible fields at each selected observation point, including tunnel terminators and participating relays. State observer keys/access and where protection ends; do not infer whole-path protection from one encrypted segment. Trace identifier translation across adjacencies and distinguish local segment identities from final-peer association."
+      "editorial_references": [
+        "round582.html",
+        "round582-sources.json"
+      ],
+      "qualification": "No claim that a reader exposes a civil identity or authenticated Nostr key: its receiving connection is sufficient for this bounded observation. A signed author is not necessarily the live publishing socket owner; replay by another publisher remains possible. Subscription IDs are connection-local, whereas event IDs and author keys persist across relay copies. Credit concerns protocol-visible delivery metadata, not timing correlation, compulsory logging or a private-message recipient field. No NIP-17/44, Tor or additional privacy wrapper is selected. Other Nostr profiles require separate assessment."
     },
     {
       "id": "C06-MT",
@@ -18960,15 +18403,21 @@
       "id": "E05-I2",
       "feature": "E05",
       "stack": "I2",
-      "status": "?",
-      "reason": "New criterion: evidence for this exact selected profile has not yet been established. Missing evidence is not a negative finding.",
-      "method": "Initial evidence inventory; no new execution",
-      "source_label": "Approved criterion and initial research task",
-      "sources": [],
-      "editorial_references": [
-        "round201.html#E05"
+      "status": "Y",
+      "reason": "I2P announced StormyCloud's operational outproxy on 4 August 2022. A November 2022 direct interview describes the nonprofit's independently operated servers serving community traffic; the January 2023 project account explicitly identifies the service as third-party operated rather than hosted or maintained by I2P. On 16 September 2023 a community report reproduced the operator's one-year service anniversary statement. These dated records support more than six months of real-user I2P destination/tunnel service by an external organization.",
+      "method": "Primary documentation and pinned source review; no runtime experiment",
+      "source_label": "Dated I2P announcement and direct StormyCloud operator accounts",
+      "sources": [
+        "https://i2p.net/en/blog/2022/08/04/how-to-switch-to-the-stormycloud-outproxy-service/",
+        "https://theoverlay.ghost.io/meet-your-maintainer-a-conversation-with-i2p-outproxy-operators-stormycloud-inc/",
+        "https://theoverlay.ghost.io/i2p-core-outproxy-workflow-new-user-testing-and-evaluation/",
+        "https://theoverlay.ghost.io/milestones/"
       ],
-      "qualification": "Find public operator evidence, role, profile/version, deployment dates and real-user scope. Independence does not require a commercial ISP; do not infer operation from download counts."
+      "editorial_references": [
+        "round575.html",
+        "round575-sources.json"
+      ],
+      "qualification": "Historical role-level documentary inference, using the same adoption granularity as Tor, AX.25/NET/ROM, batman-adv and Nostr. Credit the I2P destination/tunnel role serving users in 2022-2023, not the outproxy's separate clearnet forwarding capability. Cooperation with I2P developers is disclosed; independent operation here means separately administered infrastructure, not an absence of collaboration or a second independent implementation. These sources do not attest the selected later i2pd 2.58.0 hybrid type-6 session, exact NTCP2-only transport policy, private-address bootstrap configuration or isolated-key/no-history options. No post-quantum deployment or every optional setting is credited by this adoption result. No live service test, traffic count, uninterrupted uptime or present governance independence is inferred."
     },
     {
       "id": "E05-YG",
@@ -19046,18 +18495,20 @@
       "id": "E05-NS",
       "feature": "E05",
       "stack": "NS",
-      "status": "?",
-      "reason": "The nostr.wine operator documentation provides dated operational evolution from April 2023 through September 2024 and June 2025, and distinguishes operator Katie/Mazin from the underlying strfry author. However, its filter-relay workflow requires NIP-42 and uses a strfry aggregation service, whereas this column selects basic NIP-01 without NIP-42 and has an explicit nostr-rs-relay memory-only witness. The dated service is useful adoption evidence but does not establish the selected basic deployment as-is.",
-      "method": "Selected-composition primary documentary review; no runtime experiment",
-      "source_label": "Dated Freifunk Stuttgart operator reports and nostr.wine operator documentation",
+      "status": "Y",
+      "reason": "Kirino's 21 December 2023 operator account identifies relay.nostr.wirednet.jp and companion relays and describes real client event/REQ processing over WebSocket using Nostream. The same operator's 11 December 2024 annual report states that the Japanese and globally open relays operated through the year, with monthly maintenance and actual user traffic. The two accounts span 356 days. Nostream documents the basic NIP-01 flow. Together these support sustained operation of the basic event-relay role by an external community operator, rather than a research demonstration.",
+      "method": "Primary documentation and pinned source review; no runtime experiment",
+      "source_label": "Dated Kirino operator accounts and Nostream basic protocol documentation",
       "sources": [
-        "https://nostr-wine.github.io/filter-relay/"
+        "https://zenn.dev/imksoo/articles/19287395ff403e",
+        "https://zenn.dev/imksoo/articles/92be671d734551",
+        "https://github.com/Cameri/nostream"
       ],
       "editorial_references": [
-        "round573.html",
-        "round573-sources.json"
+        "round574.html",
+        "round574-sources.json"
       ],
-      "qualification": "Find a dated independent operator witness for basic WSS/NIP-01 event publication and retrieval spanning at least six months, without requiring a selected-out authentication extension. Explain which ancillary services can be excluded from the credited role. Do not infer memory-only retention, TLS version, optional padding or all per-cell configurations from a relay's public availability. Current mismatch is not evidence that Nostr lacks real users."
+      "qualification": "Historical role-level documentary inference, matching the adoption granularity used for Tor, AX.25/NET/ROM and batman-adv. The global relay is the witness; regional IP filtering is not imported into the selected profile. Kirino contributed SQL optimizations and filtering tooling to an existing Nostream deployment; this contribution is disclosed and is not a second-independent-implementation claim. Credit basic event publication/REQ retrieval, not optional authentication, encryption extensions or a guaranteed service level. Exact TLS builds, optional padding, client multi-relay policy and every study-specific configuration are not attested. In particular the operator used persistent PostgreSQL and logs, not the separate historical C08 memory-only nostr-rs-relay witness. No live WebSocket transaction or runtime qualification was performed."
     },
     {
       "id": "E05-MT",
@@ -25164,33 +24615,33 @@
       "id": "F32-PN",
       "feature": "F32",
       "stack": "PN",
-      "status": "N",
-      "reason": "The selected PRP composition provides negotiated availability windows, retention across path loss, and relationship-scoped capacity observations. It does not define a planner combining a sequence of future contacts with their usable transfer volumes to select a temporally and capacity-feasible route. Architecture section 8.2 specifies window negotiation; Retention sections 2, 4 and 10 define bounded storage and waiting for a usable path, explicitly without reserving contact opportunities or bandwidth. Resource Reporting sections 3, 6 and 12 provide local raw observations, including estimated residual rate, not a future topology/contact plan. These documented mechanisms support scheduling and delayed forwarding, not the distinct F32 route-planning function.",
-      "method": "Selected-composition primary documentary review; no runtime experiment",
-      "source_label": "Pinned current PRP specification and separately identified successor proposal",
+      "status": "Y",
+      "reason": "The protocol author confirms that clients calculate their trajectories using negotiated availability and transport capacity. Each client negotiates capacity, QoS and bandwidth reservation with the aggregators along its half of the path up to the rendezvous; the opposite client does the same for the other half. Known future availability and usable capacity therefore feed local trajectory selection, including whether the intended transfer fits the selected opportunities. Planning need not be performed by a central service or by one participant with the entire end-to-end contact plan. This author-confirmed architectural composition supplies the capability omitted by the earlier review, which assessed availability windows and resource observations separately.",
+      "method": "Direct protocol-author clarification and architectural composition assessment; no runtime test",
+      "source_label": "Protocol author, conversation of 2026-10-23; exact statement preserved in round581-sources.json",
       "sources": [],
       "editorial_references": [
-        "round572.html#F32-PN",
-        "round572.html",
-        "round572-sources.json"
+        "round581.html#F32-PN",
+        "round581.html",
+        "round581-sources.json"
       ],
-      "qualification": "No contact-plan route-planning extension is selected. This No concerns the declared composition, not an impossibility of extending PRP or a negative assessment of negotiated DTN windows, custody, retention or client-selected trajectories. A future profile could qualify by supplying a route-selection rule over future contact times and capacities, including item-volume feasibility and stale-plan handling; it need not use SABR's particular algorithm. Residual-rate estimates, storage-byte limits and a local send window alone do not establish this function. No runtime test is required for this bounded documentary verdict."
+      "qualification": "Architectural Yes based explicitly on the author clarification, not an independently demonstrated wire or executable planner. Each side is responsible for negotiating its own half; knowledge or authority over the other half is not assumed. A local feasible plan is not by itself a global delivery guarantee: rendezvous coordination, custody where required, current agreements and compatible delivery timing still matter. This does not assign a global clock, atomic reservation protocol, numeric opcode or stale-plan recovery procedure. Concrete capacity accounting, validity and change handling remain implementation/profile obligations. F32 does not require guaranteed bandwidth or a particular SABR algorithm. The clarification establishes a composed planning capability; it does not turn a resource report or the retention mechanism alone into a reservation service."
     },
     {
       "id": "F32-PI",
       "feature": "F32",
       "stack": "PI",
-      "status": "N",
-      "reason": "The selected PRP composition provides negotiated availability windows, retention across path loss, and relationship-scoped capacity observations. It does not define a planner combining a sequence of future contacts with their usable transfer volumes to select a temporally and capacity-feasible route. Architecture section 8.2 specifies window negotiation; Retention sections 2, 4 and 10 define bounded storage and waiting for a usable path, explicitly without reserving contact opportunities or bandwidth. Resource Reporting sections 3, 6 and 12 provide local raw observations, including estimated residual rate, not a future topology/contact plan. These documented mechanisms support scheduling and delayed forwarding, not the distinct F32 route-planning function.",
-      "method": "Selected-composition primary documentary review; no runtime experiment",
-      "source_label": "Pinned current PRP specification and separately identified successor proposal",
+      "status": "Y",
+      "reason": "The protocol author confirms that clients calculate their trajectories using negotiated availability and transport capacity. Each client negotiates capacity, QoS and bandwidth reservation with the aggregators along its half of the path up to the rendezvous; the opposite client does the same for the other half. Known future availability and usable capacity therefore feed local trajectory selection, including whether the intended transfer fits the selected opportunities. Planning need not be performed by a central service or by one participant with the entire end-to-end contact plan. This author-confirmed architectural composition supplies the capability omitted by the earlier review, which assessed availability windows and resource observations separately.",
+      "method": "Direct protocol-author clarification and architectural composition assessment; no runtime test",
+      "source_label": "Protocol author, conversation of 2026-10-23; exact statement preserved in round581-sources.json",
       "sources": [],
       "editorial_references": [
-        "round572.html#F32-PI",
-        "round572.html",
-        "round572-sources.json"
+        "round581.html#F32-PI",
+        "round581.html",
+        "round581-sources.json"
       ],
-      "qualification": "No contact-plan route-planning extension is selected. This No concerns the declared composition, not an impossibility of extending PRP or a negative assessment of negotiated DTN windows, custody, retention or client-selected trajectories. A future profile could qualify by supplying a route-selection rule over future contact times and capacities, including item-volume feasibility and stale-plan handling; it need not use SABR's particular algorithm. Residual-rate estimates, storage-byte limits and a local send window alone do not establish this function. No runtime test is required for this bounded documentary verdict. The IPv4/UDP underlay adds ordinary reachability, not a contact-plan routing extension."
+      "qualification": "Architectural Yes based explicitly on the author clarification, not an independently demonstrated wire or executable planner. Each side is responsible for negotiating its own half; knowledge or authority over the other half is not assumed. A local feasible plan is not by itself a global delivery guarantee: rendezvous coordination, custody where required, current agreements and compatible delivery timing still matter. This does not assign a global clock, atomic reservation protocol, numeric opcode or stale-plan recovery procedure. Concrete capacity accounting, validity and change handling remain implementation/profile obligations. F32 does not require guaranteed bandwidth or a particular SABR algorithm. The clarification establishes a composed planning capability; it does not turn a resource report or the retention mechanism alone into a reservation service. IPv4/UDP supplies the carrier; this planning benefit belongs to PRP agreements and trajectory selection, not BGP or an inferred underlay bandwidth guarantee."
     },
     {
       "id": "F32-IP",
@@ -26549,472 +26000,6 @@
         "round469-sources.json"
       ],
       "qualification": "Identifier/Locator separation and DNS NID/L64 records address participants and their locations; no content-reference, IPsec or application-security layer is selected. The existence of Ethernet beneath the stack does not make it an Ethernet bridge. No TAP service, pseudowire or Ethernet-carrying application is selected."
-    },
-    {
-      "id": "F35-PN",
-      "feature": "F35",
-      "stack": "PN",
-      "status": "?",
-      "reason": "The current architecture permits transit and optional aggregation without transferring endpoint identity or application authority. This supports an infrastructure-only candidate but does not specify its complete deployment procedure. Current wire-v4 section 1.1 retires the prior HS2 establishment path and requires refusal where successor dependencies are unavailable. Member Route Intent separately withholds general ACCEPTED emission pending ROUTE-001. Reusing the retired handshake or assuming route activation would not establish the proposed before/after witness.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Current PRP specification worktree, retained by hash; not a published snapshot",
-      "sources": [],
-      "editorial_references": [
-        "round525.html",
-        "round525-sources.json",
-        "round525.html",
-        "round525-sources.json"
-      ],
-      "qualification": "Close a bounded native-PRP witness: identify the added intermediate routing/connectivity function, unchanged endpoint implementation/profile, admission and activation procedure, and before/after usable trajectory. For a witness needing new sessions, bind the successor establishment and session-installation contract; for Member Route Intent, resolve reciprocal generation, deferred results and alias lifetime under ROUTE-001. Alternatively identify an independently complete procedure over already valid sessions that avoids those dependencies. No full runtime benchmark is required for this architectural criterion. Existing valid state and non-HS2 RRL/AOP functions are not globally retired. This review changes only F35-PN evidence; it neither rejects PRP's architectural capability nor reclassifies other cells."
-    },
-    {
-      "id": "F35-PI",
-      "feature": "F35",
-      "stack": "PI",
-      "status": "Y",
-      "reason": "A bounded deployment introduces BGP interdomain reachability and route-policy selection at routers in place of provisioned static reachability, while attached endpoint protocol implementations and applications remain unchanged. BGP is already part of the selected global IP composition. The PRP-over-IP profile can use that same infrastructure upgrade without changing its existing PRP endpoint software.",
-      "method": "Primary specification analysis; architectural capability, no runtime test",
-      "source_label": "Pinned primary specification; selected-composition architectural assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html",
-        "https://www.rfc-editor.org/rfc/rfc1812.html"
-      ],
-      "editorial_references": [
-        "round464.html",
-        "round464-sources.json"
-      ],
-      "qualification": "Infrastructure-only routing witness from RFC 4271 and RFC 1812. Routers, peering and route policy require administration; endpoint addressing/default gateways may require ordinary provisioning. For PI this is an underlay benefit, not installation of native PRP on legacy IP endpoints. No promise that every network upgrade is transparent."
-    },
-    {
-      "id": "F35-IP",
-      "feature": "F35",
-      "stack": "IP",
-      "status": "Y",
-      "reason": "A bounded deployment introduces BGP interdomain reachability and route-policy selection at routers in place of provisioned static reachability, while attached endpoint protocol implementations and applications remain unchanged. BGP is already part of the selected global IP composition. The PRP-over-IP profile can use that same infrastructure upgrade without changing its existing PRP endpoint software.",
-      "method": "Primary specification analysis; architectural capability, no runtime test",
-      "source_label": "Pinned primary specification; selected-composition architectural assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html",
-        "https://www.rfc-editor.org/rfc/rfc1812.html"
-      ],
-      "editorial_references": [
-        "round464.html",
-        "round464-sources.json"
-      ],
-      "qualification": "Infrastructure-only routing witness from RFC 4271 and RFC 1812. Routers, peering and route policy require administration; endpoint addressing/default gateways may require ordinary provisioning. For PI this is an underlay benefit, not installation of native PRP on legacy IP endpoints. No promise that every network upgrade is transparent."
-    },
-    {
-      "id": "F35-BP",
-      "feature": "F35",
-      "stack": "BP",
-      "status": "Y",
-      "reason": "The selected global composition uses a conventional BGP-routed IP underlay. Deploying dynamic interdomain reachability and route policy at routers in place of static routes can leave existing overlay endpoints and applications unchanged.",
-      "method": "Primary documentary and source assessment; no new runtime test",
-      "source_label": "Primary specification or selected-version source; bounded composition assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html"
-      ],
-      "editorial_references": [
-        "round470.html",
-        "round470-sources.json"
-      ],
-      "qualification": "Same bounded infrastructure witness used for IP and PRP-over-IP. The positive belongs to the declared IP/BGP layer, not initial installation of I2P, CADET or BP on legacy hosts. Router upgrades, peering/policy and ordinary attachment provisioning remain required."
-    },
-    {
-      "id": "F35-CG",
-      "feature": "F35",
-      "stack": "CG",
-      "status": "Y",
-      "reason": "A bounded deployment keeps source and destination BP agents and applications unchanged, with the source forwarding to its existing ingress gateway. Intermediate BP nodes replace fixed forwarding choices with the selected SABR/CGR planner, using supplied contact times and capacities to choose feasible onward routes. This adds schedule-aware path management inside the network. RFC 9171 section 5.4 leaves next-node selection to local forwarding procedures and explicitly identifies SABR as one possible mechanism; no new endpoint request or application protocol is required for this transit routing decision.",
-      "method": "Primary specification architecture and explicit deployment inference; no runtime test",
-      "source_label": "RFC 9171 section 5.4 and CCSDS 734.3-B-1 sections 2.2-2.4 and 3",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9171.html#section-5.4",
-        "https://ccsds.org/Pubs/734x3b1.pdf"
-      ],
-      "editorial_references": [
-        "round483.html",
-        "round483-sources.json"
-      ],
-      "qualification": "Architectural Yes for existing compatible BP endpoints, not installation on legacy non-BP hosts. Keep endpoint EIDs, applications, first/last-hop convergence layers, end-to-end security policy and adequate bundle lifetimes unchanged. Transit nodes need the planner, consistent contact/range plans, clocks and operational forwarding resources. Use ordinary singleton traffic; no custody or critical-bundle feature is needed for this witness. The selected BPv7/SABR metadata binding and full executable integration remain unqualified. This does not claim that every bundle benefits, that endpoint lifetimes can be ignored, or that delivery is guaranteed. No deployment or interoperability experiment was run. CG preserves the selected TCPCLv4/TLS boundary at its endpoints."
-    },
-    {
-      "id": "F35-LT",
-      "feature": "F35",
-      "stack": "LT",
-      "status": "Y",
-      "reason": "A bounded deployment keeps source and destination BP agents and applications unchanged, with the source forwarding to its existing ingress gateway. Intermediate BP nodes replace fixed forwarding choices with the selected SABR/CGR planner, using supplied contact times and capacities to choose feasible onward routes. This adds schedule-aware path management inside the network. RFC 9171 section 5.4 leaves next-node selection to local forwarding procedures and explicitly identifies SABR as one possible mechanism; no new endpoint request or application protocol is required for this transit routing decision.",
-      "method": "Primary specification architecture and explicit deployment inference; no runtime test",
-      "source_label": "RFC 9171 section 5.4 and CCSDS 734.3-B-1 sections 2.2-2.4 and 3",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9171.html#section-5.4",
-        "https://ccsds.org/Pubs/734x3b1.pdf"
-      ],
-      "editorial_references": [
-        "round483.html",
-        "round483-sources.json"
-      ],
-      "qualification": "Architectural Yes for existing compatible BP endpoints, not installation on legacy non-BP hosts. Keep endpoint EIDs, applications, first/last-hop convergence layers, end-to-end security policy and adequate bundle lifetimes unchanged. Transit nodes need the planner, consistent contact/range plans, clocks and operational forwarding resources. Use ordinary singleton traffic; no custody or critical-bundle feature is needed for this witness. The selected BPv7/SABR metadata binding and full executable integration remain unqualified. This does not claim that every bundle benefits, that endpoint lifetimes can be ignored, or that delivery is guaranteed. No deployment or interoperability experiment was run. LT preserves the selected LTP/Encapsulation/AOS boundary at its endpoints; the new function belongs to its SABR routing layer, not to LTP alone."
-    },
-    {
-      "id": "F35-LP",
-      "feature": "F35",
-      "stack": "LP",
-      "status": "Y",
-      "reason": "The declared global composition already includes a conventional BGP/IP underlay. Introducing BGP reachability and route-policy selection at routers in place of static reachability changes the network function without modifying the existing Direct-peer libp2p over QUIC endpoints or their applications.",
-      "method": "Selected-composition primary documentary assessment; no runtime experiment",
-      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html",
-        "https://www.rfc-editor.org/rfc/rfc1812.html"
-      ],
-      "editorial_references": [
-        "round469.html",
-        "round469-sources.json"
-      ],
-      "qualification": "This is the same bounded infrastructure witness credited to IP and PRP-over-IP. It is an underlay benefit, not a claim that the overlay can initially be installed without endpoint software. Router peering, policy and ordinary endpoint address/gateway provisioning remain administrative requirements."
-    },
-    {
-      "id": "F35-TO",
-      "feature": "F35",
-      "stack": "TO",
-      "status": "Y",
-      "reason": "Tor selects new circuit paths using directory information. Deploying additional eligible middle relays and admitting them to the public directory therefore adds forwarding-path choices for existing onion-service clients and services without replacing their Tor implementations or applications.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Official Tor and SCION documentation and pinned Meshtastic firmware",
-      "sources": [
-        "https://spec.torproject.org/path-spec/path-selection-constraints.html"
-      ],
-      "editorial_references": [
-        "round524.html",
-        "round524-sources.json"
-      ],
-      "qualification": "Before/after witness: the public relay pool gains an eligible compatible middle relay. Directory admission, flags, bandwidth weights, reachability and path-family/subnet constraints govern use; merely starting a relay is insufficient. Existing endpoints consume updated directory state and build new circuits with unchanged software. Service authorization remains enabled. No automatic migration of established circuits, new bridge configuration, exit-service requirement, Conflux deployment or guaranteed performance improvement is claimed. This assumes already deployed Tor endpoints, not transparent installation on legacy applications."
-    },
-    {
-      "id": "F35-I2",
-      "feature": "F35",
-      "stack": "I2",
-      "status": "Y",
-      "reason": "The selected global composition uses a conventional BGP-routed IP underlay. Deploying dynamic interdomain reachability and route policy at routers in place of static routes can leave existing overlay endpoints and applications unchanged.",
-      "method": "Primary documentary and source assessment; no new runtime test",
-      "source_label": "Primary specification or selected-version source; bounded composition assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html"
-      ],
-      "editorial_references": [
-        "round470.html",
-        "round470-sources.json"
-      ],
-      "qualification": "Same bounded infrastructure witness used for IP and PRP-over-IP. The positive belongs to the declared IP/BGP layer, not initial installation of I2P, CADET or BP on legacy hosts. Router upgrades, peering/policy and ordinary attachment provisioning remain required."
-    },
-    {
-      "id": "F35-YG",
-      "feature": "F35",
-      "stack": "YG",
-      "status": "Y",
-      "reason": "A configured peering between intermediate Yggdrasil nodes can join previously disconnected mesh regions while existing endpoints retain their node keys, native IPv6 addresses and application software. The pinned Ironwood peer-addition path registers the new port and peer and exchanges routing announcements and Bloom information, allowing existing routing logic to use the added connectivity.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Pinned Yggdrasil/Ironwood and cjdns peering/forwarding sources",
-      "sources": [
-        "https://yggdrasil-network.github.io/configuration.html",
-        "https://raw.githubusercontent.com/Arceliar/ironwood/d50055b11f5ec5b56ee4e56ba9a75261461821dc/network/router.go",
-        "https://raw.githubusercontent.com/Arceliar/ironwood/d50055b11f5ec5b56ee4e56ba9a75261461821dc/network/peers.go"
-      ],
-      "editorial_references": [
-        "round523.html",
-        "round523-sources.json"
-      ],
-      "qualification": "Before/after witness: join two provisioned regions by adding an adjacent private-IPv4 TCP/TLS peering between transit nodes; endpoint attachments and software remain unchanged. Configure numeric contacts, pinned keys, listening permissions and reachable underlay links. The benefit is new inter-region connectivity after routing discovery, not a guaranteed preferred shortcut or uninterrupted sessions. No public peer, Internet transit, routed-subnet gateway, extra transport or global-capacity result is introduced. Existing endpoints already run Yggdrasil; this does not install the overlay transparently on legacy hosts. No runtime experiment."
-    },
-    {
-      "id": "F35-CJ",
-      "feature": "F35",
-      "stack": "CJ",
-      "status": "Y",
-      "reason": "The selected cjdns deployment permits administrators to add a UDP/CryptoAuth peering between intermediate nodes. The pinned InterfaceController attaches peers to SwitchCore and reports compatible peer paths to the pathfinder. Ordinary application traffic uses paths supplied through the existing SessionManager, so additional inter-region connectivity does not require new endpoint applications or custom route-label code.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Pinned Yggdrasil/Ironwood and cjdns peering/forwarding sources",
-      "sources": [
-        "https://github.com/cjdelisle/cjdns/blob/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/doc/peering.md",
-        "https://raw.githubusercontent.com/cjdelisle/cjdns/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/net/InterfaceController.c",
-        "https://raw.githubusercontent.com/cjdelisle/cjdns/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/net/SessionManager.c"
-      ],
-      "editorial_references": [
-        "round523.html",
-        "round523-sources.json"
-      ],
-      "qualification": "Before/after witness: join two compatible cjdns regions through a new transit-node peering. Provision numeric IPv4 contacts, keys and private peering credentials; retain the configured route-server/pathfinder infrastructure and ensure it learns and distributes the new reachable paths. Endpoint identities and local attachments remain unchanged. This is a conditional routing-deployment capability, not proof that every peering becomes preferred or that discovery and active sessions recover without interruption. No DNS seed, public beacon, IP tunnel endpoint or replacement routing service is added. Exact deployment execution and convergence timing remain unqualified."
-    },
-    {
-      "id": "F35-MQ",
-      "feature": "F35",
-      "stack": "MQ",
-      "status": "Y",
-      "reason": "The declared global composition already includes a conventional BGP/IP underlay. Introducing BGP reachability and route-policy selection at routers in place of static reachability changes the network function without modifying the existing Multipath QUIC endpoints or their applications.",
-      "method": "Selected-composition primary documentary assessment; no runtime experiment",
-      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html",
-        "https://www.rfc-editor.org/rfc/rfc1812.html"
-      ],
-      "editorial_references": [
-        "round469.html",
-        "round469-sources.json"
-      ],
-      "qualification": "This is the same bounded infrastructure witness credited to IP and PRP-over-IP. It is an underlay benefit, not a claim that the overlay can initially be installed without endpoint software. Router peering, policy and ordinary endpoint address/gateway provisioning remain administrative requirements."
-    },
-    {
-      "id": "F35-SC",
-      "feature": "F35",
-      "stack": "SC",
-      "status": "Y",
-      "reason": "SCION separates infrastructure path discovery and registration from endpoint path lookup and combination. Adding a permitted inter-AS link and registering the resulting segments can make a new forwarding path available to existing SCION endpoints without changing their implementations or UDP applications.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Official Tor and SCION documentation and pinned Meshtastic firmware",
-      "sources": [
-        "https://docs.scion.org/en/latest/overview.html#routing",
-        "https://docs.scion.org/en/latest/overview.html#link-types"
-      ],
-      "editorial_references": [
-        "round524.html",
-        "round524-sources.json"
-      ],
-      "qualification": "Before/after witness: a configured additional parent-child link within the existing ISD provides another admissible path. Upgrade or configure border interfaces, control-plane topology, beaconing and segment registration; preserve endpoint ISD-AS/local addresses, daemon API and trust configuration. Existing endpoint code must already perform normal path lookup and refresh. Selection depends on policy and segment availability. This does not make legacy IP-only endpoints SCION-capable, guarantee use of every link or move active traffic seamlessly. No new data-plane extension, payload encryption or runtime validation."
-    },
-    {
-      "id": "F35-RT",
-      "feature": "F35",
-      "stack": "RT",
-      "status": "Y",
-      "reason": "Reticulum 1.5.5 exposes enable_transport on an intermediate instance. Enabling it adds forwarding for other peers, path-request handling and announce propagation. A node attached to two serial segments can thereby connect destinations previously confined to their respective segments, while the existing endpoint stacks and Link applications remain unchanged.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Reticulum 1.5.5 and NFD 24.07 documentation and pinned code",
-      "sources": [
-        "https://reticulum.network/manual/networks.html",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Reticulum.py",
-        "https://raw.githubusercontent.com/markqvist/Reticulum/1.5.5/RNS/Transport.py"
-      ],
-      "editorial_references": [
-        "round521.html",
-        "round521-sources.json"
-      ],
-      "qualification": "Before/after witness: a two-interface intermediate node changes from non-transport to transport-enabled operation. Both serial interfaces, compatible IFAC credentials, announce propagation and resource limits must be configured; endpoint Link.identify policies remain in force. Endpoints still perform normal discovery and link establishment with their existing software. This is routed Reticulum connectivity, not a transparent layer-2 bridge, endpoint software installation, automatic hardware provisioning or a global-scale result. Retain the selected no-IP and private-tmpfs operation. No runtime execution."
-    },
-    {
-      "id": "F35-NS",
-      "feature": "F35",
-      "stack": "NS",
-      "status": "Y",
-      "reason": "The declared global profile includes conventional BGP-routed IPv4. Replacing static interdomain routes with BGP reachability exchange and router policy introduces dynamic routing while the existing overlay endpoints retain their implementations and applications.",
-      "method": "Primary documentary assessment; no new runtime test",
-      "source_label": "Primary protocol documentation and declared composition; bounded documentary assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html"
-      ],
-      "editorial_references": [
-        "round471.html",
-        "round471-sources.json"
-      ],
-      "qualification": "The witness belongs to the selected IP underlay. It does not claim that installing Nostr or CCNx on previously incompatible hosts is transparent. Routers, peering and routing policy must be configured; ordinary host attachment provisioning is allowed. Same infrastructure witness as IP and other declared IP/BGP compositions."
-    },
-    {
-      "id": "F35-MT",
-      "feature": "F35",
-      "stack": "MT",
-      "status": "Y",
-      "reason": "The selected Meshtastic firmware can relay packets at an intermediate CLIENT node. Adding a compatible LoRa relay between existing endpoints extends the reachable radio path while their firmware, identities and serial-client applications remain unchanged. Initial direct-message discovery can use managed flooding before learning a next hop.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Official Tor and SCION documentation and pinned Meshtastic firmware",
-      "sources": [
-        "https://meshtastic.org/docs/overview/mesh-algo/",
-        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/FloodingRouter.cpp",
-        "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/NextHopRouter.cpp"
-      ],
-      "editorial_references": [
-        "round524.html",
-        "round524-sources.json"
-      ],
-      "qualification": "Before/after witness: deploy one intermediate CLIENT/ALL node where each radio leg is viable, with matching radio parameters and sufficient preconfigured hop budget. Preserve private-channel provisioning, STRICT policy and independently verified endpoint keys; provision needed trust records on the added node. Firmware suppression, next-hop state, airtime and bidirectional ACK reachability still affect delivery. No MQTT/IP bridge, store-and-forward service, unlimited range, lossless delivery or endpoint firmware upgrade is included. Real LoRa hardware remains required. This uses the existing CLIENT/ALL witness, not a change to the separate F16 KNOWN_ONLY policy."
-    },
-    {
-      "id": "F35-GN",
-      "feature": "F35",
-      "stack": "GN",
-      "status": "Y",
-      "reason": "The selected global composition uses a conventional BGP-routed IP underlay. Deploying dynamic interdomain reachability and route policy at routers in place of static routes can leave existing overlay endpoints and applications unchanged.",
-      "method": "Primary documentary and source assessment; no new runtime test",
-      "source_label": "Primary specification or selected-version source; bounded composition assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html"
-      ],
-      "editorial_references": [
-        "round470.html",
-        "round470-sources.json"
-      ],
-      "qualification": "Same bounded infrastructure witness used for IP and PRP-over-IP. The positive belongs to the declared IP/BGP layer, not initial installation of I2P, CADET or BP on legacy hosts. Router upgrades, peering/policy and ordinary attachment provisioning remain required."
-    },
-    {
-      "id": "F35-ND",
-      "feature": "F35",
-      "stack": "ND",
-      "status": "Y",
-      "reason": "NFD 24.07 allows an administrator to change the forwarding strategy for a name prefix at an intermediate forwarder. A bounded deployment replaces BestRoute's initial single-next-hop forwarding with native Multicast forwarding to eligible next hops. This adds multi-branch Interest forwarding while existing consumers and producers retain their packet format, implementations and applications.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "Reticulum 1.5.5 and NFD 24.07 documentation and pinned code",
-      "sources": [
-        "https://docs.named-data.net/NFD/24.07/manpages/nfdc-strategy.html",
-        "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/fw/multicast-strategy.cpp",
-        "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/fw/best-route-strategy.cpp"
-      ],
-      "editorial_references": [
-        "round521.html",
-        "round521-sources.json"
-      ],
-      "qualification": "Provision two usable direct-Ethernet next hops for the prefix and select the installed Multicast strategy at the intermediate NFD. An unsatisfied fresh Interest demonstrates the change; cache hits, scope restrictions and retransmission suppression can prevent particular transmissions. Administration is required at the forwarder, not an endpoint software upgrade. Existing Data validation and pending-Interest handling remain unchanged. This native configuration is separate from the G01 tree witness and the F09 segmented-retrieval witness; their verdicts and limitations are unchanged. No guaranteed duplicate delivery, throughput gain, arbitrary application multicast service or runtime result."
-    },
-    {
-      "id": "F35-AX",
-      "feature": "F35",
-      "stack": "AX",
-      "status": "Y",
-      "reason": "The selected Linux NET/ROM stack separates endpoint transport circuits from routing management. Enabling netromd announcements on intermediate nodes replaces manually maintained reachability with advertised routes and aging: received NODES information is converted into kernel routes by netromr. Existing NET/ROM endpoint software and applications can use the resulting paths without replacement.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "RPL RFCs and pinned Linux NET/ROM routing daemon",
-      "sources": [
-        "https://manpages.debian.org/testing/ax25-tools/netromd.8.en.html",
-        "https://deb.debian.org/debian/pool/main/a/ax25-tools/ax25-tools_0.0.10-rc5+git20230513+d3e6d4f.orig.tar.gz"
-      ],
-      "editorial_references": [
-        "round426-sources.json",
-        "round522.html",
-        "round522-sources.json"
-      ],
-      "qualification": "Before/after witness: provisioned static transit routes gain periodic routing exchange on configured AX.25 ports. Both endpoints already run the selected NET/ROM stack and announcement reception; transit administrators enable broadcasts, forwarding and appropriate quality/aging policy. Callsigns, ports, UID mappings and direct KISS serial links remain provisioned. This does not convert raw AX.25-only applications into NET/ROM endpoints, remove administrative privileges or establish seamless circuit survival after failures. Public-radio licensing and new runtime execution are outside this private-serial witness."
-    },
-    {
-      "id": "F35-BA",
-      "feature": "F35",
-      "stack": "BA",
-      "status": "Y",
-      "reason": "A deployment replaces a connecting Ethernet segment with batman-adv mesh bridges while attached client machines retain their existing Ethernet protocol stacks and applications.",
-      "method": "Primary documentary capability assessment; no new runtime experiment",
-      "source_label": "Primary protocol specification or pinned implementation; selected-composition assessment",
-      "sources": [
-        "https://github.com/torvalds/linux/blob/v6.12/Documentation/networking/batman-adv.rst"
-      ],
-      "editorial_references": [
-        "round468.html",
-        "round468-sources.json"
-      ],
-      "qualification": "The unchanged endpoints are attached non-mesh clients. Mesh forwarding equipment must install/configure batman-adv; this does not claim that the mesh nodes themselves need no changes."
-    },
-    {
-      "id": "F35-BL",
-      "feature": "F35",
-      "stack": "BL",
-      "status": "Y",
-      "reason": "Babel can replace provisioned static reachability with router-to-router prefix advertisement and route maintenance while attached IPv6 hosts retain their stacks and applications.",
-      "method": "Selected-composition primary documentary assessment; no runtime experiment",
-      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc8966.html"
-      ],
-      "editorial_references": [
-        "round469.html",
-        "round469-sources.json"
-      ],
-      "qualification": "The witness keeps the selected addressing hierarchy and policy filters. Routers install and configure Babel; attached hosts keep their existing attachment/default gateway configuration. No new endpoint mobility protocol or arbitrary automatic prefix aggregation is inferred."
-    },
-    {
-      "id": "F35-RI",
-      "feature": "F35",
-      "stack": "RI",
-      "status": "Y",
-      "reason": "RPL distinguishes leaf-only endpoints from forwarding routers. Adding intermediate routers to the existing non-storing OF0 domain extends reachability beyond direct root attachment while leaf implementations and UDP/DTLS applications remain unchanged. Existing DIO/DAO behavior establishes reachability, and the root supplies downward source routes through the added routers.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "RPL RFCs and pinned Linux NET/ROM routing daemon",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc6550.html#section-16.2",
-        "https://www.rfc-editor.org/rfc/rfc6550.html#section-16.3",
-        "https://www.rfc-editor.org/rfc/rfc6554.html#section-2"
-      ],
-      "editorial_references": [
-        "round522.html",
-        "round522-sources.json"
-      ],
-      "qualification": "Before/after witness: a directly attached leaf/root topology gains a routed branch through newly deployed RPL routers. The leaf already supports the selected non-storing endpoint behavior and RFC 6554 handling; no leaf is required to become a router. Configure compatible OF0/MOP, the same ULA domain, neighbor registration, IEEE 802.15.4 links and link-security keys. Intermediate routers process routing headers but do not terminate final-pair DTLS. Added routers and root routing state require administration and resources. No conversion of non-RPL legacy endpoints, sleep negotiation, seamless mobility or complete executable integration is claimed."
-    },
-    {
-      "id": "F35-HP",
-      "feature": "F35",
-      "stack": "HP",
-      "status": "Y",
-      "reason": "The declared global composition already includes a conventional BGP/IP underlay. Introducing BGP reachability and route-policy selection at routers in place of static reachability changes the network function without modifying the existing HIPv2/ESP with application UDP endpoints or their applications.",
-      "method": "Selected-composition primary documentary assessment; no runtime experiment",
-      "source_label": "Primary selected transport/routing specifications and declared profile boundary",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html",
-        "https://www.rfc-editor.org/rfc/rfc1812.html"
-      ],
-      "editorial_references": [
-        "round469.html",
-        "round469-sources.json"
-      ],
-      "qualification": "This is the same bounded infrastructure witness credited to IP and PRP-over-IP. It is an underlay benefit, not a claim that the overlay can initially be installed without endpoint software. Router peering, policy and ordinary endpoint address/gateway provisioning remain administrative requirements."
-    },
-    {
-      "id": "F35-CX",
-      "feature": "F35",
-      "stack": "CX",
-      "status": "Y",
-      "reason": "The declared global profile includes conventional BGP-routed IPv4. Replacing static interdomain routes with BGP reachability exchange and router policy introduces dynamic routing while the existing overlay endpoints retain their implementations and applications.",
-      "method": "Primary documentary assessment; no new runtime test",
-      "source_label": "Primary protocol documentation and declared composition; bounded documentary assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc4271.html"
-      ],
-      "editorial_references": [
-        "round471.html",
-        "round471-sources.json"
-      ],
-      "qualification": "The witness belongs to the selected IP underlay. It does not claim that installing Nostr or CCNx on previously incompatible hosts is transparent. Routers, peering and routing policy must be configured; ordinary host attachment provisioning is allowed. Same infrastructure witness as IP and other declared IP/BGP compositions."
-    },
-    {
-      "id": "F35-LI",
-      "feature": "F35",
-      "stack": "LI",
-      "status": "Y",
-      "reason": "LISP adds EID-to-RLOC mapping and encapsulation at tunnel routers, enabling infrastructure traffic engineering and multihoming without changing the endpoint host protocol stacks.",
-      "method": "Primary documentary capability assessment; no new runtime experiment",
-      "source_label": "Primary protocol specification or pinned implementation; selected-composition assessment",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc9300.html"
-      ],
-      "editorial_references": [
-        "round468.html",
-        "round468-sources.json"
-      ],
-      "qualification": "xTRs and mapping infrastructure must be deployed and configured. EID/RLOC provisioning and deployment reachability remain required; no endpoint mobility extension or LISP-SEC is added."
-    },
-    {
-      "id": "F35-IL",
-      "feature": "F35",
-      "stack": "IL",
-      "status": "Y",
-      "reason": "RFC 6740 sections 5.1, 5.3 and 5.4 describe adding upstream connectivity at a site border router and advertising the resulting locators to existing ILNP hosts. A single-homed site can thereby gain provider diversity while both communicating endpoints retain their ILNP implementations and applications. Hosts use their existing locator-cache and update mechanisms.",
-      "method": "Primary specification review; no runtime experiment",
-      "source_label": "RFC 6740 site multihoming architecture",
-      "sources": [
-        "https://www.rfc-editor.org/rfc/rfc6740.html#section-5.3",
-        "https://www.rfc-editor.org/rfc/rfc6740.html#section-5.1",
-        "https://www.rfc-editor.org/rfc/rfc6740.html#section-5.4"
-      ],
-      "editorial_references": [
-        "round520.html",
-        "round520-sources.json"
-      ],
-      "qualification": "Before/after witness: one provider becomes two through the same border router; configure the added link, routing policy and correct Router Advertisements. The hosts must already support the selected ILNPv6/TCP and Locator Update mechanisms, including multiple locators. No new endpoint agent, application library or multipath TCP is introduced. This is not transparent conversion of legacy IP hosts. Locator state and policy can change without software replacement; participation by existing endpoint logic is explicit. Provider provisioning, peer reachability and operational configuration remain necessary. No lossless failover, dual-router coordination implementation or executable integration is qualified."
     }
   ],
   "marks": [
