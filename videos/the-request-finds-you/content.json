@@ -1,0 +1,266 @@
+{
+  "id": "V018",
+  "revision": "publication-v1",
+  "title": {
+    "en": "The Request Finds You",
+    "pt-BR": "O pedido chega até você"
+  },
+  "summary": {
+    "en": "A checkout finds Lia's phone through similarity clues carried by PRP discovery. The request arrives over cellular access; Lia checks the merchant and amount before approving payment.",
+    "pt-BR": "Um caixa encontra o celular de Lia por pistas de semelhança usadas na descoberta do PRP. O pedido chega pela rede celular; Lia confere a loja e o valor antes de autorizar o pagamento."
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/the-request-finds-you-publication-v1.mp4",
+  "movieSHA256": "cbe61db503ab2fc168f42e41c33a31d04a222b6a6ec5fbb0176323b438c9c645",
+  "movieBytes": 6747262,
+  "durationSeconds": 84.542993,
+  "frames": 2027,
+  "publicationStatus": "authorized; website delivery pending",
+  "maturity": "M3 partial animation",
+  "chapters": [
+    {
+      "start": 0,
+      "end": 12.208333333333334,
+      "narration": {
+        "en": "At the checkout, Lia's phone receives a payment request. She has not given the shop her phone number or presented a card. How did the request find her?",
+        "pt-BR": "No caixa, o celular de Lia recebe um pedido de pagamento. Ela não informou seu telefone à loja nem apresentou um cartão. Como o pedido chegou até ela?"
+      },
+      "visual": {
+        "en": "Lia, with short dark curly hair and a terracotta jacket, stands at the Fern & Clay checkout with a plant and pot. A shopkeeper wears a green apron. The opening title fades over the illustrated shop scene as the camera slowly moves closer.",
+        "pt-BR": "Lia, de cabelo curto e cacheado escuro e jaqueta terracota, está no caixa da Fern & Clay com uma planta e um vaso. O atendente usa avental verde. O título de abertura desaparece sobre a loja ilustrada enquanto a câmera se aproxima lentamente."
+      }
+    },
+    {
+      "start": 11.608333333333334,
+      "end": 24.06666666666667,
+      "narration": {
+        "en": "Lia keeps her enrolled facial reference on her phone. Physical proximity lets a nearby checkout send her a request, without prior approval of the shop.",
+        "pt-BR": "Lia mantém a referência facial cadastrada em seu celular. A proximidade física permite receber um pedido do caixa, sem aprovação prévia à loja."
+      },
+      "visual": {
+        "en": "A close-up shows the phone held in Lia's hand. Cellular signal bars and a nearby payment request appear on its display. A side panel identifies the enrolled facial reference stored locally and states that prior shop approval is unnecessary.",
+        "pt-BR": "Um close mostra o celular na mão de Lia. Barras de sinal celular e um pedido de pagamento próximo aparecem na tela. Um painel lateral identifica a referência facial cadastrada e armazenada localmente e informa que não é necessária aprovação prévia à loja."
+      }
+    },
+    {
+      "start": 23.46666666666667,
+      "end": 37.425000000000004,
+      "narration": {
+        "en": "The checkout application derives similarity clues from a facial reading. These clues can resemble those associated with Lia's reference, even when the two images are not identical.",
+        "pt-BR": "A aplicação do caixa extrai pistas de semelhança de uma leitura facial. Essas pistas podem se aproximar das associadas à referência de Lia, mesmo quando as duas imagens não são idênticas."
+      },
+      "visual": {
+        "en": "Two schematic faces represent a facial reading and a local reference. Colored squares appear between them and connecting lines emerge. Labels read Possible match and Confirmation follows discovery.",
+        "pt-BR": "Dois rostos esquemáticos representam a leitura facial e a referência local. Quadrados coloridos surgem entre eles, seguidos por linhas de conexão. Os rótulos indicam uma possível correspondência e que a confirmação vem depois da descoberta."
+      }
+    },
+    {
+      "start": 36.825,
+      "end": 49.86666666666667,
+      "narration": {
+        "en": "PRP's discovery summaries help choose promising directions toward possible matches. The search follows clues through the network, then checks the candidates.",
+        "pt-BR": "Os resumos de descoberta do PRP ajudam a escolher direções promissoras até possíveis correspondências. A busca segue pistas pela rede e depois verifica os candidatos."
+      },
+      "visual": {
+        "en": "A branching network diagram appears on a dark background. A teal path progressively crosses selected nodes; an alternative is briefly labeled No candidate here. The selected path reaches Cellular access and then Lia's phone.",
+        "pt-BR": "Um diagrama de rede ramificada aparece sobre fundo escuro. Um caminho verde-azulado atravessa progressivamente os nós selecionados; uma alternativa recebe brevemente o rótulo de ausência de candidato. O caminho escolhido chega ao acesso celular e depois ao telefone de Lia."
+      }
+    },
+    {
+      "start": 49.266666666666666,
+      "end": 64.26666666666667,
+      "narration": {
+        "en": "Once the match is confirmed, the shop automatically sends the request. Her phone can verify the merchant's identity through a notary she trusts, helping her check who is asking for payment.",
+        "pt-BR": "Confirmada a correspondência, a loja envia o pedido automaticamente. O celular pode verificar a identidade do estabelecimento por um cartório de confiança de Lia, ajudando a conferir quem está solicitando o pagamento."
+      },
+      "visual": {
+        "en": "The phone display changes from Match confirmed to Merchant identity verified. A side panel names Fern & Clay and shows a notary attestation, with the reminder that Lia chooses whom to trust.",
+        "pt-BR": "A tela do telefone passa de correspondência confirmada para identidade do estabelecimento verificada. O painel lateral identifica a Fern & Clay e apresenta uma atestação cartorial, lembrando que Lia escolhe em quem confiar."
+      }
+    },
+    {
+      "start": 63.666666666666664,
+      "end": 78.08333333333333,
+      "narration": {
+        "en": "Her phone shows the shop, the purchase and the amount. Lia reviews the request and approves the payment. Her phone keeps a record of who asked, when, and what she decided.",
+        "pt-BR": "O telefone mostra a loja, a compra e o valor. Lia confere o pedido e autoriza o pagamento. Seu celular registra quem solicitou, quando e o que ela decidiu."
+      },
+      "visual": {
+        "en": "The phone displays Fern & Clay, Plant and pot, $24.00, Approve and Decline. Lia's right hand approaches, touches Approve and withdraws. The display changes to Payment approved. A local record appears with the merchant, 09:41 and the approval decision.",
+        "pt-BR": "O telefone mostra Fern & Clay, planta e vaso, US$ 24,00 e as opções de aprovar ou recusar. A mão direita de Lia se aproxima, toca Aprovar e recua. A tela passa a indicar pagamento aprovado. Surge um registro local com a loja, 09:41 e a decisão de aprovação."
+      }
+    },
+    {
+      "start": 77.48333333333333,
+      "end": 84.44166666666666,
+      "narration": {
+        "en": "The request finds you. The decision stays with you. PRP.",
+        "pt-BR": "O pedido chega até você. A decisão continua sendo sua. PRP."
+      },
+      "visual": {
+        "en": "An illustration shows Lia leaving with the plant. A dissolve reveals the cream closing card with the PRP logo, The Request Finds You and prp-protocol.org.",
+        "pt-BR": "Uma ilustração mostra Lia saindo com a planta. Uma dissolução revela o encerramento sobre fundo creme, com o logotipo PRP, The Request Finds You e prp-protocol.org."
+      }
+    }
+  ],
+  "subtitleCues": {
+    "en": [
+      {
+        "start": 0.85,
+        "end": 6.5244253968253965,
+        "text": "At the checkout, Lia's phone receives a payment request. She has not given the shop her"
+      },
+      {
+        "start": 6.5244253968253965,
+        "end": 10.633492063492064,
+        "text": "phone number or presented a card. How did the request find her?"
+      },
+      {
+        "start": 12.458333333333334,
+        "end": 18.21504202569917,
+        "text": "Lia keeps her enrolled facial reference on her phone. Physical proximity lets a nearby"
+      },
+      {
+        "start": 18.21504202569917,
+        "end": 22.499104308390024,
+        "text": "checkout send her a request, without prior approval of the shop."
+      },
+      {
+        "start": 24.31666666666667,
+        "end": 30.02107289357691,
+        "text": "The checkout application derives similarity clues from a facial reading. These clues can"
+      },
+      {
+        "start": 30.02107289357691,
+        "end": 35.20689673622258,
+        "text": "resemble those associated with Lia's reference, even when the two images are not"
+      },
+      {
+        "start": 35.20689673622258,
+        "end": 35.85512471655329,
+        "text": "identical."
+      },
+      {
+        "start": 37.675000000000004,
+        "end": 43.59840048840049,
+        "text": "PRP's discovery summaries help choose promising directions toward possible matches. The"
+      },
+      {
+        "start": 43.59840048840049,
+        "end": 48.29626984126985,
+        "text": "search follows clues through the network, then checks the candidates."
+      },
+      {
+        "start": 50.11666666666667,
+        "end": 55.758652915711735,
+        "text": "Once the match is confirmed, the shop automatically sends the request. Her phone can"
+      },
+      {
+        "start": 55.758652915711735,
+        "end": 61.40063916475681,
+        "text": "verify the merchant's identity through a notary she trusts, helping her check who is"
+      },
+      {
+        "start": 61.40063916475681,
+        "end": 62.676802721088436,
+        "text": "asking for payment."
+      },
+      {
+        "start": 64.51666666666667,
+        "end": 70.29418300653595,
+        "text": "Her phone shows the shop, the purchase and the amount. Lia reviews the request and"
+      },
+      {
+        "start": 70.29418300653595,
+        "end": 76.49444444444444,
+        "text": "approves the payment. Her phone keeps a record of who asked, when, and what she decided."
+      },
+      {
+        "start": 78.33333333333333,
+        "end": 82.86911564625849,
+        "text": "The request finds you. The decision stays with you. PRP."
+      }
+    ],
+    "pt-BR": [
+      {
+        "start": 0.85,
+        "end": 6.5625087887503994,
+        "text": "No caixa, o celular de Lia recebe um pedido de pagamento. Ela não informou seu telefone"
+      },
+      {
+        "start": 6.5625087887503994,
+        "end": 10.633492063492064,
+        "text": "à loja nem apresentou um cartão. Como o pedido chegou até ela?"
+      },
+      {
+        "start": 12.458333333333334,
+        "end": 18.539363642170485,
+        "text": "Lia mantém a referência facial cadastrada em seu celular. A proximidade física permite"
+      },
+      {
+        "start": 18.539363642170485,
+        "end": 22.499104308390024,
+        "text": "receber um pedido do caixa, sem aprovação prévia à loja."
+      },
+      {
+        "start": 24.31666666666667,
+        "end": 29.555750321750324,
+        "text": "A aplicação do caixa extrai pistas de semelhança de uma leitura facial. Essas pistas"
+      },
+      {
+        "start": 29.555750321750324,
+        "end": 34.981944107372684,
+        "text": "podem se aproximar das associadas à referência de Lia, mesmo quando as duas imagens não"
+      },
+      {
+        "start": 34.981944107372684,
+        "end": 35.85512471655329,
+        "text": "são idênticas."
+      },
+      {
+        "start": 37.675000000000004,
+        "end": 43.08219191919192,
+        "text": "Os resumos de descoberta do PRP ajudam a escolher direções promissoras até possíveis"
+      },
+      {
+        "start": 43.08219191919192,
+        "end": 48.29626984126984,
+        "text": "correspondências. A busca segue pistas pela rede e depois verifica os candidatos."
+      },
+      {
+        "start": 50.11666666666667,
+        "end": 54.96546337604809,
+        "text": "Confirmada a correspondência, a loja envia o pedido automaticamente. O celular pode"
+      },
+      {
+        "start": 54.96546337604809,
+        "end": 60.047937035279226,
+        "text": "verificar a identidade do estabelecimento por um cartório de confiança de Lia, ajudando"
+      },
+      {
+        "start": 60.047937035279226,
+        "end": 62.676802721088436,
+        "text": "a conferir quem está solicitando o pagamento."
+      },
+      {
+        "start": 64.51666666666667,
+        "end": 70.66111111111111,
+        "text": "O telefone mostra a loja, a compra e o valor. Lia confere o pedido e autoriza o"
+      },
+      {
+        "start": 70.66111111111111,
+        "end": 76.49444444444444,
+        "text": "pagamento. Seu celular registra quem solicitou, quando e o que ela decidiu."
+      },
+      {
+        "start": 78.33333333333333,
+        "end": 82.86911564625849,
+        "text": "O pedido chega até você. A decisão continua sendo sua. PRP."
+      }
+    ]
+  },
+  "notes": {
+    "en": "Conceptual scenario for a protocol under standardization. Facial enrollment, matching, proximity admission and payment processing belong to the illustrated application. LSH/Bloom selects candidates; payment requires Lia's decision. Notary verification is optional. AI-assisted illustrations, synthetic English narration, camera motion and animated diagrams/interfaces. Portuguese is a translation; visual descriptions are text. Subtitle timing is approximate.",
+    "pt-BR": "Cenário conceitual de um protocolo em padronização. Cadastro facial, comparação, admissão por proximidade e processamento do pagamento pertencem à aplicação ilustrada. LSH/Bloom seleciona candidatos; o pagamento exige a decisão de Lia. A verificação cartorial é opcional. Ilustrações assistidas por IA, narração sintética em inglês, movimento de câmera e diagramas/interfaces animados. O português é tradução; as descrições visuais são textuais. Os tempos das legendas são aproximados."
+  },
+  "credits": "PRP Editorial; AI-assisted illustrations and hand layer, synthetic English narration, animated diagrams, UI and localized hand gesture."
+}
