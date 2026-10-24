@@ -14,7 +14,13 @@
   "movieBytes": 6747262,
   "durationSeconds": 84.542993,
   "frames": 2027,
-  "publicationStatus": "authorized; website delivery pending",
+  "publicationStatus": "published",
+  "publication": {
+    "sourceCommit": "23bdd5090321caa11b04a5c03c3fc77c3f029f02",
+    "deployedAt": "2026-10-24T11:10:23Z",
+    "verifiedAt": "2026-10-24T11:11:32.199669Z",
+    "deploymentURL": "https://github.com/prp-protocol/website/actions/runs/40088776136"
+  },
   "maturity": "M3 partial animation",
   "chapters": [
     {
