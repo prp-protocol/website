@@ -1,0 +1,17 @@
+.episode-page video { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#111; border-radius:12px; }
+.video-sharing { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:16px 0; font:inherit; }
+.video-sharing a, .video-sharing button { box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:9px 15px; border:1px solid #42655d; border-radius:8px; color:#174b40; background:#fff; font:600 15px/1.4 system-ui; cursor:pointer; text-decoration:none; }
+.video-sharing a { background:#175f49; color:#fff; }
+.video-sharing [hidden] { display:none; }
+.video-sharing a:focus-visible, .video-sharing button:focus-visible, .video-details>summary:focus-visible { outline:3px solid #b65e31; outline-offset:4px; }
+.share-status { font-size:14px; overflow-wrap:anywhere; }
+.video-details { border:1px solid #c9c8ba; border-radius:10px; margin:20px 0; background:#faf9f5; }
+.video-details>summary { cursor:pointer; padding:16px 20px; font-weight:650; }
+.video-details-content { padding:0 20px 20px; overflow-wrap:anywhere; }
+.video-details-content section { scroll-margin-top:150px; }
+.video-details-content nav { margin-block:16px; }
+.video-card>.video-sharing { align-self:start; }
+.video-card:has(>.video-sharing):not(.episode-card):not(.intro-card) { grid-template-rows:1fr auto auto auto; }
+@supports (grid-template-rows:subgrid) { .video-card:has(>.video-sharing):not(.episode-card):not(.intro-card) { grid-row:span 4; grid-template-rows:subgrid; } }
+@media(max-width:600px) { .video-sharing { gap:8px; } .video-details-content { padding:0 14px 14px; } }
+@media print { .video-sharing { display:none; } .video-details>summary { display:none; } .video-details::details-content { display:block; } }

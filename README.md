@@ -25,6 +25,19 @@ Edit the menu in that script and its isolated styling in `site-navigation.css`.
 Episode language and transcript navigation remain separate. The global menu is
 English on all pages, explicitly marked with `lang="en"` on PT pages.
 
+After importing new approved episode pages, run
+`python3 scripts/video-presentation.py --thumbnails`, then
+`python3 scripts/video-presentation.py --check`. This website-owned adapter
+preserves editorial HTML inside a native collapsed disclosure, adds individual
+WhatsApp links and copy-link controls, and emits static Open Graph metadata.
+Each `share.jpg` is derived from the approved poster or a frame at three seconds
+of the exact approved movie. Review new thumbnails visually; no MP4 is modified.
+On replacement of a film, review and deliberately regenerate its thumbnail.
+Texts remain readable without JavaScript; the small optional script supports
+copying, fragment navigation into collapsed text and expanded printing.
+Actual WhatsApp previews depend on that application's fetch/cache behavior;
+valid public metadata does not prove a preview was displayed on a real device.
+
 The introductory Meet PRP player lives on `index.html`. The remaining conceptual
 films live in `videos.html`; its old Meet PRP anchor links to the home player.
 Technical model, layer diagrams and design principles live in `architecture.html`;
