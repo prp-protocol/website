@@ -10,6 +10,28 @@ criterion column. Project titles retain their official external links. Legacy
 `#profile-ID` anchors point to those links; full profiles are not repeated below
 the matrix. Profiles are generated unchanged from the same approved JSON.
 
+## Website-only Require Yes filter (2026-10-25)
+
+Authority REPORT dd97f03cdd29e18e; sealed UI package SHA256
+`11edfced546369860714c7c0c71c04f642059933c94109bcfe62bcb4a89b8d84`
+(6577 bytes), signature verified against the provisioned Agentmux key below.
+Website-owned `yes-filter.js` / `yes-filter.css` are loaded only by the matrix
+index; standalone rendering and JSON-only imports preserve these assets.
+The module reads existing rendered Y/N/U cells, without a separate verdict
+dataset, client fetch, storage or analytics. Selected criteria are conjunctions;
+No/Pending fail the requirement. Rows and evidence links remain intact. Native
+checkboxes, clear action, live count and empty state are progressive enhancement;
+without scripts the full static table remains available. Printing retains the
+selected columns and selection summary while hiding controls.
+
+Data remains exactly revision 5.82, 1869931 bytes, SHA256
+`6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9`.
+Run the normal rebuild/import checks and the actual-page browser suite:
+`node scripts/test-comparison-filter.cjs comparison/index.html comparison/data.json /tmp/prp-filter-check`.
+For deployed checks replace the first argument with `https://prp-protocol.org/comparison/`.
+No private editorial page or generated HTML is imported. UI rollback is a forward
+commit reverting this integration, not a data snapshot rollback.
+
 ## Current approved source
 
 - Revision 5.82, English schema-v1, 2026-10-23; authority REPORT c91218583b467e9a.

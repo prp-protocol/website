@@ -5,18 +5,18 @@ from html.parser import HTMLParser
 from html import escape
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
-import hashlib,json,shutil,subprocess,tempfile,runpy
+import hashlib,json,shutil,subprocess,tempfile,runpy,re
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'comparison'
 class Page(HTMLParser):
     def __init__(self,text):
-        super().__init__();self.ids=set();self.links=[];self.scripts=0;self.details=0;self.open_details=0;self.feed(text)
+        super().__init__();self.ids=set();self.links=[];self.scripts=[];self.details=0;self.open_details=0;self.feed(text)
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if 'id' in a:
             assert a['id'] not in self.ids,a['id'];self.ids.add(a['id'])
-        if tag=='script':self.scripts+=1
+        if tag=='script':self.scripts.append(a)
         if tag=='details':self.details+=1;self.open_details+=('open' in a)
         for key in ('href','src'):
             if key in a:self.links.append(a[key])
@@ -64,7 +64,9 @@ assert 'wake-traffic.html' in pages[OUT/'index.html'].links
 subprocess.run(['python3',str(ROOT/'scripts/render-atlas.py'),'--check'],check=True)
 assert pages[OUT/'index.html'].details==len(d['criteria']) and pages[OUT/'index.html'].open_details==0
 for p,page in pages.items():
-    assert not page.scripts,p
+    assert page.scripts==([{'src':'yes-filter.js','defer':None}] if p==OUT/'index.html' else []),p
+    if p==OUT/'index.html':
+        assert re.search(r'<script src="yes-filter.js" defer></script>',p.read_text())
     for link in page.links:
         u=urlsplit(link)
         assert not any(x in link for x in ['/workspace/','/opt/agentmux/','201.130.81.10','/preview/','localhost']),link

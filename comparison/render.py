@@ -52,8 +52,11 @@ def main():
         depth=len(Path(name).parts)-1
         local='../'*depth
         navigation=(out/'navigation.html').read_text().replace('{{ROOT}}','../'*(depth+1))
-        if name=='index.html':body='<main>'+body+'</main>'
-        target.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+CSS+'</style><link rel="stylesheet" href="'+local+'navigation.css"></head><body>'+navigation+'<div class="comparison-layout">'+body+'</div></body></html>')
+        enhancement=''
+        if name=='index.html':
+            body='<main>'+body+'</main>'
+            enhancement='<link rel="stylesheet" href="yes-filter.css"><script src="yes-filter.js" defer></script>'
+        target.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+CSS+'</style><link rel="stylesheet" href="'+local+'navigation.css">'+enhancement+'</head><body>'+navigation+'<div class="comparison-layout">'+body+'</div></body></html>')
     intro='<h1>Protocol and stack comparison</h1><p>PRP editorial comparison · Revision '+esc(d['revision'])+' · Updated '+esc(d['date'])+'</p><p>'+str(len(d['criteria']))+' criteria × '+str(len(d['columns']))+' stacks; '+str(pending)+' Pending cells.</p><p><a href="https://prp-protocol.org/">PRP website</a> · <a href="methodology.html">Methodology and limits</a> · <a href="data.json">Download structured data</a> · <a href="logos.html">Logo credits</a></p><p class="legend"><span class="Y">Yes</span> <span class="N">No</span> <span class="U">Pending</span></p><p>Click a cell for evidence and qualifications. Expand a criterion for its definition. Results describe the selected stack and documented capabilities, not implementation certification. Pending means insufficient evidence, not unsupported.</p>'
     for ident,archive in archives.items(): intro+='<p><a href="archive/'+ident+'.html">'+ident+' — archived previous definition (revision '+esc(archive['revision'])+')</a></p>'
     if (out/'wake-traffic.json').exists(): intro+='<p><a href="wake-traffic.html">Communication recovery traffic — historical inventories</a></p>'

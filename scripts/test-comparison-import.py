@@ -32,17 +32,18 @@ outputs, delta = prepare(payload, receipt, OUT)
 
 class View(HTMLParser):
     def __init__(self, text):
-        super().__init__(); self.ids=[]; self.links=[]; self.scripts=0; self.feed(text)
+        super().__init__(); self.ids=[]; self.links=[]; self.scripts=[]; self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if 'id' in a: self.ids.append(a['id'])
         if 'href' in a: self.links.append(a['href'])
-        self.scripts += tag == 'script'
+        if tag == 'script': self.scripts.append(a)
 
 index = outputs['index.html'].decode()
 assert escape(criterion['title']) in index and escape(criterion['definition']) in index
 old_view, new_view = View((OUT/'index.html').read_text()), View(index)
-assert old_view.ids == new_view.ids and old_view.links == new_view.links and not new_view.scripts
+assert old_view.ids == new_view.ids and old_view.links == new_view.links
+assert old_view.scripts == new_view.scripts == [{'src':'yes-filter.js','defer':None}]
 assert len([x for x in new_view.links if x.startswith('cells/')]) == len(original['cells'])
 assert 'row-F13' in new_view.ids and 'cells/F13-PN.html' in new_view.links
 # Current criterion-label views are matrix row titles/definitions. Cell pages

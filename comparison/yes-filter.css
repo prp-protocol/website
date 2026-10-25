@@ -1,0 +1,15 @@
+.yes-filter-panel { margin: 18px 0; padding: 12px 16px; border: 1px solid #94aaa0; border-radius: 8px; background: #e9eee9; }
+.yes-filter-panel p { margin: 6px 0; }
+.yes-filter-panel button { font: inherit; min-height: 44px; padding: 7px 14px; border: 1px solid #165e70; border-radius: 5px; color: #165e70; background: #fff; cursor: pointer; }
+.yes-filter-toggle { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; font-weight: 400; cursor: pointer; }
+.yes-filter-toggle input { width: 18px; height: 18px; margin: 0; accent-color: #165e70; flex-shrink: 0; }
+.yes-filter-toggle:has(input:checked) { font-weight: 700; }
+.yes-filter-toggle input:focus-visible, .yes-filter-panel button:focus-visible { outline: 3px solid #165e70; outline-offset: 3px; }
+.yes-filter-empty { font-weight: 700; }
+.matrix [hidden], .yes-filter-panel [hidden], a[hidden] { display: none !important; }
+.matrix.yes-filter-active { width: max-content !important; min-width: 0 !important; }
+@media print {
+  .yes-filter-toggle, .yes-filter-panel button, #yes-filter-help { display: none; }
+  .yes-filter-panel { padding: 0; border: 0; }
+  .matrix.yes-filter-active { width: 100% !important; }
+}
