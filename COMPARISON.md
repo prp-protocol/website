@@ -24,7 +24,7 @@ checkboxes, clear action, live count and empty state are progressive enhancement
 without scripts the full static table remains available. Printing retains the
 selected columns and selection summary while hiding controls.
 
-Data remains exactly revision 5.82, 1869931 bytes, SHA256
+At filter adoption, data remained exactly revision 5.82, 1869931 bytes, SHA256
 `6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9`.
 Run the normal rebuild/import checks and the actual-page browser suite:
 `node scripts/test-comparison-filter.cjs comparison/index.html comparison/data.json /tmp/prp-filter-check`.
@@ -34,24 +34,27 @@ commit reverting this integration, not a data snapshot rollback.
 
 ## Current approved source
 
-- Revision 5.82, English schema-v1, 2026-10-23; authority REPORT c91218583b467e9a.
-- Editorial delivery commit (local source attribution): `dc28b3bd0cffc5649aaa97899a632dcb870bea40`.
-- Approved JSON SHA256: `6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9` (1869931 bytes).
-- Sealed editorial receipt SHA256: `525d59596fca01b59718e4ee746ec41e8a9b9f04fd1fbadc854f3def1782d3d7` (3163 bytes).
-- Exact baseline 5.73 SHA256: `4a5a7d3b9a26367ecc037c28d0147c839e6e3e2e3ce7717ae3b7e2ea6dbd01d7`.
+- Revision 7.08, English schema-v1, 2026-10-26; authority REPORT 9b4f2d8c0eb1ebc4.
+- Editorial delivery commit (local provenance only): `7e081bf5dfc3633b30c9f52ce237e98fc94e811d`.
+- Approved JSON SHA256: `81277a29e44ab33d0d2d19e06f9aea9da574b05b3369dcca0f841909ab4c4fc1` (2235944 bytes).
+- Custody receipt SHA256: `98ede6c86923a7133ee84c86e5d68fbdd82604dc7a3fee727458d29e133fb136`; retained privately, not published.
+- Exact baseline 5.82 SHA256: `6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9` (1869931 bytes).
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole active verdict source and is retained byte-identically.
-The snapshot has 60 criteria, 26 stacks, 1560 cells: 778 Yes, 680 No and 102 Pending.
+The snapshot has 64 criteria, 28 stacks, 1792 cells: 950 Yes, 764 No and 78 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-This snapshot retires exactly F25/F35 and their 52 cells from the active grid.
-Seven surviving cell records and two profiles change; no surviving criteria,
-IDs, marks or logos are added/changed. C06-PN/PI and E05-I2/NS move Pending→Yes,
-C06-NS Pending→No, and F32-PN/PI No→Yes. All qualifications remain unchanged
-from the sealed snapshot, including successor-specific C06 scope and the
-author-declared F32 negotiated capacities/QoS to rendezvous.
+The exact coordinated expansion adds F36–F39 and TS/RA: 232 new cells,
+68 existing cell records changed, including 47 verdict transitions; seven
+existing criteria and 19 existing profiles change. No IDs are removed.
+Two exact neutral labels (not official marks) are added: tailscale-label.svg
+and rina-label.svg. Existing marks, assets and presentation remain unchanged.
+The exception is pinned to these baseline/output hashes and two asset hashes;
+ordinary import still rejects unapproved expansion/removal and asset additions.
+`scripts/comparison-approved.json` contains only public build pins/counts,
+not the private receipt, exhaustive custody delta or filesystem references.
 All previous URLs remain; C08/F25/F35 are never recycled and K02 is absent.
 The importer freezes exact prior criterion/cell records in
 `comparison/archive/F25-5.73.json` and `F35-5.73.json`, attributed to the verified
@@ -59,8 +62,7 @@ baseline hash. Existing `C08-4.72.json` is unchanged. These historical records
 are not active verdict sources. The renderer rebuilds all 78 old cell URLs with
 prominent archived previous-definition notices and matching criterion archive
 links, never redirects to a new definition. Routine imports preserve records.
-Exhaustive retirement, changed IDs and existing-cell transitions are retained in
-`scripts/comparison-approved.json`. Matrix mark metadata and logos are unchanged.
+Historical retirement evidence remains in Git and the immutable archive records.
 Website presentation, prior cell/profile URLs and historical CCNx SVG remain.
 Preserve CPU versus network exhaustion and negotiated receive-window scope.
 ALIAS/digest-object witnesses are selected constructions, not registry allocation.
@@ -80,7 +82,9 @@ DTN/CGR/LTP incapacity; G05-BP remains Pending. Documentary plausibility, bounde
 historical interoperability, selected profiles and measured results retain their
 distinct qualifications. No runtime, security, postquantum, interoperability or
 global-capacity certification is implied. The exact snapshot-bound
-`--retirement-r582` option is required; ordinary import still rejects grid changes.
+`--expansion-r708` option is required for this import. F38-LT's final-round
+witness is AOS management-defined frame multiplexing for local priorities,
+not end-to-end QoS or a tested combined stack.
 E05-BA Yes is dated Freifunk Stuttgart evidence, not certification of Linux 6.12
 or all optional settings. G02 PRP uses prepared paths. The new documentary
 judgments do not accept HS2, REFERENCE or ROUTE-001 integration/security gates.
@@ -198,6 +202,13 @@ new stable IDs. Never recycle or renumber identifiers.
    F25/F35 plus 52 cells. Historical records are generated from the pinned local
    baseline. Prior C08 records stay intact; routine imports reject recycling of
    all three retired IDs. No generic deletion or retirement switch is provided.
+   `--expansion-r708` admits only the exact 5.82/7.08 hashes, F36–F39,
+   TS/RA and their 232 new cells, plus the two pinned neutral SVG labels.
+   Verify all four catalog objects/signatures and the full receipt delta first.
+   Pass the normalized receipt from private working storage; it is never copied
+   into the site. `--apply` stores only revision/date/hash/size/counts/authority
+   in the public build pins. Test the exception before import using
+   `scripts/test-comparison-expansion-r708.py SNAPSHOT PRIVATE_RECEIPT OBJECTS`.
 4. Stage the exact JSON with website-owned files, regenerate twice and verify
    deterministic output and ownership before applying. Update this source receipt
    with the approved delivery; `--apply` records its machine-readable receipt in

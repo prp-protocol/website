@@ -61,7 +61,8 @@ const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 55000);
     assert(await evaluate('document.querySelectorAll(".matrix th[scope=row]").length')===criteria.length,'All criterion rows retained');
     for(const fraction of [0,.5,1]) {
       await evaluate(`document.querySelector('.wrap').scrollLeft=(document.querySelector('.wrap').scrollWidth-document.querySelector('.wrap').clientWidth)*${fraction}`);
-      assert(await evaluate('document.querySelector(".wrap").scrollLeft>=0'),'Horizontal scroll');
+      assert(await evaluate(`(()=>{const w=document.querySelector('.wrap');return Math.abs(w.scrollLeft-(w.scrollWidth-w.clientWidth)*${fraction})<2;})()`),'Actual horizontal scroll position');
+      assert(await evaluate(`(()=>{const w=document.querySelector('.wrap').getBoundingClientRect();return [...document.querySelectorAll('.group-label')].every(e=>{const r=e.getBoundingClientRect();return r.left>=w.left-2&&r.right<=w.right+2;});})()`),'Sticky group labels remain inside scroll viewport');
     }
     await evaluate('document.querySelector(".wrap").scrollLeft=0');
     for (const r of criteria) { await select([r.id]); tested++; }

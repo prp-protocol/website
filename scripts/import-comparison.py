@@ -17,15 +17,19 @@ ASSETS_R269 = {
     'logos/iot-rpl.svg': ('fff20dd148fd75e85bddfe45c8766dadc94afa56040ed4c7dac5ef2837548bae',330),
 }
 ASSETS_R321 = {'logos/ccnx.jpg': ('5833201d23b8e161facb733564198018a8d53a8a463a234bb7751f9f7d85e106',16952)}
+ASSETS_R708 = {
+    'logos/tailscale-label.svg': ('a9d823feab3750a98031ad2417aaf53a120eb227e8ce8fd4f875f1920464db89',278),
+    'logos/rina-label.svg': ('b3af092c28a8044d7e0598397f0ad284341185eb7deceaeb21b8fb9957af736f',273),
+}
 
 
-def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False):
+def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False):
     api = runpy.run_path(str(destination/'validate.py'))
     old = api['validate']((destination/'data.json').read_bytes(), destination)
     assets = assets or {}
-    if assets and not (expansion_r269 or asset_r321): raise ValueError('Assets require coordinated authorization')
-    if expansion_r269 or asset_r321:
-        expected_assets=ASSETS_R321 if asset_r321 else ASSETS_R269
+    if assets and not (expansion_r269 or asset_r321 or expansion_r708): raise ValueError('Assets require coordinated authorization')
+    if expansion_r269 or asset_r321 or expansion_r708:
+        expected_assets=ASSETS_R708 if expansion_r708 else ASSETS_R321 if asset_r321 else ASSETS_R269
         if set(assets)!=set(expected_assets): raise ValueError('Exact authorized assets required')
         for name,raw in assets.items():
             digest,size=expected_assets[name]
@@ -36,7 +40,7 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
         for name,raw in assets.items():
             if (destination/name).exists(): raise ValueError('Refusing to overwrite existing asset')
             (stage/name).write_bytes(raw)
-        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582)
+        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708)
         archive_additions={}
         for ident in (['C08'] if retirement_r573 else ['F25','F35'] if retirement_r582 else []):
             archive_name='archive/'+ident+'-'+old['revision']+'.json'
@@ -87,6 +91,7 @@ def main():
     ap.add_argument('--retirement-r573', action='store_true', help='REPORT 68adefcaadf6682d: exact 4.72 to 5.73 C08 retirement with archived URLs')
     ap.add_argument('--retirement-r582', action='store_true', help='REPORT c91218583b467e9a: exact 5.73 to 5.82 F25/F35 retirement with archived URLs')
     ap.add_argument('--asset-objects', type=Path, help='Verified sealed object directory; snapshot-specific asset exception only')
+    ap.add_argument('--expansion-r708', action='store_true', help='REPORT 9b4f2d8c0eb1ebc4: exact 5.82/7.08 F36-F39 and TS/RA expansion')
     args = ap.parse_args()
     receipt = json.loads(args.receipt.read_text())
     if not receipt.get('authority') or not receipt.get('catalog_receipt'):
@@ -99,16 +104,18 @@ def main():
     raw = args.snapshot.read_bytes()
     assets={}
     if args.asset_objects:
-        if not (args.expansion_r269 or args.asset_r321): raise ValueError('Asset import not authorized')
-        expected_assets=ASSETS_R321 if args.asset_r321 else ASSETS_R269
+        if not (args.expansion_r269 or args.asset_r321 or args.expansion_r708): raise ValueError('Asset import not authorized')
+        expected_assets=ASSETS_R708 if args.expansion_r708 else ASSETS_R321 if args.asset_r321 else ASSETS_R269
         assets={name:(args.asset_objects/digest).read_bytes() for name,(digest,size) in expected_assets.items()}
-    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390,args.expansion_r472,args.retirement_r573,args.retirement_r582)
+    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390,args.expansion_r472,args.retirement_r573,args.retirement_r582,args.expansion_r708)
     if args.apply:
         # Repository staging only; publication is separately authorized and managed.
         for name, data in outputs.items():
             (ROOT/'comparison'/name).parent.mkdir(parents=True,exist_ok=True)
             (ROOT/'comparison'/name).write_bytes(data)
-        (ROOT/'scripts/comparison-approved.json').write_text(json.dumps(receipt, indent=2)+'\n')
+        # 7.08 custody receipt is private; publish only the minimal build pins.
+        public_receipt = {k:receipt[k] for k in ('authority','revision','date','bytes','sha256','status_counts')} if args.expansion_r708 else receipt
+        (ROOT/'scripts/comparison-approved.json').write_text(json.dumps(public_receipt, indent=2)+'\n')
     print(json.dumps(dict(result='PASS',applied=args.apply,revision=receipt['revision'],
         sha256=hashlib.sha256(raw).hexdigest(),changed_ids=delta,signature=SIGNER,
         note='Cryptographic verification; key identity follows broker custody, not external web-of-trust certification.')))

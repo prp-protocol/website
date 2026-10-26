@@ -27,8 +27,10 @@ receipt=json.loads((ROOT/'scripts/comparison-approved.json').read_text())
 assert d['revision']==receipt['revision'] and d['date']==receipt['date']
 assert len(raw)==receipt['bytes'] and hashlib.sha256(raw).hexdigest()==receipt['sha256']
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
-assert len(d['criteria'])==60 and len(d['columns'])==26
-assert len(d['cells'])==1560 and {c['id'] for c in d['cells']}==expected
+assert len(d['criteria'])==64 and len(d['columns'])==28
+assert len(d['cells'])==1792 and {c['id'] for c in d['cells']}==expected
+assert {'F36','F37','F38','F39'}<={r['id'] for r in d['criteria']}
+assert {'TS','RA'}<={c['id'] for c in d['columns']}
 assert not {'C08','F25','F35'} & {r['id'] for r in d['criteria']}
 for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
     archive=json.loads((OUT/('archive/'+ident+'-'+rev+'.json')).read_text())
