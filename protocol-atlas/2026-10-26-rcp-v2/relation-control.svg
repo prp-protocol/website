@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400"><title>PRP — Relation Control Protocol</title><desc>RCP negotiation, authenticated relationship rules, section framing and custody.</desc><rect width="1800" height="2400" fill="white"/>
+<text x="88" y="90" font-family="Arial, sans-serif" font-size="23" fill="#007c78" font-weight="700" text-anchor="start">PRP  /  PROTOCOL ATLAS</text>
+<text x="1710" y="90" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="end">RELATION CONTROL</text>
+<path d="M88 116 L1712 116" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="82" y="277" font-family="Arial, sans-serif" font-size="166" fill="#183444" font-weight="700" text-anchor="start">RCP</text>
+<text x="468" y="211" font-family="Arial, sans-serif" font-size="62" fill="#183444" font-weight="700" text-anchor="start">Relation Control</text>
+<text x="470" y="277" font-family="Arial, sans-serif" font-size="62" fill="#183444" font-weight="700" text-anchor="start">Protocol</text>
+<text x="88" y="345" font-family="Arial, sans-serif" font-size="34" fill="#536b78" font-weight="400" text-anchor="start">Authenticated rules for an ongoing relationship.</text>
+<rect x="340" y="415" width="1120" height="405" rx="28" fill="white" stroke="#007c78" stroke-width="2"/>
+<text x="900" y="456" font-family="Arial, sans-serif" font-size="22" fill="#007c78" font-weight="700" text-anchor="middle">AUTHENTICATED RELATIONSHIP</text>
+<circle cx="203" cy="592" r="70" fill="white" stroke="#007c78" stroke-width="3"/>
+<text x="203" y="612" font-family="Arial, sans-serif" font-size="58" fill="#007c78" font-weight="700" text-anchor="middle">A</text>
+<text x="203" y="700" font-family="Arial, sans-serif" font-size="22" fill="#536b78" font-weight="700" text-anchor="middle">PARTICIPANT A</text>
+<circle cx="1597" cy="592" r="70" fill="white" stroke="#007c78" stroke-width="3"/>
+<text x="1597" y="612" font-family="Arial, sans-serif" font-size="58" fill="#007c78" font-weight="700" text-anchor="middle">B</text>
+<text x="1597" y="700" font-family="Arial, sans-serif" font-size="22" fill="#536b78" font-weight="700" text-anchor="middle">PARTICIPANT B</text>
+<path d="M273 592 L340 592" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M1460 592 L1527 592" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M395 533 L1405 533" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M1390.0 526.0 L1405 533 L1390.0 540.0" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="900" y="516" font-family="Arial, sans-serif" font-size="27" fill="#183444" font-weight="400" text-anchor="middle">PROPOSE  ·  requested rule + generation</text>
+<path d="M1405 730 L395 730" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M410.0 737.0 L395 730 L410.0 723.0" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="900" y="771" font-family="Arial, sans-serif" font-size="27" fill="#183444" font-weight="400" text-anchor="middle">RESULT  ·  explicit acceptance + effective rule</text>
+<rect x="584" y="565" width="632" height="114" rx="10" fill="white" stroke="#183444" stroke-width="2"/>
+<text x="900" y="609" font-family="Arial, sans-serif" font-size="26" fill="#007c78" font-weight="700" text-anchor="middle">AGREED SECTION</text>
+<text x="900" y="650" font-family="Arial, sans-serif" font-size="27" fill="#183444" font-weight="400" text-anchor="middle">Validate exact bytes, then install.</text>
+<text x="88" y="878" font-family="Arial, sans-serif" font-size="27" fill="#183444" font-weight="700" text-anchor="start">HS2 establishes the channel.</text>
+<text x="1712" y="878" font-family="Arial, sans-serif" font-size="27" fill="#183444" font-weight="700" text-anchor="end">RCP governs its relationship rules.</text>
+<text x="88" y="922" font-family="Arial, sans-serif" font-size="25" fill="#536b78" font-weight="400" text-anchor="start">Adjacent · direct · E2E</text>
+<text x="1712" y="922" font-family="Arial, sans-serif" font-size="25" fill="#536b78" font-weight="400" text-anchor="end">Relationship policy and traffic keys have separate lifetimes.</text>
+<path d="M88 972 L1712 972" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="88" y="1026" font-family="Arial, sans-serif" font-size="22" fill="#007c78" font-weight="700" text-anchor="start">01</text>
+<text x="143" y="1026" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">The message header selects one operation</text>
+<text x="88" y="1093" font-family="Arial, sans-serif" font-size="21" fill="#007c78" font-weight="700" text-anchor="start">0x01</text>
+<text x="88" y="1140" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">DECLARE</text>
+<text x="88" y="1180" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="start">Announce a rule.</text>
+<path d="M88 1204 L448 1204" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="508" y="1093" font-family="Arial, sans-serif" font-size="21" fill="#007c78" font-weight="700" text-anchor="start">0x02</text>
+<text x="508" y="1140" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">PROPOSE</text>
+<text x="508" y="1180" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="start">Seek agreement.</text>
+<path d="M508 1204 L868 1204" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="928" y="1093" font-family="Arial, sans-serif" font-size="21" fill="#007c78" font-weight="700" text-anchor="start">0x03</text>
+<text x="928" y="1140" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">CONDITION</text>
+<text x="928" y="1180" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="start">Set a continuity requirement.</text>
+<path d="M928 1204 L1288 1204" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="1348" y="1093" font-family="Arial, sans-serif" font-size="21" fill="#007c78" font-weight="700" text-anchor="start">0x04</text>
+<text x="1348" y="1140" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">RESULT</text>
+<text x="1348" y="1180" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="start">Return a section outcome.</text>
+<path d="M1348 1204 L1708 1204" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="88" y="1255" font-family="Arial, sans-serif" font-size="27" fill="#007c78" font-weight="700" text-anchor="start">Silence never means acceptance.</text>
+<text x="1712" y="1255" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="end">RECEIVED acknowledges a declaration; it does not establish agreement.</text>
+<path d="M88 1301 L1712 1301" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="88" y="1355" font-family="Arial, sans-serif" font-size="22" fill="#007c78" font-weight="700" text-anchor="start">02</text>
+<text x="143" y="1355" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">Sections define the rule</text>
+<text x="1000" y="1355" font-family="Arial, sans-serif" font-size="22" fill="#007c78" font-weight="700" text-anchor="start">03</text>
+<text x="1055" y="1355" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">Inside the control</text>
+<path d="M939 1388 L939 1862" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<circle cx="104" cy="1432" r="12" fill="white" stroke="#007c78" stroke-width="3"/>
+<path d="M116 1432 h35 m-12 0 v12 m-12 -12 v8" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="173" y="1426" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0001</text>
+<text x="173" y="1464" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Key lifecycle</text>
+<circle cx="116" cy="1550" r="22" fill="white" stroke="#007c78" stroke-width="3"/>
+<path d="M116 1535 v15 l12 7" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="173" y="1540" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0002</text>
+<text x="173" y="1578" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Rekey schedule</text>
+<path d="M92 1684 v-14" fill="none" stroke="#007c78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M110 1684 v-32" fill="none" stroke="#007c78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M128 1684 v-23" fill="none" stroke="#007c78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="173" y="1654" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0003</text>
+<text x="173" y="1692" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Resource reports</text>
+<path d="M92 1760 h48 l-18 20 v18 h-12 v-18 Z" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="173" y="1768" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0004</text>
+<text x="173" y="1806" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Drain policy</text>
+<rect x="512" y="1424" width="28" height="20" rx="8" fill="white" stroke="#007c78" stroke-width="2"/>
+<rect x="535" y="1424" width="28" height="20" rx="8" fill="white" stroke="#007c78" stroke-width="2"/>
+<text x="593" y="1426" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0005</text>
+<text x="593" y="1464" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Carrier binding</text>
+<circle cx="532" cy="1546" r="17" fill="white" stroke="#007c78" stroke-width="3"/>
+<path d="M545 1559 l17 17" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="593" y="1540" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0006</text>
+<text x="593" y="1578" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Discovery policy</text>
+<path d="M516 1684 V1650 H560 V1684" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<circle cx="516" cy="1684" r="5" fill="white" stroke="#007c78" stroke-width="3"/>
+<circle cx="560" cy="1684" r="5" fill="white" stroke="#007c78" stroke-width="3"/>
+<text x="593" y="1654" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0100</text>
+<text x="593" y="1692" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Member route intent</text>
+<path d="M512 1764 h50 M512 1791 h50" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M517 1778 L557 1778" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M542.0 1771.0 L557 1778 L542.0 1785.0" fill="none" stroke="#007c78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="593" y="1768" font-family="Arial, sans-serif" font-size="20" fill="#007c78" font-weight="700" text-anchor="start">0x0101</text>
+<text x="593" y="1806" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">Discovery lane bind</text>
+<text x="88" y="1902" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="start">Registered RCP sections · version 0x01</text>
+<text x="1000" y="1418" font-family="Arial, sans-serif" font-size="22" fill="#007c78" font-weight="700" text-anchor="start">WIRE-v4  /  KIND 0x08  /  VERSION 0x01</text>
+<rect x="1000" y="1446" width="712" height="102" rx="6" fill="white" stroke="#183444" stroke-width="2"/>
+<text x="1020" y="1487" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">RCP MESSAGE HEADER</text>
+<text x="1688" y="1487" font-family="Arial, sans-serif" font-size="25" fill="#007c78" font-weight="700" text-anchor="end">20 B</text>
+<text x="1020" y="1526" font-family="Arial, sans-serif" font-size="23" fill="#007c78" font-weight="700" text-anchor="start">operation: 1 byte at offset 2 → choices in 01 above</text>
+<path d="M1030 1548 v26 h26" fill="none" stroke="#007c78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<rect x="1056" y="1574" width="656" height="105" rx="6" fill="white" stroke="#007c78" stroke-width="2"/>
+<text x="1076" y="1615" font-family="Arial, sans-serif" font-size="25" fill="#183444" font-weight="700" text-anchor="start">RULE SECTION HEADER</text>
+<text x="1688" y="1615" font-family="Arial, sans-serif" font-size="25" fill="#007c78" font-weight="700" text-anchor="end">16 B</text>
+<text x="1076" y="1655" font-family="Arial, sans-serif" font-size="22" fill="#536b78" font-weight="400" text-anchor="start">Type · version · status · length · generation / base</text>
+<rect x="1056" y="1691" width="656" height="66" rx="6" fill="white" stroke="#bdccd1" stroke-width="2"/>
+<text x="1384" y="1734" font-family="Arial, sans-serif" font-size="24" fill="#183444" font-weight="400" text-anchor="middle">SECTION BODY  /  canonical rule or result</text>
+<path d="M1030 1767 v27 h26" fill="none" stroke="#007c78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="1076" y="1807" font-family="Arial, sans-serif" font-size="24" fill="#536b78" font-weight="400" text-anchor="start">… next section, ordered by type</text>
+<text x="1000" y="1861" font-family="Arial, sans-serif" font-size="24" fill="#007c78" font-weight="700" text-anchor="start">1–16 sections  ·  complete control ≤ 1024 bytes</text>
+<text x="1000" y="1902" font-family="Arial, sans-serif" font-size="24" fill="#536b78" font-weight="400" text-anchor="start">Acceptance is atomic per section.</text>
+<path d="M88 1944 L1712 1944" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="88" y="1999" font-family="Arial, sans-serif" font-size="22" fill="#007c78" font-weight="700" text-anchor="start">04</text>
+<text x="143" y="1999" font-family="Arial, sans-serif" font-size="31" fill="#183444" font-weight="700" text-anchor="start">Custody: an explicit responsibility</text>
+<circle cx="180" cy="2100" r="37" fill="white" stroke="#a36428" stroke-width="3"/>
+<text x="180" y="2110" font-family="Arial, sans-serif" font-size="29" fill="#a36428" font-weight="700" text-anchor="middle">S</text>
+<text x="180" y="2171" font-family="Arial, sans-serif" font-size="22" fill="#a36428" font-weight="700" text-anchor="middle">ORIGIN</text>
+<circle cx="900" cy="2100" r="37" fill="white" stroke="#a36428" stroke-width="3"/>
+<rect x="884" y="2082" width="32" height="34" rx="3" fill="white" stroke="#a36428" stroke-width="2"/>
+<path d="M891 2093 L909 2093" fill="none" stroke="#a36428" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="900" y="2171" font-family="Arial, sans-serif" font-size="22" fill="#a36428" font-weight="700" text-anchor="middle">CUSTODIAN</text>
+<circle cx="1615" cy="2100" r="37" fill="white" stroke="#a36428" stroke-width="3"/>
+<text x="1615" y="2110" font-family="Arial, sans-serif" font-size="29" fill="#a36428" font-weight="700" text-anchor="middle">R</text>
+<text x="1615" y="2171" font-family="Arial, sans-serif" font-size="22" fill="#a36428" font-weight="700" text-anchor="middle">RECIPIENT</text>
+<path d="M230 2100 L845 2100" fill="none" stroke="#a36428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M830.0 2093.0 L845 2100 L830.0 2107.0" fill="none" stroke="#a36428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="537" y="2076" font-family="Arial, sans-serif" font-size="26" fill="#183444" font-weight="400" text-anchor="middle">Explicit acceptance</text>
+<path d="M955 2100 L1560 2100" fill="none" stroke="#a36428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<path d="M1545.0 2093.0 L1560 2100 L1545.0 2107.0" fill="none" stroke="#a36428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="1257" y="2076" font-family="Arial, sans-serif" font-size="26" fill="#183444" font-weight="400" text-anchor="middle">Retain → forward</text>
+<text x="900" y="2220" font-family="Arial, sans-serif" font-size="25" fill="#536b78" font-weight="400" text-anchor="middle">A multicast commitment identifies the branches or deliveries it covers.</text>
+<text x="900" y="2260" font-family="Arial, sans-serif" font-size="23" fill="#536b78" font-weight="400" text-anchor="middle">Custody is a future RCP profile; its specific section contract remains to be defined.</text>
+<path d="M88 2306 L1712 2306" fill="none" stroke="#bdccd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray=""/>
+<text x="88" y="2352" font-family="Arial, sans-serif" font-size="21" fill="#536b78" font-weight="400" text-anchor="start">PRP-RCP  /  Working-draft architecture  /  26 October 2026</text>
+<text x="1712" y="2352" font-family="Arial, sans-serif" font-size="27" fill="#183444" font-weight="700" text-anchor="end">prp-protocol.org</text>
+</svg>

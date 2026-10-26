@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400"><title>PRP — Distribution</title><desc>Deliver across networks, across a group and across periods of disconnection.</desc>
+<rect x="0" y="0" width="1800" height="2400" rx="0" fill="white" stroke="none" stroke-width="2"/>
+<rect x="72" y="70" width="8" height="212" rx="0" fill="white" stroke="#00796d" stroke-width="2"/>
+<text x="105" y="106" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">PRP / TECHNICAL ATLAS</text>
+<text x="105" y="199" fill="#142b3d" font-family="Arial, sans-serif" font-size="78" font-weight="400">Distribution</text>
+<text x="108" y="258" fill="#40576a" font-family="Arial, sans-serif" font-size="28" font-weight="400">Deliver across networks, across a group and across periods of disconnection.</text>
+<text x="1500" y="106" fill="#00796d" font-family="Arial, sans-serif" font-size="23" font-weight="400">PLATE 03 / 04</text>
+<path d="M72 322 L1728 322" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="372" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">01</text>
+<text x="178" y="373" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Multicast — branch where listeners diverge</text>
+<rect x="104" y="414" width="500" height="256" rx="15" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="124" y="450" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">NETWORK A</text>
+<rect x="650" y="414" width="500" height="256" rx="15" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="670" y="450" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">NETWORK B</text>
+<rect x="1196" y="414" width="500" height="256" rx="15" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1216" y="450" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">NETWORK C</text>
+<circle cx="182" cy="550" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="175" y="559" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">S</text>
+<text x="120" y="620" fill="#142b3d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Sender</text>
+<circle cx="500" cy="550" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="493" y="559" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">A</text>
+<circle cx="800" cy="550" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="793" y="559" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">B</text>
+<circle cx="1280" cy="550" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1273" y="559" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">C</text>
+<path d="M215 550 L465 550" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M451.0 543.0 L465 550 L451.0 557.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M535 550 L765 550" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M751.0 543.0 L765 550 L751.0 557.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M835 550 L1245 550" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1231.0 543.0 L1245 550 L1231.0 557.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M825 550 L942 490" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M926.3483389874477 490.1597108266587 L942 490 L932.7367720537957 502.617155306037" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="970" cy="490" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="963" y="499" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<path d="M825 550 L942 620" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M933.5799654343833 606.8051897355884 L942 620 L926.3921310491008 618.8191414938464" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="970" cy="620" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="963" y="629" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<path d="M1305 550 L1537 490" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1521.693263483658 486.7283311262781 L1537 490 L1525.1986229912172 500.28238788884045" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1565" cy="490" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1558" y="499" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<path d="M1305 550 L1537 620" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1525.6188421487166 609.2543382723924 L1537 620 L1521.574775907144 622.6575292444621" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1565" cy="620" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1558" y="629" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<text x="225" y="520" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">One copy</text>
+<text x="1025" y="520" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">One copy</text>
+<text x="104" y="716" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">S: sender · A/B/C: aggregators · L: authorized listeners. Branches replicate the encrypted unit.</text>
+<text x="104" y="754" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">Unicast reaches one receiver; multicast carries one logical transmission to many listeners.</text>
+<path d="M72 790 L1728 790" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="840" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">02</text>
+<text x="178" y="841" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Simplify the distribution tree</text>
+<text x="104" y="884" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">BEFORE / duplicate deliveries</text>
+<text x="960" y="884" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">AFTER / downstream fanout</text>
+<circle cx="149" cy="970" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="142" y="979" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">A</text>
+<circle cx="414" cy="970" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="407" y="979" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">B</text>
+<circle cx="724" cy="925" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="717" y="934" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<circle cx="724" cy="1020" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="717" y="1029" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<circle cx="1005" cy="970" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="998" y="979" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">A</text>
+<circle cx="1270" cy="970" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1263" y="979" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">B</text>
+<circle cx="1580" cy="925" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1573" y="934" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<circle cx="1580" cy="1020" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1573" y="1029" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<path d="M182 959 L380 959" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M366.0 952.0 L380 959 L366.0 966.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M182 981 L380 981" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M366.0 974.0 L380 981 L366.0 988.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M440 960 L694 925" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M679.1755115302503 919.9766005922027 L694 925 L681.0865873919124 933.8455511311213" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M440 981 L694 1020" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M681.2245203355094 1010.9563768686335 L694 1020 L679.0998136962125 1024.7942098527726" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M1038 970 L1235 970" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1221.0 963.0 L1235 970 L1221.0 977.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M1305 960 L1554 925" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1539.1619306843713 920.0168585225186 L1554 925 L1541.1106452286376 933.8805705660142" stroke="#00796d" stroke-width="3" fill="none"/>
+<path d="M1305 981 L1554 1020" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1541.2518065887443 1010.91795371355 L1554 1020 L1539.0854469240867 1024.7493269571344" stroke="#00796d" stroke-width="3" fill="none"/>
+<text x="104" y="1080" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">Neighbor cooperation transfers duplicate delivery sessions to the downstream fanout.</text>
+<path d="M72 1110 L1728 1110" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1160" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">03</text>
+<text x="178" y="1161" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Groupcast — multiple voices, governed participation</text>
+<text x="104" y="1204" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">Example: an application associates three autonomous multicasts with one group.</text>
+<circle cx="160" cy="1280" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="153" y="1289" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">A</text>
+<path d="M195 1280 L490 1280" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M476.0 1273.0 L490 1280 L476.0 1287.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="525" cy="1280" r="16" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="225" y="1263" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Multicast A</text>
+<path d="M545 1280 L590 1280" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M590 1251 L590 1309" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M590 1251 L788 1251" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M774.0 1244.0 L788 1251 L774.0 1258.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="815" cy="1251" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="808" y="1260" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">B</text>
+<path d="M590 1280 L1138 1280" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1124.0 1273.0 L1138 1280 L1124.0 1287.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1165" cy="1280" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1158" y="1289" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">C</text>
+<path d="M590 1309 L1488 1309" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1474.0 1302.0 L1488 1309 L1474.0 1316.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1515" cy="1309" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1508" y="1318" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<circle cx="160" cy="1376" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="153" y="1385" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">B</text>
+<path d="M195 1376 L490 1376" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M476.0 1369.0 L490 1376 L476.0 1383.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="525" cy="1376" r="16" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="225" y="1359" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Multicast B</text>
+<path d="M545 1376 L590 1376" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M590 1347 L590 1405" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M590 1347 L788 1347" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M774.0 1340.0 L788 1347 L774.0 1354.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="815" cy="1347" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="808" y="1356" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">A</text>
+<path d="M590 1376 L1138 1376" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1124.0 1369.0 L1138 1376 L1124.0 1383.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1165" cy="1376" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1158" y="1385" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">C</text>
+<path d="M590 1405 L1488 1405" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1474.0 1398.0 L1488 1405 L1474.0 1412.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1515" cy="1405" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1508" y="1414" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<circle cx="160" cy="1472" r="26" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="153" y="1481" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">C</text>
+<path d="M195 1472 L490 1472" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M476.0 1465.0 L490 1472 L476.0 1479.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="525" cy="1472" r="16" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="225" y="1455" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Multicast C</text>
+<path d="M545 1472 L590 1472" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M590 1443 L590 1501" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M590 1443 L788 1443" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M774.0 1436.0 L788 1443 L774.0 1450.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="815" cy="1443" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="808" y="1452" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">A</text>
+<path d="M590 1472 L1138 1472" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1124.0 1465.0 L1138 1472 L1124.0 1479.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1165" cy="1472" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1158" y="1481" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">B</text>
+<path d="M590 1501 L1488 1501" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1474.0 1494.0 L1488 1501 L1474.0 1508.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<circle cx="1515" cy="1501" r="21" fill="white" stroke="#00796d" stroke-width="3"/>
+<text x="1508" y="1510" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">L</text>
+<text x="104" y="1540" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">Active senders receive one another’s transmissions; L represents passive listeners.</text>
+<rect x="104" y="1570" width="495" height="56" rx="7" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="119" y="1606" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Initial administrator</text>
+<path d="M606 1598 L646 1598" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M632.0 1591.0 L646 1598 L632.0 1605.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<rect x="654" y="1570" width="495" height="56" rx="7" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="669" y="1606" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Equal active administrators</text>
+<path d="M1156 1598 L1196 1598" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1182.0 1591.0 L1196 1598 L1182.0 1605.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<rect x="1204" y="1570" width="495" height="56" rx="7" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1219" y="1606" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Creator may leave</text>
+<text x="104" y="1662" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Group membership, writer authority and application rights are distinct; the group can outlive its sessions.</text>
+<path d="M72 1690 L1728 1690" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1740" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">04</text>
+<text x="178" y="1741" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">DTN — retain now, forward during an agreed window</text>
+<rect x="104" y="1790" width="370" height="108" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="120" y="1831" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">SEND</text>
+<text x="120" y="1872" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Protected packet</text>
+<path d="M479 1844 L506 1844" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M492.0 1837.0 L506 1844 L492.0 1851.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<rect x="514" y="1790" width="370" height="108" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="530" y="1831" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">ACCEPT CUSTODY</text>
+<text x="530" y="1872" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Negotiated responsibility</text>
+<path d="M889 1844 L916 1844" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M902.0 1837.0 L916 1844 L902.0 1851.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<rect x="924" y="1790" width="370" height="108" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="940" y="1831" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">RETAIN / WAIT</text>
+<text x="940" y="1872" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Within agreed limits</text>
+<path d="M1299 1844 L1326 1844" stroke="#00796d" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1312.0 1837.0 L1326 1844 L1312.0 1851.0" stroke="#00796d" stroke-width="3" fill="none"/>
+<rect x="1334" y="1790" width="370" height="108" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1350" y="1831" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="700">FORWARD</text>
+<text x="1350" y="1872" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Next available contact</text>
+<text x="104" y="1960" fill="#00796d" font-family="Arial, sans-serif" font-size="25" font-weight="700">Availability</text>
+<path d="M320 1952 L1010 1952" stroke="#40576a" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+<text x="400" y="1934" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Unavailable / sleeping</text>
+<rect x="1020" y="1920" width="350" height="65" rx="5" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1040" y="1962" fill="#00796d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Agreed transmit window</text>
+<path d="M1380 1952 L1680 1952" stroke="#40576a" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+<text x="104" y="2040" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Availability windows can be short, spaced or recurring, subject to the carrier and negotiated policy.</text>
+<text x="104" y="2079" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Custody acceptance is separate from recipient delivery; retention and expiry remain bounded.</text>
+<text x="104" y="2118" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Multicast custody identifies the branches or delivery set covered by each commitment.</text>
+<rect x="72" y="2175" width="1656" height="110" rx="12" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="104" y="2218" fill="#00796d" font-family="Arial, sans-serif" font-size="28" font-weight="700">RELATION CONTROL / PRP-RCP</text>
+<text x="104" y="2260" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">RCP provides the extension framework; custody and DTN windows require their own section contracts.</text>
+<text x="72" y="2335" fill="#40576a" font-family="Arial, sans-serif" font-size="22" font-weight="400">Working-draft architecture · 26 October 2026 · Editorial revision 2</text>
+<text x="1390" y="2335" fill="#142b3d" font-family="Arial, sans-serif" font-size="28" font-weight="700">prp-protocol.org</text>
+</svg>

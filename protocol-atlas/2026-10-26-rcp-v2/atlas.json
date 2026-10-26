@@ -1,0 +1,151 @@
+{
+  "collection": "PRP Protocol Atlas",
+  "revision": "2026-10-26-rcp-v2",
+  "language": "en",
+  "posters": [
+    {
+      "id": "navigation",
+      "title": "Navigation",
+      "description": "Discovery and topological paths.",
+      "language": "en",
+      "files": [
+        {
+          "path": "navigation.svg",
+          "bytes": 15592,
+          "sha256": "18fed467648c1eaffd90f21fe01094a832276b3ee9f82fb5125f59f1bb644266"
+        },
+        {
+          "path": "navigation.pdf",
+          "bytes": 67504,
+          "sha256": "4a945085d261031d8e52df093e02d81c92820006b9c557bd4b2e1d2b7b7010ca"
+        },
+        {
+          "path": "navigation.png",
+          "bytes": 384113,
+          "sha256": "8232b2f2df92c76dbaed65ab404ec485f5619564c163da24176479088e6cadb6"
+        }
+      ]
+    },
+    {
+      "id": "connection",
+      "title": "Connection",
+      "description": "Channel establishment and protected operation framing.",
+      "language": "en",
+      "files": [
+        {
+          "path": "connection.svg",
+          "bytes": 18511,
+          "sha256": "d04e23b4cfed5858532686f371dcabe920d8a102e8cd64a1e80e24c368724a28"
+        },
+        {
+          "path": "connection.pdf",
+          "bytes": 67376,
+          "sha256": "6e732e75f6b342c68fc1f97e5d2b9ce5b147a5e286d7f655a8579d52fd729d4c"
+        },
+        {
+          "path": "connection.png",
+          "bytes": 430860,
+          "sha256": "876c2a0c0bb755869da57e89b4572dea977a96316a4aeff6ae482350e7f067a0"
+        }
+      ]
+    },
+    {
+      "id": "relation-control",
+      "title": "Relation Control Protocol",
+      "description": "Authenticated relationship rules, RCP operations, section framing and custody scope.",
+      "language": "en",
+      "files": [
+        {
+          "path": "relation-control.svg",
+          "bytes": 19125,
+          "sha256": "d04d6c90cb800e5a2f519491f13ce3209ff7138a70472c338f90dabefd85b837"
+        },
+        {
+          "path": "relation-control.pdf",
+          "bytes": 65077,
+          "sha256": "5d78339c54f21b7a0463d1e573ee63b9337e5a537ea6a9272e2440e95a96df11"
+        },
+        {
+          "path": "relation-control.png",
+          "bytes": 386176,
+          "sha256": "e245a0510a4433de89d4e4a14b6f22f92fb868ffb400a693ebe7ef9daeb55405"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "title": "Distribution and DTN",
+      "description": "Multicast, groupcast, custody and availability windows.",
+      "language": "en",
+      "files": [
+        {
+          "path": "distribution.svg",
+          "bytes": 22205,
+          "sha256": "70cf595f85324eaed70336f714fc55808a8271f4b36f9aeeb6441cf6282aa3f6"
+        },
+        {
+          "path": "distribution.pdf",
+          "bytes": 75145,
+          "sha256": "8d9deb59518428f526745df25f8dc5948e79a7308bb1ff5bdbb48ede342bab18"
+        },
+        {
+          "path": "distribution.png",
+          "bytes": 408760,
+          "sha256": "b87fc4835a875cfcbbfd3c70a2740aa54c3f5fb8673596293bef73f9bb8b0030"
+        }
+      ]
+    },
+    {
+      "id": "cryptography",
+      "title": "Cryptography",
+      "description": "References, proofs, key establishment and record protection.",
+      "language": "en",
+      "files": [
+        {
+          "path": "cryptography.svg",
+          "bytes": 14821,
+          "sha256": "f222419438fb8e213a0adf4576fce4e730542213794a302393c8670b6ef3ca7a"
+        },
+        {
+          "path": "cryptography.pdf",
+          "bytes": 59693,
+          "sha256": "cc881b95b31fbeecd2c08669eb86a5a1b4629a8d901fe4c9a871171088a224bb"
+        },
+        {
+          "path": "cryptography.png",
+          "bytes": 373097,
+          "sha256": "5d01de2830dc3059b500e6676d111af55f5e14c35659e89dd7db26fd68230b09"
+        }
+      ]
+    },
+    {
+      "id": "suites",
+      "title": "Cryptographic suites",
+      "description": "Reference tables for identity and session suites.",
+      "language": "en",
+      "files": [
+        {
+          "path": "suites.svg",
+          "bytes": 17204,
+          "sha256": "8ce2b2f4c66bb977106b01058aa21006c7c255711c42a2031f534c98f65f5c74"
+        },
+        {
+          "path": "suites.pdf",
+          "bytes": 59003,
+          "sha256": "efaf5cbeea23fea5402a6a4836602c7a8b9b6c8004d7ca69d9edf5e7f1262922"
+        },
+        {
+          "path": "suites.png",
+          "bytes": 441477,
+          "sha256": "b093286dd71410a54a0963b0e47ba4098a8ded0acc7c26c055601ebd12dcc053"
+        }
+      ]
+    }
+  ],
+  "print": {
+    "background": "white",
+    "width_mm": 360,
+    "height_mm": 480
+  },
+  "scope": "Working-draft educational diagrams; source-specific qualifications retained."
+}

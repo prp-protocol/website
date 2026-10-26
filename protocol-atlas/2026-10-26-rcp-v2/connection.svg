@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400"><title>PRP — Connection</title><desc>Select a service mode. Establish the channel. Exchange protected operations.</desc>
+<rect x="0" y="0" width="1800" height="2400" rx="0" fill="white" stroke="none" stroke-width="2"/>
+<rect x="72" y="70" width="8" height="212" rx="0" fill="white" stroke="#925000" stroke-width="2"/>
+<text x="105" y="106" fill="#925000" font-family="Arial, sans-serif" font-size="24" font-weight="400">PRP / TECHNICAL ATLAS</text>
+<text x="105" y="199" fill="#142b3d" font-family="Arial, sans-serif" font-size="78" font-weight="400">Connection</text>
+<text x="108" y="258" fill="#40576a" font-family="Arial, sans-serif" font-size="28" font-weight="400">Select a service mode. Establish the channel. Exchange protected operations.</text>
+<text x="1500" y="106" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">PLATE 02 / 04</text>
+<path d="M72 322 L1728 322" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="372" fill="#925000" font-family="Arial, sans-serif" font-size="24" font-weight="400">01</text>
+<text x="178" y="373" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">HS2 — choose the identification model</text>
+<text x="1250" y="373" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">R = requester · S = service</text>
+<text x="104" y="425" fill="#925000" font-family="Arial, sans-serif" font-size="26" font-weight="700">A / KNOWN DESTINATION</text>
+<circle cx="149" cy="475" r="26" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="142" y="484" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">R</text>
+<circle cx="544" cy="475" r="26" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="537" y="484" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">S</text>
+<path d="M149 505 L149 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M544 505 L544 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M539 535 L154 535" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M168.0 542.0 L154 535 L168.0 528.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="196" y="525" fill="#142b3d" font-family="Arial, sans-serif" font-size="22" font-weight="400">1  Expected identity proof</text>
+<path d="M154 601 L539 601" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M525.0 594.0 L539 601 L525.0 608.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="196" y="590" fill="#142b3d" font-family="Arial, sans-serif" font-size="22" font-weight="400">2  Requester identity proof</text>
+<text x="104" y="654" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">R knows the exact service SCIR.</text>
+<text x="648" y="425" fill="#925000" font-family="Arial, sans-serif" font-size="26" font-weight="700">B / ALIAS SERVICE</text>
+<circle cx="693" cy="475" r="26" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="686" y="484" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">R</text>
+<circle cx="1088" cy="475" r="26" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1081" y="484" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">S</text>
+<path d="M693 505 L693 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M1088 505 L1088 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M698 535 L1083 535" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1069.0 528.0 L1083 535 L1069.0 542.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="743" y="525" fill="#142b3d" font-family="Arial, sans-serif" font-size="22" font-weight="400">1  Requester identifies</text>
+<path d="M1083 601 L698 601" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M712.0 608.0 L698 601 L712.0 594.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="743" y="590" fill="#142b3d" font-family="Arial, sans-serif" font-size="22" font-weight="400">2  Optional service identity</text>
+<text x="648" y="654" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Identity disclosure inside the channel.</text>
+<text x="1192" y="425" fill="#925000" font-family="Arial, sans-serif" font-size="26" font-weight="700">C / UNIDENTIFIED</text>
+<circle cx="1237" cy="475" r="26" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1230" y="484" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">R</text>
+<circle cx="1632" cy="475" r="26" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1625" y="484" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">S</text>
+<path d="M1237 505 L1237 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M1632 505 L1632 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M1242 535 L1627 535" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1613.0 528.0 L1627 535 L1613.0 542.0" stroke="#925000" stroke-width="3" fill="none"/>
+<path d="M1627 601 L1242 601" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1256.0 608.0 L1242 601 L1256.0 594.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="1307" y="570" fill="#142b3d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Ephemeral channel</text>
+<text x="1192" y="654" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">No PRP identity proof on either side.</text>
+<text x="104" y="703" fill="#40576a" font-family="Arial, sans-serif" font-size="26" font-weight="400">Identity proof and permission are separate: service policy decides which operations are allowed.</text>
+<text x="104" y="744" fill="#40576a" font-family="Arial, sans-serif" font-size="26" font-weight="400">B/C initial key substitution remains a risk; later identity disclosure cannot undo earlier exposure.</text>
+<path d="M72 812 L1728 812" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="862" fill="#925000" font-family="Arial, sans-serif" font-size="24" font-weight="400">02</text>
+<text x="178" y="863" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Initial laboratory profiles / A1 · B1 · C1</text>
+<text x="104" y="918" fill="#925000" font-family="Arial, sans-serif" font-size="35" font-weight="700">A1</text>
+<text x="275" y="919" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="700">REQUESTER</text>
+<text x="908" y="919" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="700">SERVICE</text>
+<path d="M335 935 L335 1180" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M965 935 L965 1180" stroke="#aab7c0" stroke-width="2" stroke-dasharray="5 6" fill="none"/>
+<path d="M340 953 L960 953" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M946.0 946.0 L960 953 L946.0 960.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="410" y="944" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">M1 · Initiate</text>
+<path d="M960 1002 L340 1002" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M354.0 1009.0 L340 1002 L354.0 995.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="410" y="993" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">M2 · Service proof</text>
+<path d="M340 1051 L960 1051" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M946.0 1044.0 L960 1051 L946.0 1058.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="410" y="1042" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">M3 · Requester proof</text>
+<path d="M960 1100 L340 1100" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M354.0 1107.0 L340 1100 L354.0 1093.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="410" y="1091" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">M4 · ALLOW / DENY</text>
+<path d="M340 1149 L960 1149" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M946.0 1142.0 L960 1149 L946.0 1156.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="410" y="1140" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">On ALLOW: readiness + optional DATA</text>
+<text x="1130" y="920" fill="#925000" font-family="Arial, sans-serif" font-size="30" font-weight="700">B1 / C1</text>
+<circle cx="1150" cy="985" r="22" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1143" y="994" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">1</text>
+<path d="M1177 985 L1233 985" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1219.0 978.0 L1233 985 L1219.0 992.0" stroke="#925000" stroke-width="3" fill="none"/>
+<circle cx="1261" cy="985" r="22" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1254" y="994" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">2</text>
+<path d="M1288 985 L1344 985" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1330.0 978.0 L1344 985 L1330.0 992.0" stroke="#925000" stroke-width="3" fill="none"/>
+<circle cx="1372" cy="985" r="22" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1365" y="994" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">3</text>
+<path d="M1399 985 L1455 985" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1441.0 978.0 L1455 985 L1441.0 992.0" stroke="#925000" stroke-width="3" fill="none"/>
+<circle cx="1483" cy="985" r="22" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1476" y="994" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">4</text>
+<path d="M1510 985 L1566 985" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1552.0 978.0 L1566 985 L1552.0 992.0" stroke="#925000" stroke-width="3" fill="none"/>
+<circle cx="1594" cy="985" r="22" fill="white" stroke="#925000" stroke-width="3"/>
+<text x="1587" y="994" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">5</text>
+<text x="1128" y="1052" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Five-frame establishment.</text>
+<text x="1128" y="1090" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">Explicit profile selection.</text>
+<text x="1128" y="1128" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">A1/B1: Ed25519ctx identities.</text>
+<text x="1128" y="1166" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">C1: no identity proof.</text>
+<text x="104" y="1220" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">A1 readiness may carry the first DATA, or be internal control. These are laboratory contracts.</text>
+<path d="M72 1272 L1728 1272" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1322" fill="#925000" font-family="Arial, sans-serif" font-size="24" font-weight="400">03</text>
+<text x="178" y="1323" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">AOP contains the Route-Record List</text>
+<text x="104" y="1373" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">AOP / COMPLETE SESSION-PROTECTED PACKET</text>
+<rect x="104" y="1396" width="340" height="105" rx="9" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="122" y="1433" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="700">sequence</text>
+<text x="122" y="1474" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">8 octets</text>
+<rect x="456" y="1396" width="840" height="105" rx="9" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="474" y="1433" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="700">ciphertext</text>
+<text x="474" y="1474" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">Encrypted RRL: count + records + padding</text>
+<rect x="1308" y="1396" width="392" height="105" rx="9" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1326" y="1433" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="700">tag</text>
+<text x="1326" y="1474" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">τ octets · session profile</text>
+<path d="M940 1510 L940 1564" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M947.0 1550.0 L940 1564 L933.0 1550.0" stroke="#925000" stroke-width="3" fill="none"/>
+<text x="972" y="1545" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Authenticate + decrypt</text>
+<text x="104" y="1551" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="700">RRL / DECRYPTED OPERATION CONTAINER</text>
+<rect x="104" y="1574" width="340" height="105" rx="9" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="122" y="1611" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="700">record_count</text>
+<text x="122" y="1652" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">2 octets</text>
+<rect x="456" y="1574" width="840" height="105" rx="9" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="474" y="1611" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="700">records</text>
+<text x="474" y="1652" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">Exactly N scoped operation records</text>
+<rect x="1308" y="1574" width="392" height="105" rx="9" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1326" y="1611" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="700">opaque_padding</text>
+<text x="1326" y="1652" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="400">Remaining plaintext</text>
+<text x="104" y="1725" fill="#40576a" font-family="Arial, sans-serif" font-size="27" font-weight="400">Each record: route_alias[2] | kind[1] | flags[1] | body_length[2] | body[variable].</text>
+<text x="104" y="1767" fill="#40576a" font-family="Arial, sans-serif" font-size="27" font-weight="400">Authenticate the complete AOP before dispatch. Record kinds are selected by the service.</text>
+<path d="M72 1857 L1728 1857" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1907" fill="#925000" font-family="Arial, sans-serif" font-size="24" font-weight="400">04</text>
+<text x="178" y="1908" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Exchange data; maintain rules with RCP</text>
+<rect x="104" y="1948" width="370" height="93" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="122" y="1984" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="700">RECEIVE</text>
+<text x="122" y="2021" fill="#142b3d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Protected record</text>
+<path d="M479 1995 L507 1995" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M493.0 1988.0 L507 1995 L493.0 2002.0" stroke="#925000" stroke-width="3" fill="none"/>
+<rect x="514" y="1948" width="370" height="93" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="532" y="1984" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="700">AUTHENTICATE</text>
+<text x="532" y="2021" fill="#142b3d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Current authority</text>
+<path d="M889 1995 L917 1995" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M903.0 1988.0 L917 1995 L903.0 2002.0" stroke="#925000" stroke-width="3" fill="none"/>
+<rect x="924" y="1948" width="370" height="93" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="942" y="1984" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="700">DEDUPLICATE</text>
+<text x="942" y="2021" fill="#142b3d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Replay window</text>
+<path d="M1299 1995 L1327 1995" stroke="#925000" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1313.0 1988.0 L1327 1995 L1313.0 2002.0" stroke="#925000" stroke-width="3" fill="none"/>
+<rect x="1334" y="1948" width="370" height="93" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1352" y="1984" fill="#925000" font-family="Arial, sans-serif" font-size="23" font-weight="700">APPLICATION</text>
+<text x="1352" y="2021" fill="#142b3d" font-family="Arial, sans-serif" font-size="24" font-weight="400">Pull verified data</text>
+<text x="104" y="2078" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">RCP governs authenticated relationship rules. Relationships, keys and paths have distinct lifetimes.</text>
+<text x="104" y="2106" fill="#925000" font-family="Arial, sans-serif" font-size="25" font-weight="400">B1/C1 have separate record framing. A1 selects a restricted RRL service without padding.</text>
+<rect x="72" y="2175" width="1656" height="110" rx="12" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="104" y="2218" fill="#925000" font-family="Arial, sans-serif" font-size="28" font-weight="700">CONTINUE / RELATION CONTROL ATLAS</text>
+<text x="104" y="2260" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">HS2 establishes the channel; RCP declares, proposes and conditions the rules of the relationship.</text>
+<text x="72" y="2335" fill="#40576a" font-family="Arial, sans-serif" font-size="22" font-weight="400">Working-draft architecture · 26 October 2026 · Editorial revision 2</text>
+<text x="1390" y="2335" fill="#142b3d" font-family="Arial, sans-serif" font-size="28" font-weight="700">prp-protocol.org</text>
+</svg>

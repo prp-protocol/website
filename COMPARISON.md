@@ -100,7 +100,7 @@ the former cutoff is retired, not a current measurement or universal budget.
 Research labels link only to public archived F25 cells, never private files.
 Matrix and archived F25 pages link to this auxiliary page.
 
-`protocol-atlas/` contains only the approved English v2 poster, public metadata
+The original `protocol-atlas/` delivery contains the approved English v2 poster, public metadata
 and website wrapper. Seven signed input objects, exact sizes/hashes, including
 poster SVG/PNG/PDF and metadata, are recorded in the approved receipt and the
 `comparison-582` publication evidence. `scripts/render-atlas.py` verifies poster
@@ -111,6 +111,29 @@ Responsive preview, full-size SVG/PNG links and exact downloads are available
 under a shared Protocol Atlas navigation entry. No editorial renderer, private
 research, sources.json or scripts are imported. RRL/AOP, successor sequence and
 historical-wire distinctions remain as approved; no security acceptance follows.
+
+The current gallery presents the English collection `2026-10-26-rcp-v2`
+(REPORT 485044f77ffd76be): Navigation, Connection, Relation Control Protocol,
+Distribution and DTN, Cryptography, and Cryptographic suites. Signed package
+SHA256 `13c921eb8b2b7edc7ac4d1107c969c5e7a9a6327d28d02a24a3b1d9975d5df90`
+contains exactly public `atlas.json` and 18 static SVG/PDF/PNG files. Its manifest
+and unchanged assets live in the versioned collection subdirectory. Catalog,
+signature, safe archive/SVG and per-file validation evidence is retained privately
+under `publication/atlas-20261026`. The signed editorial receipt is private custody
+evidence, not website content. Comparison 7.08 is unchanged.
+
+The website-owned renderer now generates the gallery and six responsive poster
+pages, with full-size SVG/PNG links and exact original downloads. PDFs have one
+page, nominally 360 × 480 mm (export rounding less than 1 point). The prior unified
+v2 poster, metadata and URLs remain byte-identical; `legacy-v2.html` retains its
+original wrapper. No editorial renderer, private HTML or source corpus is imported.
+For updates, validate a new authorized signed collection into a new immutable
+directory and regenerate wrappers; never overwrite old approved assets. Keep
+plate-specific qualifications, including future custody-section scope and the
+RCP 20-byte message header versus 16-byte rule-section header distinction.
+Check deterministic rendering, links/mobile/keyboard and public bytes before
+closing delivery. Rollback uses a forward commit restoring the prior wrapper
+selection, not deletion or replacement of approved assets.
 
 `comparison/groups.json` contains the four label/first-criterion pairs from the
 signed receipt. Website-owned full-width rowgroup bands use a nested sticky

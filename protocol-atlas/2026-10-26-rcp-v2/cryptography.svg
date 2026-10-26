@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400"><title>PRP — Cryptography</title><desc>Follow the operations: reference → proof → shared keys → protected records.</desc>
+<rect x="0" y="0" width="1800" height="2400" rx="0" fill="white" stroke="none" stroke-width="2"/>
+<rect x="72" y="70" width="8" height="212" rx="0" fill="white" stroke="#245b96" stroke-width="2"/>
+<text x="105" y="106" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">PRP / TECHNICAL ATLAS</text>
+<text x="105" y="199" fill="#142b3d" font-family="Arial, sans-serif" font-size="78" font-weight="400">Cryptography</text>
+<text x="108" y="258" fill="#40576a" font-family="Arial, sans-serif" font-size="28" font-weight="400">Follow the operations: reference → proof → shared keys → protected records.</text>
+<text x="1500" y="106" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="400">PLATE 04 / 04</text>
+<path d="M72 322 L1728 322" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="372" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">01</text>
+<text x="178" y="373" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Form a reference</text>
+<rect x="120" y="447" width="245" height="65" rx="5" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="135" y="489" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="700">PUBLIC KEY</text>
+<path d="M382 479 L537 479" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M523.0 472.0 L537 479 L523.0 486.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<circle cx="580" cy="479" r="35" fill="white" stroke="#245b96" stroke-width="3"/>
+<text x="573" y="488" fill="#245b96" font-family="Arial, sans-serif" font-size="25" font-weight="700">H</text>
+<path d="M621 479 L790 479" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M776.0 472.0 L790 479 L776.0 486.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<rect x="810" y="428" width="870" height="104" rx="7" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="832" y="469" fill="#245b96" font-family="Arial, sans-serif" font-size="25" font-weight="700">HEADER</text>
+<text x="832" y="509" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">1 byte</text>
+<text x="1050" y="469" fill="#245b96" font-family="Arial, sans-serif" font-size="25" font-weight="700">SUITE</text>
+<text x="1050" y="509" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">2 bytes</text>
+<text x="1260" y="469" fill="#245b96" font-family="Arial, sans-serif" font-size="25" font-weight="700">IDENTIFIER</text>
+<text x="1260" y="509" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">L bytes</text>
+<text x="420" y="553" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Canonical input + domain + suite</text>
+<text x="104" y="598" fill="#40576a" font-family="Arial, sans-serif" font-size="26" font-weight="400">An IDENTITY SCIR commits to public-key material. Its identifier length is defined by the suite.</text>
+<path d="M72 630 L1728 630" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="680" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">02</text>
+<text x="178" y="681" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Prove control of the referenced key</text>
+<rect x="104" y="733" width="350" height="210" rx="12" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="129" y="776" fill="#245b96" font-family="Arial, sans-serif" font-size="27" font-weight="700">SIGNER</text>
+<circle cx="145" cy="828" r="13" fill="white" stroke="#245b96" stroke-width="3"/>
+<path d="M159 828 L214 828" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M193 828 L193 841" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M209 828 L209 841" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<text x="130" y="876" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Private key stays local</text>
+<rect x="1290" y="733" width="390" height="210" rx="12" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1315" y="776" fill="#245b96" font-family="Arial, sans-serif" font-size="27" font-weight="700">VERIFIER</text>
+<text x="1315" y="826" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Public key ↔ expected SCIR</text>
+<text x="1315" y="873" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Verify the bound signature</text>
+<path d="M1270 773 L474 773" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M488.0 780.0 L474 773 L488.0 766.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<text x="615" y="753" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Session-bound proof context</text>
+<rect x="637" y="821" width="405" height="65" rx="5" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="652" y="863" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="700">SIGNATURE / PROOF</text>
+<path d="M474 854 L617 854" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M603.0 847.0 L617 854 L603.0 861.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<path d="M1060 854 L1270 854" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1256.0 847.0 L1270 854 L1256.0 861.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<text x="104" y="989" fill="#40576a" font-family="Arial, sans-serif" font-size="26" font-weight="400">Valid proof establishes key control. Service policy separately decides permission.</text>
+<path d="M72 1060 L1728 1060" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1110" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">03</text>
+<text x="178" y="1111" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Establish and derive channel keys</text>
+<circle cx="165" cy="1180" r="37" fill="white" stroke="#245b96" stroke-width="3"/>
+<text x="158" y="1189" fill="#245b96" font-family="Arial, sans-serif" font-size="25" font-weight="700">R</text>
+<circle cx="1605" cy="1180" r="37" fill="white" stroke="#245b96" stroke-width="3"/>
+<text x="1598" y="1189" fill="#245b96" font-family="Arial, sans-serif" font-size="25" font-weight="700">S</text>
+<path d="M215 1158 L1553 1158" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1539.0 1151.0 L1553 1158 L1539.0 1165.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<path d="M1553 1205 L215 1205" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M229.0 1212.0 L215 1205 L229.0 1198.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<text x="493" y="1151" fill="#142b3d" font-family="Arial, sans-serif" font-size="27" font-weight="400">Exchange profile-defined public contributions</text>
+<text x="505" y="1255" fill="#40576a" font-family="Arial, sans-serif" font-size="26" font-weight="400">Each endpoint derives the shared secret locally</text>
+<rect x="620" y="1284" width="550" height="63" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="648" y="1327" fill="#245b96" font-family="Arial, sans-serif" font-size="27" font-weight="400">Shared secret + transcript → KDF</text>
+<path d="M620 1316 L415 1374" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M430.3768927685216 1376.9242381546976 L415 1374 L426.565526184871 1363.4530286780011" stroke="#245b96" stroke-width="3" fill="none"/>
+<path d="M1170 1316 L1390 1374" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1378.2470337599693 1363.6623124171458 L1390 1374 L1374.6780701896982 1377.199760442312" stroke="#245b96" stroke-width="3" fill="none"/>
+<circle cx="250" cy="1385" r="13" fill="white" stroke="#245b96" stroke-width="3"/>
+<path d="M264 1385 L319 1385" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M298 1385 L298 1398" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M314 1385 L314 1398" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<text x="235" y="1433" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">R → S traffic key</text>
+<circle cx="1390" cy="1385" r="13" fill="white" stroke="#245b96" stroke-width="3"/>
+<path d="M1404 1385 L1459 1385" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1438 1385 L1438 1398" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1454 1385 L1454 1398" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<text x="1375" y="1433" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">S → R traffic key</text>
+<text x="104" y="1490" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">V4 choices: X25519 (classical) · ML-KEM (post-quantum) · X25519 + ML-KEM (hybrid).</text>
+<path d="M72 1520 L1728 1520" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1570" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">04</text>
+<text x="178" y="1571" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Protect and verify each record</text>
+<rect x="104" y="1630" width="370" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="120" y="1671" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">PLAINTEXT</text>
+<text x="120" y="1714" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Operation data</text>
+<path d="M479 1686 L506 1686" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M492.0 1679.0 L506 1686 L492.0 1693.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<rect x="514" y="1630" width="370" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="530" y="1671" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">AEAD</text>
+<text x="530" y="1714" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Key + nonce + AD</text>
+<path d="M889 1686 L916 1686" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M902.0 1679.0 L916 1686 L902.0 1693.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<rect x="924" y="1630" width="370" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="940" y="1671" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">PROTECTED RECORD</text>
+<text x="940" y="1714" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Ciphertext + tag</text>
+<path d="M1299 1686 L1326 1686" stroke="#245b96" stroke-width="3" stroke-dasharray="" fill="none"/>
+<path d="M1312.0 1679.0 L1326 1686 L1312.0 1693.0" stroke="#245b96" stroke-width="3" fill="none"/>
+<rect x="1334" y="1630" width="370" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1350" y="1671" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">RECEIVER</text>
+<text x="1350" y="1714" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">Verify, then expose</text>
+<text x="104" y="1803" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">AD = authenticated associated data. Nonces must not repeat under the same key.</text>
+<text x="104" y="1842" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">Receiver acceptance also checks current authority, sequence and replay state.</text>
+<path d="M72 1900 L1728 1900" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1950" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">05</text>
+<text x="178" y="1951" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Selected HS2 laboratory profiles</text>
+<text x="104" y="2010" fill="#245b96" font-family="Arial, sans-serif" font-size="31" font-weight="700">A1</text>
+<text x="104" y="2050" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Ed25519ctx identity proof</text>
+<text x="104" y="2083" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Ristretto-based establishment</text>
+<text x="104" y="2116" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3 → ChaCha20-Poly1305</text>
+<text x="654" y="2010" fill="#245b96" font-family="Arial, sans-serif" font-size="31" font-weight="700">B1</text>
+<text x="654" y="2050" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Ed25519ctx identity proof</text>
+<text x="654" y="2083" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Ristretto255 establishment</text>
+<text x="654" y="2116" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">HKDF/HMAC → ChaCha20-Poly1305</text>
+<text x="1204" y="2010" fill="#245b96" font-family="Arial, sans-serif" font-size="31" font-weight="700">C1</text>
+<text x="1204" y="2050" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">No identity proof</text>
+<text x="1204" y="2083" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">Ristretto255 establishment</text>
+<text x="1204" y="2116" fill="#40576a" font-family="Arial, sans-serif" font-size="23" font-weight="400">HKDF/HMAC → ChaCha20-Poly1305</text>
+<rect x="72" y="2175" width="1656" height="110" rx="12" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="104" y="2218" fill="#245b96" font-family="Arial, sans-serif" font-size="28" font-weight="700">COMPANION / CRYPTOGRAPHIC SUITES</text>
+<text x="104" y="2260" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">Full IDs, algorithms and lengths are in the reference sheet. Signature and key-exchange choices are distinct.</text>
+<text x="72" y="2335" fill="#40576a" font-family="Arial, sans-serif" font-size="22" font-weight="400">Working-draft architecture · 26 October 2026 · Editorial revision 2</text>
+<text x="1390" y="2335" fill="#142b3d" font-family="Arial, sans-serif" font-size="28" font-weight="700">prp-protocol.org</text>
+</svg>

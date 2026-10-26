@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400"><title>PRP — Cryptographic suites</title><desc>Separate reference formation, identity proof and protected-channel construction.</desc>
+<rect x="0" y="0" width="1800" height="2400" rx="0" fill="white" stroke="none" stroke-width="2"/>
+<rect x="72" y="70" width="8" height="212" rx="0" fill="white" stroke="#245b96" stroke-width="2"/>
+<text x="105" y="106" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">PRP / TECHNICAL ATLAS</text>
+<text x="105" y="199" fill="#142b3d" font-family="Arial, sans-serif" font-size="78" font-weight="400">Cryptographic suites</text>
+<text x="108" y="258" fill="#40576a" font-family="Arial, sans-serif" font-size="28" font-weight="400">Separate reference formation, identity proof and protected-channel construction.</text>
+<text x="1500" y="106" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="400">REFERENCE / R1</text>
+<path d="M72 322 L1728 322" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="372" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">01</text>
+<text x="178" y="373" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Three independent choices</text>
+<rect x="104" y="420" width="500" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="122" y="464" fill="#245b96" font-family="Arial, sans-serif" font-size="26" font-weight="700">REFERENCE</text>
+<text x="122" y="507" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Hash + identifier length</text>
+<rect x="654" y="420" width="500" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="672" y="464" fill="#245b96" font-family="Arial, sans-serif" font-size="26" font-weight="700">IDENTITY PROOF</text>
+<text x="672" y="507" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Signing identity + proof</text>
+<rect x="1204" y="420" width="500" height="112" rx="8" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="1222" y="464" fill="#245b96" font-family="Arial, sans-serif" font-size="26" font-weight="700">CHANNEL</text>
+<text x="1222" y="507" fill="#142b3d" font-family="Arial, sans-serif" font-size="25" font-weight="400">Key establishment + protection</text>
+<text x="104" y="579" fill="#40576a" font-family="Arial, sans-serif" font-size="27" font-weight="400">A post-quantum signature does not make a classical key exchange post-quantum.</text>
+<path d="M72 620 L1728 620" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="670" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">02</text>
+<text x="178" y="671" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Identity suites / reference-suite registry</text>
+<path d="M104 710 L1696 710" stroke="#9babb6" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="112" y="745" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">ID</text>
+<text x="290" y="745" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Signature</text>
+<text x="780" y="745" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Reference hash</text>
+<text x="1050" y="745" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">ID bytes</text>
+<text x="1235" y="745" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Public key</text>
+<text x="1450" y="745" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Proof bytes</text>
+<path d="M104 765 L1696 765" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="803" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">0x0001</text>
+<text x="290" y="803" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">Ed25519(BLAKE3)</text>
+<text x="780" y="803" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">BLAKE3</text>
+<text x="1050" y="803" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">32</text>
+<text x="1235" y="803" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">32</text>
+<text x="1450" y="803" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">64</text>
+<path d="M104 829 L1696 829" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="867" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">0x0002</text>
+<text x="290" y="867" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">Ed25519ctx</text>
+<text x="780" y="867" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">SHA-256</text>
+<text x="1050" y="867" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">32</text>
+<text x="1235" y="867" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">32</text>
+<text x="1450" y="867" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">64</text>
+<path d="M104 893 L1696 893" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="931" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">0x0003</text>
+<text x="290" y="931" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">ML-DSA-65</text>
+<text x="780" y="931" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">SHA-256</text>
+<text x="1050" y="931" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">32</text>
+<text x="1235" y="931" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">1952</text>
+<text x="1450" y="931" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">3309</text>
+<path d="M104 957 L1696 957" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="995" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">0x0004</text>
+<text x="290" y="995" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">ML-DSA-87</text>
+<text x="780" y="995" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">SHA-384</text>
+<text x="1050" y="995" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">48</text>
+<text x="1235" y="995" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">2592</text>
+<text x="1450" y="995" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">4627</text>
+<path d="M104 1021 L1696 1021" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1059" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">0x0005</text>
+<text x="290" y="1059" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">Ed25519(BLAKE3) + ML-DSA-87</text>
+<text x="780" y="1059" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">BLAKE3</text>
+<text x="1050" y="1059" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">32</text>
+<text x="1235" y="1059" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">2624</text>
+<text x="1450" y="1059" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">4691</text>
+<path d="M104 1085 L1696 1085" stroke="#9babb6" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1132" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">SCIR envelope: header[1] + reference_suite[2] + identifier[L]. Current L: 32 or 48 octets.</text>
+<text x="104" y="1172" fill="#40576a" font-family="Arial, sans-serif" font-size="25" font-weight="400">For ALIAS / MULTICAST / GROUPCAST, the reference suite does not select the external signer.</text>
+<path d="M72 1210 L1728 1210" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1260" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">03</text>
+<text x="178" y="1261" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Session-suite registry / version 4 inventory</text>
+<path d="M104 1300 L1696 1300" stroke="#9babb6" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="112" y="1335" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">ID</text>
+<text x="290" y="1335" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Key establishment</text>
+<text x="800" y="1335" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Record protection</text>
+<text x="1155" y="1335" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Key derivation</text>
+<text x="1510" y="1335" fill="#245b96" font-family="Arial, sans-serif" font-size="23" font-weight="700">Transcript</text>
+<path d="M104 1355 L1696 1355" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1393" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0001</text>
+<text x="290" y="1393" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">NONE</text>
+<text x="800" y="1393" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">NONE</text>
+<text x="1155" y="1393" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">—</text>
+<text x="1510" y="1393" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3</text>
+<path d="M104 1412 L1696 1412" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1450" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0002</text>
+<text x="290" y="1450" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">NONE</text>
+<text x="800" y="1450" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">NONE</text>
+<text x="1155" y="1450" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">—</text>
+<text x="1510" y="1450" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">SHA-256</text>
+<path d="M104 1469 L1696 1469" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1507" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0101</text>
+<text x="290" y="1507" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">X25519</text>
+<text x="800" y="1507" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">ChaCha20-Poly1305</text>
+<text x="1155" y="1507" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3 derive-key</text>
+<text x="1510" y="1507" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3</text>
+<path d="M104 1526 L1696 1526" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1564" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0102</text>
+<text x="290" y="1564" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">X25519</text>
+<text x="800" y="1564" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">AES-256-GCM</text>
+<text x="1155" y="1564" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3 derive-key</text>
+<text x="1510" y="1564" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3</text>
+<path d="M104 1583 L1696 1583" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1621" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0201</text>
+<text x="290" y="1621" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">X25519 + ML-KEM-768</text>
+<text x="800" y="1621" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">ChaCha20-Poly1305</text>
+<text x="1155" y="1621" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3 derive-key</text>
+<text x="1510" y="1621" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3</text>
+<path d="M104 1640 L1696 1640" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1678" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0202</text>
+<text x="290" y="1678" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">X25519 + ML-KEM-1024</text>
+<text x="800" y="1678" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">ChaCha20-Poly1305</text>
+<text x="1155" y="1678" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3 derive-key</text>
+<text x="1510" y="1678" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">BLAKE3</text>
+<path d="M104 1697 L1696 1697" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1735" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0301</text>
+<text x="290" y="1735" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">ML-KEM-768</text>
+<text x="800" y="1735" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">AES-256-GCM</text>
+<text x="1155" y="1735" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">HKDF / SHA-256</text>
+<text x="1510" y="1735" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">SHA-256</text>
+<path d="M104 1754 L1696 1754" stroke="#ccd5dc" stroke-width="1" stroke-dasharray="" fill="none"/>
+<text x="112" y="1792" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">0x0302</text>
+<text x="290" y="1792" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">ML-KEM-1024</text>
+<text x="800" y="1792" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">AES-256-GCM</text>
+<text x="1155" y="1792" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">HKDF / SHA-384</text>
+<text x="1510" y="1792" fill="#142b3d" font-family="Arial, sans-serif" font-size="23" font-weight="400">SHA-384</text>
+<path d="M104 1811 L1696 1811" stroke="#9babb6" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1847" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">0101–0102: classical · 0201–0202: hybrid · 0301–0302: post-quantum key establishment.</text>
+<text x="104" y="1887" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">NONE has no encryption or AEAD tag. Protected rows: nonce 12 octets, tag 16 octets.</text>
+<path d="M72 1920 L1728 1920" stroke="#aab7c0" stroke-width="2" stroke-dasharray="" fill="none"/>
+<text x="104" y="1970" fill="#245b96" font-family="Arial, sans-serif" font-size="24" font-weight="400">04</text>
+<text x="178" y="1971" fill="#142b3d" font-family="Arial, sans-serif" font-size="34" font-weight="700">Selected HS2 laboratory profiles / A1 · B1 · C1</text>
+<text x="104" y="2016" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">A1: identity suite 0x0002; Ristretto-based construction, BLAKE3 derivation, ChaCha20-Poly1305.</text>
+<text x="104" y="2055" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">B1/C1: Ristretto255 + HKDF/HMAC-SHA-256 + ChaCha20-Poly1305; B1 adds Ed25519ctx.</text>
+<text x="104" y="2094" fill="#40576a" font-family="Arial, sans-serif" font-size="24" font-weight="400">C1 proves no identity. These profiles do not enable the full v4 inventory or select NONE.</text>
+<rect x="72" y="2175" width="1656" height="110" rx="12" fill="white" stroke="#9babb6" stroke-width="2"/>
+<text x="104" y="2218" fill="#245b96" font-family="Arial, sans-serif" font-size="28" font-weight="700">READ IDS WITH THEIR REGISTRY</text>
+<text x="104" y="2260" fill="#142b3d" font-family="Arial, sans-serif" font-size="26" font-weight="400">Identity 0x0002 and session 0x0002 mean different things. Registry presence is not profile support.</text>
+<text x="72" y="2335" fill="#40576a" font-family="Arial, sans-serif" font-size="22" font-weight="400">Working-draft architecture · 26 October 2026 · Editorial revision 1</text>
+<text x="1390" y="2335" fill="#142b3d" font-family="Arial, sans-serif" font-size="28" font-weight="700">prp-protocol.org</text>
+</svg>
