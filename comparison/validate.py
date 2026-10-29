@@ -104,7 +104,26 @@ def changes(old, new, allowed_added=None, allowed_removed=None):
     return result
 
 
-def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False):
+ARCHIVE_R748 = '00df9cf19ad5981ca441c89d1da78199e7c8a2f699d02b01351cb1e5c53be063'
+ARCHIVE_R748_PATH = 'archive/retired-criteria-7.48.json'
+
+
+def validate_retired_r748(raw, root, active):
+    require(len(raw)==102524 and hashlib.sha256(raw).hexdigest()==ARCHIVE_R748, 'Unapproved historical archive bytes')
+    archive=json.loads(raw)
+    require(set(archive)=={'schema_version','revision','archives'} and archive['schema_version']==1 and archive['revision']=='7.48', 'Archive schema/revision mismatch')
+    expected=[('L02','7.32','7.33'),('F38','7.33','7.34')]
+    require([(a['id'],a['source_revision'],a['retired_in']) for a in archive['archives']]==expected, 'Archive provenance mismatch')
+    for a in archive['archives']:
+        require(a['id']==a['criterion']['id'] and len(a['cells'])==28 and all(c['status']=='Y' for c in a['cells']), 'Historical records mismatch')
+        # Reuse complete schema, safe URL/path and unique-grid validation. This
+        # temporary object is validation only, never a second active verdict source.
+        fixture=dict(active,criteria=[a['criterion']],cells=a['cells'])
+        validate(json.dumps(fixture).encode(),root)
+    return archive
+
+
+def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
@@ -114,7 +133,21 @@ def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=
     for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
         if (root/('archive/'+ident+'-'+rev+'.json')).exists():
             require(ident not in {r['id'] for r in new['criteria']}, 'Retired '+ident+' cannot be recycled')
-    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708))<=1, 'Select one coordinated exception')
+    if (root/ARCHIVE_R748_PATH).exists():
+        require(not {'L02','F38'} & {r['id'] for r in new['criteria']}, 'Retired L02/F38 cannot be recycled')
+    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748))<=1, 'Select one coordinated exception')
+    if retirement_r748:
+        require(receipt['sha256']=='cf90f2ca1264c7f951f99cacdbc022aeadc9e66d4dfecf3fd07f093f24498b4e', 'Retirement only authorized for exact 7.48')
+        require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()==receipt['baseline_sha256']=='81277a29e44ab33d0d2d19e06f9aea9da574b05b3369dcca0f841909ab4c4fc1', 'Retirement baseline must be exact 7.08')
+        require(receipt['sealed_receipt_sha256']=='b1f0705c41ef2b38f455813d938e8b7a7d71e687547b3d2226647ac304cb238e', 'Unapproved custody receipt')
+        require(receipt['archive_sha256']==ARCHIVE_R748 and archive_raw is not None, 'Exact historical archive required')
+        validate_retired_r748(archive_raw,root,new)
+        removed=dict(criteria=['F38','L02'],columns=[],cells=sorted(r+'-'+c['id'] for r in ['F38','L02'] for c in old['columns']))
+        require(receipt['removed_ids']==removed and receipt['added_ids']==dict(criteria=[],columns=[],cells=[]), 'Only L02/F38 retirement authorized')
+        require(receipt['new_assets']==[] and new['marks']==old['marks'], 'Assets/marks unchanged')
+        require([(c['id'],c['logo']) for c in new['columns']]==[(c['id'],c['logo']) for c in old['columns']], 'Logo references unchanged')
+        require(new['criteria']==[r for r in old['criteria'] if r['id'] not in removed['criteria']], 'Surviving criterion definitions unchanged')
+        require((len(new['criteria']),len(new['columns']),len(new['cells']))==(62,28,1736), '7.48 grid mismatch')
     if expansion_r708:
         require(receipt['sha256']=='81277a29e44ab33d0d2d19e06f9aea9da574b05b3369dcca0f841909ab4c4fc1', 'Expansion only authorized for exact 7.08 snapshot')
         require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()==receipt['baseline_sha256']=='6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9', 'Expansion baseline must be exact 5.82')

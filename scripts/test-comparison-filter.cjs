@@ -95,7 +95,32 @@ const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 55000);
   // DOM parsing remains available to CDP even with page scripts disabled.
   await new Promise(resolve => setTimeout(resolve, 400));
   assert(await evaluate(`document.querySelectorAll('.yes-filter-toggle').length === 0 && Array.from(document.querySelectorAll('.matrix thead th[id^=col-]')).filter(h => !h.hidden).length === ${columns.length}`), 'Static no-JavaScript fallback');
-  const report = {status: 'PASS', targetURL, revision: data.revision, singleCriterionCases: tested, viewportWidths: [1440, 390], allCriteriaEmptyState: true, conjunction: true, keyboardSpaceAndFocus: true, reset: true, unchangedEvidenceLinks: originalLinks.length, printControlsHidden: true, noScriptFallback: true, rowgroupSpans: true};
+  let archiveCases=0;
+  if (Number(data.revision)>=7.48) {
+    await send('Emulation.setScriptExecutionDisabled', {value:false});
+    for (const width of [390,1440]) {
+      await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+      for (const [file,revision] of [['archive/L02.html','7.32'],['archive/F38.html','7.33'],['cells/L02-PN.html','7.32'],['cells/F38-RA.html','7.33']]) {
+        const url=new URL(file,targetURL).href;
+        await send('Page.navigate',{url});
+        await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(location.href===${JSON.stringify(url)} && document.readyState==='complete' && document.querySelector('.archived')){clearInterval(timer);resolve(true)}},25)})`);
+        assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'),'Archive viewport overflow');
+        assert(await evaluate(`document.querySelector('.archived').textContent.includes('${revision}')`),'Correct archival revision');
+        assert(await evaluate('document.body.textContent.includes("not a loss of capability")'),'Retirement explanation');
+        assert(await evaluate('document.body.textContent.includes("public 7.08")'),'Baseline attribution');
+        assert(await evaluate('!document.querySelector(".matrix")'),'No active archive matrix');
+        const shot=await send('Page.captureScreenshot',{format:'png'});
+        fs.writeFileSync(path.join(outputDir,file.replaceAll('/','-')+'-'+width+'.png'),Buffer.from(shot.data,'base64'));
+        const back=await evaluate('document.querySelector("main a").focus();document.activeElement.href');
+        await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+        await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+        await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(location.href===${JSON.stringify(back)}&&document.readyState==='complete'){clearInterval(timer);resolve(true)}},25)})`);
+        assert(await evaluate('location.href')===back,'Archive keyboard backlink activation');
+        archiveCases++;
+      }
+    }
+  }
+  const report = {status: 'PASS', targetURL, revision: data.revision, singleCriterionCases: tested, viewportWidths: [1440, 390], allCriteriaEmptyState: true, conjunction: true, keyboardSpaceAndFocus: true, reset: true, unchangedEvidenceLinks: originalLinks.length, printControlsHidden: true, noScriptFallback: true, rowgroupSpans: true,archiveCases};
   fs.writeFileSync(path.join(outputDir, 'validation.json'), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(() => { clearTimeout(timeout); browser.kill(); });

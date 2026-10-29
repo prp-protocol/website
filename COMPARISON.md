@@ -34,28 +34,36 @@ commit reverting this integration, not a data snapshot rollback.
 
 ## Current approved source
 
-- Revision 7.08, English schema-v1, 2026-10-26; authority REPORT 9b4f2d8c0eb1ebc4.
-- Editorial delivery commit (local provenance only): `7e081bf5dfc3633b30c9f52ce237e98fc94e811d`.
-- Approved JSON SHA256: `81277a29e44ab33d0d2d19e06f9aea9da574b05b3369dcca0f841909ab4c4fc1` (2235944 bytes).
-- Custody receipt SHA256: `98ede6c86923a7133ee84c86e5d68fbdd82604dc7a3fee727458d29e133fb136`; retained privately, not published.
-- Exact baseline 5.82 SHA256: `6a76759a09ed96de5ea6d11e003781e38746e42ab60fdb62fb5e93d154c12df9` (1869931 bytes).
+- Revision 7.48, English schema-v1, 2026-10-29; authority REPORT 84ec44c19010a3fb.
+- Editorial delivery commit (local provenance only): `5588708f3cf27aadb6aefa2099151218a595f831`.
+- Approved JSON SHA256: `cf90f2ca1264c7f951f99cacdbc022aeadc9e66d4dfecf3fd07f093f24498b4e` (2183053 bytes).
+- Custody receipt SHA256: `b1f0705c41ef2b38f455813d938e8b7a7d71e687547b3d2226647ac304cb238e`; retained privately, not published.
+- Exact baseline 7.08 SHA256: `81277a29e44ab33d0d2d19e06f9aea9da574b05b3369dcca0f841909ab4c4fc1` (2235944 bytes), retained in Git.
 - Verified signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`.
 
 `comparison/data.json` is the sole active verdict source and is retained byte-identically.
-The snapshot has 64 criteria, 28 stacks, 1792 cells: 950 Yes, 764 No and 78 Pending.
+The snapshot has 62 criteria, 28 stacks, 1736 cells: 911 Yes, 769 No and 56 Pending.
 Research remains in progress; qualifications and unpublished-reference labels
 are part of each decision, not optional presentation details.
 
-The exact coordinated expansion adds F36–F39 and TS/RA: 232 new cells,
-68 existing cell records changed, including 47 verdict transitions; seven
-existing criteria and 19 existing profiles change. No IDs are removed.
-Two exact neutral labels (not official marks) are added: tailscale-label.svg
-and rina-label.svg. Existing marks, assets and presentation remain unchanged.
-The exception is pinned to these baseline/output hashes and two asset hashes;
-ordinary import still rejects unapproved expansion/removal and asset additions.
+The exact coordinated retirement removes only L02 and F38 from the active grid;
+three profiles and 31 retained cells change, including 14 verdict transitions.
+No surviving criterion definitions, marks, assets or presentation change.
+The `--retirement-r748` exception is pinned to the exact baseline/output and
+signed archival JSON (102524 bytes, SHA256
+`00df9cf19ad5981ca441c89d1da78199e7c8a2f699d02b01351cb1e5c53be063`).
+Pass that object with `--archive` and its detached `--archive-signature`;
+verify all three catalog inputs/signatures and full receipt delta first.
+Ordinary import still rejects unapproved removals/expansions and asset additions.
+The public archive is `comparison/archive/retired-criteria-7.48.json`, unchanged
+from its sealed bytes. Its 56 cells retain their existing URLs, now with explicit
+historical notices and definitions: L02 last editorial 7.32, retired 7.33;
+F38 last editorial 7.33, retired 7.34. Both rows are uniformly historical Yes;
+retirement is not loss of capability. These later records must never be attributed
+to the earlier public 7.08 snapshot. They are not an active verdict source.
 `scripts/comparison-approved.json` contains only public build pins/counts,
 not the private receipt, exhaustive custody delta or filesystem references.
-All previous URLs remain; C08/F25/F35 are never recycled and K02 is absent.
+All previous URLs remain; C08/F25/F35/L02/F38 are never recycled and K02 is absent.
 The importer freezes exact prior criterion/cell records in
 `comparison/archive/F25-5.73.json` and `F35-5.73.json`, attributed to the verified
 baseline hash. Existing `C08-4.72.json` is unchanged. These historical records

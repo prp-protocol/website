@@ -23,10 +23,11 @@ ASSETS_R708 = {
 }
 
 
-def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False):
+def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None):
     api = runpy.run_path(str(destination/'validate.py'))
     old = api['validate']((destination/'data.json').read_bytes(), destination)
     assets = assets or {}
+    if archive_raw is not None and not retirement_r748: raise ValueError('Historical archive requires exact coordinated exception')
     if assets and not (expansion_r269 or asset_r321 or expansion_r708): raise ValueError('Assets require coordinated authorization')
     if expansion_r269 or asset_r321 or expansion_r708:
         expected_assets=ASSETS_R708 if expansion_r708 else ASSETS_R321 if asset_r321 else ASSETS_R269
@@ -40,8 +41,14 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
         for name,raw in assets.items():
             if (destination/name).exists(): raise ValueError('Refusing to overwrite existing asset')
             (stage/name).write_bytes(raw)
-        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708)
+        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748,archive_raw)
         archive_additions={}
+        if retirement_r748:
+            name=api['ARCHIVE_R748_PATH']
+            if (stage/name).exists(): raise ValueError('Archive already exists; reconcile equivalent work')
+            (stage/name).parent.mkdir(exist_ok=True)
+            (stage/name).write_bytes(archive_raw)
+            archive_additions[name]=True
         for ident in (['C08'] if retirement_r573 else ['F25','F35'] if retirement_r582 else []):
             archive_name='archive/'+ident+'-'+old['revision']+'.json'
             if (stage/archive_name).exists(): raise ValueError('Archive already exists; reconcile equivalent work')
@@ -68,6 +75,10 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
                 archive=json.loads((stage/archive_name).read_text())
                 outputs |= {'archive/'+ident+'.html'} | {'cells/'+c['id']+'.html' for c in archive['cells']}
         outputs |= set(archive_additions)
+        if (stage/api['ARCHIVE_R748_PATH']).exists():
+            archive=api['validate_retired_r748']((stage/api['ARCHIVE_R748_PATH']).read_bytes(),stage,data)
+            for a in archive['archives']:
+                outputs |= {'archive/'+a['id']+'.html'} | {'cells/'+c['id']+'.html' for c in a['cells']}
         if (stage/'wake-traffic.json').exists(): outputs.add('wake-traffic.html')
         for p in destination.rglob('*'):
             if p.is_file() and str(p.relative_to(destination)) not in outputs:
@@ -92,6 +103,9 @@ def main():
     ap.add_argument('--retirement-r582', action='store_true', help='REPORT c91218583b467e9a: exact 5.73 to 5.82 F25/F35 retirement with archived URLs')
     ap.add_argument('--asset-objects', type=Path, help='Verified sealed object directory; snapshot-specific asset exception only')
     ap.add_argument('--expansion-r708', action='store_true', help='REPORT 9b4f2d8c0eb1ebc4: exact 5.82/7.08 F36-F39 and TS/RA expansion')
+    ap.add_argument('--retirement-r748', action='store_true', help='REPORT 84ec44c19010a3fb: exact 7.08/7.48 L02/F38 retirement and signed last-editorial archive')
+    ap.add_argument('--archive', type=Path)
+    ap.add_argument('--archive-signature', type=Path)
     args = ap.parse_args()
     receipt = json.loads(args.receipt.read_text())
     if not receipt.get('authority') or not receipt.get('catalog_receipt'):
@@ -102,19 +116,25 @@ def main():
     if signature.returncode or not any(line.startswith('[GNUPG:] VALIDSIG '+SIGNER+' ') for line in signature.stdout.splitlines()):
         raise ValueError('Signature verification failed for approved broker signer')
     raw = args.snapshot.read_bytes()
+    archive_raw=None
+    if args.archive or args.archive_signature:
+        if not args.retirement_r748 or not args.archive or not args.archive_signature: raise ValueError('Exact archive and detached signature required')
+        archive_signature=subprocess.run(command+['--verify',str(args.archive_signature),str(args.archive)],capture_output=True,text=True)
+        if archive_signature.returncode or '[GNUPG:] VALIDSIG '+SIGNER+' ' not in archive_signature.stdout: raise ValueError('Archive signature verification failed')
+        archive_raw=args.archive.read_bytes()
     assets={}
     if args.asset_objects:
         if not (args.expansion_r269 or args.asset_r321 or args.expansion_r708): raise ValueError('Asset import not authorized')
         expected_assets=ASSETS_R708 if args.expansion_r708 else ASSETS_R321 if args.asset_r321 else ASSETS_R269
         assets={name:(args.asset_objects/digest).read_bytes() for name,(digest,size) in expected_assets.items()}
-    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390,args.expansion_r472,args.retirement_r573,args.retirement_r582,args.expansion_r708)
+    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390,args.expansion_r472,args.retirement_r573,args.retirement_r582,args.expansion_r708,args.retirement_r748,archive_raw)
     if args.apply:
         # Repository staging only; publication is separately authorized and managed.
         for name, data in outputs.items():
             (ROOT/'comparison'/name).parent.mkdir(parents=True,exist_ok=True)
             (ROOT/'comparison'/name).write_bytes(data)
         # 7.08 custody receipt is private; publish only the minimal build pins.
-        public_receipt = {k:receipt[k] for k in ('authority','revision','date','bytes','sha256','status_counts')} if args.expansion_r708 else receipt
+        public_receipt = {k:receipt[k] for k in ('authority','revision','date','bytes','sha256','status_counts')} if args.expansion_r708 or args.retirement_r748 else receipt
         (ROOT/'scripts/comparison-approved.json').write_text(json.dumps(public_receipt, indent=2)+'\n')
     print(json.dumps(dict(result='PASS',applied=args.apply,revision=receipt['revision'],
         sha256=hashlib.sha256(raw).hexdigest(),changed_ids=delta,signature=SIGNER,

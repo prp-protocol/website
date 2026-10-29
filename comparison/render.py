@@ -35,7 +35,8 @@ CSS+='''.wake-scroll{overflow:auto}.wake-scroll:focus-visible{outline:3px solid 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,required=True);args=ap.parse_args()
     out=args.out;out.mkdir(parents=True,exist_ok=True)
-    d=runpy.run_path(str(Path(__file__).with_name('validate.py')))['validate']((out/'data.json').read_bytes(),out)
+    api=runpy.run_path(str(Path(__file__).with_name('validate.py')))
+    d=api['validate']((out/'data.json').read_bytes(),out)
     ids={c['id'] for c in d['cells']};assert len(ids)==len(d['columns'])*len(d['criteria'])
     assert all(c['status'] in LABEL for c in d['cells'])
     byid={c['id']:c for c in d['cells']};pending=sum(c['status']=='?' for c in d['cells'])
@@ -47,6 +48,11 @@ def main():
         if path.exists():
             archives[ident]=json.loads(path.read_text())
             assert ident not in {r['id'] for r in d['criteria']}, 'Retired ID cannot be reused'
+    auxiliary=out/api['ARCHIVE_R748_PATH']
+    if auxiliary.exists():
+        for a in api['validate_retired_r748'](auxiliary.read_bytes(),out,d)['archives']:
+            assert a['id'] not in {r['id'] for r in d['criteria']}, 'Retired ID cannot be reused'
+            archives[a['id']]=dict(a,revision=a['source_revision'],auxiliary=True)
     def write(name,title,body):
         target=out/name;target.parent.mkdir(parents=True,exist_ok=True)
         depth=len(Path(name).parts)-1
@@ -78,9 +84,13 @@ def main():
         write('stacks/'+c['id']+'.html',c['title']+' — selected stack',body)
     for ident,archive in archives.items():
         r=archive['criterion']
-        body='<main class="content"><p><a href="../index.html">Current matrix</a></p><h1>'+ident+' — archived previous definition</h1><p class="archived">Historical assessment from revision '+esc(archive['revision'])+', retired in '+esc(archive['retired_in'])+'. These 26 cells are excluded from the active grid and counts. '+ident+' is not reused or redirected to a new definition.</p>'
+        body='<main class="content"><p><a href="../index.html">Current matrix</a></p><h1>'+ident+' — archived previous definition</h1><p class="archived">Historical assessment from revision '+esc(archive['revision'])+', retired in '+esc(archive['retired_in'])+'. These '+str(len(archive['cells']))+' cells are excluded from the active grid and counts. '+ident+' is not reused or redirected to a new definition.</p>'
         if ident=='F25': body+='<p><a href="../wake-traffic.html">Historical wake-traffic inventories (cutoff retired)</a></p>'
-        body+='<h2>'+esc(r['title'])+'</h2><p>'+esc(r['definition'])+'</p><h2>Assessment method</h2><p>'+esc(r['method'])+'</p><h2>Research action</h2><p>'+esc(r['research_action'])+'</p><p>Original approved data SHA-256: '+esc(archive['source_sha256'])+'</p><p><a href="'+ident+'-'+esc(archive['revision'])+'.json">Historical criterion and cell records</a></p><ul>'
+        body+='<h2>'+esc(r['title'])+'</h2><p>'+esc(r['definition'])+'</p><h2>Assessment method</h2><p>'+esc(r['method'])+'</p><h2>Research action</h2><p>'+esc(r['research_action'])+'</p>'
+        if archive.get('auxiliary'):
+            body+='<p>'+esc(archive['note'])+' All 28 historical assessments are Yes. Retirement is not a loss of capability.</p><p>These are the last editorial records from revision '+esc(archive['revision'])+', not the earlier public 7.08 records retained in Git history.</p><p>Signed archival data SHA-256: '+api['ARCHIVE_R748']+'</p><p><a href="retired-criteria-7.48.json">Historical criterion and cell records</a></p><ul>'
+        else:
+            body+='<p>Original approved data SHA-256: '+esc(archive['source_sha256'])+'</p><p><a href="'+ident+'-'+esc(archive['revision'])+'.json">Historical criterion and cell records</a></p><ul>'
         body+=''.join('<li><a href="../cells/'+c['id']+'.html">'+c['id']+'</a></li>' for c in archive['cells'])+'</ul></main>'
         write('archive/'+ident+'.html',ident+' — archived previous definition',body)
     for c in d['cells']+[c for archive in archives.values() for c in archive['cells']]:
@@ -90,6 +100,8 @@ def main():
         if historical:
             archive=archives[c['feature']]
             body+='<p class="archived">Archived previous-definition assessment — revision '+esc(archive['revision'])+'. Retired in '+esc(archive['retired_in'])+'; excluded from the active matrix and counts. This historical verdict is not a current assessment.</p>'
+            if archive.get('auxiliary'):
+                body+='<p>Last editorial record from '+esc(archive['revision'])+', not the earlier public 7.08 baseline. Retirement of this uniformly Yes criterion is not a loss of capability.</p><h2>'+esc(archive['criterion']['title'])+'</h2><p>'+esc(archive['criterion']['definition'])+'</p>'
             if c['feature']=='F25': body+='<p><a href="../wake-traffic.html#'+c['id']+'">Historical wake-traffic inventory (cutoff retired)</a></p>'
         for title,key in [('Rationale','reason'),('Assessment method','method'),('Source context','source_label'),('Outstanding qualification','qualification')]:
             if c[key]:body+='<h2>'+title+'</h2><p>'+esc(c[key])+'</p>'

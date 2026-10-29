@@ -1,0 +1,1073 @@
+{
+  "schema_version": 1,
+  "revision": "7.48",
+  "archives": [
+    {
+      "id": "L02",
+      "source_revision": "7.32",
+      "retired_in": "7.33",
+      "criterion": {
+        "id": "L02",
+        "title": "Declared royalty-free patent commitment",
+        "definition": "An attributable holder declaration or published commitment explicitly offers royalty-free implementation of the selected profile for applicable claims under the declaring holder's control. A recorded direct holder declaration is admissible for every project; publication or registry entry is reported separately, not required for Yes. State attribution, scope, conditions and publication status. This assesses the declared policy, not execution or enforceability of a patent license, third-party patent clearance, or copyright permission. An express patent grant attached to the selected implementation is admissible within its stated Work or contributor-version scope; it is not a promise covering every independent reimplementation. The same holder-bounded rule applies to direct declarations and public grants.",
+        "method": "Documentary evidence with explicit scope",
+        "research_action": "Obtain a dated attributable holder declaration or applicable public grant; identify scope, conditions and publication status. Do not infer a commitment solely from open development, copyright licensing or IETF participation."
+      },
+      "cells": [
+        {
+          "id": "L02-PN",
+          "feature": "L02",
+          "stack": "PN",
+          "status": "Y",
+          "reason": "The PRP owner expressly confirms a royalty-free policy and instructs that this commitment be treated as declared. The owner also states that no patent applications have been filed and that development is public. Credit the recorded owner declaration for claims under that owner's control; publication of the formal statement is planned for subsequent disclosures.",
+          "method": "Attributable holder policy declaration; publication status disclosed separately",
+          "source_label": "Direct PRP owner declaration, editorial conversation, 2026-10-16",
+          "qualification": "Owner-declared policy, not an already published patent license, registered IETF disclosure or legal enforceability opinion. No third-party rights are waived or cleared, including rights in dependencies or the IP/UDP layers. No claim that a patent exists. Final public wording and covered specification versions remain documentation tasks; the declared policy itself is decided. The revised L02 evidence rule applies equally to all projects.",
+          "sources": [],
+          "editorial_references": [
+            "round356-review.json",
+            "round356-review.json"
+          ]
+        },
+        {
+          "id": "L02-PI",
+          "feature": "L02",
+          "stack": "PI",
+          "status": "Y",
+          "reason": "The PRP owner expressly confirms a royalty-free policy and instructs that this commitment be treated as declared. The owner also states that no patent applications have been filed and that development is public. Credit the recorded owner declaration for claims under that owner's control; publication of the formal statement is planned for subsequent disclosures.",
+          "method": "Attributable holder policy declaration; publication status disclosed separately",
+          "source_label": "Direct PRP owner declaration, editorial conversation, 2026-10-16",
+          "qualification": "Owner-declared policy, not an already published patent license, registered IETF disclosure or legal enforceability opinion. No third-party rights are waived or cleared, including rights in dependencies or the IP/UDP layers. No claim that a patent exists. Final public wording and covered specification versions remain documentation tasks; the declared policy itself is decided. The revised L02 evidence rule applies equally to all projects.",
+          "sources": [],
+          "editorial_references": [
+            "round356-review.json",
+            "round356-review.json"
+          ]
+        },
+        {
+          "id": "L02-IP",
+          "feature": "L02",
+          "stack": "IP",
+          "status": "Y",
+          "reason": "The pinned gVisor netstack IPv4 and IPv6 source files explicitly carry Apache-2.0 notices attributed to The gVisor Authors. Section 3 of the attached license grants royalty-free patent rights for contributor-controlled claims necessarily infringed by their contributions alone or with the licensed Work. This is a concrete implementation-bound declaration for IP code under the same bounded-holder rule used for PRP and other L02 positives. The evidence is the express patent clause and its attachment to the IP implementations, not simply public code or the absence of IETF disclosures.",
+          "method": "Documentary patent-declaration scope review; no runtime or legal clearance",
+          "source_label": "Pinned public license clauses and source/package attribution, reviewed 2026-10-22",
+          "qualification": "Published grant limited to the Apache-licensed gVisor contributions and Work, with patent-litigation termination and other license conditions. The root file also lists MIT/BSD components; those are not silently assigned the Apache patent grant. No rights are asserted for Linux, BGP/PIM implementations, dependencies, independent reimplementations or other holders. This is not clearance of the complete IP composition or a finding that any patent exists. gVisor is an additional licensing witness, not a substitution for the comparison deployment or evidence of its complete feature set.",
+          "sources": [
+            "https://raw.githubusercontent.com/google/gvisor/c5ab48fa9b2d23e861cc3fd17be01b3b4338be14/LICENSE",
+            "https://raw.githubusercontent.com/google/gvisor/c5ab48fa9b2d23e861cc3fd17be01b3b4338be14/pkg/tcpip/network/ipv4/ipv4.go",
+            "https://raw.githubusercontent.com/google/gvisor/c5ab48fa9b2d23e861cc3fd17be01b3b4338be14/pkg/tcpip/network/ipv6/ipv6.go",
+            "https://gvisor.dev/docs/architecture_guide/networking/"
+          ],
+          "editorial_references": [
+            "round413-sources.json"
+          ]
+        },
+        {
+          "id": "L02-BP",
+          "feature": "L02",
+          "stack": "BP",
+          "status": "Y",
+          "reason": "DTN7-RS supplies a published patent-grant witness for the BPv7 layer common to this composition. At the pinned commit, package dtn7 0.22.0 identifies RFC 9171 and offers MIT OR Apache-2.0; COPYRIGHT attributes the project to Lars Baumgaertner. Selecting Apache-2.0 invokes section 3, an express royalty-free grant for contributor-controlled claims necessarily infringed by contributions alone or with the licensed Work. The README applies the dual-license terms to intentional contributions unless expressly stated otherwise. This meets the existing holder-bounded, implementation-bound L02 rule. These three cells share one BP-layer witness; they are not three independent grants or a complete-stack patent clearance.",
+          "method": "Common-layer, holder-bounded patent-declaration review; no runtime or legal clearance",
+          "source_label": "Pinned DTN7-RS license, attribution, package metadata and BP code; 2026-10-22",
+          "qualification": "Credit only covered DTN7-RS contributions and the licensed Work under the Apache option, with patent-litigation termination and other conditions. No grant is attributed to NASA/JPL/Caltech ION, CCSDS, TCPCL/TLS, CGR/SABR, LTP, Encapsulation/AOS, dependencies or unrelated patent holders. No promise covers every independently written BP implementation. The new witness does not replace the selected deployment or demonstrate its complete security, routing or carrier composition; E03 and other technical cells remain unchanged. License selection is not a finding of patent existence, validity, infringement or legal enforceability.",
+          "sources": [
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/LICENSE-APACHE",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/COPYRIGHT",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/README.md",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/Cargo.toml",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/src/core/bundlepack.rs"
+          ],
+          "editorial_references": [
+            "round414-sources.json"
+          ]
+        },
+        {
+          "id": "L02-CG",
+          "feature": "L02",
+          "stack": "CG",
+          "status": "Y",
+          "reason": "DTN7-RS supplies a published patent-grant witness for the BPv7 layer common to this composition. At the pinned commit, package dtn7 0.22.0 identifies RFC 9171 and offers MIT OR Apache-2.0; COPYRIGHT attributes the project to Lars Baumgaertner. Selecting Apache-2.0 invokes section 3, an express royalty-free grant for contributor-controlled claims necessarily infringed by contributions alone or with the licensed Work. The README applies the dual-license terms to intentional contributions unless expressly stated otherwise. This meets the existing holder-bounded, implementation-bound L02 rule. These three cells share one BP-layer witness; they are not three independent grants or a complete-stack patent clearance.",
+          "method": "Common-layer, holder-bounded patent-declaration review; no runtime or legal clearance",
+          "source_label": "Pinned DTN7-RS license, attribution, package metadata and BP code; 2026-10-22",
+          "qualification": "Credit only covered DTN7-RS contributions and the licensed Work under the Apache option, with patent-litigation termination and other conditions. No grant is attributed to NASA/JPL/Caltech ION, CCSDS, TCPCL/TLS, CGR/SABR, LTP, Encapsulation/AOS, dependencies or unrelated patent holders. No promise covers every independently written BP implementation. The new witness does not replace the selected deployment or demonstrate its complete security, routing or carrier composition; E03 and other technical cells remain unchanged. License selection is not a finding of patent existence, validity, infringement or legal enforceability.",
+          "sources": [
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/LICENSE-APACHE",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/COPYRIGHT",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/README.md",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/Cargo.toml",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/src/core/bundlepack.rs"
+          ],
+          "editorial_references": [
+            "round414-sources.json"
+          ]
+        },
+        {
+          "id": "L02-LT",
+          "feature": "L02",
+          "stack": "LT",
+          "status": "Y",
+          "reason": "DTN7-RS supplies a published patent-grant witness for the BPv7 layer common to this composition. At the pinned commit, package dtn7 0.22.0 identifies RFC 9171 and offers MIT OR Apache-2.0; COPYRIGHT attributes the project to Lars Baumgaertner. Selecting Apache-2.0 invokes section 3, an express royalty-free grant for contributor-controlled claims necessarily infringed by contributions alone or with the licensed Work. The README applies the dual-license terms to intentional contributions unless expressly stated otherwise. This meets the existing holder-bounded, implementation-bound L02 rule. These three cells share one BP-layer witness; they are not three independent grants or a complete-stack patent clearance.",
+          "method": "Common-layer, holder-bounded patent-declaration review; no runtime or legal clearance",
+          "source_label": "Pinned DTN7-RS license, attribution, package metadata and BP code; 2026-10-22",
+          "qualification": "Credit only covered DTN7-RS contributions and the licensed Work under the Apache option, with patent-litigation termination and other conditions. No grant is attributed to NASA/JPL/Caltech ION, CCSDS, TCPCL/TLS, CGR/SABR, LTP, Encapsulation/AOS, dependencies or unrelated patent holders. No promise covers every independently written BP implementation. The new witness does not replace the selected deployment or demonstrate its complete security, routing or carrier composition; E03 and other technical cells remain unchanged. License selection is not a finding of patent existence, validity, infringement or legal enforceability.",
+          "sources": [
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/LICENSE-APACHE",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/COPYRIGHT",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/README.md",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/Cargo.toml",
+            "https://raw.githubusercontent.com/dtn7/dtn7-rs/dc26e2adcb506227d3c205bb25aa1a003d6688fd/core/dtn7/src/core/bundlepack.rs"
+          ],
+          "editorial_references": [
+            "round414-sources.json"
+          ]
+        },
+        {
+          "id": "L02-LP",
+          "feature": "L02",
+          "stack": "LP",
+          "status": "Y",
+          "reason": "The official py-libp2p implementation at the pinned commit declares MIT AND Apache-2.0 in pyproject.toml and includes a LICENSE-APACHE notice attributed to Zixuan Zhang. Its QUIC transport implements RFC 9000 configuration and integrates the libp2p private key and Peer ID with TLS security. Apache-2.0 section 3 supplies an express royalty-free contributor patent grant within the licensed Work. This additional implementation-bound witness meets L02 without treating the MIT-only go-libp2p license as an express patent grant.",
+          "method": "Express patent-clause applicability review; no new runtime or legal clearance",
+          "source_label": "Official pinned py-libp2p license, package metadata and native QUIC source; reviewed 2026-10-17",
+          "qualification": "The package metadata says AND, not OR: preserve both license obligations rather than inventing a choice. Credit only contributor-controlled claims necessarily infringed by contributions alone or with this Work; patent-litigation termination applies. This is not a grant for go-libp2p, independent reimplementations, all protocol claims or third-party dependencies. The Python code is an additional documentary license witness, not a replacement for existing Go runtime evidence or proof of all selected migration and policy behavior. No profile, interoperability, performance or other-cell verdict changes.",
+          "sources": [
+            "https://github.com/libp2p/py-libp2p/blob/79985430f45a64b605cfc233d42f41103dedeb04/LICENSE-APACHE",
+            "https://github.com/libp2p/py-libp2p/blob/79985430f45a64b605cfc233d42f41103dedeb04/pyproject.toml",
+            "https://github.com/libp2p/py-libp2p/blob/79985430f45a64b605cfc233d42f41103dedeb04/libp2p/transport/quic/transport.py",
+            "https://github.com/libp2p/py-libp2p/blob/79985430f45a64b605cfc233d42f41103dedeb04/README.md",
+            "https://www.apache.org/licenses/LICENSE-2.0"
+          ],
+          "editorial_references": [
+            "round377-sources.json"
+          ]
+        },
+        {
+          "id": "L02-TO",
+          "feature": "L02",
+          "stack": "TO",
+          "status": "Y",
+          "reason": "The already examined Arti commit explicitly offers MIT OR Apache-2.0, including the tor-hsservice onion-service provider crate. Choosing Apache-2.0 supplies section 3: an express royalty-free patent grant from contributors for licensable claims necessarily infringed by their contributions alone or together with the Work. README contribution terms apply the dual-license policy to intentional submissions unless explicitly stated otherwise. This meets the same implementation-bound, holder-scoped declaration rule as the other L02 positives.",
+          "method": "Express patent grant and implementation attribution; no legal clearance or runtime test",
+          "source_label": "Pinned official Arti repository, README and onion-service crate license metadata; reviewed 2026-10-17",
+          "qualification": "Credit the Apache option and covered Arti contributions, not the MIT option alone, C Tor, third-party patents or every independently written Tor implementation. Patent litigation alleging infringement by the Work or incorporated contributions terminates the grant; other license conditions remain. Optional differently licensed components retain their own terms. This does not assert that all selected Conflux linking/resumption mechanisms exist in executable form: E03-TO remains No for the complete selected composition. No protocol profile, maturity, interoperability or patent-validity verdict changes.",
+          "sources": [
+            "https://gitlab.torproject.org/tpo/core/arti/-/blob/3adfc4b052b6520c12f6193c593c5557fa5f3771/LICENSE-APACHE",
+            "https://gitlab.torproject.org/tpo/core/arti/-/blob/3adfc4b052b6520c12f6193c593c5557fa5f3771/README.md",
+            "https://gitlab.torproject.org/tpo/core/arti/-/blob/3adfc4b052b6520c12f6193c593c5557fa5f3771/crates/tor-hsservice/Cargo.toml"
+          ],
+          "editorial_references": [
+            "round376-sources.json"
+          ]
+        },
+        {
+          "id": "L02-I2",
+          "feature": "L02",
+          "stack": "I2",
+          "status": "Y",
+          "reason": "Emissary I2P core at 9b43484a21d5a1291c4881cdae62a36c527f8c0f has a public MIT-licensed workspace and core manifest. Its optional Apache-licensed icons are not the patent evidence. Red Hat separately publishes a promise not to enforce its patents against specified activities involving Covered FOSS. Its coverage is not limited to Red Hat products or contributions. Mapping these public licensed components to that definition provides a concrete, holder-bounded non-assertion commitment under L02. The Yes is limited to that named holder and covered software, not to a newly discovered declaration by this protocol project.",
+          "method": "Documentary mapping to an express named-holder non-assertion policy; not a project-owner or universal patent grant",
+          "source_label": "Red Hat published Patent Promise, 21 September 2017; pinned public implementation license notices",
+          "qualification": "Credit only Red Hat LLC and its subsidiaries under the published 2017 Patent Promise, not a commitment by the protocol authors or all contributors. Matching public source and an Approved License are required. The promise excludes standalone hardware and noncovered software; combinations have additional scope conditions. Patent proceedings by the beneficiary or its affiliates against Red Hat, its affiliates or their offerings can remove protection, including for past actions. No third-party clearance, patent validity, existence of an applicable patent, enforceability opinion or complete dependency audit is established. This is a published non-assertion policy, not an inferred GPL/MIT patent clause. It does not cover every proprietary independent reimplementation. L02 accepts a holder-bounded declared commitment; no project-wide licensing endorsement or complete executable-profile qualification follows.",
+          "sources": [
+            "https://www.redhat.com/en/about/patent-promise",
+            "https://github.com/eepnet/emissary/blob/9b43484a21d5a1291c4881cdae62a36c527f8c0f/LICENSE",
+            "https://github.com/eepnet/emissary/blob/9b43484a21d5a1291c4881cdae62a36c527f8c0f/Cargo.toml",
+            "https://github.com/eepnet/emissary/blob/9b43484a21d5a1291c4881cdae62a36c527f8c0f/emissary-core/Cargo.toml",
+            "https://raw.githubusercontent.com/eepnet/emissary/9b43484a21d5a1291c4881cdae62a36c527f8c0f/README.md",
+            "https://raw.githubusercontent.com/PurpleI2P/i2pd/2.58.0/LICENSE",
+            "https://raw.githubusercontent.com/eepnet/emissary/9b43484a21d5a1291c4881cdae62a36c527f8c0f/LICENSE",
+            "https://raw.githubusercontent.com/eepnet/emissary/9b43484a21d5a1291c4881cdae62a36c527f8c0f/Cargo.toml"
+          ],
+          "editorial_references": [
+            "round418-sources.json",
+            "round418-budget.json",
+            "round731.html"
+          ]
+        },
+        {
+          "id": "L02-YG",
+          "feature": "L02",
+          "stack": "YG",
+          "status": "Y",
+          "reason": "The pinned Yggdrasil license expressly applies LGPLv3, which incorporates GPLv3 terms. GPLv3 section 11 expressly grants a non-exclusive worldwide royalty-free patent license for each contributor's essential patent claims to make, use, sell, offer for sale, import, run, modify and propagate that contributor version. Essential claims exclude claims infringed only by further modifications. Its static-linking exception changes specified combined-work obligations, not this patent clause. The selected Ironwood dependency also publishes MPL-2.0 section 2.1(b), a contributor patent grant for contributions/contributor versions.",
+          "method": "Express patent-clause and applicability review under the common holder-bounded L02 rule",
+          "source_label": "Version-pinned project licenses and attributable source notices; documentary review 2026-10-17",
+          "qualification": "Respect LGPL and exception conditions. Ironwood MPL exclusions and patent-litigation termination remain; this is not a protocol-wide grant by every possible rights holder. Published implementation-bound grant, not a blanket royalty-free promise for arbitrary independent reimplementations. Credit only claims controlled by the declaring contributors within the grant; no third-party, dependency or underlying-layer clearance is inferred. License compliance remains required. No finding that a patent exists, is valid or is infringed, and no legal-enforceability opinion.",
+          "sources": [
+            "https://raw.githubusercontent.com/yggdrasil-network/yggdrasil-go/422836eeb21a99790caa286aa63d493bbc4766d7/LICENSE",
+            "https://www.gnu.org/licenses/gpl-3.0.txt",
+            "https://raw.githubusercontent.com/Arceliar/ironwood/d50055b11f5ec5b56ee4e56ba9a75261461821dc/LICENSE"
+          ],
+          "editorial_references": [
+            "round373-sources.json"
+          ]
+        },
+        {
+          "id": "L02-CJ",
+          "feature": "L02",
+          "stack": "CJ",
+          "status": "Y",
+          "reason": "The pinned cjdns repository publishes GPLv3 and its SwitchPinger source expressly applies version 3 or later. GPLv3 section 11 expressly grants a non-exclusive worldwide royalty-free patent license for each contributor's essential patent claims to make, use, sell, offer for sale, import, run, modify and propagate that contributor version. Essential claims exclude claims infringed only by further modifications.",
+          "method": "Express patent-clause and applicability review under the common holder-bounded L02 rule",
+          "source_label": "Version-pinned project licenses and attributable source notices; documentary review 2026-10-17",
+          "qualification": "GPL compliance and termination provisions apply; the finding is for the licensed contributor versions, not every possible cjdns-compatible implementation. Published implementation-bound grant, not a blanket royalty-free promise for arbitrary independent reimplementations. Credit only claims controlled by the declaring contributors within the grant; no third-party, dependency or underlying-layer clearance is inferred. License compliance remains required. No finding that a patent exists, is valid or is infringed, and no legal-enforceability opinion.",
+          "sources": [
+            "https://raw.githubusercontent.com/cjdelisle/cjdns/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/LICENSE",
+            "https://raw.githubusercontent.com/cjdelisle/cjdns/f5902acab6dd2f1a68bf6e4c89e352ed71f93698/net/SwitchPinger.c",
+            "https://www.gnu.org/licenses/gpl-3.0.txt"
+          ],
+          "editorial_references": [
+            "round373-sources.json"
+          ]
+        },
+        {
+          "id": "L02-MQ",
+          "feature": "L02",
+          "stack": "MQ",
+          "status": "Y",
+          "reason": "Noq supplies an implementation-scoped express patent commitment for native IETF QUIC and multipath code. Its pinned README identifies RFC 9000/9001/9002 and the QUIC multipath extension, and offers MIT OR Apache-2.0; noq-proto inherits that workspace license. Selecting Apache-2.0 invokes section 3 for contributor-controlled claims necessarily infringed by contributions alone or with the Work. Production paths.rs implements multipath PathId and per-path packet-number state; transport_parameters.rs encodes and parses initial_max_path_id. This binds the grant to relevant QUIC/multipath code rather than the unrelated 2014 Google QUIC disclosure or a cryptographic dependency.",
+          "method": "Primary pinned implementation licensing and source-scope review; no runtime or patent clearance",
+          "source_label": "Noq pinned README, workspace/crate manifests, production path/transport-parameter code; Apache-2.0 section 3",
+          "qualification": "Yes records the Apache-licensed Noq contributor Work, not a specification-wide patent promise for every implementation of multipath draft-21. Shared path-ID, packet-number-space and initial_max_path_id mechanisms establish relevance; exact draft-21 wire compatibility and complete feature conformance were not tested or inferred. Apache section 3 scope and patent-litigation termination remain applicable. No license from picoquic authors, whole UDP/IP/TLS dependency clearance, third-party patent clearance or performance result follows. Noq is an additional licensing witness, not a replacement for the selected transport profile or runtime evidence.",
+          "sources": [
+            "https://raw.githubusercontent.com/n0-computer/noq/a78daf871419d9ebec591d40ba5a08aff1eba854/LICENSE-APACHE",
+            "https://raw.githubusercontent.com/n0-computer/noq/a78daf871419d9ebec591d40ba5a08aff1eba854/README.md",
+            "https://raw.githubusercontent.com/n0-computer/noq/a78daf871419d9ebec591d40ba5a08aff1eba854/Cargo.toml",
+            "https://raw.githubusercontent.com/n0-computer/noq/a78daf871419d9ebec591d40ba5a08aff1eba854/noq-proto/Cargo.toml",
+            "https://raw.githubusercontent.com/n0-computer/noq/a78daf871419d9ebec591d40ba5a08aff1eba854/noq-proto/src/connection/paths.rs",
+            "https://raw.githubusercontent.com/n0-computer/noq/a78daf871419d9ebec591d40ba5a08aff1eba854/noq-proto/src/transport_parameters.rs",
+            "https://www.apache.org/licenses/LICENSE-2.0"
+          ],
+          "editorial_references": [
+            "round442-sources.json",
+            "round442.html"
+          ]
+        },
+        {
+          "id": "L02-SC",
+          "feature": "L02",
+          "stack": "SC",
+          "status": "Y",
+          "reason": "The pinned SCION implementation publishes Apache-2.0. Section 3 expressly grants royalty-free patent rights from contributors for claims licensable by them necessarily infringed by their contributions alone or with the Work. This bounded public commitment meets the same holder-scoped L02 rule used for PRP.",
+          "method": "Express patent-clause and applicability review under the common holder-bounded L02 rule",
+          "source_label": "Version-pinned project licenses and attributable source notices; documentary review 2026-10-17",
+          "qualification": "Patent litigation alleging infringement by the Work or incorporated contributions terminates the section 3 grant. Published implementation-bound grant, not a blanket royalty-free promise for arbitrary independent reimplementations. Credit only claims controlled by the declaring contributors within the grant; no third-party, dependency or underlying-layer clearance is inferred. License compliance remains required. No finding that a patent exists, is valid or is infringed, and no legal-enforceability opinion.",
+          "sources": [
+            "https://raw.githubusercontent.com/scionproto/scion/e6b0576682c73845a185f14ea68e8b0923374874/LICENSE",
+            "https://raw.githubusercontent.com/scionproto/scion/e6b0576682c73845a185f14ea68e8b0923374874/README.md"
+          ],
+          "editorial_references": [
+            "round373-sources.json"
+          ]
+        },
+        {
+          "id": "L02-RT",
+          "feature": "L02",
+          "stack": "RT",
+          "status": "Y",
+          "reason": "The previously identified independent Reticulum implementation Leviculum declares AGPL-3.0-or-later in its workspace, attributed to Lew Palm, and its core crate inherits that license. The pinned LICENSE contains AGPLv3 section 11, expressly granting royalty-free rights under each contributor's essential patent claims for its contributor version. This qualifies as a published, implementation-bound declaration. It does not derive a patent promise from the Python reference license or the protocol public-domain statement.",
+          "method": "Documentary patent-declaration scope review; no runtime or legal clearance",
+          "source_label": "Pinned public license clauses and source/package attribution, reviewed 2026-10-22",
+          "qualification": "Credit contributor-controlled essential claims within the licensed Leviculum contributor versions only; claims arising solely from further modifications are excluded by the definition. License compliance, including applicable source and network-interaction obligations, remains required. This is not a declaration by Mark Qvist, a waiver of dependency/third-party rights or a promise for all Reticulum reimplementations. E03-RT remains Pending: the previous selected-1.5.5 coverage and dependency gaps are not resolved by a patent clause. The same distinction already applies to the Arti L02 witness with incomplete selected implementation coverage. No interoperability, maturity, performance or legal-enforceability finding is made.",
+          "sources": [
+            "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/LICENSE",
+            "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/Cargo.toml",
+            "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/leviculum-core/Cargo.toml",
+            "https://codeberg.org/Lew_Palm/leviculum/raw/commit/5035bac7d80ae8baf2481d11d6af2acb7cede123/README.md"
+          ],
+          "editorial_references": [
+            "round336-sources.json",
+            "round413-sources.json"
+          ]
+        },
+        {
+          "id": "L02-NS",
+          "feature": "L02",
+          "stack": "NS",
+          "status": "Y",
+          "reason": "The public Nostrmo and nostr_sdk repositories maintained by haorendashu publish GPLv3 license texts. The pinned application selects the inspected SDK commit through its packages/nostr_sdk gitlink and local package dependency. The SDK Event class explicitly implements NIP-01 event serialization, SHA-256 identifiers and Schnorr signing/verification calls. GPLv3 section 11 supplies an express royalty-free patent grant under each contributor's essential claims for its contributor version. This additional client/SDK witness satisfies the existing holder-bounded L02 rule without inferring a patent grant from nostr-rs-relay's MIT license.",
+          "method": "Documentary patent-grant and source-role mapping; no runtime or legal clearance",
+          "source_label": "Pinned Nostrmo and SDK license, gitlink and NIP-01 source; reviewed 2026-10-22",
+          "qualification": "Published implementation-bound grant, limited to the covered contributor versions and claims controlled by their contributors; the repository maintainer identity is haorendashu, not an independently verified civil identity. Claims arising only from further modifications are excluded by the license definition. License compliance remains required. No grant is attributed to NIP authors generally, nostr-rs-relay, crypto dependencies, other submodules or independent implementations. This does not replace the selected relay or establish TLS configuration, two-relay publication, memory-only retention or complete dependency coverage. Optional NIPs in the application are not added to Basic Nostr. No runtime, interoperability or legal-enforceability conclusion.",
+          "sources": [
+            "https://raw.githubusercontent.com/haorendashu/nostr_sdk/94209a87b42f275199842751f052be1b8ed94b0f/LICENSE",
+            "https://raw.githubusercontent.com/haorendashu/nostrmo/5f3166cea733de60d318ea00a4401dd07bf62df2/LICENSE",
+            "https://raw.githubusercontent.com/haorendashu/nostrmo/5f3166cea733de60d318ea00a4401dd07bf62df2/.gitmodules",
+            "https://raw.githubusercontent.com/haorendashu/nostrmo/5f3166cea733de60d318ea00a4401dd07bf62df2/pubspec.yaml",
+            "https://raw.githubusercontent.com/haorendashu/nostr_sdk/94209a87b42f275199842751f052be1b8ed94b0f/lib/event.dart"
+          ],
+          "editorial_references": [
+            "round416-sources.json"
+          ]
+        },
+        {
+          "id": "L02-MT",
+          "feature": "L02",
+          "stack": "MT",
+          "status": "Y",
+          "reason": "The selected Meshtastic firmware repository publishes GPLv3 as its root license. GPLv3 section 11 expressly grants a non-exclusive worldwide royalty-free patent license for each contributor's essential patent claims to make, use, sell, offer for sale, import, run, modify and propagate that contributor version. Essential claims exclude claims infringed only by further modifications.",
+          "method": "Express patent-clause and applicability review under the common holder-bounded L02 rule",
+          "source_label": "Version-pinned project licenses and attributable source notices; documentary review 2026-10-17",
+          "qualification": "Do not extend firmware contributor grants to radio-chip patents, hardware, proprietary vendor code or all external dependencies. Published implementation-bound grant, not a blanket royalty-free promise for arbitrary independent reimplementations. Credit only claims controlled by the declaring contributors within the grant; no third-party, dependency or underlying-layer clearance is inferred. License compliance remains required. No finding that a patent exists, is valid or is infringed, and no legal-enforceability opinion.",
+          "sources": [
+            "https://raw.githubusercontent.com/meshtastic/firmware/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/LICENSE",
+            "https://www.gnu.org/licenses/gpl-3.0.txt"
+          ],
+          "editorial_references": [
+            "round373-sources.json"
+          ]
+        },
+        {
+          "id": "L02-GN",
+          "feature": "L02",
+          "stack": "GN",
+          "status": "Y",
+          "reason": "GNUnet 0.20.0 COPYING contains AGPLv3 and the transport source expressly applies AGPLv3 or later with GNUnet e.V. copyright attribution. AGPLv3 section 11 expressly grants a worldwide royalty-free license from contributors for essential claims covering their contributor versions.",
+          "method": "Express patent-clause and applicability review under the common holder-bounded L02 rule",
+          "source_label": "Version-pinned project licenses and attributable source notices; documentary review 2026-10-17",
+          "qualification": "AGPL network-source and other compliance conditions remain. The FSF authorship of the license text is not a grant of patents held by unrelated parties. Published implementation-bound grant, not a blanket royalty-free promise for arbitrary independent reimplementations. Credit only claims controlled by the declaring contributors within the grant; no third-party, dependency or underlying-layer clearance is inferred. License compliance remains required. No finding that a patent exists, is valid or is infringed, and no legal-enforceability opinion.",
+          "sources": [
+            "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz",
+            "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz",
+            "https://www.gnu.org/licenses/agpl-3.0.txt"
+          ],
+          "editorial_references": [
+            "round373-sources.json"
+          ]
+        },
+        {
+          "id": "L02-ND",
+          "feature": "L02",
+          "stack": "ND",
+          "status": "Y",
+          "reason": "NFD 24.07 and ndn-cxx 0.9.0 publish GPLv3. GPLv3 section 11 expressly grants a non-exclusive worldwide royalty-free patent license for each contributor's essential patent claims to make, use, sell, offer for sale, import, run, modify and propagate that contributor version. Essential claims exclude claims infringed only by further modifications. The official NDN policy explicitly chooses GPLv3 as its core implementation patent-protection strategy.",
+          "method": "Express patent-clause and applicability review under the common holder-bounded L02 rule",
+          "source_label": "Version-pinned project licenses and attributable source notices; documentary review 2026-10-17",
+          "qualification": "NDN consortium membership is not a patent license; institutional claims outside the licensed contributor versions remain outside this finding. Published implementation-bound grant, not a blanket royalty-free promise for arbitrary independent reimplementations. Credit only claims controlled by the declaring contributors within the grant; no third-party, dependency or underlying-layer clearance is inferred. License compliance remains required. No finding that a patent exists, is valid or is infringed, and no legal-enforceability opinion.",
+          "sources": [
+            "https://raw.githubusercontent.com/named-data/NFD/NFD-24.07/COPYING.md",
+            "https://raw.githubusercontent.com/named-data/ndn-cxx/ndn-cxx-0.9.0/COPYING.md",
+            "https://www.gnu.org/licenses/gpl-3.0.txt",
+            "https://named-data.net/project/ndn-copyright-and-patents/"
+          ],
+          "editorial_references": [
+            "round373-sources.json"
+          ]
+        },
+        {
+          "id": "L02-AX",
+          "feature": "L02",
+          "stack": "AX",
+          "status": "Y",
+          "reason": "LinBPQ L2Code.c, L3Code.c and L4Code.c at the pinned commit carry copyright notices attributed to John Wiseman G8BPQ and explicitly license LinBPQ/BPQ32 under GPL version 3 or later. The inspected files contain AX.25 frame handling, NET/ROM node/routing messages and NET/ROM transport connection handling. GPLv3 section 11 supplies an express royalty-free patent grant for each contributor version under that contributor's essential patent claims. This is an additional implementation-bound witness under the existing L02 rule, separate from the previously inconclusive Linux kernel GPLv2 composition.",
+          "method": "Documentary patent-grant and code-role mapping; no runtime or legal clearance",
+          "source_label": "Pinned LinBPQ source notices and official GPLv3 section 11, reviewed 2026-10-22",
+          "qualification": "Credit only the covered LinBPQ contributor versions and controlled essential claims; claims arising solely from further modifications are excluded by the license definition. License compliance remains required. The repository has no root LICENSE/COPYING in the inspected tree; attribution rests on explicit source notices referring to the GPL and the official GPLv3 text, not a repository badge. No grant is inferred for Linux, original NET/ROM vendors, third-party libraries or independent implementations. This does not audit all repository files or qualify a complete executable profile. Optional TCP transport, INP3 and BBS behavior present in LinBPQ are not added to the selected direct-radio/serial composition. No runtime, radio operation or legal enforceability finding; all other cells remain unchanged.",
+          "sources": [
+            "https://raw.githubusercontent.com/g8bpq/linbpq/228047d76f410e13a564fb00787516f69b96ff44/L3Code.c",
+            "https://raw.githubusercontent.com/g8bpq/linbpq/228047d76f410e13a564fb00787516f69b96ff44/L2Code.c",
+            "https://raw.githubusercontent.com/g8bpq/linbpq/228047d76f410e13a564fb00787516f69b96ff44/L4Code.c",
+            "https://www.gnu.org/licenses/gpl-3.0.txt"
+          ],
+          "editorial_references": [
+            "round415-sources.json"
+          ]
+        },
+        {
+          "id": "L02-BA",
+          "feature": "L02",
+          "stack": "BA",
+          "status": "Y",
+          "reason": "Linux v6.12 batman-adv main.c explicitly identifies GPL-2.0, and the corresponding kernel source is public. GPLv2 is not reinterpreted as containing GPLv3 section 11. Red Hat separately publishes a promise not to enforce its patents against specified activities involving Covered FOSS. Its coverage is not limited to Red Hat products or contributions. Mapping these public licensed components to that definition provides a concrete, holder-bounded non-assertion commitment under L02. The Yes is limited to that named holder and covered software, not to a newly discovered declaration by this protocol project.",
+          "method": "Documentary mapping to an express named-holder non-assertion policy; not a project-owner or universal patent grant",
+          "source_label": "Red Hat published Patent Promise, 21 September 2017; pinned public implementation license notices",
+          "qualification": "Credit only Red Hat LLC and its subsidiaries under the published 2017 Patent Promise, not a commitment by the protocol authors or all contributors. Matching public source and an Approved License are required. The promise excludes standalone hardware and noncovered software; combinations have additional scope conditions. Patent proceedings by the beneficiary or its affiliates against Red Hat, its affiliates or their offerings can remove protection, including for past actions. No third-party clearance, patent validity, existence of an applicable patent, enforceability opinion or complete dependency audit is established. This is a published non-assertion policy, not an inferred GPL/MIT patent clause. It does not cover every proprietary independent reimplementation. L02 accepts a holder-bounded declared commitment; no project-wide licensing endorsement or complete executable-profile qualification follows.",
+          "sources": [
+            "https://www.redhat.com/en/about/patent-promise",
+            "https://github.com/torvalds/linux/blob/v6.12/net/batman-adv/main.c",
+            "https://github.com/torvalds/linux/blob/v6.12/COPYING",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/main.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/COPYING",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/LICENSES/preferred/GPL-2.0"
+          ],
+          "editorial_references": [
+            "round378-sources.json",
+            "round731.html"
+          ]
+        },
+        {
+          "id": "L02-BL",
+          "feature": "L02",
+          "stack": "BL",
+          "status": "Y",
+          "reason": "BIRD v2.17.1 provides a new implementation-scoped licensing witness. Its README offers GPL version 2 or, at the recipient's option, any later version. Selecting GPLv3 invokes section 11's express royalty-free grant of each contributor's essential patent claims, within that contributor version. The pinned proto/babel/babel.c implements Babel routing and explicitly identifies RFC 8966 among supported standards. Its notices identify Toke Hoiland-Jorgensen, Ondrej Zajicek and CZ.NIC. This is a grant attached to relevant routing code, sufficient for L02's holder-bounded implementation route.",
+          "method": "Primary pinned implementation licensing and source-scope review; no runtime or patent clearance",
+          "source_label": "BIRD v2.17.1 README and proto/babel/babel.c; GNU GPLv3 sections 11 and 14",
+          "qualification": "The licensing witness is BIRD under the GPLv3 option, not a claim that GPLv2 alone contains the same express grant. The scope is covered contributor versions and controlled essential claims, subject to the license conditions. No grant from babeld or babel-rs authors is inferred, and no patent search, enforceability opinion, all-holder clearance or right to every independent reimplementation is established. BIRD is not substituted for the implementation used in other matrix experiments; no routing, interoperability or scale verdict changes.",
+          "sources": [
+            "https://raw.githubusercontent.com/CZ-NIC/bird/7ef70b27ef907bba7479989a5376842c893b12bb/README",
+            "https://raw.githubusercontent.com/CZ-NIC/bird/7ef70b27ef907bba7479989a5376842c893b12bb/proto/babel/babel.c",
+            "https://www.gnu.org/licenses/gpl-3.0.txt"
+          ],
+          "editorial_references": [
+            "round442-sources.json",
+            "round442.html"
+          ]
+        },
+        {
+          "id": "L02-RI",
+          "feature": "L02",
+          "stack": "RI",
+          "status": "Y",
+          "reason": "Cisco disclosure 1270, submitted on 23 February 2010, promises non-assertion of its controlled patents for compliant implementations when the disclosed RPL technology is included in an IETF-adopted standard. RFC 6550 is the adopted successor of draft-ietf-roll-rpl. This is an attributable patent-specific commitment, not an inference from open copyright terms or IETF participation. Credit the declared policy for the covered RPL technology within this IPv6 IoT composition.",
+          "method": "Documentary holder-policy and standard-lineage review; no legal clearance",
+          "source_label": "Cisco IPR disclosure 1270 and adopted RPL RFC 6550; reviewed 2026-10-17",
+          "qualification": "The disclosure was posted at draft revision 06 and does not specify a revision limit; its express adoption clause binds the included technology. Do not infer coverage of unrelated later additions. Reciprocity permits defensive assertion, including past royalties, against a party asserting standard-essential claims against Cisco, affiliates or their standard implementations. Nonessential product portions are excluded. This is a holder-bounded policy finding, not clearance of all RPL holders, IPv6, 6LoWPAN, DTLS, hardware or dependencies. Patent validity, expiration and legal enforceability were not audited. No runtime or implementation-availability verdict changes.",
+          "sources": [
+            "https://datatracker.ietf.org/ipr/1270/",
+            "https://datatracker.ietf.org/doc/rfc6550/",
+            "https://www.rfc-editor.org/rfc/rfc6550.txt"
+          ],
+          "editorial_references": [
+            "round375-sources.json"
+          ]
+        },
+        {
+          "id": "L02-HP",
+          "feature": "L02",
+          "stack": "HP",
+          "status": "Y",
+          "reason": "Certicom disclosure 1541, submitted in April 2011 for the HIPv2 rfc5201-bis work, declares non-assertion of its controlled patent claims against compliant implementation if the standard is adopted. The Datatracker identifies RFC 7401 as the adopted successor of that draft. This is an attributable holder commitment satisfying the holder-bounded L02 rule; it is not merely a copyright license or IETF participation. Credit the declared non-assertion policy for its covered HIPv2 material, not an unlimited license to the entire stack.",
+          "method": "Documentary commitment review; no patent clearance or runtime experiment",
+          "source_label": "Primary holder disclosures and pinned implementation license, reviewed 2026-10-17",
+          "qualification": "The attached declaration identifies draft revision 05. Do not extend it automatically to later added mechanisms or separate ESP/mobility specifications. Conditions include compliance, seller notice, reciprocal licensing and broad defensive withdrawal, including possible past royalties after patent assertions against the holder, affiliates or their products. Optional royalty-bearing licenses do not erase the conditional non-assertion route. This records the published policy, not current patent validity, expiration, enforceability, third-party clearance or a legal finding that every RFC 7401 implementation is covered.",
+          "sources": [
+            "https://datatracker.ietf.org/ipr/1541/",
+            "https://www.ietf.org/ietf-ftp/ietf/IPR/certicom-ipr-draft-ietf-hip-rfc5201-bis-05.pdf",
+            "https://datatracker.ietf.org/doc/rfc7401/"
+          ],
+          "editorial_references": [
+            "round374-sources.json"
+          ]
+        },
+        {
+          "id": "L02-CX",
+          "feature": "L02",
+          "stack": "CX",
+          "status": "Y",
+          "reason": "Cisco disclosure 3627, submitted 11 July 2019, explicitly identifies RFC 8569 and RFC 8609. It declares a conditional non-assertion policy for necessary Cisco-controlled patent claims when implementing the specified technology. This is a concrete holder commitment, beyond the older Distillery copyright notice and general FRAND language. L02 evaluates a declared policy rather than an effective license; the attributable conditional commitment therefore qualifies as Yes, with its activation condition and scope recorded explicitly.",
+          "method": "Documentary policy review under the common holder-bounded L02 rule; activation distinguished from declaration",
+          "source_label": "Cisco holder declaration in IETF Datatracker and RFC status notices; reviewed 2026-10-22",
+          "qualification": "The declaration conditions the non-assertion route on adoption as an IETF standard. RFC 8569 and RFC 8609 are Experimental IRTF documents; their publication does not establish fulfillment of that condition. No presently effective royalty-free license is asserted. Other terms include compliance and reciprocity, defensive assertion (including past royalties) after specified patent litigation, and exclusion of product portions unnecessary for compliance. A royalty-bearing option also exists. Credit only the declared Cisco-controlled scope; no third-party clearance, patent-validity or enforceability conclusion.",
+          "sources": [
+            "https://datatracker.ietf.org/ipr/3627/",
+            "https://www.rfc-editor.org/rfc/rfc8569.html",
+            "https://www.rfc-editor.org/rfc/rfc8609.html"
+          ],
+          "editorial_references": [
+            "round429-sources.json",
+            "round270-sources.json"
+          ]
+        },
+        {
+          "id": "L02-LI",
+          "feature": "L02",
+          "stack": "LI",
+          "status": "Y",
+          "reason": "The pinned lispers.net source is offered under Apache License 2.0. Section 3 grants a royalty-free patent license for necessarily infringed claims licensable by each Contributor, within its Contribution/Work scope, with patent-litigation termination. This meets the same holder-bounded commitment criterion used for other implementations.",
+          "method": "Pinned source and documentation review",
+          "source_label": "LISP RFC 9300; Linux socket/capability documentation; pinned lispers.net source as applicable",
+          "qualification": "Published implementation-scoped contributor commitment only. Not third-party patent clearance, a guarantee for every independent LISP implementation, or a legal enforceability finding.",
+          "sources": [
+            "https://github.com/farinacci/lispers.net/blob/a61c30bfdf628f9728cf072dbd2417d07d62d70b/LICENSE",
+            "https://github.com/farinacci/lispers.net/blob/a61c30bfdf628f9728cf072dbd2417d07d62d70b/README.md"
+          ],
+          "editorial_references": []
+        },
+        {
+          "id": "L02-IL",
+          "feature": "L02",
+          "stack": "IL",
+          "status": "Y",
+          "reason": "The pinned public ILNP FreeBSD14 ilnp6.c explicitly carries a BSD 2-Clause notice attributed to Internet Systems Consortium and Gregor Haywood. Its implementation includes ILNP identifier/locator state and nonce handling, so this is ILNP-specific code rather than an unrelated FreeBSD component. Applying the same mapping used in revision 7.31, Red Hat separately promises patent non-enforcement for Covered FOSS distributed with matching publicly available source under an Approved License. L02 is Yes solely for that named-holder commitment and covered software. The BSD notice itself is not treated as an express patent grant, and no patent promise is attributed to ISC, Haywood, the RFC authors or the ILNP project.",
+          "method": "Same named-holder non-assertion mapping as L02-I2/BA/RA; no project-wide patent clearance",
+          "source_label": "Published Red Hat Patent Promise and pinned public ILNP-specific BSD-licensed source",
+          "qualification": "Credit only Red Hat LLC and its subsidiaries under the published 2017 Patent Promise, not a commitment by the protocol authors or all contributors. Matching public source and an Approved License are required. The promise excludes standalone hardware and noncovered software; combinations have additional scope conditions. Patent proceedings by the beneficiary or its affiliates against Red Hat, its affiliates or their offerings can remove protection, including for past actions. No third-party clearance, patent validity, existence of an applicable patent, enforceability opinion or complete dependency audit is established. This is a published non-assertion policy, not an inferred GPL/MIT patent clause. It does not cover every proprietary independent reimplementation. L02 accepts a holder-bounded declared commitment; no project-wide licensing endorsement or complete executable-profile qualification follows. This implementation-bound licensing witness does not resolve E03-IL: the previously inspected resolver still lacks a demonstrated public source binding for the selected NID/L64 DNS path. Neither that gap nor L01 specification-use permission is changed by this decision.",
+          "sources": [
+            "https://www.redhat.com/en/about/patent-promise",
+            "https://github.com/ilnp/ilnp-freebsd14/blob/2f2a4162bbb9e932d8e9cd9cb899fbf84310fb6b/sys/netinet6/ilnp6.c",
+            "https://www.rfc-editor.org/rfc/rfc6740.html",
+            "https://www.rfc-editor.org/rfc/rfc6741.html",
+            "https://www.rfc-editor.org/rfc/rfc6744.html"
+          ],
+          "editorial_references": [
+            "round731.html",
+            "round732.html"
+          ]
+        },
+        {
+          "id": "L02-TS",
+          "feature": "L02",
+          "stack": "TS",
+          "status": "Y",
+          "reason": "Tailscale Inc. publishes an explicit royalty-free patent grant for necessarily infringed claims under its control in its distributed implementation.",
+          "method": "Official documentation and pinned source/declaration review; no runtime test",
+          "source_label": "Tailscale identity documentation, LocalAPI and PATENTS grant",
+          "qualification": "Holder-bounded implementation grant, admitted by the same L02 rule as other implementation grants. It excludes claims arising only from further modification and terminates upon specified patent litigation. It does not cover arbitrary independent reimplementations, unpublished service code, third-party patents, or service subscription charges; no enforceability or patent-clearance opinion.",
+          "sources": [
+            "https://raw.githubusercontent.com/tailscale/tailscale/566f89e0fb2aa4b2f1ebf98761e45e62aa5ef225/PATENTS",
+            "https://tailscale.com/docs/concepts/tailscale-identity",
+            "https://raw.githubusercontent.com/tailscale/tailscale/566f89e0fb2aa4b2f1ebf98761e45e62aa5ef225/PATENTS",
+            "https://raw.githubusercontent.com/tailscale/tailscale/566f89e0fb2aa4b2f1ebf98761e45e62aa5ef225/LICENSE",
+            "https://raw.githubusercontent.com/tailscale/tailscale/566f89e0fb2aa4b2f1ebf98761e45e62aa5ef225/ipn/localapi/localapi.go",
+            "https://tailscale.com/docs/install/linux"
+          ],
+          "editorial_references": [
+            "round588.html",
+            "round588-sources.json"
+          ]
+        },
+        {
+          "id": "L02-RA",
+          "feature": "L02",
+          "stack": "RA",
+          "status": "Y",
+          "reason": "IRATI at 726b535c908f8a74e8c68dd493cfbb1bd8726546 publishes its IPC API and flow allocator with LGPL-2.1-or-later notices. No recipient choice of a later GPL version is used to attribute a new patent grant to earlier contributors. Red Hat separately publishes a promise not to enforce its patents against specified activities involving Covered FOSS. Its coverage is not limited to Red Hat products or contributions. Mapping these public licensed components to that definition provides a concrete, holder-bounded non-assertion commitment under L02. The Yes is limited to that named holder and covered software, not to a newly discovered declaration by this protocol project.",
+          "method": "Documentary mapping to an express named-holder non-assertion policy; not a project-owner or universal patent grant",
+          "source_label": "Red Hat published Patent Promise, 21 September 2017; pinned public implementation license notices",
+          "qualification": "Credit only Red Hat LLC and its subsidiaries under the published 2017 Patent Promise, not a commitment by the protocol authors or all contributors. Matching public source and an Approved License are required. The promise excludes standalone hardware and noncovered software; combinations have additional scope conditions. Patent proceedings by the beneficiary or its affiliates against Red Hat, its affiliates or their offerings can remove protection, including for past actions. No third-party clearance, patent validity, existence of an applicable patent, enforceability opinion or complete dependency audit is established. This is a published non-assertion policy, not an inferred GPL/MIT patent clause. It does not cover every proprietary independent reimplementation. L02 accepts a holder-bounded declared commitment; no project-wide licensing endorsement or complete executable-profile qualification follows.",
+          "sources": [
+            "https://www.redhat.com/en/about/patent-promise",
+            "https://github.com/IRATI/stack/blob/726b535c908f8a74e8c68dd493cfbb1bd8726546/librina/src/ipc-api.cc",
+            "https://github.com/IRATI/stack/blob/726b535c908f8a74e8c68dd493cfbb1bd8726546/rinad/src/ipcp/flow-allocator.cc",
+            "https://github.com/IRATI/stack/blob/726b535c908f8a74e8c68dd493cfbb1bd8726546/librina/LICENSE",
+            "https://github.com/IRATI/stack/blob/726b535c908f8a74e8c68dd493cfbb1bd8726546/rinad/LICENSE",
+            "https://www.gnu.org/licenses/gpl-faq.en.html#v2OrLaterPatentLicense",
+            "https://www.gnu.org/licenses/gpl-3.0.txt",
+            "https://www.gnu.org/licenses/lgpl-3.0.txt"
+          ],
+          "editorial_references": [
+            "round724.html",
+            "round731.html"
+          ]
+        }
+      ],
+      "note": "Historical uniform criterion, retained outside the active comparison. No IDs reused."
+    },
+    {
+      "id": "F38",
+      "source_revision": "7.33",
+      "retired_in": "7.34",
+      "criterion": {
+        "id": "F38",
+        "title": "Let each operator enforce local access and resource priorities",
+        "definition": "Each transport scope can administer its resources and establish and enforce local access and priority conditions, respecting agreements with participants, without requiring one uniform policy throughout the network. Identify the scope, policy owner, controlled resources and enforcement point. Scopes may be adjacent or nested; recursive layers and hidden internal topology are not required. Configurable local preferences alone do not suffice without control of the relevant resources. F36 separately assesses participant-requested service quality, and F37 response to congestion. Local autonomy does not imply unlimited resources, arbitrary violation of agreements or absence of higher-level constraints.",
+        "method": "Primary evidence for the selected composition; identify mechanism, scope and implementation limits",
+        "research_action": "Identify independently administered transport scopes, local access/priority policy and resource enforcement. Explain how different local conditions can coexist along a communication. Do not require nesting, topology abstraction or RINA-style layers. Distinguish local policy authority from the ability merely to request QoS."
+      },
+      "cells": [
+        {
+          "id": "F38-PN",
+          "feature": "F38",
+          "stack": "PN",
+          "status": "Y",
+          "reason": "The author states that each PRP aggregator sees its own adjacencies and transiting clients. Each adjacency represents an interface with control-plane priority, and transiting participants can negotiate access priorities within its resource budget. Together with previously clarified autonomous adjacency scheduling, this establishes local resource administration and negotiated access/priority conditions at each aggregator without requiring a uniform policy along the complete trajectory. The architectural Yes credits independent transport scopes, not an inferred nested-domain service.",
+          "method": "Author-attributed architectural capability; no runtime test",
+          "source_label": "Protocol-author clarification and approved F38 reformulation, 2026-10-25",
+          "qualification": "Direct author clarification, preserved in round649-sources.json; no new normative wire or executable qualification. Negotiation operates within the available budget and accepted agreements; it does not imply that every requested priority is granted. No scheduler, numerical QoS guarantee, topology-hiding guarantee or arbitrary override of existing obligations is inferred. PRP over IP credits participating PRP aggregators and their budgets, not administrative control over unrelated IP transit infrastructure. Independent HS2 and implementation gates are unchanged.",
+          "sources": [],
+          "editorial_references": [
+            "round649.html",
+            "round649-sources.json",
+            "round647-sources.json",
+            "round649.html"
+          ]
+        },
+        {
+          "id": "F38-PI",
+          "feature": "F38",
+          "stack": "PI",
+          "status": "Y",
+          "reason": "The author states that each PRP aggregator sees its own adjacencies and transiting clients. Each adjacency represents an interface with control-plane priority, and transiting participants can negotiate access priorities within its resource budget. Together with previously clarified autonomous adjacency scheduling, this establishes local resource administration and negotiated access/priority conditions at each aggregator without requiring a uniform policy along the complete trajectory. The architectural Yes credits independent transport scopes, not an inferred nested-domain service.",
+          "method": "Author-attributed architectural capability; no runtime test",
+          "source_label": "Protocol-author clarification and approved F38 reformulation, 2026-10-25",
+          "qualification": "Direct author clarification, preserved in round649-sources.json; no new normative wire or executable qualification. Negotiation operates within the available budget and accepted agreements; it does not imply that every requested priority is granted. No scheduler, numerical QoS guarantee, topology-hiding guarantee or arbitrary override of existing obligations is inferred. PRP over IP credits participating PRP aggregators and their budgets, not administrative control over unrelated IP transit infrastructure. Independent HS2 and implementation gates are unchanged.",
+          "sources": [],
+          "editorial_references": [
+            "round649.html",
+            "round649-sources.json",
+            "round647-sources.json",
+            "round649.html"
+          ]
+        },
+        {
+          "id": "F38-IP",
+          "feature": "F38",
+          "stack": "IP",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ domains. RFC 2475 defines boundary classification and conditioning, including policing and shaping, under domain provisioning policies and inter-domain traffic agreements. Domains can enforce their own access to service classes and resource priorities without imposing one uniform policy across the whole path.",
+          "method": "Primary specification and implementation documentation review; no runtime experiment",
+          "source_label": "RFC 1633, RFC 7567, RFC 2475 or IRATI Ethernet tutorial, as linked",
+          "qualification": "Explicit optional IP-layer DiffServ witness, not universal default Internet service. Service-class admission is not cryptographic peer authorization. Inter-domain agreements must be compatible; no guaranteed global QoS, dynamic application reservation or added stateful firewall is inferred.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3"
+          ],
+          "editorial_references": [
+            "round650.html"
+          ]
+        },
+        {
+          "id": "F38-BP",
+          "feature": "F38",
+          "stack": "BP",
+          "status": "Y",
+          "reason": "Secure DTN explicitly selects DiffServ enforcement in its existing IPv4 transport. Independent domains classify transport aggregates and apply local policing, shaping and forwarding treatment under compatible agreements.",
+          "method": "Primary RFC review and explicit composition selection",
+          "source_label": "IETF TCPCLv4, AQM and DiffServ specifications",
+          "qualification": "Applies to TCP transport aggregates, not individually visible encrypted bundles. This requires enforcement, not only marking. It does not establish application-requested reservation or BPv7/SABR priority propagation.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc9174.html"
+          ],
+          "editorial_references": [
+            "round688.html"
+          ]
+        },
+        {
+          "id": "F38-CG",
+          "feature": "F38",
+          "stack": "CG",
+          "status": "Y",
+          "reason": "DTN/CGR-SABR explicitly selects DiffServ enforcement in its existing IPv4 transport. Independent domains classify transport aggregates and apply local policing, shaping and forwarding treatment under compatible agreements.",
+          "method": "Primary RFC review and explicit composition selection",
+          "source_label": "IETF TCPCLv4, AQM and DiffServ specifications",
+          "qualification": "Applies to TCP transport aggregates, not individually visible encrypted bundles. This requires enforcement, not only marking. It does not establish application-requested reservation or BPv7/SABR priority propagation.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc9174.html"
+          ],
+          "editorial_references": [
+            "round688.html"
+          ]
+        },
+        {
+          "id": "F38-LT",
+          "feature": "F38",
+          "stack": "LT",
+          "status": "Y",
+          "reason": "The selected AOS layer gives local management control over the actual transmission order of virtual channels within a master channel and master channels sharing a physical channel. CCSDS 732.0-B-4 sections 4.2.5.2-3 and 4.2.6.2-3 require the multiplexers to apply management-defined ordering and project-defined algorithms considering priority, release rate and timing. The controlled resource is the local outgoing channel; the enforcement point is its frame multiplexer. Different administered links can use different scheduling policies without imposing one network-wide policy.",
+          "method": "Normative local-resource and enforcement-point audit",
+          "source_label": "CCSDS 732.0-B-4, October 2021, sections 4.2.5 and 4.2.6",
+          "qualification": "Yes is architectural and restricted to the selected AOS channel-management and multiplexing functions. It does not assert a particular scheduler implementation, per-bundle fairness, cryptographic admission, distributed reservation, hard end-to-end QoS, or an integrated flight test. Project management supplies the scheduling algorithm and channel configuration. F37 congestion feedback remains separately Pending; a local transmission scheduler is not evidence of congestion observation.",
+          "sources": [
+            "https://public.ccsds.org/Pubs/732x0b4.pdf"
+          ],
+          "editorial_references": [
+            "round708.html"
+          ]
+        },
+        {
+          "id": "F38-LP",
+          "feature": "F38",
+          "stack": "LP",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ policies in the existing IP transport carrying libp2p. Operators classify visible transport aggregates and enforce local service-class resources using policing, shaping and forwarding treatment.",
+          "method": "Primary QUIC/libp2p documentation and explicit IP policy selection",
+          "source_label": "libp2p resource management, multipath-21 and IETF transport policies",
+          "qualification": "Explicit optional IP mechanism with enforcement, not merely an endpoint preference. Different domain policies may coexist under compatible agreements. No per-stream visibility, global QoS, application reservation or change to cryptographic identity/admission is assumed.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://github.com/libp2p/go-libp2p/blob/master/p2p/host/resource-manager/README.md",
+            "https://www.rfc-editor.org/rfc/rfc9000.html#section-4"
+          ],
+          "editorial_references": [
+            "round683.html"
+          ]
+        },
+        {
+          "id": "F38-TO",
+          "feature": "F38",
+          "stack": "TO",
+          "status": "Y",
+          "reason": "Tor link throttling gives each participating operator control over local read and write bandwidth through token buckets. The mainline implementation additionally separates relayed-traffic budgets and applies local priority treatment to traffic classes, including directory traffic. Independently configured relays enforce these resource limits on their own connections, so different budgets and priorities can coexist along an onion-service path.",
+          "method": "Primary Tor specification and explicitly selected IP policy review",
+          "source_label": "Tor Specifications and RFC 7567",
+          "qualification": "The transport scope is the operator-controlled Tor instance and its links. This is local resource policy, not final-client authentication, an application reservation or unrestricted freedom to violate the Tor protocol. Operators need not use identical bandwidth budgets; no global QoS guarantee or nesting requirement is inferred.",
+          "sources": [
+            "https://spec.torproject.org/tor-spec/flow-control.html"
+          ],
+          "editorial_references": [
+            "round678.html"
+          ]
+        },
+        {
+          "id": "F38-I2",
+          "feature": "F38",
+          "stack": "I2",
+          "status": "Y",
+          "reason": "Independent operators of the IPv4 underlay carrying I2P classify transport aggregates and enforce local resource policies through DiffServ policing, shaping and forwarding classes. Different domain policies coexist under compatible agreements.",
+          "method": "Primary specifications and explicit IP policy composition",
+          "source_label": "IETF AQM and DiffServ; I2P and SCION transport documentation",
+          "qualification": "Optional enforcement is explicit in the profile. Header marking alone is insufficient. This establishes local policy autonomy, not application-level reservation, globally guaranteed QoS or visibility into individual protected conversations.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.i2p.net/en/docs/specs/tunnel-implementation/"
+          ],
+          "editorial_references": [
+            "round684.html"
+          ]
+        },
+        {
+          "id": "F38-YG",
+          "feature": "F38",
+          "stack": "YG",
+          "status": "Y",
+          "reason": "Select DiffServ classification and conditioning on the existing private-IP peering interfaces. Each Yggdrasil node or local transport operator can administer its outgoing link resources, police or shape peering aggregates and assign service classes independently of other operators.",
+          "method": "Primary configuration and IP service-policy review; explicit optional mechanisms",
+          "source_label": "Project peering documentation and RFC 7567/2475",
+          "qualification": "Optional IP transport policy with enforcement, not merely an overlay preference. Host-side conditioners are within RFC 2475 scope. Adjacent policies must respect their agreements; no nested domains, public Internet, inner-flow visibility or end-to-end QoS guarantee is assumed.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://yggdrasil-network.github.io/configurationref.html"
+          ],
+          "editorial_references": [
+            "round680.html"
+          ]
+        },
+        {
+          "id": "F38-CJ",
+          "feature": "F38",
+          "stack": "CJ",
+          "status": "Y",
+          "reason": "Select DiffServ classification and conditioning on the existing private-IP peering interfaces. Each cjdns node or local transport operator can administer its outgoing link resources, police or shape peering aggregates and assign service classes independently of other operators.",
+          "method": "Primary configuration and IP service-policy review; explicit optional mechanisms",
+          "source_label": "Project peering documentation and RFC 7567/2475",
+          "qualification": "Optional IP transport policy with enforcement, not merely an overlay preference. Host-side conditioners are within RFC 2475 scope. Adjacent policies must respect their agreements; no nested domains, public Internet, inner-flow visibility or end-to-end QoS guarantee is assumed.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://github.com/cjdelisle/cjdns/blob/master/doc/configure.md"
+          ],
+          "editorial_references": [
+            "round680.html"
+          ]
+        },
+        {
+          "id": "F38-MQ",
+          "feature": "F38",
+          "stack": "MQ",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ policies in the existing IP transport carrying Multipath QUIC. Operators classify visible transport aggregates and enforce local service-class resources using policing, shaping and forwarding treatment.",
+          "method": "Primary QUIC/libp2p documentation and explicit IP policy selection",
+          "source_label": "libp2p resource management, multipath-21 and IETF transport policies",
+          "qualification": "Explicit optional IP mechanism with enforcement, not merely an endpoint preference. Different domain policies may coexist under compatible agreements. No per-stream visibility, global QoS, application reservation or change to cryptographic identity/admission is assumed.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://datatracker.ietf.org/doc/html/draft-ietf-quic-multipath-21",
+            "https://www.rfc-editor.org/rfc/rfc9000.html#section-4"
+          ],
+          "editorial_references": [
+            "round683.html"
+          ]
+        },
+        {
+          "id": "F38-SC",
+          "feature": "F38",
+          "stack": "SC",
+          "status": "Y",
+          "reason": "Independent operators of the IPv4 underlay carrying SCION classify transport aggregates and enforce local resource policies through DiffServ policing, shaping and forwarding classes. Different domain policies coexist under compatible agreements.",
+          "method": "Primary specifications and explicit IP policy composition",
+          "source_label": "IETF AQM and DiffServ; I2P and SCION transport documentation",
+          "qualification": "Optional enforcement is explicit in the profile. Header marking alone is insufficient. This establishes local policy autonomy, not application-level reservation, globally guaranteed QoS or visibility into individual protected conversations.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://docs.scion.org/en/latest/protocols/scion-header.html"
+          ],
+          "editorial_references": [
+            "round684.html"
+          ]
+        },
+        {
+          "id": "F38-RT",
+          "feature": "F38",
+          "stack": "RT",
+          "status": "Y",
+          "reason": "Each Reticulum interface can independently configure its announce bandwidth cap. Interface.process_announce_queue enforces spacing from packet size, interface bitrate and that cap, selects lower-hop announcements first and discards stale queued entries. Local operators therefore enforce different resource policies on connected transport scopes.",
+          "method": "Versioned native source and official API review",
+          "source_label": "Reticulum 1.5.5 and selected Meshtastic firmware source",
+          "qualification": "Witness is native announcement traffic on serial transport interfaces, not arbitrary per-application data reservations. Configuration must reflect the interface bitrate. Independent per-interface enforcement satisfies the criterion without requiring recursive RINA scopes or a network-wide uniform budget.",
+          "sources": [
+            "https://github.com/markqvist/Reticulum/blob/1.5.5/RNS/Interfaces/Interface.py",
+            "https://github.com/markqvist/Reticulum/blob/1.5.5/RNS/Resource.py",
+            "https://reticulum.network/manual/reference.html"
+          ],
+          "editorial_references": [
+            "round686.html"
+          ]
+        },
+        {
+          "id": "F38-NS",
+          "feature": "F38",
+          "stack": "NS",
+          "status": "Y",
+          "reason": "Explicitly select independently administered DiffServ domains in the IPv4 transport. Domain operators classify and condition traffic at their boundaries and enforce service-class resources through policing, shaping and per-hop treatment. Compatible inter-domain agreements allow different local policies along the WebSocket path.",
+          "method": "Primary protocol review with explicit native IP policy selection",
+          "source_label": "NIP-01 and IETF transport service architecture",
+          "qualification": "Optional IP-layer composition witness, not uniform Internet deployment or a Nostr relay QoS guarantee. Classification can use the transport aggregate without inspecting TLS-encrypted events. Service-class access is not cryptographic author authorization, and this supplies no application reservation exchange.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3"
+          ],
+          "editorial_references": [
+            "round677.html"
+          ]
+        },
+        {
+          "id": "F38-MT",
+          "feature": "F38",
+          "stack": "MT",
+          "status": "Y",
+          "reason": "Each node enforces local packet-access decisions through its ignore policy, and its transmission queue orders packets by local priority and can evict lower-priority entries when full. Local clients can supply priority; unset values are assigned by local firmware. Operators can apply their own access policies while interoperating with neighboring nodes.",
+          "method": "Pinned firmware schema, queue and router source review",
+          "source_label": "Meshtastic firmware 8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c",
+          "qualification": "Native node/radio scope, not recursively nested domains or negotiated end-to-end bandwidth. Compatible radio settings and trust provisioning remain required. A local priority value is not propagated as a binding policy for other relays. Ignoring a sender prevents local handling, not reception energy consumption or RF interference.",
+          "sources": [
+            "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/MeshPacketQueue.cpp",
+            "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/Router.cpp",
+            "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/MeshPacketQueue.cpp",
+            "https://github.com/meshtastic/firmware/blob/8e6a88d06f44cad26f1e8d7cd402939ccacb9b4c/src/mesh/generated/meshtastic/mesh.pb.h"
+          ],
+          "editorial_references": [
+            "round687.html"
+          ]
+        },
+        {
+          "id": "F38-GN",
+          "feature": "F38",
+          "stack": "GN",
+          "status": "Y",
+          "reason": "Each GNUnet operator configures local ATS network-scope bandwidth budgets. The selected proportional allocator admits addresses within these budgets and apportions resources by application bandwidth preferences. TRANSPORT sends the locally assigned outbound quota to its clients; transport_api_core updates a per-neighbour bandwidth tracker and delays subsequent messages when the quota is exhausted. CORE also schedules according to message priority and available bandwidth. Operators can enforce different budgets and priorities at adjacent relay scopes without a uniform network-wide policy.",
+          "method": "Selected-version source path and documentary plausibility",
+          "source_label": "GNUnet 0.20.0 CORE, legacy TRANSPORT and proportional ATS",
+          "qualification": "Yes concerns operator-controlled local admission to budgeted peer transport and outbound scheduling, not authority over remote resources or a hard end-to-end agreement. The selected source ignores remote receive-quota announcements (IGNORE_INBOUND_QUOTA); remote-quota enforcement is explicitly not credited. Locally assigned outbound quota enforcement remains active. Trusted local services, correct configured budgets and the declared proportional ATS composition are assumed. No runtime or adversarial-client isolation test.",
+          "sources": [
+            "https://docs.gnunet.org/v0.20.x/developers/ats/ats.html",
+            "https://docs.gnunet.org/v0.20.x/developers/transport/transport.html",
+            "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz"
+          ],
+          "editorial_references": [
+            "round706.html"
+          ]
+        },
+        {
+          "id": "F38-ND",
+          "feature": "F38",
+          "stack": "ND",
+          "status": "Y",
+          "reason": "The selected NFD 24.07 forwarder owns and enforces policy over its native Content Store, a local resource used to satisfy forwarded Interests. The operator controls its packet capacity, admission and serving switches, and unsolicited-Data admission policy. The supplied priority_fifo policy gives retention precedence to fresh solicited Data: eviction removes unsolicited entries first, stale entries next, then remaining entries in FIFO order. CsManager and the tables configuration apply these settings to the actual store; Cs::insert/find and policy eviction enforce them. Different adjacent NFDs can apply different capacities and cache policies without one global policy or an added IP layer.",
+          "method": "Pinned configuration-to-resource enforcement source audit",
+          "source_label": "NFD 24.07 administrator documentation and a1480a7c source",
+          "qualification": "Yes is restricted to operator-controlled forwarding-cache admission, service and retention priorities. Select the built-in priority_fifo policy as the architectural witness; it is not the sample configuration default (lru). This does not establish per-user authentication or quotas, wire-bandwidth reservation, prioritized packet transmission, PIT/CPU isolation or end-to-end QoS. The existing positive-capacity cache profile is retained. Policy selection occurs while the store is empty; no runtime test or hot-switch guarantee.",
+          "sources": [
+            "https://docs.named-data.net/NFD/24.07/manpages/nfdc-cs.html",
+            "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/nfd.conf.sample.in",
+            "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/mgmt/tables-config-section.cpp",
+            "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/mgmt/cs-manager.cpp",
+            "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/table/cs.cpp",
+            "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/table/cs-policy-priority-fifo.cpp",
+            "https://raw.githubusercontent.com/named-data/NFD/a1480a7c947dc6a48ee12c6c0637fc488c0c73a1/daemon/fw/unsolicited-data-policy.cpp"
+          ],
+          "editorial_references": [
+            "round710.html"
+          ]
+        },
+        {
+          "id": "F38-AX",
+          "feature": "F38",
+          "stack": "AX",
+          "status": "Y",
+          "reason": "ax25_queue_xmit sets the native AX.25 protocol, prepends the KISS command and calls dev_queue_xmit; the selected mkiss device has a transmit queue and an AX.25 driver transmit operation. The selected Linux implementation sends native frames through dev_queue_xmit. The core selects the outgoing device queue and invokes its configured qdisc. An operator can attach PRIO to this resource: classification selects priority bands and dequeue serves higher bands first. The u32 classifier matches masked bytes at configured offsets without requiring an IP header; classifier actions can refuse local egress. TBF children gate transmission on tokens and bound queued bytes through their default inner queues. This supplies an enforcement point for local admission, priority and rate policy, independently at each participating Linux node, without a uniform network-wide policy.",
+          "method": "Native transmit-path and optional local qdisc source audit",
+          "source_label": "Linux v6.12 native transmit and traffic-control sources",
+          "qualification": "Optional Linux deployment composition, explicitly selected for F38; requires administrator setup and the relevant scheduler/classifier modules. This source audit establishes local outgoing-frame resource enforcement, not protocol-native negotiation or a tested configuration. Classifier offsets must match the selected native frame layout. Rate accounting is at the netdevice queue, not exact radio airtime; previously consumed ingress capacity is not recovered. No authenticated per-user entitlement, distributed reservation, end-to-end QoS, universal hardware support or default-policy claim. Configure each TBF with its default bounded inner queue; replacing that child can invalidate its queue-limit assumption. No runtime experiment or other-cell promotion.",
+          "sources": [
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/ax25/ax25_out.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/core/dev.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/sch_prio.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/sch_tbf.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/cls_u32.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/act_gact.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/drivers/net/hamradio/mkiss.c"
+          ],
+          "editorial_references": [
+            "round713.html"
+          ]
+        },
+        {
+          "id": "F38-BA",
+          "feature": "F38",
+          "stack": "BA",
+          "status": "Y",
+          "reason": "batadv_send_skb_packet constructs ETH_P_BATMAN Ethernet frames and calls dev_queue_xmit on the hard interface, explicitly noting possible drops from congestion or traffic shaping. Policy belongs on this physical egress rather than only on the virtual batman interface. The selected Linux implementation sends native frames through dev_queue_xmit. The core selects the outgoing device queue and invokes its configured qdisc. An operator can attach PRIO to this resource: classification selects priority bands and dequeue serves higher bands first. The u32 classifier matches masked bytes at configured offsets without requiring an IP header; classifier actions can refuse local egress. TBF children gate transmission on tokens and bound queued bytes through their default inner queues. This supplies an enforcement point for local admission, priority and rate policy, independently at each participating Linux node, without a uniform network-wide policy.",
+          "method": "Native transmit-path and optional local qdisc source audit",
+          "source_label": "Linux v6.12 native transmit and traffic-control sources",
+          "qualification": "Optional Linux deployment composition, explicitly selected for F38; requires administrator setup and the relevant scheduler/classifier modules. This source audit establishes local outgoing-frame resource enforcement, not protocol-native negotiation or a tested configuration. Classifier offsets must match the selected native frame layout. Rate accounting is at the netdevice queue, not exact radio airtime; previously consumed ingress capacity is not recovered. No authenticated per-user entitlement, distributed reservation, end-to-end QoS, universal hardware support or default-policy claim. Configure each TBF with its default bounded inner queue; replacing that child can invalidate its queue-limit assumption. No runtime experiment or other-cell promotion.",
+          "sources": [
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/batman-adv/send.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/core/dev.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/sch_prio.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/sch_tbf.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/cls_u32.c",
+            "https://raw.githubusercontent.com/torvalds/linux/v6.12/net/sched/act_gact.c"
+          ],
+          "editorial_references": [
+            "round713.html"
+          ]
+        },
+        {
+          "id": "F38-BL",
+          "feature": "F38",
+          "stack": "BL",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ policies in the existing IPv6 forwarding interfaces of the Babel-routed network. Domain/interface owners classify, police and shape traffic and enforce local service-class resource priorities. These policies operate on the existing local links and do not change the selected hierarchy or routing filters.",
+          "method": "Primary RFC review and explicit optional IP transport policy selection",
+          "source_label": "HIP/Babel specifications and RFC 7567/2475",
+          "qualification": "Optional transport policy with actual conditioning/enforcement selected, not marking alone. Compatible inter-domain agreements remain necessary. This does not provide application reservation, global QoS or new cryptographic authorization.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc8966.html"
+          ],
+          "editorial_references": [
+            "round682.html"
+          ]
+        },
+        {
+          "id": "F38-RI",
+          "feature": "F38",
+          "stack": "RI",
+          "status": "Y",
+          "reason": "Select optional IPv6 DiffServ policy within participant-operated transport domains. Boundary classification, policing/shaping and per-hop service apply local resource and priority conditions under each domain's provisioning policy and compatible traffic agreements. RFC 2474 places DSCP in the IPv6 Traffic Class field; RFC 6282 section 3.2.1 carries non-elided Traffic Class information through 6LoWPAN compression. Thus the selected link adaptation does not require discarding these service markings. Classifiers can use exposed IPv6 headers and ingress context while DTLS payload and final-peer keys remain protected.",
+          "method": "Primary specification composition review; no runtime experiment",
+          "source_label": "IPv6 AQM/DiffServ and 6LoWPAN Traffic Class standards",
+          "qualification": "Optional architectural service policy, not the default RPL behaviour, a small-device implementation claim or a resource reservation. Operators must provision actual conditioners and queue service; DSCP marking alone is insufficient. Domain boundaries may remark traffic under their agreements. Service-class admission is not cryptographic peer authorization; IPv6 addresses and DSCP do not authenticate the DTLS peer. No cloud or DTLS-terminating gateway is added, and no globally uniform policy or end-to-end QoS guarantee is implied.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc7567.html#section-2",
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc2474.html#section-3",
+            "https://www.rfc-editor.org/rfc/rfc6282.html#section-3.2.1"
+          ],
+          "editorial_references": [
+            "round715.html"
+          ]
+        },
+        {
+          "id": "F38-HP",
+          "feature": "F38",
+          "stack": "HP",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ policies in the IP forwarding layer carrying HIP control and ESP-protected user traffic. Domain/interface owners classify, police and shape traffic and enforce local service-class resource priorities. ESP payload decryption is unnecessary for classification of the visible transport aggregate.",
+          "method": "Primary RFC review and explicit optional IP transport policy selection",
+          "source_label": "HIP/Babel specifications and RFC 7567/2475",
+          "qualification": "Optional transport policy with actual conditioning/enforcement selected, not marking alone. Compatible inter-domain agreements remain necessary. This does not provide application reservation, global QoS or new cryptographic authorization.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc7401.html",
+            "https://www.rfc-editor.org/rfc/rfc7402.html#section-3"
+          ],
+          "editorial_references": [
+            "round682.html"
+          ]
+        },
+        {
+          "id": "F38-CX",
+          "feature": "F38",
+          "stack": "CX",
+          "status": "Y",
+          "reason": "CCNx forwarders can enforce local ACLs on name prefixes and incoming interfaces, refusing prohibited Interests independently and optionally reporting Prohibited to the preceding hop.",
+          "method": "Primary packet semantics and forwarding-policy review",
+          "source_label": "NDN packet format v0.3 and CCNx RFC 8569",
+          "qualification": "Native local access enforcement under section 10.3.6; not identity authentication, bandwidth reservation or globally uniform policy. Neighboring policies must permit the intended traffic.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc8569.html#section-10.3.6"
+          ],
+          "editorial_references": [
+            "round689.html"
+          ]
+        },
+        {
+          "id": "F38-LI",
+          "feature": "F38",
+          "stack": "LI",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ domains in the outer IPv4 transport carrying LISP encapsulation. Each domain enforces its own service-class resources through classification, policing, shaping and forwarding treatment. RFC 9300 specifies DSCP handling at encapsulation/decapsulation; domains can condition the outer packets.",
+          "method": "Primary RFC review with explicit optional transport mechanisms",
+          "source_label": "RFC 9300/6741 and RFC 7567/2475",
+          "qualification": "Explicit optional transport policy, with compatible inter-domain agreements. Marking alone is not the evidence: local conditioning and resource enforcement are selected. No global QoS guarantee, application reservation or cryptographic access control is inferred.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc9300.html#section-5.3",
+            "https://www.rfc-editor.org/rfc/rfc1633.html#section-5"
+          ],
+          "editorial_references": [
+            "round681.html"
+          ]
+        },
+        {
+          "id": "F38-IL",
+          "feature": "F38",
+          "stack": "IL",
+          "status": "Y",
+          "reason": "Select independently administered DiffServ domains in the IPv6-compatible ILNPv6 forwarding plane, whose core routers route on Locator prefixes. Each domain enforces its own service-class resources through classification, policing, shaping and forwarding treatment. RFC 6741 retains the Traffic Class field and compatibility with deployed IPv6 routers; no additional tunnel is introduced.",
+          "method": "Primary RFC review with explicit optional transport mechanisms",
+          "source_label": "RFC 9300/6741 and RFC 7567/2475",
+          "qualification": "Explicit optional transport policy, with compatible inter-domain agreements. Marking alone is not the evidence: local conditioning and resource enforcement are selected. No global QoS guarantee, application reservation or cryptographic access control is inferred.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3",
+            "https://www.rfc-editor.org/rfc/rfc6741.html#section-3.2",
+            "https://www.rfc-editor.org/rfc/rfc1633.html#section-5"
+          ],
+          "editorial_references": [
+            "round681.html"
+          ]
+        },
+        {
+          "id": "F38-TS",
+          "feature": "F38",
+          "stack": "TS",
+          "status": "Y",
+          "reason": "Explicitly select independently administered DiffServ domains in the outer IP transport. Each domain can classify, police and shape the tunnel or relay-connection aggregate and assign its own forwarding treatment within compatible inter-domain agreements. Enforcement uses domain-controlled resources rather than requiring uniform tailnet policy to manage the entire transport path.",
+          "method": "Primary Tailscale documentation and explicitly selected IP policy review",
+          "source_label": "Tailscale grants and IETF transport policy architecture",
+          "qualification": "Optional underlay witness, separate from Tailscale grants and cryptographic peer admission. Outer aggregate classification requires no decryption or propagation of inner DSCP markings. It does not promise per-application treatment inside a tunnel, public DERP provisioning or global QoS.",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc2475.html#section-2.3"
+          ],
+          "editorial_references": [
+            "round679.html"
+          ]
+        },
+        {
+          "id": "F38-RA",
+          "feature": "F38",
+          "stack": "RA",
+          "status": "Y",
+          "reason": "A DIF provides communication to upper processes, which can themselves implement a wider DIF. Routing, transport and management policies belong to each scope, with internal addressing hidden from applications. Reassessment under revised F38: per-DIF administration and resource policies supply independent local transport conditions. Recursive nesting remains the RINA mechanism, not a requirement imposed on other columns.",
+          "method": "Primary evidence for the selected composition; identify mechanism, scope and implementation limits",
+          "source_label": "RINA project architectural documentation",
+          "qualification": "Documentary architectural credit for the declared RINA composition. IRATI is a reference implementation, but no release, policy configuration, executable integration or performance result is qualified here. Detailed linked QoS/congestion pages could not be fetched; the retrieved project overview states the credited mechanisms. Other RINA capabilities remain separately assessed.",
+          "sources": [
+            "https://csr.bu.edu/rina/about.html",
+            "https://irati.github.io/stack/",
+            "https://csr.bu.edu/rina/about.html",
+            "https://pouzinsociety.org/research-results-highlights/"
+          ],
+          "editorial_references": [
+            "round645.html"
+          ]
+        }
+      ],
+      "note": "Historical uniform criterion, retained outside the active comparison. No IDs reused."
+    }
+  ]
+}

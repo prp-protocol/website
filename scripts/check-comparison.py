@@ -27,11 +27,23 @@ receipt=json.loads((ROOT/'scripts/comparison-approved.json').read_text())
 assert d['revision']==receipt['revision'] and d['date']==receipt['date']
 assert len(raw)==receipt['bytes'] and hashlib.sha256(raw).hexdigest()==receipt['sha256']
 expected={r['id']+'-'+c['id'] for r in d['criteria'] for c in d['columns']}
-assert len(d['criteria'])==64 and len(d['columns'])==28
-assert len(d['cells'])==1792 and {c['id'] for c in d['cells']}==expected
-assert {'F36','F37','F38','F39'}<={r['id'] for r in d['criteria']}
+assert len(d['criteria'])==62 and len(d['columns'])==28
+assert len(d['cells'])==1736 and {c['id'] for c in d['cells']}==expected
+assert {'F36','F37','F39'}<={r['id'] for r in d['criteria']}
 assert {'TS','RA'}<={c['id'] for c in d['columns']}
-assert not {'C08','F25','F35'} & {r['id'] for r in d['criteria']}
+assert not {'C08','F25','F35','F38','L02'} & {r['id'] for r in d['criteria']}
+api=runpy.run_path(str(OUT/'validate.py'))
+retired=api['validate_retired_r748']((OUT/api['ARCHIVE_R748_PATH']).read_bytes(),OUT,d)
+for archive in retired['archives']:
+    ident=archive['id'];page=(OUT/'archive'/(ident+'.html')).read_text()
+    assert escape(archive['criterion']['definition']) in page
+    assert 'These 28 cells are excluded' in page and 'not a loss of capability' in page
+    assert archive['source_revision'] in page and 'retired-criteria-7.48.json' in page
+    for c in archive['cells']:
+        text=(OUT/'cells'/(c['id']+'.html')).read_text()
+        assert 'Archived previous-definition assessment' in text and escape(c['reason']) in text
+        assert escape(archive['criterion']['definition']) in text and 'not the earlier public 7.08' in text
+        assert '../archive/'+ident+'.html' in text and '#row-'+ident not in text
 for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
     archive=json.loads((OUT/('archive/'+ident+'-'+rev+'.json')).read_text())
     assert len(archive['cells'])==26 and archive['criterion']['id']==ident and archive['revision']==rev
