@@ -15,7 +15,14 @@
   "movieBytes": 7814345,
   "durationSeconds": 178.75,
   "frames": 4290,
-  "publicationStatus": "approved; publication package prepared; website delivery pending",
+  "publicationStatus": "published",
+  "publication": {
+    "sourceCommit": "92f616edada3524634675837e99446f1c1d855c5",
+    "deployedAt": "2026-10-29T23:44:11Z",
+    "verifiedAt": "2026-10-29T23:44:29.003401+00:00",
+    "deploymentURL": "https://github.com/prp-protocol/website/actions/runs/40975045754",
+    "pageURL": "https://prp-protocol.org/videos.html#security-by-design"
+  },
   "chapters": [
     {
       "start": 0,
