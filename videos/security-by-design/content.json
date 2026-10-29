@@ -1,0 +1,147 @@
+{
+  "id": "security-by-design",
+  "revision": "publication-v3",
+  "collection": "conceptual-films",
+  "title": {
+    "en": "Security by Design",
+    "pt-BR": "Segurança por arquitetura"
+  },
+  "summary": {
+    "en": "How PRP combines verifiable identities, protected conversations, local views, rendezvous, cover traffic, alternative paths and bounded permissions to address impersonation, monitoring and denial of service.",
+    "pt-BR": "Como o PRP combina identidades verificáveis, conversas protegidas, visões locais, rendezvous, tráfego de cobertura, caminhos alternativos e permissões delimitadas contra falsificação, monitoramento e negação de serviço."
+  },
+  "movieURL": "https://prp-protocol.org/assets/videos/security-by-design-publication-v2.mp4",
+  "movieSHA256": "bf77dbc696886e4d0663627bcac4ab836c78d7355e2793895577283338bb9d43",
+  "movieBytes": 7814345,
+  "durationSeconds": 178.75,
+  "frames": 4290,
+  "publicationStatus": "approved; publication package prepared; website delivery pending",
+  "chapters": [
+    {
+      "start": 0,
+      "end": 33.17031746031746,
+      "title": "Identities, relationships, paths",
+      "narration": {
+        "en": "PRP is a communication protocol that connects applications through cryptographic identities. They establish relationships and control access permissions. Communication can be direct or pass through aggregators: network participants that bring together and forward communications for other participants. That role does not give them access to content protected between the endpoints. How does this architecture protect against impersonation, monitoring, and attacks?",
+        "pt-BR": "O PRP é um protocolo de comunicação que conecta aplicações por identidades criptográficas. Elas estabelecem relações e controlam as permissões de acesso. A comunicação pode ser direta ou passar por agregadores: participantes da rede que reúnem e encaminham comunicações de outros participantes. Esse papel não lhes dá acesso ao conteúdo protegido entre as pontas. Como essa arquitetura protege contra falsificação, monitoramento e ataques?"
+      },
+      "visual": {
+        "en": "Applications and cryptographic identities appear around a network of aggregators. A purple arc connects the endpoints above the forwarding paths.",
+        "pt-BR": "Aplicações e identidades criptográficas aparecem numa rede de agregadores. Um arco roxo conecta as pontas acima dos caminhos de encaminhamento."
+      }
+    },
+    {
+      "start": 33.17031746031746,
+      "end": 45.075714285714284,
+      "title": "Prove the identity",
+      "narration": {
+        "en": "Copying a name or address is not enough to impersonate another identity. The peer proves control of its key. A person's or company's identity can be verified separately.",
+        "pt-BR": "Copiar um nome ou um endereço não basta para se passar por outra identidade. O interlocutor prova o controle de sua chave. A identificação de uma pessoa ou empresa pode ser verificada separadamente."
+      },
+      "visual": {
+        "en": "A copied label fails the key proof. The legitimate identity completes its proof; personal or company identification appears separately.",
+        "pt-BR": "Um rótulo copiado falha na prova de chave. A identidade legítima completa a prova; a identificação pessoal ou empresarial aparece separadamente."
+      }
+    },
+    {
+      "start": 45.075714285714284,
+      "end": 58.24659863945578,
+      "title": "Protect the conversation",
+      "narration": {
+        "en": "On protected channels, the provider carries encrypted data. It does not receive the conversation's keys. Authentication and sequence checks reject tampering and unauthorized replay.",
+        "pt-BR": "Nos canais protegidos, o provedor transporta dados cifrados. Ele não recebe as chaves da conversa. Alterações e repetições indevidas são rejeitadas pela autenticação e pelos controles de sequência."
+      },
+      "visual": {
+        "en": "Encrypted traffic crosses the provider while the purple protected connection persists. Reading, tampering and replay attempts appear; altered and replayed messages are rejected.",
+        "pt-BR": "O tráfego cifrado atravessa o provedor enquanto a conexão protegida roxa permanece. Surgem tentativas de leitura, alteração e repetição; mensagens alteradas e repetidas são recusadas."
+      }
+    },
+    {
+      "start": 58.24659863945578,
+      "end": 108.37884353741497,
+      "title": "Separate what each observer sees",
+      "narration": {
+        "en": "Different relationships can use different identities. An aggregator knows its local peers and forwarding context. It does not need to know the protected conversation's original source or final destination. A rendezvous is an intermediary where the paths built by the two endpoints meet. Each endpoint can know its own path to that meeting point without receiving the other side's complete path. Joining the two sides does not require revealing the complete end-to-end trajectory to any participant. With opaque packets of constant size sent at fixed intervals, real activity no longer changes the observable traffic pattern. Cover traffic maintains the same pattern with or without real data, removing those variations as clues for correlation.",
+        "pt-BR": "Identidades distintas podem ser usadas em relações diferentes. Um agregador conhece seus pares locais e seu contexto de encaminhamento. Ele não precisa conhecer a origem inicial ou o destino final da conversa protegida. Um rendezvous é um intermediário onde se encontram os caminhos construídos pelas duas pontas. Cada ponta pode conhecer seu próprio caminho até esse encontro sem receber a trajetória completa do outro lado. A ligação não exige revelar a trajetória completa de ponta a ponta a nenhum participante. Com pacotes opacos de tamanho constante enviados em intervalos fixos, a atividade real deixa de alterar o padrão de tráfego observável. O tráfego de cobertura mantém o mesmo padrão com ou sem dados reais, eliminando essas variações como pistas para correlação."
+      },
+      "visual": {
+        "en": "Local views use different identity labels. Two paths meet at R, the rendezvous; successive views reveal each side and the nearby segments. The purple end-to-end arc remains. Blue real data and amber padding or cover fill equal packet slots moving at fixed intervals. Both colors dissolve into a single teal stream, showing the observer’s opaque view without changing packet size or cadence.",
+        "pt-BR": "Visões locais usam rótulos distintos de identidade. Dois caminhos se encontram em R, o rendezvous; visões sucessivas revelam cada lado e os trechos próximos. O arco roxo de ponta a ponta permanece. Dados reais azuis e preenchimento ou cobertura dourados ocupam pacotes iguais em intervalos fixos. As cores se dissolvem num fluxo verde-azulado único, mostrando a visão opaca do observador sem alterar tamanho ou cadência."
+      }
+    },
+    {
+      "start": 108.37884353741497,
+      "end": 127.47217687074829,
+      "title": "Keep alternative paths",
+      "narration": {
+        "en": "A path can be blocked. When reachable alternatives exist, participants can choose other intermediaries, including networks in other countries. Carrying a segment does not require knowing the protected final identity. This resistance depends on available paths.",
+        "pt-BR": "Um caminho pode ser bloqueado. Se houver alternativas acessíveis, os participantes podem escolher outros intermediários, inclusive em outras redes e países. Transportar um trecho não exige conhecer a identidade final protegida. Essa resistência depende da existência de caminhos disponíveis."
+      },
+      "visual": {
+        "en": "One route is blocked and alternative paths light up. The protected endpoint connection persists over the changing topology.",
+        "pt-BR": "Uma rota é bloqueada e caminhos alternativos se iluminam. A conexão protegida entre as pontas permanece sobre a topologia em mudança."
+      }
+    },
+    {
+      "start": 127.47217687074829,
+      "end": 151.08179138321995,
+      "title": "Two fronts against DDoS",
+      "narration": {
+        "en": "DDoS protection has two fronts. Admission challenges, proof of work, and state limits constrain the processing and memory spent on requests. To protect subsequent links, each participant enforces forwarding authorization before retransmitting. Rejected traffic need not travel across the network to the victim.",
+        "pt-BR": "Contra DDoS, há duas frentes. Para proteger processamento e memória, desafios de admissão, prova de trabalho e limites de estado restringem o custo das solicitações. Para proteger os próximos enlaces, cada participante aplica as autorizações de encaminhamento antes de retransmitir. Tráfego recusado não precisa percorrer a rede até a vítima."
+      },
+      "visual": {
+        "en": "Requests meet an admission challenge and a bounded processing budget. A forwarding boundary then rejects unauthorized traffic before the next link; the incoming link is shown as already occupied.",
+        "pt-BR": "Solicitações encontram um desafio de admissão e um orçamento limitado de processamento. Uma fronteira de encaminhamento recusa tráfego não autorizado antes do próximo enlace; o enlace de entrada aparece já ocupado."
+      }
+    },
+    {
+      "start": 151.08179138321995,
+      "end": 166.7836507936508,
+      "title": "Keep permissions bounded",
+      "narration": {
+        "en": "Being recognized does not grant unrestricted access. Permissions belong to the relationship and service. Access to one resource does not open the others, and changing paths does not silently expand that authorization.",
+        "pt-BR": "Ser reconhecido não concede acesso irrestrito. As permissões pertencem à relação e ao serviço. Acesso a um recurso não abre os demais; mudanças de caminho não ampliam silenciosamente essa autorização."
+      },
+      "visual": {
+        "en": "One authorized resource opens while another remains unavailable. A path change preserves the same permission scope.",
+        "pt-BR": "Um recurso autorizado se abre enquanto outro permanece indisponível. Uma mudança de caminho preserva o mesmo escopo de permissão."
+      }
+    },
+    {
+      "start": 166.7836507936508,
+      "end": 178.75,
+      "title": "Security by design",
+      "narration": {
+        "en": "The result is less trust placed in the path, verifiable peer identity, and explicit limits on traffic. PRP.",
+        "pt-BR": "O resultado é menos confiança imposta ao caminho, identidade verificável entre participantes e limites explícitos para o tráfego. PRP."
+      },
+      "visual": {
+        "en": "Identity, protected communication and traffic limits converge into the closing card with the PRP logo, Security by Design and prp-protocol.org.",
+        "pt-BR": "Identidade, comunicação protegida e limites de tráfego convergem para o encerramento com o logotipo PRP, Security by Design e prp-protocol.org."
+      }
+    }
+  ],
+  "notes": {
+    "en": "Conceptual film about PRP, a protocol under standardization. Animated diagrams and synthetic English narration, produced with AI assistance. Portuguese is a translation; visual descriptions are text, not audio description. Caption timing within sentences is approximate.",
+    "pt-BR": "Filme conceitual sobre o PRP, protocolo em padronização. Diagramas animados e narração sintética em inglês, produzidos com assistência de IA. Português é tradução; a descrição visual é textual, não audiodescrição. A temporização das legendas dentro das frases é aproximada."
+  },
+  "captions": {
+    "embedded": false,
+    "default": {
+      "index.html": "en",
+      "pt.html": "pt-BR"
+    },
+    "tracks": [
+      {
+        "language": "en",
+        "file": "captions.en.vtt"
+      },
+      {
+        "language": "pt-BR",
+        "file": "subtitles.pt-BR.vtt"
+      }
+    ],
+    "style": "Dark blue text on near-opaque white; proportional size; native selectable WebVTT"
+  }
+}

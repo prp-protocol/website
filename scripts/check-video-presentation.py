@@ -25,7 +25,11 @@ for directory in sorted((ROOT/'videos').iterdir()):
         assert len(p.ids)==len(set(p.ids)) and len(p.details)==1 and 'open' not in p.details[0]
         assert p.meta['og:title']==data['title'][lang] and p.meta['og:description']==data['summary'][lang]
         assert p.meta['og:image']==f'https://prp-protocol.org/videos/{directory.name}/share.jpg'
-        assert len(p.tracks)==2 and all('default' not in t for t in p.tracks)
+        assert len(p.tracks)==2
+        if directory.name=='security-by-design':
+            assert [t['srclang'] for t in p.tracks if 'default' in t]==[lang]
+        else:
+            assert all('default' not in t for t in p.tracks)
         assert len(p.sources)==1 and urlsplit(p.sources[0]['src']).path.split('/')[-1]==data['movieURL'].split('/')[-1]
         wa=[u for u in p.links if u.startswith('https://wa.me/')];assert len(wa)==1
         assert parse_qs(urlsplit(wa[0]).query)['text']==[data['title'][lang]+'\n'+p.meta['og:url']]
@@ -35,4 +39,4 @@ for directory in sorted((ROOT/'videos').iterdir()):
             target=(path.parent/parts.path).resolve() if parts.path else path
             assert target.exists(),(path,u)
             if parts.fragment and target.suffix=='.html':assert parts.fragment in Page(target.read_text()).ids,(path,u)
-print('PASS: 24 pages, closed native details, exact titles/descriptions, distinct image URLs, local links/fragments, individual sharing URLs and unchanged media targets; 12 JPEGs under 300 KB.')
+print('PASS: all episode pages, closed native details, exact titles/descriptions, distinct image URLs, local links/fragments, individual sharing URLs and media targets; JPEGs under 300 KB. Security by Design defaults follow page language; older defaults unchanged.')

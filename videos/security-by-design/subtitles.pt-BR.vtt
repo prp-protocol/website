@@ -1,0 +1,159 @@
+WEBVTT
+
+00:00:01.200 --> 00:00:07.630 size:95% align:center
+O PRP é um protocolo de comunicação que conecta aplicações por
+identidades
+
+00:00:07.630 --> 00:00:08.166 size:95% align:center
+criptográficas.
+
+00:00:08.446 --> 00:00:12.359 size:95% align:center
+Elas estabelecem relações e controlam as permissões de acesso.
+
+00:00:12.639 --> 00:00:18.434 size:95% align:center
+A comunicação pode ser direta ou passar por agregadores:
+participantes da rede que
+
+00:00:18.434 --> 00:00:21.555 size:95% align:center
+reúnem e encaminham comunicações de outros participantes.
+
+00:00:21.835 --> 00:00:26.804 size:95% align:center
+Esse papel não lhes dá acesso ao conteúdo protegido entre as
+pontas.
+
+00:00:27.084 --> 00:00:32.970 size:95% align:center
+Como essa arquitetura protege contra falsificação, monitoramento e
+ataques?
+
+00:00:33.820 --> 00:00:38.360 size:95% align:center
+Copiar um nome ou um endereço não basta para se passar por outra
+identidade.
+
+00:00:38.640 --> 00:00:40.822 size:95% align:center
+O interlocutor prova o controle de sua chave.
+
+00:00:41.102 --> 00:00:44.876 size:95% align:center
+A identificação de uma pessoa ou empresa pode ser verificada
+separadamente.
+
+00:00:45.726 --> 00:00:49.731 size:95% align:center
+Nos canais protegidos, o provedor transporta dados cifrados.
+
+00:00:50.011 --> 00:00:52.681 size:95% align:center
+Ele não recebe as chaves da conversa.
+
+00:00:52.961 --> 00:00:56.873 size:95% align:center
+Alterações e repetições indevidas são rejeitadas pela autenticação
+e pelos
+
+00:00:56.873 --> 00:00:58.047 size:95% align:center
+controles de sequência.
+
+00:00:58.897 --> 00:01:02.043 size:95% align:center
+Identidades distintas podem ser usadas em relações diferentes.
+
+00:01:02.323 --> 00:01:06.630 size:95% align:center
+Um agregador conhece seus pares locais e seu contexto de
+encaminhamento.
+
+00:01:06.910 --> 00:01:12.214 size:95% align:center
+Ele não precisa conhecer a origem inicial ou o destino final da
+conversa
+
+00:01:12.214 --> 00:01:12.622 size:95% align:center
+protegida.
+
+00:01:12.902 --> 00:01:17.430 size:95% align:center
+Um rendezvous é um intermediário onde se encontram os caminhos
+construídos pelas
+
+00:01:17.430 --> 00:01:18.185 size:95% align:center
+duas pontas.
+
+00:01:18.465 --> 00:01:23.043 size:95% align:center
+Cada ponta pode conhecer seu próprio caminho até esse encontro sem
+receber a
+
+00:01:23.043 --> 00:01:24.804 size:95% align:center
+trajetória completa do outro lado.
+
+00:01:25.084 --> 00:01:30.946 size:95% align:center
+A ligação não exige revelar a trajetória completa de ponta a ponta
+a nenhum
+
+00:01:30.946 --> 00:01:31.365 size:95% align:center
+participante.
+
+00:01:31.645 --> 00:01:36.355 size:95% align:center
+Com pacotes opacos de tamanho constante enviados em intervalos
+fixos, a atividade
+
+00:01:36.355 --> 00:01:39.888 size:95% align:center
+real deixa de alterar o padrão de tráfego observável.
+
+00:01:40.168 --> 00:01:45.776 size:95% align:center
+O tráfego de cobertura mantém o mesmo padrão com ou sem dados
+reais, eliminando
+
+00:01:45.776 --> 00:01:48.179 size:95% align:center
+essas variações como pistas para correlação.
+
+00:01:49.029 --> 00:01:50.736 size:95% align:center
+Um caminho pode ser bloqueado.
+
+00:01:51.016 --> 00:01:55.541 size:95% align:center
+Se houver alternativas acessíveis, os participantes podem escolher
+outros
+
+00:01:55.541 --> 00:01:59.061 size:95% align:center
+intermediários, inclusive em outras redes e países.
+
+00:01:59.341 --> 00:02:04.008 size:95% align:center
+Transportar um trecho não exige conhecer a identidade final
+protegida.
+
+00:02:04.288 --> 00:02:07.272 size:95% align:center
+Essa resistência depende da existência de caminhos disponíveis.
+
+00:02:08.122 --> 00:02:10.943 size:95% align:center
+Contra DDoS, há duas frentes.
+
+00:02:11.223 --> 00:02:15.696 size:95% align:center
+Para proteger processamento e memória, desafios de admissão, prova
+de trabalho e
+
+00:02:15.696 --> 00:02:18.677 size:95% align:center
+limites de estado restringem o custo das solicitações.
+
+00:02:18.957 --> 00:02:24.185 size:95% align:center
+Para proteger os próximos enlaces, cada participante aplica as
+autorizações de
+
+00:02:24.185 --> 00:02:26.086 size:95% align:center
+encaminhamento antes de retransmitir.
+
+00:02:26.366 --> 00:02:30.882 size:95% align:center
+Tráfego recusado não precisa percorrer a rede até a vítima.
+
+00:02:31.732 --> 00:02:35.888 size:95% align:center
+Ser reconhecido não concede acesso irrestrito.
+
+00:02:36.168 --> 00:02:39.198 size:95% align:center
+As permissões pertencem à relação e ao serviço.
+
+00:02:39.478 --> 00:02:45.251 size:95% align:center
+Acesso a um recurso não abre os demais; mudanças de caminho não
+ampliam
+
+00:02:45.251 --> 00:02:46.584 size:95% align:center
+silenciosamente essa autorização.
+
+00:02:47.434 --> 00:02:51.804 size:95% align:center
+O resultado é menos confiança imposta ao caminho, identidade
+verificável entre
+
+00:02:51.804 --> 00:02:54.585 size:95% align:center
+participantes e limites explícitos para o tráfego.
+
+00:02:54.865 --> 00:02:55.899 size:95% align:center
+PRP.

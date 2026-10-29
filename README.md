@@ -38,6 +38,13 @@ copying, fragment navigation into collapsed text and expanded printing.
 Actual WhatsApp previews depend on that application's fetch/cache behavior;
 valid public metadata does not prove a preview was displayed on a real device.
 
+Security by Design uses a clean approved movie and native selectable captions:
+English defaults on its English page/card, Portuguese on its Portuguese page.
+Keep exactly one default, preserve its approved `::cue` styling and VTT bytes,
+and retain the older films' existing track defaults. Browser/OS preferences may
+override native defaults or styling. Run `python3 scripts/check-video-presentation.py`
+to check sharing, links and these per-film defaults.
+
 The introductory Meet PRP player lives on `index.html`. The remaining conceptual
 films live in `videos.html`; its old Meet PRP anchor links to the home player.
 Technical model, layer diagrams and design principles live in `architecture.html`;

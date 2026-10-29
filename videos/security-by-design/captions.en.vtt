@@ -1,0 +1,151 @@
+WEBVTT
+
+00:00:01.200 --> 00:00:07.533 size:95% align:center
+PRP is a communication protocol that connects applications through
+cryptographic
+
+00:00:07.533 --> 00:00:08.166 size:95% align:center
+identities.
+
+00:00:08.446 --> 00:00:12.359 size:95% align:center
+They establish relationships and control access permissions.
+
+00:00:12.639 --> 00:00:17.801 size:95% align:center
+Communication can be direct or pass through aggregators: network
+participants that
+
+00:00:17.801 --> 00:00:21.555 size:95% align:center
+bring together and forward communications for other participants.
+
+00:00:21.835 --> 00:00:26.804 size:95% align:center
+That role does not give them access to content protected between
+the endpoints.
+
+00:00:27.084 --> 00:00:32.970 size:95% align:center
+How does this architecture protect against impersonation,
+monitoring, and attacks?
+
+00:00:33.820 --> 00:00:38.360 size:95% align:center
+Copying a name or address is not enough to impersonate another
+identity.
+
+00:00:38.640 --> 00:00:40.822 size:95% align:center
+The peer proves control of its key.
+
+00:00:41.102 --> 00:00:44.876 size:95% align:center
+A person's or company's identity can be verified separately.
+
+00:00:45.726 --> 00:00:49.731 size:95% align:center
+On protected channels, the provider carries encrypted data.
+
+00:00:50.011 --> 00:00:52.681 size:95% align:center
+It does not receive the conversation's keys.
+
+00:00:52.961 --> 00:00:58.047 size:95% align:center
+Authentication and sequence checks reject tampering and
+unauthorized replay.
+
+00:00:58.897 --> 00:01:02.043 size:95% align:center
+Different relationships can use different identities.
+
+00:01:02.323 --> 00:01:06.630 size:95% align:center
+An aggregator knows its local peers and forwarding context.
+
+00:01:06.910 --> 00:01:12.214 size:95% align:center
+It does not need to know the protected conversation's original
+source or final
+
+00:01:12.214 --> 00:01:12.622 size:95% align:center
+destination.
+
+00:01:12.902 --> 00:01:18.185 size:95% align:center
+A rendezvous is an intermediary where the paths built by the two
+endpoints meet.
+
+00:01:18.465 --> 00:01:23.395 size:95% align:center
+Each endpoint can know its own path to that meeting point without
+receiving the
+
+00:01:23.395 --> 00:01:24.804 size:95% align:center
+other side's complete path.
+
+00:01:25.084 --> 00:01:29.690 size:95% align:center
+Joining the two sides does not require revealing the complete
+end-to-end
+
+00:01:29.690 --> 00:01:31.365 size:95% align:center
+trajectory to any participant.
+
+00:01:31.645 --> 00:01:37.285 size:95% align:center
+With opaque packets of constant size sent at fixed intervals, real
+activity no
+
+00:01:37.285 --> 00:01:39.888 size:95% align:center
+longer changes the observable traffic pattern.
+
+00:01:40.168 --> 00:01:45.954 size:95% align:center
+Cover traffic maintains the same pattern with or without real
+data, removing those
+
+00:01:45.954 --> 00:01:48.179 size:95% align:center
+variations as clues for correlation.
+
+00:01:49.029 --> 00:01:50.736 size:95% align:center
+A path can be blocked.
+
+00:01:51.016 --> 00:01:56.188 size:95% align:center
+When reachable alternatives exist, participants can choose other
+intermediaries,
+
+00:01:56.188 --> 00:01:59.061 size:95% align:center
+including networks in other countries.
+
+00:01:59.341 --> 00:02:04.008 size:95% align:center
+Carrying a segment does not require knowing the protected final
+identity.
+
+00:02:04.288 --> 00:02:07.272 size:95% align:center
+This resistance depends on available paths.
+
+00:02:08.122 --> 00:02:10.943 size:95% align:center
+DDoS protection has two fronts.
+
+00:02:11.223 --> 00:02:16.814 size:95% align:center
+Admission challenges, proof of work, and state limits constrain
+the processing and
+
+00:02:16.814 --> 00:02:18.677 size:95% align:center
+memory spent on requests.
+
+00:02:18.957 --> 00:02:24.789 size:95% align:center
+To protect subsequent links, each participant enforces forwarding
+authorization
+
+00:02:24.789 --> 00:02:26.086 size:95% align:center
+before retransmitting.
+
+00:02:26.366 --> 00:02:30.882 size:95% align:center
+Rejected traffic need not travel across the network to the victim.
+
+00:02:31.732 --> 00:02:35.888 size:95% align:center
+Being recognized does not grant unrestricted access.
+
+00:02:36.168 --> 00:02:39.198 size:95% align:center
+Permissions belong to the relationship and service.
+
+00:02:39.478 --> 00:02:45.005 size:95% align:center
+Access to one resource does not open the others, and changing
+paths does not
+
+00:02:45.005 --> 00:02:46.584 size:95% align:center
+silently expand that authorization.
+
+00:02:47.434 --> 00:02:52.903 size:95% align:center
+The result is less trust placed in the path, verifiable peer
+identity, and
+
+00:02:52.903 --> 00:02:54.585 size:95% align:center
+explicit limits on traffic.
+
+00:02:54.865 --> 00:02:55.899 size:95% align:center
+PRP.
