@@ -34,88 +34,118 @@ Each has already authorized an application
 to act within those limits.
 
 9
-00:00:27.250 --> 00:00:29.030
-There is no central dispatcher.
+00:00:26.350 --> 00:00:31.122
+A shared alias helps the application find
+nearby drivers.
 
 10
-00:00:29.390 --> 00:00:32.130
-Their applications work out the ride directly,
+00:00:31.933 --> 00:00:35.045
+It establishes relationships with the
+participants.
 
 11
-00:00:32.550 --> 00:00:35.630
-within the conditions each person has already
-chosen.
+00:00:35.933 --> 00:00:39.312
+One request then reaches them through
+multicast.
 
 12
-00:00:35.990 --> 00:00:38.090
-When compatible terms are found,
+00:00:41.933 --> 00:00:44.170
+Across thousands of possible drivers,
 
 13
-00:00:38.310 --> 00:00:40.310
-the agreement forms automatically.
+00:00:44.170 --> 00:00:47.750
+those available for this journey return
+their quotes.
 
 14
-00:00:40.830 --> 00:00:43.250
-The scheduled pickup appears for the driver.
+00:00:48.558 --> 00:00:53.272
+The application compares the offers within
+the passenger’s saved preferences.
 
 15
-00:00:43.670 --> 00:00:45.670
-No extra acceptance step.
+00:00:55.000 --> 00:00:56.780
+There is no central dispatcher.
 
 16
-00:00:47.250 --> 00:00:48.510
-The car arrives.
+00:00:57.140 --> 00:00:59.880
+Their applications work out the ride
+directly,
 
 17
-00:00:48.810 --> 00:00:50.760
-A greeting, an open door,
+00:01:00.300 --> 00:01:03.380
+within the conditions each person has
+already chosen.
 
 18
-00:00:50.790 --> 00:00:52.010
-and the journey begins.
+00:01:03.740 --> 00:01:05.840
+When compatible terms are found,
 
 19
-00:00:52.510 --> 00:00:54.390
-The agreement serves the people,
+00:01:06.060 --> 00:01:08.060
+the agreement forms automatically.
 
 20
-00:00:54.470 --> 00:00:56.050
-not the other way around.
+00:01:08.580 --> 00:01:11.000
+The scheduled pickup appears for the driver.
 
 21
-00:01:05.250 --> 00:01:07.080
-PRP provides the foundation
+00:01:11.420 --> 00:01:13.420
+No extra acceptance step.
 
 22
-00:01:07.110 --> 00:01:09.470
-for communication between participants.
+00:01:15.000 --> 00:01:16.260
+The car arrives.
 
 23
-00:01:09.910 --> 00:01:13.490
+00:01:16.560 --> 00:01:18.510
+A greeting, an open door,
+
+24
+00:01:18.540 --> 00:01:19.760
+and the journey begins.
+
+25
+00:01:20.260 --> 00:01:22.140
+The agreement serves the people,
+
+26
+00:01:22.220 --> 00:01:23.800
+not the other way around.
+
+27
+00:01:33.000 --> 00:01:34.830
+PRP provides the foundation
+
+28
+00:01:34.860 --> 00:01:37.220
+for communication between participants.
+
+29
+00:01:37.660 --> 00:01:41.240
 The application defines how offers and
 agreements work.
 
-24
-00:01:13.730 --> 00:01:15.970
+30
+00:01:41.480 --> 00:01:43.720
 People choose their tools and conditions;
 
-25
-00:01:16.470 --> 00:01:19.390
-compatible applications coordinate the journey.
+31
+00:01:44.220 --> 00:01:47.140
+compatible applications coordinate the
+journey.
 
-26
-00:01:22.250 --> 00:01:23.800
+32
+00:01:50.000 --> 00:01:51.550
 People set the conditions.
 
-27
-00:01:26.970 --> 00:01:28.300
+33
+00:01:54.720 --> 00:01:56.050
 Applications find agreement.
 
-28
-00:01:28.490 --> 00:01:30.030
+34
+00:01:56.240 --> 00:01:57.780
 Life moves forward.
 
-29
-00:01:31.900 --> 00:01:33.440
+35
+00:01:59.650 --> 00:02:01.190
 Built on PRP.
-

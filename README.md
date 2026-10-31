@@ -38,8 +38,8 @@ copying, fragment navigation into collapsed text and expanded printing.
 Actual WhatsApp previews depend on that application's fetch/cache behavior;
 valid public metadata does not prove a preview was displayed on a real device.
 
-Security by Design uses a clean approved movie and native selectable captions:
-English defaults on its English page/card, Portuguese on its Portuguese page.
+Security by Design and Agreements in Motion use clean approved movies and native selectable captions:
+English defaults on their English pages/cards, Portuguese on their Portuguese pages.
 Keep exactly one default, preserve its approved `::cue` styling and VTT bytes,
 and retain the older films' existing track defaults. Browser/OS preferences may
 override native defaults or styling. Run `python3 scripts/check-video-presentation.py`

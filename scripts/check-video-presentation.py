@@ -26,7 +26,7 @@ for directory in sorted((ROOT/'videos').iterdir()):
         assert p.meta['og:title']==data['title'][lang] and p.meta['og:description']==data['summary'][lang]
         assert p.meta['og:image']==f'https://prp-protocol.org/videos/{directory.name}/share.jpg'
         assert len(p.tracks)==2
-        if directory.name=='security-by-design':
+        if directory.name in {'security-by-design','agreements-in-motion'}:
             assert [t['srclang'] for t in p.tracks if 'default' in t]==[lang]
         else:
             assert all('default' not in t for t in p.tracks)
@@ -39,4 +39,4 @@ for directory in sorted((ROOT/'videos').iterdir()):
             target=(path.parent/parts.path).resolve() if parts.path else path
             assert target.exists(),(path,u)
             if parts.fragment and target.suffix=='.html':assert parts.fragment in Page(target.read_text()).ids,(path,u)
-print('PASS: all episode pages, closed native details, exact titles/descriptions, distinct image URLs, local links/fragments, individual sharing URLs and media targets; JPEGs under 300 KB. Security by Design defaults follow page language; older defaults unchanged.')
+print('PASS: all episode pages, closed native details, exact titles/descriptions, distinct image URLs, local links/fragments, individual sharing URLs and media targets; JPEGs under 300 KB. Security by Design and Agreements in Motion defaults follow page language; other defaults unchanged.')

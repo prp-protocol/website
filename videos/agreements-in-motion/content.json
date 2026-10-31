@@ -1,26 +1,26 @@
 {
   "id": "V002",
-  "revision": "full-review-v8",
+  "revision": "discovery-v1",
   "maturity": "M5",
-  "movieSHA256": "24ba73d474da95d331d006bfdca0199238386802b4b5737dd2ce2bc26b5233f2",
-  "movieBytes": 21115020,
-  "durationSeconds": 95.5,
-  "textRevision": "catalog-text-v1",
+  "movieSHA256": "eeb884598ffcf4481f965208b221f0270596e0e069f4a77ac4df250460e0e3b8",
+  "movieBytes": 22937389,
+  "durationSeconds": 123.25,
+  "textRevision": "discovery-text-v1",
   "title": {
     "en": "Agreements in Motion",
     "pt-BR": "Acordos em movimento"
   },
-  "movieURL": "https://prp-protocol.org/assets/videos/agreements-in-motion-v8-captioned.mp4",
+  "movieURL": "https://prp-protocol.org/assets/videos/agreements-in-motion-discovery-v1.mp4",
   "audioLanguage": "en",
   "languages": [
     "en",
     "pt-BR"
   ],
-  "textPreparedAt": "2026-10-04",
-  "credits": "PRP Editorial — AI-assisted illustrations and animation; synthetic narration.",
+  "textPreparedAt": "2026-10-31",
+  "credits": "PRP Editorial — AI-assisted illustrations and animation, code-generated diagrams and synthetic English narration.",
   "summary": {
-    "en": "A passenger and a driver have independently chosen their conditions. Compatible applications arrange a journey within those limits, and the agreement becomes an ordinary ride through the city.",
-    "pt-BR": "Uma passageira e um motorista escolheram suas condições de forma independente. Aplicativos compatíveis combinam a viagem dentro desses limites, e o acordo se transforma num trajeto cotidiano pela cidade."
+    "en": "A passenger and a driver choose their conditions independently. A shared ALIAS helps discover nearby drivers; multicast distributes a request, and available participants return quotations. Compatible applications arrange the journey within their saved authorizations.",
+    "pt-BR": "Uma passageira e um motorista escolhem suas condições de forma independente. Um ALIAS compartilhado ajuda a descobrir motoristas próximos; o multicast distribui o pedido e participantes disponíveis retornam cotações. Aplicativos compatíveis combinam a viagem dentro das autorizações salvas."
   },
   "context": {
     "en": "Approved final edition, M5. This is an illustrative application scenario, not a released ride service. PRP supplies communication; the application defines offers, matching and agreements. Compatibility and prior authorization on both sides are required.",
@@ -53,14 +53,30 @@
         "en": "Phone views show saved preferences: maximum fare and pickup window for the passenger, working area and minimum fare for the driver. Their interfaces differ. The driver is beside the parked car when checking his screen.",
         "pt-BR": "As telas mostram preferências salvas: tarifa máxima e janela de embarque para a passageira; área de trabalho e tarifa mínima para o motorista. As interfaces são diferentes. O motorista está junto ao carro estacionado ao consultar a tela."
       },
-      "end": 27,
+      "end": 26,
       "narration": {
         "en": "The passenger has set her budget and pickup preferences. The driver has chosen where to work and the terms he accepts. Each has already authorized an application to act within those limits.",
         "pt-BR": "A passageira definiu seu orçamento e suas preferências de embarque. O motorista escolheu onde trabalhar e os termos que aceita. Cada um já autorizou um aplicativo a agir dentro desses limites."
       }
     },
     {
-      "start": 27,
+      "start": 26,
+      "end": 54.75,
+      "title": {
+        "en": "Discovery and quotations",
+        "pt-BR": "Descoberta e cotações"
+      },
+      "visual": {
+        "en": "A diagram expands from the passenger’s application to a representative field of nearby drivers under a shared ALIAS. Relationship markers appear. Amber signals carry one quotation request through branching multicast paths. Available drivers return teal signals and example fare cards. The application selects an offer within the saved preferences, highlighting the remaining path in purple. The icons represent a larger population; displayed prices and scale are illustrative.",
+        "pt-BR": "Um diagrama se expande do aplicativo da passageira para um conjunto representativo de motoristas próximos sob um ALIAS compartilhado. Surgem marcadores de relações. Sinais âmbar levam um pedido de cotação por caminhos multicast ramificados. Motoristas disponíveis retornam sinais verde-azulados e cartões com tarifas ilustrativas. O aplicativo seleciona uma oferta dentro das preferências salvas, destacando em roxo o caminho restante. Os ícones representam uma população maior; preços e escala são ilustrativos."
+      },
+      "narration": {
+        "en": "A shared alias helps the application find nearby drivers. It establishes relationships with the participants. One request then reaches them through multicast. Across thousands of possible drivers, those available for this journey return their quotes. The application compares the offers within the passenger’s saved preferences.",
+        "pt-BR": "Um alias compartilhado ajuda o aplicativo a encontrar motoristas próximos. Ele estabelece relações com os participantes. Um pedido chega a eles por multicast. Entre milhares de possíveis motoristas, os disponíveis para esta viagem retornam suas cotações. O aplicativo compara as ofertas dentro das preferências já salvas pela passageira."
+      }
+    },
+    {
+      "start": 54.75,
       "title": {
         "en": "Applications reach agreement",
         "pt-BR": "Aplicativos chegam a um acordo"
@@ -69,14 +85,14 @@
         "en": "The passenger's application searches for a compatible ride. A later driver-screen view shows a scheduled pickup, including a time and pickup location. The two phones carry the journey details; no third dispatch screen or extra acceptance button is shown.",
         "pt-BR": "O aplicativo da passageira procura uma viagem compatível. Uma tela posterior do motorista mostra um embarque agendado, com horário e local. Os dois celulares apresentam os detalhes da viagem; não aparece uma terceira tela de despacho ou botão adicional de aceite."
       },
-      "end": 47,
+      "end": 74.75,
       "narration": {
         "en": "There is no central dispatcher. Their applications work out the ride directly, within the conditions each person has already chosen. When compatible terms are found, the agreement forms automatically. The scheduled pickup appears for the driver. No extra acceptance step.",
         "pt-BR": "Não há uma central de despacho. Seus aplicativos combinam a viagem diretamente, dentro das condições que cada pessoa já escolheu. Quando encontram termos compatíveis, o acordo se forma automaticamente. O embarque agendado aparece para o motorista. Sem uma etapa adicional de aceite."
       }
     },
     {
-      "start": 47,
+      "start": 74.75,
       "title": {
         "en": "Boarding",
         "pt-BR": "Embarque"
@@ -85,14 +101,14 @@
         "en": "The turquoise car reaches the passenger. She opens the rear door and enters, then pulls the seat belt across her body and fastens it. The car remains the setting for the transition from agreement to travel.",
         "pt-BR": "O carro turquesa chega à passageira. Ela abre a porta traseira e entra; depois passa o cinto pelo corpo e o afivela. O carro é o cenário da transição do acordo para a viagem."
       },
-      "end": 64,
+      "end": 91.75,
       "narration": {
         "en": "The car arrives. A greeting, an open door, and the journey begins. The agreement serves the people, not the other way around.",
         "pt-BR": "O carro chega. Um cumprimento, uma porta aberta, e a viagem começa. O acordo serve às pessoas, e não o contrário."
       }
     },
     {
-      "start": 64,
+      "start": 91.75,
       "title": {
         "en": "Communication and application",
         "pt-BR": "Comunicação e aplicação"
@@ -101,14 +117,14 @@
         "en": "The car travels through the city. Exterior and interior views show the driver at the wheel and the passenger in the rear seat. Two successive on-screen statements separate responsibilities: “PRP connects participants” and “Applications negotiate the terms”.",
         "pt-BR": "O carro percorre a cidade. Planos externos e internos mostram o motorista ao volante e a passageira no banco traseiro. Duas frases sucessivas distinguem responsabilidades: “O PRP conecta participantes” e “Os aplicativos negociam os termos”."
       },
-      "end": 82,
+      "end": 109.75,
       "narration": {
         "en": "PRP provides the foundation for communication between participants. The application defines how offers and agreements work. People choose their tools and conditions; compatible applications coordinate the journey.",
         "pt-BR": "O PRP fornece a base para a comunicação entre participantes. O aplicativo define como funcionam as ofertas e os acordos. As pessoas escolhem suas ferramentas e condições; aplicativos compatíveis coordenam a viagem."
       }
     },
     {
-      "start": 82,
+      "start": 109.75,
       "title": {
         "en": "Arrival and closing",
         "pt-BR": "Chegada e encerramento"
@@ -117,7 +133,7 @@
         "en": "At the end of the ride, the passenger releases her seat belt and prepares to leave the car. The closing card shows the official PRP logo, “Agreements in Motion”, “Built on PRP” and prp-protocol.org.",
         "pt-BR": "Ao fim da viagem, a passageira solta o cinto e se prepara para sair do carro. O cartão final mostra o logotipo oficial PRP, “Agreements in Motion”, “Built on PRP” e prp-protocol.org."
       },
-      "end": 95.5,
+      "end": 123.25,
       "narration": {
         "en": "People set the conditions. Applications find agreement. Life moves forward. Built on PRP.",
         "pt-BR": "As pessoas definem as condições. Os aplicativos encontram um acordo. A vida segue em frente. Construído sobre o PRP."
@@ -129,175 +145,929 @@
       "start": 1.0,
       "end": 4.2,
       "en": "A ride begins before anyone gets into a car.",
-      "pt-BR": "Uma viagem começa antes de alguém entrar no carro."
+      "pt-BR": "Uma viagem começa antes de alguém entrar no carro.",
+      "timingByLanguage": {
+        "en": {
+          "start": 1.0,
+          "end": 4.2
+        },
+        "pt-BR": {
+          "start": 1.0,
+          "end": 4.2
+        }
+      }
     },
     {
       "start": 4.63,
       "end": 6.53,
       "en": "Two people. Different needs.",
-      "pt-BR": "Duas pessoas. Necessidades diferentes."
+      "pt-BR": "Duas pessoas. Necessidades diferentes.",
+      "timingByLanguage": {
+        "en": {
+          "start": 4.63,
+          "end": 6.53
+        },
+        "pt-BR": {
+          "start": 4.63,
+          "end": 6.53
+        }
+      }
     },
     {
       "start": 7.21,
       "end": 8.47,
       "en": "Conditions of their own.",
-      "pt-BR": "Condições próprias."
+      "pt-BR": "Condições próprias.",
+      "timingByLanguage": {
+        "en": {
+          "start": 7.21,
+          "end": 8.47
+        },
+        "pt-BR": {
+          "start": 7.21,
+          "end": 8.47
+        }
+      }
     },
     {
       "start": 12.25,
       "end": 15.25,
       "en": "The passenger has set her budget and pickup preferences.",
-      "pt-BR": "A passageira definiu seu orçamento e suas preferências de embarque."
+      "pt-BR": "A passageira definiu seu orçamento e suas preferências de embarque.",
+      "timingByLanguage": {
+        "en": {
+          "start": 12.25,
+          "end": 15.25
+        },
+        "pt-BR": {
+          "start": 12.25,
+          "end": 15.25
+        }
+      }
     },
     {
       "start": 15.85,
       "end": 17.66,
       "en": "The driver has chosen where to work",
-      "pt-BR": "O motorista escolheu onde trabalhar"
+      "pt-BR": "O motorista escolheu onde trabalhar",
+      "timingByLanguage": {
+        "en": {
+          "start": 15.85,
+          "end": 17.66
+        },
+        "pt-BR": {
+          "start": 15.85,
+          "end": 17.66
+        }
+      }
     },
     {
       "start": 17.69,
       "end": 19.77,
       "en": "and the terms he accepts.",
-      "pt-BR": "e os termos que aceita."
+      "pt-BR": "e os termos que aceita.",
+      "timingByLanguage": {
+        "en": {
+          "start": 17.69,
+          "end": 19.77
+        },
+        "pt-BR": {
+          "start": 17.69,
+          "end": 19.77
+        }
+      }
     },
     {
       "start": 20.21,
       "end": 22.2,
       "en": "Each has already authorized an application",
-      "pt-BR": "Cada um já autorizou um aplicativo"
+      "pt-BR": "Cada um já autorizou um aplicativo",
+      "timingByLanguage": {
+        "en": {
+          "start": 20.21,
+          "end": 22.2
+        },
+        "pt-BR": {
+          "start": 20.21,
+          "end": 22.2
+        }
+      }
     },
     {
       "start": 22.23,
       "end": 24.45,
       "en": "to act within those limits.",
-      "pt-BR": "a agir dentro desses limites."
+      "pt-BR": "a agir dentro desses limites.",
+      "timingByLanguage": {
+        "en": {
+          "start": 22.23,
+          "end": 24.45
+        },
+        "pt-BR": {
+          "start": 22.23,
+          "end": 24.45
+        }
+      }
     },
     {
-      "start": 27.25,
-      "end": 29.03,
+      "start": 26.35,
+      "end": 31.122,
+      "en": "A shared alias helps the application find nearby drivers.",
+      "pt-BR": "Um alias compartilhado ajuda o aplicativo a encontrar motoristas próximos.",
+      "timingByLanguage": {
+        "en": {
+          "start": 26.35,
+          "end": 31.122
+        },
+        "pt-BR": {
+          "start": 26.35,
+          "end": 31.122
+        }
+      }
+    },
+    {
+      "start": 31.933,
+      "end": 35.045,
+      "en": "It establishes relationships with the participants.",
+      "pt-BR": "Ele estabelece relações com os participantes.",
+      "timingByLanguage": {
+        "en": {
+          "start": 31.933,
+          "end": 35.045
+        },
+        "pt-BR": {
+          "start": 31.933,
+          "end": 35.045
+        }
+      }
+    },
+    {
+      "start": 35.933,
+      "end": 39.312,
+      "en": "One request then reaches them through multicast.",
+      "pt-BR": "Um pedido chega a eles por multicast.",
+      "timingByLanguage": {
+        "en": {
+          "start": 35.933,
+          "end": 39.312
+        },
+        "pt-BR": {
+          "start": 35.933,
+          "end": 39.312
+        }
+      }
+    },
+    {
+      "start": 41.933,
+      "end": 44.17,
+      "en": "Across thousands of possible drivers,",
+      "pt-BR": "Entre milhares de possíveis motoristas,",
+      "timingByLanguage": {
+        "en": {
+          "start": 41.933,
+          "end": 44.17
+        },
+        "pt-BR": {
+          "start": 41.933,
+          "end": 44.17
+        }
+      }
+    },
+    {
+      "start": 44.17,
+      "end": 47.75,
+      "en": "those available for this journey return their quotes.",
+      "pt-BR": "os disponíveis para esta viagem retornam suas cotações.",
+      "timingByLanguage": {
+        "en": {
+          "start": 44.17,
+          "end": 47.75
+        },
+        "pt-BR": {
+          "start": 44.17,
+          "end": 47.75
+        }
+      }
+    },
+    {
+      "start": 48.558,
+      "end": 53.272,
+      "en": "The application compares the offers within the passenger’s saved preferences.",
+      "pt-BR": "O aplicativo compara as ofertas dentro das preferências já salvas pela passageira.",
+      "timingByLanguage": {
+        "en": {
+          "start": 48.558,
+          "end": 53.272
+        },
+        "pt-BR": {
+          "start": 48.558,
+          "end": 53.272
+        }
+      }
+    },
+    {
+      "start": 55.0,
+      "end": 56.78,
       "en": "There is no central dispatcher.",
-      "pt-BR": "Não há uma central de despacho."
+      "pt-BR": "Não há uma central de despacho.",
+      "timingByLanguage": {
+        "en": {
+          "start": 55.0,
+          "end": 56.78
+        },
+        "pt-BR": {
+          "start": 55.0,
+          "end": 56.78
+        }
+      }
     },
     {
-      "start": 29.39,
-      "end": 32.13,
+      "start": 57.14,
+      "end": 59.88,
       "en": "Their applications work out the ride directly,",
-      "pt-BR": "Seus aplicativos combinam a viagem diretamente,"
+      "pt-BR": "Seus aplicativos combinam a viagem diretamente,",
+      "timingByLanguage": {
+        "en": {
+          "start": 57.14,
+          "end": 59.88
+        },
+        "pt-BR": {
+          "start": 57.14,
+          "end": 59.88
+        }
+      }
     },
     {
-      "start": 32.55,
-      "end": 35.63,
+      "start": 60.3,
+      "end": 63.38,
       "en": "within the conditions each person has already chosen.",
-      "pt-BR": "dentro das condições que cada pessoa já escolheu."
+      "pt-BR": "dentro das condições que cada pessoa já escolheu.",
+      "timingByLanguage": {
+        "en": {
+          "start": 60.3,
+          "end": 63.38
+        },
+        "pt-BR": {
+          "start": 60.3,
+          "end": 63.38
+        }
+      }
     },
     {
-      "start": 35.99,
-      "end": 38.09,
+      "start": 63.74,
+      "end": 65.84,
       "en": "When compatible terms are found,",
-      "pt-BR": "Quando encontram termos compatíveis,"
+      "pt-BR": "Quando encontram termos compatíveis,",
+      "timingByLanguage": {
+        "en": {
+          "start": 63.74,
+          "end": 65.84
+        },
+        "pt-BR": {
+          "start": 63.74,
+          "end": 65.84
+        }
+      }
     },
     {
-      "start": 38.31,
-      "end": 40.31,
+      "start": 66.06,
+      "end": 68.06,
       "en": "the agreement forms automatically.",
-      "pt-BR": "o acordo se forma automaticamente."
+      "pt-BR": "o acordo se forma automaticamente.",
+      "timingByLanguage": {
+        "en": {
+          "start": 66.06,
+          "end": 68.06
+        },
+        "pt-BR": {
+          "start": 66.06,
+          "end": 68.06
+        }
+      }
     },
     {
-      "start": 40.83,
-      "end": 43.25,
+      "start": 68.58,
+      "end": 71.0,
       "en": "The scheduled pickup appears for the driver.",
-      "pt-BR": "O embarque agendado aparece para o motorista."
+      "pt-BR": "O embarque agendado aparece para o motorista.",
+      "timingByLanguage": {
+        "en": {
+          "start": 68.58,
+          "end": 71.0
+        },
+        "pt-BR": {
+          "start": 68.58,
+          "end": 71.0
+        }
+      }
     },
     {
-      "start": 43.67,
-      "end": 45.67,
+      "start": 71.42,
+      "end": 73.42,
       "en": "No extra acceptance step.",
-      "pt-BR": "Sem uma etapa adicional de aceite."
+      "pt-BR": "Sem uma etapa adicional de aceite.",
+      "timingByLanguage": {
+        "en": {
+          "start": 71.42,
+          "end": 73.42
+        },
+        "pt-BR": {
+          "start": 71.42,
+          "end": 73.42
+        }
+      }
     },
     {
-      "start": 47.25,
-      "end": 48.51,
+      "start": 75.0,
+      "end": 76.26,
       "en": "The car arrives.",
-      "pt-BR": "O carro chega."
+      "pt-BR": "O carro chega.",
+      "timingByLanguage": {
+        "en": {
+          "start": 75.0,
+          "end": 76.26
+        },
+        "pt-BR": {
+          "start": 75.0,
+          "end": 76.26
+        }
+      }
     },
     {
-      "start": 48.81,
-      "end": 50.76,
+      "start": 76.56,
+      "end": 78.51,
       "en": "A greeting, an open door,",
-      "pt-BR": "Um cumprimento, uma porta aberta,"
+      "pt-BR": "Um cumprimento, uma porta aberta,",
+      "timingByLanguage": {
+        "en": {
+          "start": 76.56,
+          "end": 78.51
+        },
+        "pt-BR": {
+          "start": 76.56,
+          "end": 78.51
+        }
+      }
     },
     {
-      "start": 50.79,
-      "end": 52.01,
+      "start": 78.53999999999999,
+      "end": 79.76,
       "en": "and the journey begins.",
-      "pt-BR": "e a viagem começa."
+      "pt-BR": "e a viagem começa.",
+      "timingByLanguage": {
+        "en": {
+          "start": 78.53999999999999,
+          "end": 79.76
+        },
+        "pt-BR": {
+          "start": 78.53999999999999,
+          "end": 79.76
+        }
+      }
     },
     {
-      "start": 52.51,
-      "end": 54.39,
+      "start": 80.26,
+      "end": 82.14,
       "en": "The agreement serves the people,",
-      "pt-BR": "O acordo serve às pessoas,"
+      "pt-BR": "O acordo serve às pessoas,",
+      "timingByLanguage": {
+        "en": {
+          "start": 80.26,
+          "end": 82.14
+        },
+        "pt-BR": {
+          "start": 80.26,
+          "end": 82.14
+        }
+      }
     },
     {
-      "start": 54.47,
-      "end": 56.05,
-      "en": "not the other way around.",
-      "pt-BR": "e não o contrário."
-    },
-    {
-      "start": 65.25,
-      "end": 67.08,
-      "en": "PRP provides the foundation",
-      "pt-BR": "O PRP fornece a base"
-    },
-    {
-      "start": 67.11,
-      "end": 69.47,
-      "en": "for communication between participants.",
-      "pt-BR": "para a comunicação entre participantes."
-    },
-    {
-      "start": 69.91,
-      "end": 73.49,
-      "en": "The application defines how offers and agreements work.",
-      "pt-BR": "O aplicativo define como funcionam as ofertas e os acordos."
-    },
-    {
-      "start": 73.73,
-      "end": 75.97,
-      "en": "People choose their tools and conditions;",
-      "pt-BR": "As pessoas escolhem suas ferramentas e condições;"
-    },
-    {
-      "start": 76.47,
-      "end": 79.39,
-      "en": "compatible applications coordinate the journey.",
-      "pt-BR": "aplicativos compatíveis coordenam a viagem."
-    },
-    {
-      "start": 82.25,
+      "start": 82.22,
       "end": 83.8,
+      "en": "not the other way around.",
+      "pt-BR": "e não o contrário.",
+      "timingByLanguage": {
+        "en": {
+          "start": 82.22,
+          "end": 83.8
+        },
+        "pt-BR": {
+          "start": 82.22,
+          "end": 83.8
+        }
+      }
+    },
+    {
+      "start": 93.0,
+      "end": 94.83,
+      "en": "PRP provides the foundation",
+      "pt-BR": "O PRP fornece a base",
+      "timingByLanguage": {
+        "en": {
+          "start": 93.0,
+          "end": 94.83
+        },
+        "pt-BR": {
+          "start": 93.0,
+          "end": 94.83
+        }
+      }
+    },
+    {
+      "start": 94.86,
+      "end": 97.22,
+      "en": "for communication between participants.",
+      "pt-BR": "para a comunicação entre participantes.",
+      "timingByLanguage": {
+        "en": {
+          "start": 94.86,
+          "end": 97.22
+        },
+        "pt-BR": {
+          "start": 94.86,
+          "end": 97.22
+        }
+      }
+    },
+    {
+      "start": 97.66,
+      "end": 101.24000000000001,
+      "en": "The application defines how offers and agreements work.",
+      "pt-BR": "O aplicativo define como funcionam as ofertas e os acordos.",
+      "timingByLanguage": {
+        "en": {
+          "start": 97.66,
+          "end": 101.24000000000001
+        },
+        "pt-BR": {
+          "start": 97.66,
+          "end": 101.24000000000001
+        }
+      }
+    },
+    {
+      "start": 101.47999999999999,
+      "end": 103.72,
+      "en": "People choose their tools and conditions;",
+      "pt-BR": "As pessoas escolhem suas ferramentas e condições;",
+      "timingByLanguage": {
+        "en": {
+          "start": 101.47999999999999,
+          "end": 103.72
+        },
+        "pt-BR": {
+          "start": 101.47999999999999,
+          "end": 103.72
+        }
+      }
+    },
+    {
+      "start": 104.22,
+      "end": 107.14,
+      "en": "compatible applications coordinate the journey.",
+      "pt-BR": "aplicativos compatíveis coordenam a viagem.",
+      "timingByLanguage": {
+        "en": {
+          "start": 104.22,
+          "end": 107.14
+        },
+        "pt-BR": {
+          "start": 104.22,
+          "end": 107.14
+        }
+      }
+    },
+    {
+      "start": 110.0,
+      "end": 111.55,
       "en": "People set the conditions.",
-      "pt-BR": "As pessoas definem as condições."
+      "pt-BR": "As pessoas definem as condições.",
+      "timingByLanguage": {
+        "en": {
+          "start": 110.0,
+          "end": 111.55
+        },
+        "pt-BR": {
+          "start": 110.0,
+          "end": 111.55
+        }
+      }
     },
     {
-      "start": 86.97,
-      "end": 88.3,
+      "start": 114.72,
+      "end": 116.05,
       "en": "Applications find agreement.",
-      "pt-BR": "Os aplicativos encontram um acordo."
+      "pt-BR": "Os aplicativos encontram um acordo.",
+      "timingByLanguage": {
+        "en": {
+          "start": 114.72,
+          "end": 116.05
+        },
+        "pt-BR": {
+          "start": 114.72,
+          "end": 116.05
+        }
+      }
     },
     {
-      "start": 88.49,
-      "end": 90.03,
+      "start": 116.24000000000001,
+      "end": 117.78,
       "en": "Life moves forward.",
-      "pt-BR": "A vida segue em frente."
+      "pt-BR": "A vida segue em frente.",
+      "timingByLanguage": {
+        "en": {
+          "start": 116.24000000000001,
+          "end": 117.78
+        },
+        "pt-BR": {
+          "start": 116.24000000000001,
+          "end": 117.78
+        }
+      }
     },
     {
-      "start": 91.9,
-      "end": 93.44,
+      "start": 119.65,
+      "end": 121.19,
       "en": "Built on PRP.",
-      "pt-BR": "Construído sobre o PRP."
+      "pt-BR": "Construído sobre o PRP.",
+      "timingByLanguage": {
+        "en": {
+          "start": 119.65,
+          "end": 121.19
+        },
+        "pt-BR": {
+          "start": 119.65,
+          "end": 121.19
+        }
+      }
     }
-  ]
+  ],
+  "publicationStatus": "approved-awaiting-delivery",
+  "downloads": {
+    "englishBurnedCaptions": {
+      "url": "https://prp-protocol.org/assets/videos/agreements-in-motion-discovery-v1-captioned.mp4",
+      "sha256": "c7221404a9b263104234d86541ca1a05eee8d81c67519518ec4c130aaef94490",
+      "bytes": 23058238
+    }
+  },
+  "subtitleTracks": {
+    "en": [
+      {
+        "start": 1.0,
+        "end": 4.2,
+        "text": "A ride begins before anyone gets into a car."
+      },
+      {
+        "start": 4.63,
+        "end": 6.53,
+        "text": "Two people. Different needs."
+      },
+      {
+        "start": 7.21,
+        "end": 8.47,
+        "text": "Conditions of their own."
+      },
+      {
+        "start": 12.25,
+        "end": 15.25,
+        "text": "The passenger has set her budget and pickup preferences."
+      },
+      {
+        "start": 15.85,
+        "end": 17.66,
+        "text": "The driver has chosen where to work"
+      },
+      {
+        "start": 17.69,
+        "end": 19.77,
+        "text": "and the terms he accepts."
+      },
+      {
+        "start": 20.21,
+        "end": 22.2,
+        "text": "Each has already authorized an application"
+      },
+      {
+        "start": 22.23,
+        "end": 24.45,
+        "text": "to act within those limits."
+      },
+      {
+        "start": 26.35,
+        "end": 31.122,
+        "text": "A shared alias helps the application find nearby drivers."
+      },
+      {
+        "start": 31.933,
+        "end": 35.045,
+        "text": "It establishes relationships with the participants."
+      },
+      {
+        "start": 35.933,
+        "end": 39.312,
+        "text": "One request then reaches them through multicast."
+      },
+      {
+        "start": 41.933,
+        "end": 44.17,
+        "text": "Across thousands of possible drivers,"
+      },
+      {
+        "start": 44.17,
+        "end": 47.75,
+        "text": "those available for this journey return their quotes."
+      },
+      {
+        "start": 48.558,
+        "end": 53.272,
+        "text": "The application compares the offers within the passenger’s saved preferences."
+      },
+      {
+        "start": 55.0,
+        "end": 56.78,
+        "text": "There is no central dispatcher."
+      },
+      {
+        "start": 57.14,
+        "end": 59.88,
+        "text": "Their applications work out the ride directly,"
+      },
+      {
+        "start": 60.3,
+        "end": 63.38,
+        "text": "within the conditions each person has already chosen."
+      },
+      {
+        "start": 63.74,
+        "end": 65.84,
+        "text": "When compatible terms are found,"
+      },
+      {
+        "start": 66.06,
+        "end": 68.06,
+        "text": "the agreement forms automatically."
+      },
+      {
+        "start": 68.58,
+        "end": 71.0,
+        "text": "The scheduled pickup appears for the driver."
+      },
+      {
+        "start": 71.42,
+        "end": 73.42,
+        "text": "No extra acceptance step."
+      },
+      {
+        "start": 75.0,
+        "end": 76.26,
+        "text": "The car arrives."
+      },
+      {
+        "start": 76.56,
+        "end": 78.51,
+        "text": "A greeting, an open door,"
+      },
+      {
+        "start": 78.53999999999999,
+        "end": 79.76,
+        "text": "and the journey begins."
+      },
+      {
+        "start": 80.26,
+        "end": 82.14,
+        "text": "The agreement serves the people,"
+      },
+      {
+        "start": 82.22,
+        "end": 83.8,
+        "text": "not the other way around."
+      },
+      {
+        "start": 93.0,
+        "end": 94.83,
+        "text": "PRP provides the foundation"
+      },
+      {
+        "start": 94.86,
+        "end": 97.22,
+        "text": "for communication between participants."
+      },
+      {
+        "start": 97.66,
+        "end": 101.24000000000001,
+        "text": "The application defines how offers and agreements work."
+      },
+      {
+        "start": 101.47999999999999,
+        "end": 103.72,
+        "text": "People choose their tools and conditions;"
+      },
+      {
+        "start": 104.22,
+        "end": 107.14,
+        "text": "compatible applications coordinate the journey."
+      },
+      {
+        "start": 110.0,
+        "end": 111.55,
+        "text": "People set the conditions."
+      },
+      {
+        "start": 114.72,
+        "end": 116.05,
+        "text": "Applications find agreement."
+      },
+      {
+        "start": 116.24000000000001,
+        "end": 117.78,
+        "text": "Life moves forward."
+      },
+      {
+        "start": 119.65,
+        "end": 121.19,
+        "text": "Built on PRP."
+      }
+    ],
+    "pt-BR": [
+      {
+        "start": 1.0,
+        "end": 4.2,
+        "text": "Uma viagem começa antes de alguém entrar no carro."
+      },
+      {
+        "start": 4.63,
+        "end": 6.53,
+        "text": "Duas pessoas. Necessidades diferentes."
+      },
+      {
+        "start": 7.21,
+        "end": 8.47,
+        "text": "Condições próprias."
+      },
+      {
+        "start": 12.25,
+        "end": 15.25,
+        "text": "A passageira definiu seu orçamento e suas preferências de embarque."
+      },
+      {
+        "start": 15.85,
+        "end": 17.66,
+        "text": "O motorista escolheu onde trabalhar"
+      },
+      {
+        "start": 17.69,
+        "end": 19.77,
+        "text": "e os termos que aceita."
+      },
+      {
+        "start": 20.21,
+        "end": 22.2,
+        "text": "Cada um já autorizou um aplicativo"
+      },
+      {
+        "start": 22.23,
+        "end": 24.45,
+        "text": "a agir dentro desses limites."
+      },
+      {
+        "start": 26.35,
+        "end": 31.122,
+        "text": "Um alias compartilhado ajuda o aplicativo a encontrar motoristas próximos."
+      },
+      {
+        "start": 31.933,
+        "end": 35.045,
+        "text": "Ele estabelece relações com os participantes."
+      },
+      {
+        "start": 35.933,
+        "end": 39.312,
+        "text": "Um pedido chega a eles por multicast."
+      },
+      {
+        "start": 41.933,
+        "end": 44.17,
+        "text": "Entre milhares de possíveis motoristas,"
+      },
+      {
+        "start": 44.17,
+        "end": 47.75,
+        "text": "os disponíveis para esta viagem retornam suas cotações."
+      },
+      {
+        "start": 48.558,
+        "end": 53.272,
+        "text": "O aplicativo compara as ofertas dentro das preferências já salvas pela passageira."
+      },
+      {
+        "start": 55.0,
+        "end": 56.78,
+        "text": "Não há uma central de despacho."
+      },
+      {
+        "start": 57.14,
+        "end": 59.88,
+        "text": "Seus aplicativos combinam a viagem diretamente,"
+      },
+      {
+        "start": 60.3,
+        "end": 63.38,
+        "text": "dentro das condições que cada pessoa já escolheu."
+      },
+      {
+        "start": 63.74,
+        "end": 65.84,
+        "text": "Quando encontram termos compatíveis,"
+      },
+      {
+        "start": 66.06,
+        "end": 68.06,
+        "text": "o acordo se forma automaticamente."
+      },
+      {
+        "start": 68.58,
+        "end": 71.0,
+        "text": "O embarque agendado aparece para o motorista."
+      },
+      {
+        "start": 71.42,
+        "end": 73.42,
+        "text": "Sem uma etapa adicional de aceite."
+      },
+      {
+        "start": 75.0,
+        "end": 76.26,
+        "text": "O carro chega."
+      },
+      {
+        "start": 76.56,
+        "end": 78.51,
+        "text": "Um cumprimento, uma porta aberta,"
+      },
+      {
+        "start": 78.53999999999999,
+        "end": 79.76,
+        "text": "e a viagem começa."
+      },
+      {
+        "start": 80.26,
+        "end": 82.14,
+        "text": "O acordo serve às pessoas,"
+      },
+      {
+        "start": 82.22,
+        "end": 83.8,
+        "text": "e não o contrário."
+      },
+      {
+        "start": 93.0,
+        "end": 94.83,
+        "text": "O PRP fornece a base"
+      },
+      {
+        "start": 94.86,
+        "end": 97.22,
+        "text": "para a comunicação entre participantes."
+      },
+      {
+        "start": 97.66,
+        "end": 101.24000000000001,
+        "text": "O aplicativo define como funcionam as ofertas e os acordos."
+      },
+      {
+        "start": 101.47999999999999,
+        "end": 103.72,
+        "text": "As pessoas escolhem suas ferramentas e condições;"
+      },
+      {
+        "start": 104.22,
+        "end": 107.14,
+        "text": "aplicativos compatíveis coordenam a viagem."
+      },
+      {
+        "start": 110.0,
+        "end": 111.55,
+        "text": "As pessoas definem as condições."
+      },
+      {
+        "start": 114.72,
+        "end": 116.05,
+        "text": "Os aplicativos encontram um acordo."
+      },
+      {
+        "start": 116.24000000000001,
+        "end": 117.78,
+        "text": "A vida segue em frente."
+      },
+      {
+        "start": 119.65,
+        "end": 121.19,
+        "text": "Construído sobre o PRP."
+      }
+    ]
+  },
+  "supersedes": {
+    "revision": "full-review-v8",
+    "movieSHA256": "24ba73d474da95d331d006bfdca0199238386802b4b5737dd2ce2bc26b5233f2"
+  }
 }
