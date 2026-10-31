@@ -702,7 +702,7 @@
       }
     }
   ],
-  "publicationStatus": "approved-awaiting-delivery",
+  "publicationStatus": "published",
   "downloads": {
     "englishBurnedCaptions": {
       "url": "https://prp-protocol.org/assets/videos/agreements-in-motion-discovery-v1-captioned.mp4",
@@ -1069,5 +1069,31 @@
   "supersedes": {
     "revision": "full-review-v8",
     "movieSHA256": "24ba73d474da95d331d006bfdca0199238386802b4b5737dd2ce2bc26b5233f2"
+  },
+  "publication": {
+    "sourceCommit": "21f4eee02ba38454150e730438f2d0f40f1145f5",
+    "deployURL": "https://github.com/prp-protocol/website/actions/runs/41195075791",
+    "deployRun": 41195075791,
+    "deployedAt": "2026-10-31T11:02:29Z",
+    "verifiedAt": "2026-10-31T11:03:40.283062+00:00",
+    "scope": "Website only; full served MP4/companion bytes verified.",
+    "mediaVerified": [
+      {
+        "path": "assets/videos/agreements-in-motion-discovery-v1-captioned.mp4",
+        "url": "https://prp-protocol.org/assets/videos/agreements-in-motion-discovery-v1-captioned.mp4",
+        "status": 200,
+        "mime": "video/mp4",
+        "bytes": 23058238,
+        "sha256": "c7221404a9b263104234d86541ca1a05eee8d81c67519518ec4c130aaef94490"
+      },
+      {
+        "path": "assets/videos/agreements-in-motion-discovery-v1.mp4",
+        "url": "https://prp-protocol.org/assets/videos/agreements-in-motion-discovery-v1.mp4",
+        "status": 200,
+        "mime": "video/mp4",
+        "bytes": 22937389,
+        "sha256": "eeb884598ffcf4481f965208b221f0270596e0e069f4a77ac4df250460e0e3b8"
+      }
+    ]
   }
 }
