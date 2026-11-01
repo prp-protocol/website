@@ -33,25 +33,7 @@ assert {'F36','F37','F39'}<={r['id'] for r in d['criteria']}
 assert {'TS','RA'}<={c['id'] for c in d['columns']}
 assert not {'C08','F25','F35','F38','L02'} & {r['id'] for r in d['criteria']}
 api=runpy.run_path(str(OUT/'validate.py'))
-retired=api['validate_retired_r748']((OUT/api['ARCHIVE_R748_PATH']).read_bytes(),OUT,d)
-for archive in retired['archives']:
-    ident=archive['id'];page=(OUT/'archive'/(ident+'.html')).read_text()
-    assert escape(archive['criterion']['definition']) in page
-    assert 'These 28 cells are excluded' in page and 'not a loss of capability' in page
-    assert archive['source_revision'] in page and 'retired-criteria-7.48.json' in page
-    for c in archive['cells']:
-        text=(OUT/'cells'/(c['id']+'.html')).read_text()
-        assert 'Archived previous-definition assessment' in text and escape(c['reason']) in text
-        assert escape(archive['criterion']['definition']) in text and 'not the earlier public 7.08' in text
-        assert '../archive/'+ident+'.html' in text and '#row-'+ident not in text
-for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
-    archive=json.loads((OUT/('archive/'+ident+'-'+rev+'.json')).read_text())
-    assert len(archive['cells'])==26 and archive['criterion']['id']==ident and archive['revision']==rev
-    for c in archive['cells']:
-        text=(OUT/'cells'/(c['id']+'.html')).read_text()
-        assert 'Archived previous-definition assessment' in text and escape(c['reason']) in text
-        assert '../archive/'+ident+'.html' in text and '#row-'+ident not in text
-        if ident=='F25': assert '../wake-traffic.html#'+c['id'] in text
+api['validate_public_tree'](OUT)
 groups=json.loads((OUT/'groups.json').read_text())
 index=(OUT/'index.html').read_text()
 assert index.count('class="group-band"')==4
@@ -68,13 +50,6 @@ for criterion in criteria.values():
     assert escape(criterion['definition']) in (OUT/'index.html').read_text()
 pages={p:Page(p.read_text()) for p in OUT.rglob('*.html') if p.name!='navigation.html'}
 pages.update({p:Page(p.read_text()) for p in (ROOT/'protocol-atlas').glob('*.html')})
-assert hashlib.sha256((OUT/'wake-traffic.json').read_bytes()).hexdigest()=='1860d68f3680c20b6df256eb5c90457edfe3512838ae4295ba68330d0a151f23'
-wake=json.loads((OUT/'wake-traffic.json').read_text());wake_html=(OUT/'wake-traffic.html').read_text()
-for r in wake['records']:
-    assert r['id'] in pages[OUT/'wake-traffic.html'].ids
-    assert escape(r['inventory']) in wake_html and escape(r['conditions']) in wake_html
-    assert r['historical_cell'] in pages[OUT/'wake-traffic.html'].links
-assert 'wake-traffic.html' in pages[OUT/'index.html'].links
 subprocess.run(['python3',str(ROOT/'scripts/render-atlas.py'),'--check'],check=True)
 assert pages[OUT/'index.html'].details==len(d['criteria']) and pages[OUT/'index.html'].open_details==0
 for p,page in pages.items():

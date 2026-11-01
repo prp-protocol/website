@@ -38,6 +38,12 @@ fixture['cells'][0]['evidence']['references']=[sentinel,'index.html#non-public-r
 fixture['evidence_policy']['interpretation']=sentinel
 with tempfile.TemporaryDirectory(prefix='evidence-fixture-') as tmp:
     dest=Path(tmp)/'comparison';shutil.copytree(out,dest)
+    (dest/'archive').mkdir(exist_ok=True)
+    (dest/'archive/stale.json').write_text('{}')
+    try:api['validate_public_tree'](dest)
+    except ValueError:pass
+    else:raise AssertionError('Retired material accepted in served tree')
+    (dest/'archive/stale.json').unlink()
     (dest/'data.json').write_text(json.dumps(fixture))
     subprocess.run(['python3','-I',str(dest/'render.py'),'--out',str(dest)],check=True,capture_output=True)
     page=(dest/'cells'/f"{fixture['cells'][0]['id']}.html").read_text()

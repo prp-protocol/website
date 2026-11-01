@@ -25,6 +25,9 @@ ASSETS_R708 = {
 
 def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None, schema_r796=False):
     api = runpy.run_path(str(destination/'validate.py'))
+    api['validate_public_tree'](destination)
+    if retirement_r573 or retirement_r582 or retirement_r748 or archive_raw is not None:
+        raise ValueError('Historical archive publication authorization revoked; history remains in Git')
     old = api['validate']((destination/'data.json').read_bytes(), destination)
     assets = assets or {}
     if archive_raw is not None and not retirement_r748: raise ValueError('Historical archive requires exact coordinated exception')
@@ -42,22 +45,6 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
             if (destination/name).exists(): raise ValueError('Refusing to overwrite existing asset')
             (stage/name).write_bytes(raw)
         data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748,archive_raw,schema_r796)
-        archive_additions={}
-        if retirement_r748:
-            name=api['ARCHIVE_R748_PATH']
-            if (stage/name).exists(): raise ValueError('Archive already exists; reconcile equivalent work')
-            (stage/name).parent.mkdir(exist_ok=True)
-            (stage/name).write_bytes(archive_raw)
-            archive_additions[name]=True
-        for ident in (['C08'] if retirement_r573 else ['F25','F35'] if retirement_r582 else []):
-            archive_name='archive/'+ident+'-'+old['revision']+'.json'
-            if (stage/archive_name).exists(): raise ValueError('Archive already exists; reconcile equivalent work')
-            archive=dict(revision=old['revision'],date=old['date'],source_sha256=receipt['baseline_sha256'],
-                retired_in=data['revision'],criterion=next(r for r in old['criteria'] if r['id']==ident),
-                cells=[c for c in old['cells'] if c['feature']==ident])
-            (stage/'archive').mkdir(exist_ok=True)
-            (stage/archive_name).write_text(json.dumps(archive,ensure_ascii=False,indent=2)+'\n')
-            archive_additions[archive_name]=archive
         (stage/'data.json').write_bytes(snapshot)
         subprocess.run(['python3', '-I', str(stage/'render.py'), '--out', str(stage)], check=True, capture_output=True)
         first = (stage/'manifest.json').read_bytes()
@@ -69,17 +56,6 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
         outputs |= set(assets)
         outputs |= {'cells/'+c['id']+'.html' for c in data['cells']}
         outputs |= {'stacks/'+c['id']+'.html' for c in data['columns']}
-        for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
-            archive_name='archive/'+ident+'-'+rev+'.json'
-            if (stage/archive_name).exists():
-                archive=json.loads((stage/archive_name).read_text())
-                outputs |= {'archive/'+ident+'.html'} | {'cells/'+c['id']+'.html' for c in archive['cells']}
-        outputs |= set(archive_additions)
-        if (stage/api['ARCHIVE_R748_PATH']).exists():
-            archive=api['validate_retired_r748']((stage/api['ARCHIVE_R748_PATH']).read_bytes(),stage,data)
-            for a in archive['archives']:
-                outputs |= {'archive/'+a['id']+'.html'} | {'cells/'+c['id']+'.html' for c in a['cells']}
-        if (stage/'wake-traffic.json').exists(): outputs.add('wake-traffic.html')
         for p in destination.rglob('*'):
             if p.is_file() and str(p.relative_to(destination)) not in outputs:
                 if p.read_bytes() != (stage/p.relative_to(destination)).read_bytes():

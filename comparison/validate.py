@@ -13,6 +13,14 @@ def require(ok, message):
         raise ValueError(message)
 
 
+RETIRED_IDS={'C08','F25','F35','L02','F38','F19','K02'}
+
+def validate_public_tree(root):
+    require(not (root/'archive').exists() or not any(p.is_file() for p in (root/'archive').rglob('*')), 'Retired public archives are no longer authorized')
+    require(not any((root/name).exists() for name in ('wake-traffic.html','wake-traffic.json','wake.py')), 'Retired wake register is no longer authorized')
+    require(not any(p.stem.split('-')[0] in RETIRED_IDS for p in (root/'cells').glob('*.html')), 'Retired public cells are no longer authorized')
+
+
 def public_url(value):
     u = urlsplit(value)
     return (u.scheme in ('http', 'https') and bool(u.hostname)
@@ -154,11 +162,7 @@ def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=
     require(new['revision'] == receipt['revision'] and new['date'] == receipt['date'], 'Revision/date mismatch')
     require(dict(Counter(c['status'] for c in new['cells'])) == receipt['status_counts'], 'Status counts mismatch')
     added = removed = None
-    for ident,rev in [('C08','4.72'),('F25','5.73'),('F35','5.73')]:
-        if (root/('archive/'+ident+'-'+rev+'.json')).exists():
-            require(ident not in {r['id'] for r in new['criteria']}, 'Retired '+ident+' cannot be recycled')
-    if (root/ARCHIVE_R748_PATH).exists():
-        require(not {'L02','F38'} & {r['id'] for r in new['criteria']}, 'Retired L02/F38 cannot be recycled')
+    require(not RETIRED_IDS & {r['id'] for r in new['criteria']}, 'Retired IDs cannot be recycled')
     exceptions=(expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748,schema_r796)
     require(sum(exceptions)<=1, 'Select one coordinated exception')
     if schema_r796:

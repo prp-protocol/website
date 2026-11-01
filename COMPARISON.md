@@ -34,6 +34,17 @@ commit reverting this integration, not a data snapshot rollback.
 
 ## Current approved source
 
+### Superseding archive removal (same REPORT)
+
+The user's later `comparison-r796-remove-archives-user-request` comment revokes
+public archive preservation. Dedicated retired pages/JSON and the historical
+wake register are removed from the served tree (146 files, including 134 old
+cell pages). Old URLs may return 404. No active data or verdict changes.
+Git history and sealed custody objects remain intact; IDs C08/F25/F35/L02/F38
+and residual F19/K02 cannot be recycled. The renderer/importer reject stale
+archive material so a later rebuild cannot resurrect it. Historical procedures
+below document prior deliveries, not current permission to republish archives.
+
 - Revision 7.96, English schema-v2, 2026-10-31; authority REPORT 741313ee6bcc042a.
 - Exact JSON: 4696988 bytes, SHA256 `c4071678721d1d32823b1123d5ce762aad6c91b2ddc7b6040b9d95dcadd2891e`.
 - Private signed receipt: `5c2c8645fca743828d66bca1d04cb815501dfd01d4095babe3e0e7a71a4a1a86`.
