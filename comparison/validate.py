@@ -1,4 +1,4 @@
-"""Website-owned schema-v1 validation; standard library, no editorial imports."""
+"""Website-owned schema-v1/v2 validation; no editorial implementation imports."""
 from collections import Counter
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -28,9 +28,9 @@ def validate(raw, root):
             result[key] = value
         return result
     d = json.loads(raw, object_pairs_hook=unique)
-    require(isinstance(d, dict) and set(d) == {'schema_version', 'revision', 'date',
-        'language', 'scope', 'criteria', 'columns', 'cells', 'marks'}, 'Unsupported schema fields')
-    require(d['schema_version'] == 1, 'Unsupported schema; coordinate separately')
+    require(isinstance(d, dict) and type(d.get('schema_version')) is int and d['schema_version'] in (1,2), 'Unsupported schema; coordinate separately')
+    require(set(d) == {'schema_version', 'revision', 'date',
+        'language', 'scope', 'criteria', 'columns', 'cells', 'marks'} | ({'evidence_policy'} if d['schema_version']==2 else set()), 'Unsupported schema fields')
     require(d['language'] == 'en', 'Unsupported primary language')
     require(isinstance(d['revision'], str) and d['revision'], 'Missing revision')
     datetime.date.fromisoformat(d['date'])
@@ -43,6 +43,17 @@ def validate(raw, root):
         elif isinstance(value, dict):
             for x in value.values(): walk(x)
     walk(d)
+    levels={'assumed','reported','documented','demonstrated'}
+    if d['schema_version']==2:
+        policy=d['evidence_policy']
+        require(isinstance(policy,dict) and set(policy)=={'version','levels','unclassified','interpretation','display_rule'}, 'Invalid evidence policy')
+        require(type(policy['version']) is int and policy['version']==1, 'Unsupported evidence policy version')
+        require(isinstance(policy['levels'],dict) and set(policy['levels'])==levels, 'Invalid evidence levels')
+        for level,record in policy['levels'].items():
+            require(isinstance(record,dict) and set(record)=={'label','definition'}, 'Invalid evidence level record')
+            require(record['label']==level.title() and isinstance(record['definition'],str) and record['definition'].strip(), 'Invalid evidence definition')
+        for key in ('unclassified','interpretation','display_rule'):
+            require(isinstance(policy[key],str) and policy[key].strip(), 'Invalid evidence policy text')
     def records(key, fields, pattern):
         rows = d[key]
         require(isinstance(rows, list) and rows, 'Empty ' + key)
@@ -76,6 +87,18 @@ def validate(raw, root):
         require(cell['status'] in ('Y', 'N', '?'), 'Invalid status')
         require(isinstance(cell['sources'], list) and all(isinstance(u, str) and public_url(u) for u in cell['sources']), 'Invalid source URL')
         require(isinstance(cell['editorial_references'], list) and all(isinstance(u, str) for u in cell['editorial_references']), 'Invalid unpublished references')
+        if d['schema_version']==2:
+            ev=cell.get('evidence')
+            require(isinstance(ev,dict) and set(ev)=={'level','basis','scope','attribution','coverage','reviewed_at','basis_sha256','references'}, 'Missing/malformed evidence annotation')
+            require(isinstance(ev['level'],str) and ev['level'] in levels, 'Invalid evidence level')
+            for key in ('basis','scope','attribution','coverage','reviewed_at','basis_sha256'):
+                require(isinstance(ev[key],str) and ev[key].strip(), 'Invalid evidence '+key)
+            require(re.fullmatch(r'[0-9a-f]{64}',ev['basis_sha256']), 'Invalid evidence fingerprint')
+            require(re.fullmatch(r'\d{4}-\d{2}-\d{2}',ev['reviewed_at']), 'Invalid review date')
+            datetime.date.fromisoformat(ev['reviewed_at'])
+            require(isinstance(ev['references'],list) and all(isinstance(x,str) and x.strip() for x in ev['references']), 'Invalid evidence references')
+        else:
+            require('evidence' not in cell, 'Evidence requires schema2')
     require(isinstance(d['marks'], list), 'Invalid mark metadata')
     for mark in d['marks']:
         data = asset(mark['file'])
@@ -118,12 +141,13 @@ def validate_retired_r748(raw, root, active):
         require(a['id']==a['criterion']['id'] and len(a['cells'])==28 and all(c['status']=='Y' for c in a['cells']), 'Historical records mismatch')
         # Reuse complete schema, safe URL/path and unique-grid validation. This
         # temporary object is validation only, never a second active verdict source.
-        fixture=dict(active,criteria=[a['criterion']],cells=a['cells'])
+        fixture=dict(active,criteria=[a['criterion']],cells=a['cells'],schema_version=1)
+        fixture.pop('evidence_policy',None)  # Historical records retain their original schema.
         validate(json.dumps(fixture).encode(),root)
     return archive
 
 
-def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None):
+def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=False, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None, schema_r796=False):
     require(len(raw) == receipt['bytes'], 'Snapshot size mismatch')
     require(hashlib.sha256(raw).hexdigest() == receipt['sha256'], 'Snapshot hash mismatch')
     new = validate(raw, root)
@@ -135,7 +159,23 @@ def check_receipt(raw, root, receipt, old, expansion_r214=False, expansion_r269=
             require(ident not in {r['id'] for r in new['criteria']}, 'Retired '+ident+' cannot be recycled')
     if (root/ARCHIVE_R748_PATH).exists():
         require(not {'L02','F38'} & {r['id'] for r in new['criteria']}, 'Retired L02/F38 cannot be recycled')
-    require(sum((expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748))<=1, 'Select one coordinated exception')
+    exceptions=(expansion_r214,expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748,schema_r796)
+    require(sum(exceptions)<=1, 'Select one coordinated exception')
+    if schema_r796:
+        require(old['schema_version']==1 and new['schema_version']==2, 'Only schema1 to2 authorized')
+        require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()==receipt.get('baseline_sha256')=='cf90f2ca1264c7f951f99cacdbc022aeadc9e66d4dfecf3fd07f093f24498b4e', 'Schema upgrade requires exact7.48 baseline')
+        require(receipt['sha256']=='c4071678721d1d32823b1123d5ce762aad6c91b2ddc7b6040b9d95dcadd2891e' and len(raw)==4696988, 'Schema upgrade requires exact7.96 snapshot')
+        require(receipt['sealed_receipt_sha256']=='5c2c8645fca743828d66bca1d04cb815501dfd01d4095babe3e0e7a71a4a1a86', 'Unapproved schema custody receipt')
+        require(all(old[k]==new[k] for k in ('criteria','columns','marks','scope','language')), 'Grid/assets/profiles unchanged')
+        require([c['id'] for c in new['cells']]==[c['id'] for c in old['cells']], 'Stable cell order required')
+        require(all(a['status']==b['status'] for a,b in zip(old['cells'],new['cells'])), 'Verdicts unchanged')
+        require(Counter(c['evidence']['level'] for c in new['cells'])==dict(assumed=98,reported=52,documented=1578,demonstrated=8), 'Evidence counts mismatch')
+    else:
+        require(new['schema_version']==old['schema_version'], 'Schema transition requires exact coordinated exception')
+    if not any(exceptions):
+        # Routine JSON-only updates cannot select or replace asset binaries.
+        require([(m['file'],m.get('sha256'),m.get('bytes')) for m in new['marks']]==[(m['file'],m.get('sha256'),m.get('bytes')) for m in old['marks']], 'Asset changes require separate coordination')
+        require([(c['id'],c['logo']) for c in new['columns']]==[(c['id'],c['logo']) for c in old['columns']], 'Logo changes require separate coordination')
     if retirement_r748:
         require(receipt['sha256']=='cf90f2ca1264c7f951f99cacdbc022aeadc9e66d4dfecf3fd07f093f24498b4e', 'Retirement only authorized for exact 7.48')
         require(hashlib.sha256((root/'data.json').read_bytes()).hexdigest()==receipt['baseline_sha256']=='81277a29e44ab33d0d2d19e06f9aea9da574b05b3369dcca0f841909ab4c4fc1', 'Retirement baseline must be exact 7.08')

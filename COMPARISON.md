@@ -34,6 +34,34 @@ commit reverting this integration, not a data snapshot rollback.
 
 ## Current approved source
 
+- Revision 7.96, English schema-v2, 2026-10-31; authority REPORT 741313ee6bcc042a.
+- Exact JSON: 4696988 bytes, SHA256 `c4071678721d1d32823b1123d5ce762aad6c91b2ddc7b6040b9d95dcadd2891e`.
+- Private signed receipt: `5c2c8645fca743828d66bca1d04cb815501dfd01d4095babe3e0e7a71a4a1a86`.
+- Private signed contract: `c83f12bec3122b98af2a710c999b98a4cabc6b74f6671e458cd3f6120a87011d`.
+- Exact baseline 7.48: 2183053 bytes, SHA256 `cf90f2ca1264c7f951f99cacdbc022aeadc9e66d4dfecf3fd07f093f24498b4e`.
+- Managed signing fingerprint: `BDF794EB7E1CBDE115BDC13B29F9A1FA8EA34B8A`; independent signature verification does not imply external identity certification.
+
+The one-time `--schema-r796` transition requires these exact baseline/output and
+sealed-receipt pins. No grid, asset, verdict, criterion or profile changes are
+authorized. All 1736 cells receive evidence annotations; only E03-HP/D04-HP
+preexisting rationale fields change, both remaining Pending. Evidence counts:
+98 Assumed, 52 Reported, 1578 Documented, 8 Demonstrated. 771 bands are hidden
+under the approved display rule; accessible names and detail pages retain evidence.
+Verdicts stay centered in the entire cell; evidence is not maturity/certification.
+Research identifiers remain plain text, not fabricated public links.
+
+Future routine signed JSON-only imports retain schema2 and its validated policy
+and annotation fields. Unknown schema/levels/fields, malformed annotations,
+uncoordinated grid/asset changes and unsigned inputs remain rejected. The
+website owns evidence CSS/rendering; no private reference CSS/receipt is deployed.
+Run `scripts/test-comparison-evidence.py` plus existing import, static rebuild,
+link and Chromium filter tests. Browser checks include full-cell geometry,
+band spacing/palette, 390/1440 actual viewport widths, print and no-script.
+Rollback is a forward commit restoring a coherent earlier source/rendered
+snapshot from Git, never a force push or silent JSON reserialization.
+
+## Historical 7.48 source and retirement
+
 - Revision 7.48, English schema-v1, 2026-10-29; authority REPORT 84ec44c19010a3fb.
 - Editorial delivery commit (local provenance only): `5588708f3cf27aadb6aefa2099151218a595f831`.
 - Approved JSON SHA256: `cf90f2ca1264c7f951f99cacdbc022aeadc9e66d4dfecf3fd07f093f24498b4e` (2183053 bytes).

@@ -60,7 +60,7 @@ def reject(data, reason):
     except (ValueError, KeyError, TypeError): return
     raise AssertionError('Accepted invalid fixture: '+reason)
 
-bad=copy.deepcopy(original);bad['schema_version']=2;reject(bad,'schema')
+bad=copy.deepcopy(original);bad['schema_version']=3;reject(bad,'schema')
 bad=copy.deepcopy(original);bad['cells'].pop();reject(bad,'incomplete grid')
 bad=copy.deepcopy(original);bad['cells'].append(bad['cells'][0]);reject(bad,'duplicate cell')
 bad=copy.deepcopy(original);bad['cells'][0]['status']='MAYBE';reject(bad,'status')

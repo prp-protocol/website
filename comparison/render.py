@@ -19,6 +19,13 @@ def clean(s):
 CSS='''body{font:16px/1.5 system-ui;color:#172d36;background:#f4f2eb;margin:0;padding:24px}a{color:#165e70}a:focus-visible,summary:focus-visible{outline:3px solid #165e70}p,li{overflow-wrap:anywhere}.wrap{overflow:auto;max-height:78vh}.matrix{border-spacing:3px;table-layout:fixed}.matrix th,.matrix td{padding:10px;text-align:center;min-width:125px;width:125px}.matrix thead th{position:sticky;top:0;background:#dce5e1;z-index:2;vertical-align:top}.matrix th:first-child{position:sticky;left:0;min-width:270px;width:270px;background:#e9eee9;text-align:left;z-index:1}.matrix thead th:first-child{z-index:3}.Y{background:#b9e5c5}.N{background:#f1bcbc}.U{background:#ffe39c}.matrix td a{display:block;color:#172d36;text-decoration:none}.brand{display:flex;height:64px;align-items:center;justify-content:center;background:white;border-radius:6px;margin-bottom:8px}.brand img{max-width:108px;max-height:58px;object-fit:contain}.dark{background:#59316b}details{padding:8px;background:#e6ebe4;margin:8px 0}summary{cursor:pointer}.content{max-width:1000px;margin:auto}article{margin:24px 0}small{font-size:12px}.legend span{display:inline-block;padding:6px 14px}@media(max-width:600px){body{padding:12px}.matrix th:first-child{min-width:180px;width:180px}}'''
 LABEL={'Y':'Yes','N':'No','?':'Pending'}
 
+EVIDENCE_CSS='''.matrix td.evidence-cell{position:relative;height:104px}.matrix td .cell-evidence-link{position:absolute;inset:0;min-height:0;display:flex;align-items:center;justify-content:center}.evidence-verdict{line-height:24px}.evidence-band{position:absolute;bottom:0;left:0;right:0;background:#e4e1ef;color:#354c55;font-size:11px;line-height:16px;padding:6px 2px}.evidence-band[hidden]{display:none}.evidence-legend{border-left:4px solid #e4e1ef;padding-left:16px}.evidence-detail dd{margin:0 0 16px;overflow-wrap:anywhere}.evidence-detail dt{font-weight:bold}'''
+
+def evidence_legend(policy, compact=False):
+    if compact:
+        return '<section class="evidence-legend" aria-labelledby="evidence-heading"><h2 id="evidence-heading">Evidence basis</h2><p>'+ ' · '.join(esc(v['label']) for v in policy['levels'].values())+'</p><p>'+esc(policy['interpretation'])+'</p><p><a href="methodology.html#evidence-heading">Evidence definitions and display rules</a></p></section>'
+    return '<section class="evidence-legend" aria-labelledby="evidence-heading"><h2 id="evidence-heading">Evidence basis</h2><dl>'+''.join('<dt>'+esc(v['label'])+'</dt><dd>'+esc(v['definition'])+'</dd>' for v in policy['levels'].values())+'</dl><p>'+esc(policy['interpretation'])+'</p><p>'+esc(policy['display_rule'])+'</p><p>'+esc(policy['unclassified'])+'</p></section>'
+
 # Website wrapper: local presentation files travel with every coherent snapshot.
 # Scope project-mark styling so it cannot affect the shared site brand.
 CSS=CSS.replace('.brand', '.matrix .brand')
@@ -59,13 +66,17 @@ def main():
         local='../'*depth
         navigation=(out/'navigation.html').read_text().replace('{{ROOT}}','../'*(depth+1))
         enhancement=''
+        if name=='methodology.html' and d['schema_version']==2:
+            body=body.replace('</main>',evidence_legend(d['evidence_policy'])+'</main>')
         if name=='index.html':
             body='<main>'+body+'</main>'
             enhancement='<link rel="stylesheet" href="yes-filter.css"><script src="yes-filter.js" defer></script>'
-        target.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+CSS+'</style><link rel="stylesheet" href="'+local+'navigation.css">'+enhancement+'</head><body>'+navigation+'<div class="comparison-layout">'+body+'</div></body></html>')
+        evidence_style=EVIDENCE_CSS if d['schema_version']==2 and (name in ('index.html','methodology.html') or name.startswith('cells/') and Path(name).stem in ids) else ''
+        target.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+CSS+evidence_style+'</style><link rel="stylesheet" href="'+local+'navigation.css">'+enhancement+'</head><body>'+navigation+'<div class="comparison-layout">'+body+'</div></body></html>')
     intro='<h1>Protocol and stack comparison</h1><p>PRP editorial comparison · Revision '+esc(d['revision'])+' · Updated '+esc(d['date'])+'</p><p>'+str(len(d['criteria']))+' criteria × '+str(len(d['columns']))+' stacks; '+str(pending)+' Pending cells.</p><p><a href="https://prp-protocol.org/">PRP website</a> · <a href="methodology.html">Methodology and limits</a> · <a href="data.json">Download structured data</a> · <a href="logos.html">Logo credits</a></p><p class="legend"><span class="Y">Yes</span> <span class="N">No</span> <span class="U">Pending</span></p><p>Click a cell for evidence and qualifications. Expand a criterion for its definition. Results describe the selected stack and documented capabilities, not implementation certification. Pending means insufficient evidence, not unsupported.</p>'
     for ident,archive in archives.items(): intro+='<p><a href="archive/'+ident+'.html">'+ident+' — archived previous definition (revision '+esc(archive['revision'])+')</a></p>'
     if (out/'wake-traffic.json').exists(): intro+='<p><a href="wake-traffic.html">Communication recovery traffic — historical inventories</a></p>'
+    if d['schema_version']==2: intro+=evidence_legend(d['evidence_policy'],compact=True)
     body=intro+'<div class="wrap" tabindex="0" role="region" aria-label="Scrollable protocol comparison"><table class="matrix"><caption>Selected protocol stacks and capabilities</caption><thead><tr><th scope="col">Criterion</th>'
     for c in d['columns']:
         mark=('<img src="logos/'+esc(c['logo'])+'" alt="'+esc(c['title'])+' mark">') if c['logo'] else esc(c['title'])
@@ -76,7 +87,15 @@ def main():
             body+='</tbody><tbody><tr class="group-band"><th scope="rowgroup" colspan="'+str(len(d['columns'])+1)+'"><span class="group-label">'+esc(groups[r['id']])+'</span></th></tr>'
         body+='<tr><th scope="row" id="row-'+r['id']+'">'+r['id']+' · '+esc(r['title'])+'<details><summary>Definition</summary>'+esc(r['definition'])+'</details></th>'
         for col in d['columns']:
-            c=byid[r['id']+'-'+col['id']];status=c['status'];body+='<td class="'+('U' if status=='?' else status)+'"><a href="cells/'+c['id']+'.html" aria-label="'+esc(c['id']+': '+LABEL[status])+'">'+LABEL[status]+'</a></td>'
+            c=byid[r['id']+'-'+col['id']];status=c['status']
+            label=c['id']+': '+LABEL[status];content=LABEL[status];cellclass='';linkclass=''
+            if 'evidence' in c:
+                e=c['evidence'];level=d['evidence_policy']['levels'][e['level']]['label']
+                hidden=status=='Y' and e['level']=='demonstrated' or status=='N' and e['level'] in ('reported','documented','demonstrated')
+                label+='; evidence: '+level+'; scope: '+e['scope']+'; qualification: '+c['qualification']
+                content='<span class="evidence-verdict">'+LABEL[status]+'</span><span class="evidence-band" aria-hidden="true"'+(' hidden' if hidden else '')+'>'+esc(level)+'</span>'
+                cellclass=' evidence-cell';linkclass=' class="cell-evidence-link"'
+            body+='<td class="'+('U' if status=='?' else status)+cellclass+'"><a'+linkclass+' href="cells/'+c['id']+'.html" aria-label="'+esc(label)+'">'+content+'</a></td>'
         body+='</tr>'
     write('index.html','Protocol and stack comparison',body+'</tbody></table></div>')
     for c in d['columns']:
@@ -105,6 +124,11 @@ def main():
             if c['feature']=='F25': body+='<p><a href="../wake-traffic.html#'+c['id']+'">Historical wake-traffic inventory (cutoff retired)</a></p>'
         for title,key in [('Rationale','reason'),('Assessment method','method'),('Source context','source_label'),('Outstanding qualification','qualification')]:
             if c[key]:body+='<h2>'+title+'</h2><p>'+esc(c[key])+'</p>'
+        if not historical and 'evidence' in c:
+            e=c['evidence'];body+='<section class="evidence-detail"><h2>Evidence basis: '+esc(d['evidence_policy']['levels'][e['level']]['label'])+'</h2><dl>'
+            for key in ('basis','scope','attribution','coverage','reviewed_at'):
+                body+='<dt>'+esc(key.replace('_',' ').capitalize())+'</dt><dd>'+esc(e[key])+'</dd>'
+            body+='</dl><p>Documentary basis fingerprint (SHA-256, not proof of runtime execution): <code>'+esc(e['basis_sha256'])+'</code></p><h3>Evidence reference identifiers</h3><p>Research identifiers are retained as text; they are not public links.</p><ul>'+''.join('<li>'+esc(ref)+'</li>' for ref in e['references'])+'</ul><p>'+esc(d['evidence_policy']['interpretation'])+'</p></section>'
         body+='<h2>Public sources</h2><ul>'+''.join('<li><a href="'+esc(u)+'">'+esc(u)+'</a></li>' for u in c['sources'])+'</ul>'
         if c['editorial_references']:body+='<h2>Editorial evidence references</h2><p>The following identifiers refer to research records not included in this public package; they are not public links.</p><ul>'+''.join('<li>'+esc(u)+'</li>' for u in c['editorial_references'])+'</ul>'
         write('cells/'+c['id']+'.html',c['id']+' — '+LABEL[c['status']],body+'</main>')

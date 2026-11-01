@@ -10,7 +10,7 @@ const criteria = data.criteria || data.rows.map(r => ({id: r[0]}));
 const columns = data.columns.map(c => ({id: c.id || c[0]}));
 const verdicts = Object.fromEntries(data.cells.map(c => [c.id || c.feature + '-' + c.stack, c.status]));
 const targetURL = /^https?:/.test(htmlPath) ? htmlPath : 'file://' + path.resolve(htmlPath);
-const browser = spawn('chromium', ['--headless', '--no-sandbox', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--remote-debugging-pipe', '--user-data-dir=' + path.resolve(outputDir, 'browser-profile')], {stdio: ['ignore', 'ignore', 'ignore', 'pipe', 'pipe']});
+const browser = spawn('chromium', ['--headless', '--no-sandbox', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--remote-debugging-pipe', ...(process.env.HTTPS_PROXY && targetURL.startsWith('https:') ? ['--proxy-server='+process.env.HTTPS_PROXY] : []), '--user-data-dir=' + path.resolve(outputDir, 'browser-profile')], {stdio: ['ignore', 'ignore', 'ignore', 'pipe', 'pipe']});
 let nextId = 0, buffer = '', session;
 const pending = new Map();
 browser.stdio[4].on('data', chunk => {
@@ -33,7 +33,7 @@ async function evaluate(expression) {
   return r.result.value;
 }
 function assert(condition, message) { if (!condition) throw Error(message); }
-const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 55000);
+const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 180000);
 (async () => {
   const target = await send('Target.createTarget', {url: 'about:blank'}, false);
   session = (await send('Target.attachToTarget', {targetId: target.targetId, flatten: true}, false)).sessionId;
@@ -58,6 +58,14 @@ const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 55000);
     assert(await evaluate('innerWidth')===width, 'Actual viewport width');
     assert(await evaluate('document.documentElement.scrollWidth <= innerWidth'), 'No page-wide overflow');
     await select([]);
+    if(data.schema_version===2){
+      assert(await evaluate(`document.querySelectorAll('.evidence-band[hidden]').length===771 && document.querySelectorAll('.evidence-band').length===1736`),'Evidence band counts');
+      assert(await evaluate(`Array.from(document.querySelectorAll('.evidence-cell')).every(td=>{const c=td.getBoundingClientRect(),v=td.querySelector('.evidence-verdict').getBoundingClientRect(),b=td.querySelector('.evidence-band');return Math.abs((v.top+v.bottom-c.top-c.bottom)/2)<1&&Math.abs((v.left+v.right-c.left-c.right)/2)<1&&(b.hidden||b.getBoundingClientRect().top-v.bottom>=4)&&td.querySelector('a').getAttribute('aria-label').includes('scope:');})`),'Verdicts centered in entire cells; band gap; accessible scope');
+      assert(await evaluate(`Array.from(document.querySelectorAll('.evidence-band:not([hidden])')).every(b=>getComputedStyle(b).backgroundColor==='rgb(228, 225, 239)'&&getComputedStyle(b).color==='rgb(53, 76, 85)')`),'Evidence palette');
+      await evaluate('document.querySelector(".wrap").scrollIntoView()');
+      const shot=await send('Page.captureScreenshot',{format:'png'});
+      fs.writeFileSync(path.join(outputDir,'evidence-'+width+'.png'),Buffer.from(shot.data,'base64'));
+    }
     assert(await evaluate('document.querySelectorAll(".matrix th[scope=row]").length')===criteria.length,'All criterion rows retained');
     for(const fraction of [0,.5,1]) {
       await evaluate(`document.querySelector('.wrap').scrollLeft=(document.querySelector('.wrap').scrollWidth-document.querySelector('.wrap').clientWidth)*${fraction}`);
@@ -84,6 +92,7 @@ const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 55000);
     const shot = await send('Page.captureScreenshot', {format: 'png'});
     fs.writeFileSync(path.join(outputDir, 'filter-' + width + '.png'), Buffer.from(shot.data, 'base64'));
     await send('Emulation.setEmulatedMedia', {media: 'print'});
+    if(data.schema_version===2)assert(await evaluate(`Array.from(document.querySelectorAll('.evidence-cell:not([hidden])')).every(td=>{const v=td.querySelector('.evidence-verdict').getBoundingClientRect(),b=td.querySelector('.evidence-band');return b.hidden||b.getBoundingClientRect().top>=v.bottom+4;})`),'Print evidence gap');
     assert(await evaluate('getComputedStyle(document.querySelector(".yes-filter-toggle")).display === "none"'), 'Print hides controls');
     assert(await evaluate('getComputedStyle(document.querySelector(".yes-filter-result")).display !== "none"'), 'Print retains selection summary');
     await send('Emulation.setEmulatedMedia', {media: ''});
@@ -120,7 +129,24 @@ const timeout = setTimeout(() => { browser.kill(); process.exit(2); }, 55000);
       }
     }
   }
-  const report = {status: 'PASS', targetURL, revision: data.revision, singleCriterionCases: tested, viewportWidths: [1440, 390], allCriteriaEmptyState: true, conjunction: true, keyboardSpaceAndFocus: true, reset: true, unchangedEvidenceLinks: originalLinks.length, printControlsHidden: true, noScriptFallback: true, rowgroupSpans: true,archiveCases};
+  let evidenceDetails=0;
+  if(data.schema_version===2){
+    await send('Emulation.setScriptExecutionDisabled',{value:false});
+    const samples=['assumed','reported','documented','demonstrated'].map(level=>data.cells.find(c=>c.evidence.level===level));
+    for(const width of [390,1440]){
+      await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+      for(const c of samples){
+        const url=new URL('cells/'+c.id+'.html',targetURL).href;
+        await send('Page.navigate',{url});
+        await evaluate(`new Promise(resolve=>{const timer=setInterval(()=>{if(location.href===${JSON.stringify(url)}&&document.readyState==='complete'&&document.querySelector('.evidence-detail')){clearInterval(timer);resolve(true)}},25)})`);
+        assert(await evaluate(`document.documentElement.scrollWidth<=innerWidth`),'Evidence detail responsive width');
+        for(const key of ['basis','scope','attribution','coverage','reviewed_at'])assert(await evaluate(`document.querySelector('.evidence-detail').textContent.includes(${JSON.stringify(c.evidence[key])})`),'Evidence detail '+key);
+        assert(await evaluate(`document.querySelectorAll('.evidence-detail a').length===0`),'Evidence references remain text');
+        evidenceDetails++;
+      }
+    }
+  }
+  const report = {status: 'PASS', targetURL, revision: data.revision, singleCriterionCases: tested, viewportWidths: [1440, 390], evidenceGeometry: data.schema_version===2, evidenceDetails, allCriteriaEmptyState: true, conjunction: true, keyboardSpaceAndFocus: true, reset: true, unchangedEvidenceLinks: originalLinks.length, printControlsHidden: true, noScriptFallback: true, rowgroupSpans: true,archiveCases};
   fs.writeFileSync(path.join(outputDir, 'validation.json'), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(() => { clearTimeout(timeout); browser.kill(); });

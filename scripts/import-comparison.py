@@ -23,7 +23,7 @@ ASSETS_R708 = {
 }
 
 
-def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None):
+def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269=False, assets=None, asset_r321=False, expansion_r390=False, expansion_r472=False, retirement_r573=False, retirement_r582=False, expansion_r708=False, retirement_r748=False, archive_raw=None, schema_r796=False):
     api = runpy.run_path(str(destination/'validate.py'))
     old = api['validate']((destination/'data.json').read_bytes(), destination)
     assets = assets or {}
@@ -41,7 +41,7 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
         for name,raw in assets.items():
             if (destination/name).exists(): raise ValueError('Refusing to overwrite existing asset')
             (stage/name).write_bytes(raw)
-        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748,archive_raw)
+        data, delta = api['check_receipt'](snapshot, stage, receipt, old, expansion_r214, expansion_r269,asset_r321,expansion_r390,expansion_r472,retirement_r573,retirement_r582,expansion_r708,retirement_r748,archive_raw,schema_r796)
         archive_additions={}
         if retirement_r748:
             name=api['ARCHIVE_R748_PATH']
@@ -106,6 +106,7 @@ def main():
     ap.add_argument('--retirement-r748', action='store_true', help='REPORT 84ec44c19010a3fb: exact 7.08/7.48 L02/F38 retirement and signed last-editorial archive')
     ap.add_argument('--archive', type=Path)
     ap.add_argument('--archive-signature', type=Path)
+    ap.add_argument('--schema-r796', action='store_true', help='REPORT 741313ee6bcc042a: exact7.48/schema1 to7.96/schema2; no grid/assets changes')
     args = ap.parse_args()
     receipt = json.loads(args.receipt.read_text())
     if not receipt.get('authority') or not receipt.get('catalog_receipt'):
@@ -127,14 +128,14 @@ def main():
         if not (args.expansion_r269 or args.asset_r321 or args.expansion_r708): raise ValueError('Asset import not authorized')
         expected_assets=ASSETS_R708 if args.expansion_r708 else ASSETS_R321 if args.asset_r321 else ASSETS_R269
         assets={name:(args.asset_objects/digest).read_bytes() for name,(digest,size) in expected_assets.items()}
-    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390,args.expansion_r472,args.retirement_r573,args.retirement_r582,args.expansion_r708,args.retirement_r748,archive_raw)
+    outputs, delta = prepare(raw, receipt, ROOT/'comparison', args.expansion_r214,args.expansion_r269,assets,args.asset_r321,args.expansion_r390,args.expansion_r472,args.retirement_r573,args.retirement_r582,args.expansion_r708,args.retirement_r748,archive_raw,args.schema_r796)
     if args.apply:
         # Repository staging only; publication is separately authorized and managed.
         for name, data in outputs.items():
             (ROOT/'comparison'/name).parent.mkdir(parents=True,exist_ok=True)
             (ROOT/'comparison'/name).write_bytes(data)
         # 7.08 custody receipt is private; publish only the minimal build pins.
-        public_receipt = {k:receipt[k] for k in ('authority','revision','date','bytes','sha256','status_counts')} if args.expansion_r708 or args.retirement_r748 else receipt
+        public_receipt = {k:receipt[k] for k in ('authority','revision','date','bytes','sha256','status_counts')}
         (ROOT/'scripts/comparison-approved.json').write_text(json.dumps(public_receipt, indent=2)+'\n')
     print(json.dumps(dict(result='PASS',applied=args.apply,revision=receipt['revision'],
         sha256=hashlib.sha256(raw).hexdigest(),changed_ids=delta,signature=SIGNER,
