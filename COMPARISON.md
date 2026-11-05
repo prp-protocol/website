@@ -1,5 +1,10 @@
 # Approved comparison publication
 
+**Current model:** the [Live GitHub source contract](#live-github-source-contract--2026-11-05-supersedes-snapshot-import-below)
+at the end of this document supersedes the historical snapshot/signature/manual
+publication procedures below. Those records describe past deliveries, not a
+requirement to manually approve each new live research publication.
+
 Public route: `/comparison/`. Stable evidence URLs use criterion and stack IDs,
 for example `/comparison/cells/F01-PN.html`, never review-round numbers.
 Selected stack descriptions have their own stable pages, for example
@@ -334,3 +339,54 @@ checks and navigation integration;
 do not reset or force-push history. Repeat rebuild, validation and managed deploy,
 then verify public bytes and report the rollback. Do not mix old data with new
 cell pages. Prior snapshots remain recoverable through Git history.
+# Live GitHub source contract — 2026-11-05 (supersedes snapshot import below)
+
+REPORT24354aa2d1c54835 authorizes automatic propagation of published research,
+not manual approval per revision. The user's subsequent correction confirms the
+GitHub repository is public; anonymous HTTPS and CORS were observed. No private
+credentials, visibility change or authentication proxy is used.
+
+`comparison/live.js` resolves public `prp-protocol/prp-comparative-analysis` main
+to an immutable commit via GitHub API, then reads that commit's `provenance.json`
+and its single declared `results/*.json`. It verifies exact size/SHA256, schema2,
+complete unique grid/counts, annotations, qualifications, safe links, local asset
+pins and retired-ID exclusion before replacing a whole display. Unknown schema,
+multiple ambiguous current results or unsupported assets fail closed. Result
+paths/revisions are not fixed to7.97. Research owns results; editorial owns
+presentation direction; website owns this renderer and deployment.
+
+Authenticated signed-catalog/manual-approval requirements below are historical
+snapshot procedures, **not** gates on this newly authorized public-source path.
+For live acquisition, origin trust is HTTPS GitHub repository/commit identity,
+plus same-commit provenance and SHA256 integrity. It is not a GPG signature or
+external certification. No failed signature check is bypassed or reported PASS.
+The legacy importer remains for historical audit, not routine live publication.
+
+Checks occur on page load, every300seconds while visible and on return to a
+visible tab; a button retries manually. GitHub cache headers/rate limits/network
+availability can delay delivery; no instantaneous propagation guarantee. Failed
+refresh retains the already verified in-memory display with an explicit stale
+notice. First-load failure hides historical fallback and displays an error and
+source link. No credential, persistent research cache or browser analytics added.
+JavaScript is required for the live comparison; no-script links to upstream.
+
+Website-owned `live-config.json` contains only route IDs, grouping and asset pins,
+not research verdicts. Existing cell/stack routes remain; newly added IDs can use
+generic `cell.html?id=...` / `stack.html?id=...` without another website build.
+Removed IDs produce an explicit unavailable state, never archived definitions.
+Logos, Atlas, films and navigation remain website-local. Unknown assets require
+presentation coordination, not an inferred license or silent broken mark.
+
+Build: `python3 scripts/render-live-comparison.py --activate` initially attaches
+the live renderer while retaining old files until public continuity is proven.
+After that proof, `--shells` generates thin data-free pages; bounded cleanup may
+remove old `data.json`, manifest and snapshot receipt. Git history remains for
+recovery; worktree savings are not Git-history savings. Do not restore revoked
+archives during rollback. A UI rollback is a reviewed forward commit; upstream
+research is never edited from this repository.
+
+Checks: `node scripts/test-comparison-live.cjs PATH_TO_VERIFIED_TRANSIENT_JSON`
+and `node scripts/test-live-browser.cjs BASE_URL PRIVATE_OUTPUT_DIRECTORY`.
+Fixture transition tests are not proof that an actual future research commit
+has propagated. Record source commit/hash, served UI hashes, Pages receipt,
+observed revision, browser limits and any unobserved update separately.

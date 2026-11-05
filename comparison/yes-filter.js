@@ -1,5 +1,5 @@
-/* Progressive enhancement: verdicts remain in the server-rendered table. */
-(() => {
+/* Website-owned conjunction filter; reattach after a verified live render. */
+function initializeComparisonFilter() {
   'use strict';
   const table = document.querySelector('table.matrix');
   if (!table || table.dataset.yesFilterReady) return;
@@ -74,4 +74,6 @@
   });
   table.dataset.yesFilterReady = 'true';
   update();
-})();
+}
+document.addEventListener('comparison-rendered', initializeComparisonFilter);
+initializeComparisonFilter();
