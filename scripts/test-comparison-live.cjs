@@ -1,7 +1,7 @@
 // Exact production validator/acquirer, fixture requests only; no research mutation.
 const fs=require('fs'),assert=require('assert'),crypto=require('crypto');
 global.crypto=crypto.webcrypto;
-const {acquire,validate,esc,INTERVAL}=require('../comparison/live.js');
+const {acquire,validate,esc,parseUnique,INTERVAL}=require('../comparison/live.js');
 let data=fs.readFileSync(process.argv[2]);const original=data,d=JSON.parse(data);
 const config=JSON.parse(fs.readFileSync('comparison/live-config.json'));
 const record={path:'results/current.json',revision:d.revision,schema_version:2,bytes:data.length,sha256:crypto.createHash('sha256').update(data).digest('hex'),cells:d.cells.length,counts:{Yes:d.cells.filter(c=>c.status==='Y').length,No:d.cells.filter(c=>c.status==='N').length,Pending:d.cells.filter(c=>c.status==='?').length}};
@@ -14,4 +14,6 @@ let negatives=0;for(const mutate of [x=>x.schema_version=99,x=>x.cells[0].eviden
 record.sha256='0'.repeat(64);await assert.rejects(()=>acquire(config,request),/integrity/);negatives++;
 await assert.rejects(()=>acquire(config,async()=>new Response('',{status:503})),/503/);negatives++;
 assert.equal(esc('<img src=x onerror="x">'),'&lt;img src=x onerror=&quot;x&quot;&gt;');assert.equal(INTERVAL,300000);
+assert.throws(()=>parseUnique('{"a":1,"a":2}'),/Duplicate/);assert.throws(()=>parseUnique('{"a":1,"\\u0061":2}'),/Duplicate/);assert.deepEqual(parseUnique('{"a":[{"x":1},{"x":2}]}'),{a:[{x:1},{x:2}]});
+const bad=structuredClone(d);bad.marks[0]={file:'__proto__'};assert.throws(()=>validate(bad,saved,config),/asset/);negatives+=3;
 console.log(JSON.stringify({result:'PASS',fixture_snapshot_transitions:1,negative_cases:negatives,coherent_commits:true,escaping:true,real_upstream_update:false}));})().catch(e=>{console.error(e);process.exitCode=1;});

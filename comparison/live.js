@@ -14,6 +14,21 @@
   const safeURL = v => {try {const u=new URL(v); return ['https:','http:'].includes(u.protocol)&&!u.username&&!u.password&&!['localhost','127.0.0.1','201.130.81.10'].includes(u.hostname);}catch{return false;}};
   const keys = (v,ks) => v && typeof v==='object' && !Array.isArray(v) && Object.keys(v).sort().join('|')===ks.split(' ').sort().join('|');
   async function digest(bytes) {return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');}
+  function parseUnique(raw) {
+    const value=JSON.parse(raw),stack=[];
+    // JSON.parse establishes syntax; this pass also rejects duplicate object
+    // keys (including equivalent escaped spellings), matching offline policy.
+    for(const match of raw.matchAll(/"(?:\\.|[^"\\])*"|[{}\[\]:,]/g)) {
+      const t=match[0],frame=stack.at(-1);
+      if(t==='{')stack.push({object:true,key:true,seen:new Set()});
+      else if(t==='[')stack.push({object:false});
+      else if(t==='}'||t===']')stack.pop();
+      else if(t===':'&&frame?.object)frame.key=false;
+      else if(t===','&&frame?.object)frame.key=true;
+      else if(t.startsWith('"')&&frame?.object&&frame.key){const key=JSON.parse(t);assert(!frame.seen.has(key),'Duplicate JSON key');frame.seen.add(key);}
+    }
+    return value;
+  }
   function validate(d,record,config) {
     assert(keys(d,'schema_version revision date language scope criteria columns cells marks evidence_policy') && d.schema_version===2 && d.language==='en','Unsupported comparison schema');
     assert(text(d.revision)&&d.revision===record.revision&&/^\d{4}-\d\d-\d\d$/.test(d.date)&&text(d.scope),'Invalid revision/date/scope');
@@ -40,12 +55,12 @@
     }
     assert(keys(record.counts,'Yes No Pending')&&Object.keys(counts).every(k=>counts[k]===record.counts[k]),'Count mismatch');
     assert(Array.isArray(d.marks),'Missing credits');
-    for(const m of d.marks){const a=config.assets[m.file];assert(a,'Unknown asset');if(m.sha256)assert(m.sha256===a.sha256,'Changed asset hash');if(m.bytes!==undefined)assert(m.bytes===a.bytes,'Changed asset size');for(const k of ['source','license_url'])if(m[k])assert(text(m[k])&&(k==='source'&&!/^[a-z]+:/i.test(m[k])||safeURL(m[k])),'Invalid credit link');}
+    for(const m of d.marks){assert(Object.hasOwn(config.assets,m.file),'Unknown asset');const a=config.assets[m.file];if(m.sha256)assert(m.sha256===a.sha256,'Changed asset hash');if(m.bytes!==undefined)assert(m.bytes===a.bytes,'Changed asset size');for(const k of ['source','license_url'])if(m[k])assert(text(m[k])&&(k==='source'&&!/^[a-z]+:/i.test(m[k])||safeURL(m[k])),'Invalid credit link');}
     return {d,criteria,columns,cells,counts};
   }
   async function acquire(config,request=fetch,previous=null) {
     async function bytes(url,max) {const r=await request(url,{credentials:'omit',cache:'no-cache',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(45000)});assert(r.ok,'Upstream HTTP '+r.status);const b=await r.arrayBuffer();assert(b.byteLength<=max,'Upstream size limit');return new Uint8Array(b);}
-    const decode=b=>JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(b));
+    const decode=b=>parseUnique(new TextDecoder('utf-8',{fatal:true}).decode(b));
     const head=decode(await bytes(API,2000000));assert(/^[a-f0-9]{40}$/.test(head.sha),'Invalid source commit');
     if(previous?.commit===head.sha)return {...previous,verifiedAt:new Date().toISOString()};
     const base=RAW+head.sha+'/';
@@ -59,7 +74,7 @@
     return {...state,commit:head.sha,record,url:base+record.path,verifiedAt:new Date().toISOString()};
   }
   // Node tests exercise exactly this acquisition and validation code with fixtures.
-  if(typeof module!=='undefined'&&module.exports){module.exports={acquire,validate,esc,INTERVAL};return;}
+  if(typeof module!=='undefined'&&module.exports){module.exports={acquire,validate,esc,parseUnique,INTERVAL};return;}
   const root=new URL('.',document.currentScript.src);
   const local=p=>new URL(p,root).href;
   let current=null,busy=false,config;
