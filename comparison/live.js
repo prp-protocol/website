@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const REPO = 'prp-protocol/prp-comparative-analysis';
-  const API = 'https://api.github.com/repos/' + REPO + '/commits/main';
+  const API = 'https://api.github.com/repos/' + REPO + '/git/ref/heads/main';
   const RAW = 'https://raw.githubusercontent.com/' + REPO + '/';
   const INTERVAL = 300000;
   const retired = new Set(['C08','F25','F35','L02','F38','F19','K02']);
@@ -61,7 +61,8 @@
   async function acquire(config,request=fetch,previous=null) {
     async function bytes(url,max) {const r=await request(url,{credentials:'omit',cache:'no-cache',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(45000)});assert(r.ok,'Upstream HTTP '+r.status);const b=await r.arrayBuffer();assert(b.byteLength<=max,'Upstream size limit');return new Uint8Array(b);}
     const decode=b=>parseUnique(new TextDecoder('utf-8',{fatal:true}).decode(b));
-    const head=decode(await bytes(API,2000000));assert(/^[a-f0-9]{40}$/.test(head.sha),'Invalid source commit');
+    const ref=decode(await bytes(API,100000));assert(ref.ref==='refs/heads/main'&&ref.object?.type==='commit','Invalid source reference');
+    const head=ref.object;assert(/^[a-f0-9]{40}$/.test(head.sha),'Invalid source commit');
     if(previous?.commit===head.sha)return {...previous,verifiedAt:new Date().toISOString()};
     const base=RAW+head.sha+'/';
     const provenance=decode(await bytes(base+'provenance.json',1000000));
