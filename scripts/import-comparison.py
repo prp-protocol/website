@@ -64,6 +64,8 @@ def prepare(snapshot, receipt, destination, expansion_r214=False, expansion_r269
 
 
 def main():
+    if (ROOT/'comparison/live-config.json').exists():
+        raise SystemExit('Manual snapshot import retired by REPORT24354aa2d1c54835. Live research comes from the public GitHub provenance/result. Historical audit functions remain available offline; do not recreate a maintained source copy.')
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('snapshot', type=Path)
     ap.add_argument('--receipt', required=True, type=Path)

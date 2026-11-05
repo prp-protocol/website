@@ -7,10 +7,11 @@ import argparse,json,hashlib,runpy
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'comparison'
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--activate',action='store_true');ap.add_argument('--shells',action='store_true');args=ap.parse_args()
-    assert args.activate != args.shells
+    ap=argparse.ArgumentParser();ap.add_argument('--activate',action='store_true');ap.add_argument('--shells',action='store_true');ap.add_argument('--check',action='store_true');args=ap.parse_args()
+    assert sum((args.activate,args.shells,args.check))==1
     configpath=OUT/'live-config.json'
     if not configpath.exists():
+        assert not args.check, 'Missing presentation configuration'
         d=json.loads((OUT/'data.json').read_text())
         config={'schema_version':1,'cells':[c['id'] for c in d['cells']], 'stacks':[c['id'] for c in d['columns']],
             'groups':json.loads((OUT/'groups.json').read_text()),
@@ -19,7 +20,8 @@ def main():
     config=json.loads(configpath.read_text())
     presentation=runpy.run_path(str(OUT/'render.py'))
     css=presentation['CSS']+presentation['EVIDENCE_CSS']+'\n.live-source-status{margin:16px 24px;padding:12px;border:1px solid #165e70;overflow-wrap:anywhere}.live-source-status[data-state="stale"],.live-source-status[data-state="error"]{background:#fff0c9}.live-source-status button{min-height:44px}.comparison-layout[hidden]{display:none!important}'
-    (OUT/'live.css').write_text(css+'\n')
+    if args.check:assert (OUT/'live.css').read_text()==css+'\n','CSS drift'
+    else:(OUT/'live.css').write_text(css+'\n')
     routes=['index.html','methodology.html','logos.html','cell.html','stack.html']+[f'cells/{c}.html' for c in config['cells']]+[f'stacks/{c}.html' for c in config['stacks']]
     for route in routes:
         path=OUT/route;depth=len(Path(route).parts)-1;prefix='../'*depth
@@ -35,6 +37,7 @@ def main():
         else:
             nav=(OUT/'navigation.html').read_text().replace('{{ROOT}}','../'*(depth+1))
             html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Protocol comparison — PRP</title><link rel="stylesheet" href="'+prefix+'navigation.css">'+includes+f'<script src="{prefix}yes-filter.js" defer></script></head><body>'+nav+'<noscript><p>This comparison loads the current public research using JavaScript. <a href="https://github.com/prp-protocol/prp-comparative-analysis">Read the source publication without JavaScript</a>.</p></noscript><div class="comparison-layout"><main><h1>Protocol and stack comparison</h1><p>Loading verified research…</p></main></div></body></html>\n'
-            path.parent.mkdir(parents=True,exist_ok=True);path.write_text(html)
-    print(json.dumps({'mode':'activation' if args.activate else 'shells','routes':len(routes),'research_embedded':args.activate}))
+            if args.check:assert path.read_text()==html, 'Shell drift: '+route
+            else:path.parent.mkdir(parents=True,exist_ok=True);path.write_text(html)
+    print(json.dumps({'mode':'check' if args.check else 'activation' if args.activate else 'shells','routes':len(routes),'research_embedded':args.activate}))
 if __name__=='__main__':main()

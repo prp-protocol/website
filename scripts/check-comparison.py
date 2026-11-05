@@ -9,6 +9,10 @@ import hashlib,json,shutil,subprocess,tempfile,runpy,re
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'comparison'
+if not (OUT/'data.json').exists():
+    # Live mode has no maintained local research dataset.
+    runpy.run_path(str(ROOT/'scripts/check-live-comparison.py'),run_name='__main__')
+    raise SystemExit(0)
 class Page(HTMLParser):
     def __init__(self,text):
         super().__init__();self.ids=set();self.links=[];self.scripts=[];self.details=0;self.open_details=0;self.feed(text)
